@@ -15,7 +15,6 @@
     <h1>Juego con Phaser</h1>
     <script type="module">
         import Scene from './scene.js'
-        import End from './end.js'
         import Boot from './boot.js'
 
         var config = {
@@ -27,7 +26,7 @@
                 autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
             },
             pixelArt: true,
-            scene: [Boot, Scene, End],
+            scene: [Boot, Scene],
             physics: { default: 'arcade', arcade: { gravity: { y: 400 }, debug: false } }
         };
 
