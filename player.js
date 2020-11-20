@@ -12,36 +12,48 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.cursors = this.scene.input.keyboard.createCursorKeys();
   }
   
-  preUpdate() {
+  normalizeVector()
+  {
+    let x = this.body.velocity.x
+    let y = this.body.velocity.y
+
+    let module =   Math.sqrt(Math.pow(x, 2) +  Math.pow(y, 2))
+
+    x /= module
+    y /= module
+
+    this.body.setVelocityX(x*this.speed);
+    this.body.setVelocityY(y*this.speed);
+  }
+
+  preUpdate() 
+  {
     //MOVIMIENTO
+    this.body.setVelocityX(0);
+    this.body.setVelocityY(0);
 
     //Si pulsas arriba...
     if (this.cursors.up.isDown) {
       //NO SE USA FISICAS
-      this.body.setVelocityY(-this.speed);
+      this.body.setVelocityY(-1);
     }
     //Si pulsas abajo...
     else if(this.cursors.down.isDown){
       //NO SE USA FISICAS
-      this.body.setVelocityY(this.speed)
+      this.body.setVelocityY(1)
     }
     //Si pulsas izquierda...
-    else if (this.cursors.left.isDown) {
+    if (this.cursors.left.isDown) {
       //NO SE USA FISICAS
-      this.body.setVelocityX(-this.speed);
+      this.body.setVelocityX(-1);
     }
     //Si pulsas derecha...
     else if (this.cursors.right.isDown) {
       //NO SE USA FISICAS
-      this.body.setVelocityX(this.speed);
-
+      this.body.setVelocityX(1);
     }
-    else {
-      this.body.setVelocityX(0);
-      this.body.setVelocityY(0);
 
-    }
-    this.add.text(10, 10, "¡Hola, mundo!", { fontColor: 0xffff00 });
-
+    if(this.body.velocity.x !== 0 || this.body.velocity.y !== 0) this.normalizeVector();
+    this.label.text = this.body.velocity.x + '   ' + this.body.velocity.y
   }
 }
