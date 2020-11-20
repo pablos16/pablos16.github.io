@@ -3,12 +3,8 @@ export default class Boot extends Phaser.Scene {
     super({ key: 'boot' });
   }
   preload() {
-    this.load.image('platform', 'platform.png');
-    this.load.image('base', 'base.png');
-    this.load.image('star', 'star.png');
     this.load.image('player', 'police.png');
   }
-
   create() {
     this.scene.start('scene');
   }

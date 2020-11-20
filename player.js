@@ -1,6 +1,6 @@
-import Star from './star.js'
 
 export default class Player extends Phaser.GameObjects.Sprite {
+  //remember de QUITAR FISICAS
   constructor(scene, x, y) {
     super(scene, x, y, 'player');
     this.score = 0;
@@ -8,24 +8,25 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.scene.physics.add.existing(this);
     this.body.setCollideWorldBounds();
     this.speed = 300;
-    this.jumpSpeed = -400;
     this.label = this.scene.add.text(10, 10);
     this.cursors = this.scene.input.keyboard.createCursorKeys();
   }
   
   preUpdate() {
+    //MOVIMIENTO
+
     //Si pulsas arriba...
     if (this.cursors.up.isDown) {
       //NO SE USA FISICAS
-      this.body.setVelocityY(this.jumpSpeed);
+      this.body.setVelocityY(-this.speed);
     }
     //Si pulsas abajo...
     else if(this.cursors.down.isDown){
       //NO SE USA FISICAS
-      this.body.setVelocityY(-this.speed)
+      this.body.setVelocityY(this.speed)
     }
     //Si pulsas izquierda...
-    if (this.cursors.left.isDown) {
+    else if (this.cursors.left.isDown) {
       //NO SE USA FISICAS
       this.body.setVelocityX(-this.speed);
     }
@@ -37,6 +38,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     }
     else {
       this.body.setVelocityX(0);
+      this.body.setVelocityY(0);
 
     }
   }
