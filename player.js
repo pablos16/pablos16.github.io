@@ -41,5 +41,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
       this.body.setVelocityY(0);
 
     }
+    this.add.text(10, 10, "¡Hola, mundo!", { fontColor: 0xffff00 });
+
   }
 }
