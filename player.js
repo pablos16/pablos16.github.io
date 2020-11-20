@@ -11,24 +11,27 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.jumpSpeed = -400;
     this.label = this.scene.add.text(10, 10);
     this.cursors = this.scene.input.keyboard.createCursorKeys();
-    this.updateScore();
-  }
-  point() {
-    this.score++;
-    this.updateScore();
   }
   
-  updateScore() {
-    this.label.text = 'Score: ' + this.score;
-  }
   preUpdate() {
-    if (this.cursors.up.isDown && this.body.onFloor()) {
+    //Si pulsas arriba...
+    if (this.cursors.up.isDown) {
+      //NO SE USA FISICAS
       this.body.setVelocityY(this.jumpSpeed);
     }
+    //Si pulsas abajo...
+    else if(this.cursors.down.isDown){
+      //NO SE USA FISICAS
+      this.body.setVelocityY(-this.speed)
+    }
+    //Si pulsas izquierda...
     if (this.cursors.left.isDown) {
+      //NO SE USA FISICAS
       this.body.setVelocityX(-this.speed);
     }
+    //Si pulsas derecha...
     else if (this.cursors.right.isDown) {
+      //NO SE USA FISICAS
       this.body.setVelocityX(this.speed);
 
     }
