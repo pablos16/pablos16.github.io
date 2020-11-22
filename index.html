@@ -1,56 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<<<<<<< HEAD
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="shortcut icon" href="favicon.png" type="image/png" />
-    <meta name="viewport" content="width=device-width, initial-scale=2.0" />
-    <link rel="stylesheet" href="game.css" />
-    <script src="phaser.js"></script>
-=======
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="player.png" type="image/png" />
     <meta name="viewport" content="width=device-width, initial-scale=2.0">
     <link rel="stylesheet" href="game.css">
     <script src="phaser.min.js"></script>
->>>>>>> refs/remotes/origin/main
 
-    <title>¡Juego con Phaser!</title>
+    <title>Regime Police</title>
 </head>
 
 <body>
-    <h1>Juego con Phaser</h1>
+    <h1>Prueba movimiento del policia</h1>
+    <a  href="https://github.com/pablos16/pablos16.github.io.git"><p style="text-align:center;"></p> Link al directorio de GitHub</a>   
+
     <script type="module">
-<<<<<<< HEAD
-      import Scene from "./scene.js";
-      //import Boot from "./boot.js";
-      
-      var config = {
-        type: Phaser.AUTO,
-        width: 1400,
-        height: 800,
-
-        //FALTAN LAS FISICAS
-
-        pixelArt: true,
-        input: {
-          gamepad: true,
-        },
-        scale: {
-          mode: Phaser.Scale.FIT,
-          autoCenter: Phaser.Scale.CENTER_BOTH,
-        },
-        scene: [Boot,Scene],
-        physics: {
-          default: "arcade",
-          arcade: { gravity: { y: 400 }, debug: false },
-        },
-      };
-      new Phaser.Game(config);
-      
-=======
         import Scene from './scene.js'
         import Boot from './boot.js'
 
@@ -68,8 +33,12 @@
         };
 
         new Phaser.Game(config);
->>>>>>> refs/remotes/origin/main
+
     </script>
+
+
+
+
 </body>
 
 </html>

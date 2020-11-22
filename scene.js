@@ -1,8 +1,4 @@
 import Player from './player.js'
-<<<<<<< HEAD
-import Platform from './platform.js';
-=======
->>>>>>> refs/remotes/origin/main
 
 export default class Scene extends Phaser.Scene {
   constructor() {
@@ -10,17 +6,6 @@ export default class Scene extends Phaser.Scene {
   }
 
   create() {
-<<<<<<< HEAD
-    this.stars = 10;
-    this.bases = this.add.group();
-    this.player = new Player(this, 200, 300);
-
-    this.spawn();
-  }
-
-  spawn(from = null) {
-    Phaser.Math.RND.pick(from || this.bases.children.entries).spawn();
-=======
     this.player = new Player(this, 200, 300);
 
     //ANIMACIONES
@@ -44,6 +29,5 @@ export default class Scene extends Phaser.Scene {
       frameRate: 10,
       repeat: -1
   });*/
->>>>>>> refs/remotes/origin/main
   }
 }

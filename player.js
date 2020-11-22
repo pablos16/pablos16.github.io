@@ -1,44 +1,13 @@
-<<<<<<< HEAD
-export default class Player extends Phaser.GameObjects.sprite {
-
-  constructor(scene,x,y){
-    super(scene,x,y,'player');
-
-=======
 
 export default class Player extends Phaser.GameObjects.Sprite {
   //remember de QUITAR FISICAS
   constructor(scene, x, y) {
     super(scene, x, y, 'player');
     this.score = 0;
->>>>>>> refs/remotes/origin/main
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
     this.body.setCollideWorldBounds();
     this.speed = 300;
-<<<<<<< HEAD
-    this.cursors = this.scene.input.keyboard.createCursorKeys();
-  }
-  preUpdate() {
-    if (this.cursors.up.isDown) {
-      this.body.setVelocityY(this.speed);
-    }
-    else if(this.cursors.down.isDown){
-        this.body.setVelocityX(-this.speed);
-    }
-    if (this.cursors.left.isDown) {
-      this.body.setVelocityX(-this.speed);
-    }
-    else if (this.cursors.right.isDown) {
-      this.body.setVelocityX(this.speed);
-    }
-    //Creo que esto sobra
-    else {
-      this.body.setVelocityX(0);
-    }
-  }  
-}
-=======
     this.label = this.scene.add.text(10, 10);
     this.cursors = this.scene.input.keyboard.createCursorKeys();
   }
@@ -88,4 +57,3 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.label.text = this.body.velocity.x + '   ' + this.body.velocity.y
   }
 }
->>>>>>> refs/remotes/origin/main
