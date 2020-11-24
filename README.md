@@ -164,25 +164,25 @@ Las texturas son pixeladas y minimalistas.
 
  ![#9900FF](https://via.placeholder.com/15/9900FF/000000?text=+)**Iglesia**
 
- ![#A500FF](https://via.placeholder.com/15/A500FF/000000?text=+)**Embajada**
+ ![#38761D](https://via.placeholder.com/15/38761D/000000?text=+)**Embajada**
 
- ![#38761D](https://via.placeholder.com/15/38761D/000000?text=+)**Barrio rico**
+ ![#00FF00](https://via.placeholder.com/15/00FF00/000000?text=+)**Barrio rico**
 
- ![#00FF00](https://via.placeholder.com/15/00FF00/000000?text=+)**Barrios pobres**
+ ![#FFFF00](https://via.placeholder.com/15/FFFF00/000000?text=+)**Barrios pobres**
 
-![#FFFF00](https://via.placeholder.com/15/FFFF00/000000?text=+)**Barrios muy pobres**
+![#FF0000](https://via.placeholder.com/15/FF0000/000000?text=+)**Barrios muy pobres**
 
- ![#FF0000](https://via.placeholder.com/15/FF0000/000000?text=+)**Parque**
+ ![#E06666](https://via.placeholder.com/15/E06666/000000?text=+)**Parque**
 
- ![#E06666](https://via.placeholder.com/15/E06666/000000?text=+)**Tienda**
+ ![#741B47](https://via.placeholder.com/15/741B47/000000?text=+)**Tienda**
 
- ![#741B47](https://via.placeholder.com/15/741B47/000000?text=+)**Carpa ferial**
+ ![#6D9EEB](https://via.placeholder.com/15/6D9EEB/000000?text=+)**Carpa ferial**
 
- ![#6D9EEB](https://via.placeholder.com/15/6D9EEB/000000?text=+)**Bosque**
+ ![#6A3600](https://via.placeholder.com/15/6A3600/000000?text=+)**Bosque**
 
- ![#6A3600](https://via.placeholder.com/15/6A3600/000000?text=+)**Acantilado**
+ ![#E69138](https://via.placeholder.com/15/E69138/000000?text=+)**Acantilado**
 
- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Pantano**
+ ![#45818E](https://via.placeholder.com/15/45818E/000000?text=+)**Pantano**
 
 Es posible entrar parcial o totalmente en todos los lugares cerrados salvo la mayor parte de edificios comunes.
 
