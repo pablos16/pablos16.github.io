@@ -3,8 +3,6 @@
 Repositorio -> https://pablos16.github.io/
 Organización y seguimiento -> https://www.pivotaltracker.com/n/projects/2470816
 
-![ra7105xl](https://user-images.githubusercontent.com/62879607/100020834-ca023a80-2de0-11eb-9eda-61216d445e3f.jpg)
-
 # Documento de diseño de videojuego
 
 # **Regime Police**
@@ -13,41 +11,40 @@ Versión del 24/11/2020
 
 # Tabla de contenido
 
--
- **Resumen**
--
- **Descripción**
--
- **Interfaz**
+## **Resumen**
 
-  -
- Controles
-  -
- GUI
--
- **Jugabilidad**
+## **Descripción**
 
-  -
- Mecánicas
-  -
- Dinámica
-  -
- Estética
--
- **Contenido**
+## **Interfaz**
 
-  -
- Escenarios
-  -
- Personajes
-  -
- Historia
-  -
- Misiones
-  -
- Objetos
--
- **Referencias**
+  
+### Controles
+  
+### GUI
+
+## **Jugabilidad**
+
+  
+### Mecánicas
+  
+### Dinámica
+  
+### Estética
+
+## **Contenido**
+
+  
+### Escenarios
+  
+### Personajes
+  
+### Historia
+  
+### Misiones
+  
+### Objetos
+
+## **Referencias**
 
 **Autores:**
 
@@ -80,7 +77,7 @@ El policía puede ir escogiendo a lo largo de la historia a qué bando apoyar ve
 
 Se juega con teclado y ratón:
 
-- **W, A, S, D**      --->; movimiento; opción de diálogo superior/inferior
+- **W, A, S, D**      ---> movimiento; opción de diálogo superior/inferior
 - **E**               ---> interactuar; seleccionar diálogo
 - **Click Izquierdo** ---> manejar inventario; desplegar/plegar misiones
 
@@ -152,39 +149,40 @@ Las texturas son pixeladas y minimalistas.
 
 **Escenarios:**
 
-![](RackMultipart20201124-4-149cq8j_html_f3c7c70ea52b95cb.png)
+![mapa](https://user-images.githubusercontent.com/62748720/100088342-441dd800-2e50-11eb-8f21-2f5eff042412.png)
 
-█ **Casa del protagonista**
+ 
+![#CC0000](https://via.placeholder.com/15/c5f015/000000?text=+)**Casa del protagonista**
 
-█ **Castillo de la ciudad, donde reside el tirano y sus más importantes secuaces**
+![#1155CC](https://via.placeholder.com/15/c5f015/000000?text=+)**Castillo de la ciudad, donde reside el tirano y sus más importantes secuaces**
 
-█ **Cárcel**
+![#F1C232](https://via.placeholder.com/15/c5f015/000000?text=+) **Cárcel**
 
-█ **Comisaría**
+ ![#30FF85](https://via.placeholder.com/15/c5f015/000000?text=+)**Comisaría**
 
-█ **Taberna**
+ ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Taberna**
 
-█ **Iglesia**
+ ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Iglesia**
 
-█ **Embajada**
+ ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Embajada**
 
-█ **Barrio rico**
+ ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Barrio rico**
 
-█ **Barrios pobres**
+ ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Barrios pobres**
 
-█ **Barrios muy pobres**
+![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+)**Barrios muy pobres**
 
-█ **Parque**
+ ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Parque**
 
-█ **Tienda**
+ ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Tienda**
 
-█ **Carpa ferial**
+ ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Carpa ferial**
 
-█ **Bosque**
+ ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Bosque**
 
-█ **Acantilado**
+ ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Acantilado**
 
-█ **Pantano**
+ ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Pantano**
 
 Es posible entrar parcial o totalmente en todos los lugares cerrados salvo la mayor parte de edificios comunes.
 
