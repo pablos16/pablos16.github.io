@@ -9,45 +9,45 @@ Organización y seguimiento -> https://www.pivotaltracker.com/n/projects/2470816
 
 # **Regime Police**
 
-Versión del 22/11/2020
+Versión del 24/11/2020
 
 # Tabla de contenido
 
 -
-### **Resumen**
+ **Resumen**
 -
-### **Descripción**
+ **Descripción**
 -
-### **Interfaz**
+ **Interfaz**
 
   -
-### Controles
+ Controles
   -
-### GUI
+ GUI
 -
-### **Jugabilidad**
+ **Jugabilidad**
 
   -
-### Mecánicas
+ Mecánicas
   -
-### Dinámica
+ Dinámica
   -
-### Estética
+ Estética
 -
-### **Contenido**
+ **Contenido**
 
   -
-### Escenarios
+ Escenarios
   -
-### Personajes
+ Personajes
   -
-### Historia
+ Historia
   -
-### Misiones
+ Misiones
   -
-### Objetos
+ Objetos
 -
-### **Referencias**
+ **Referencias**
 
 **Autores:**
 
@@ -80,9 +80,9 @@ El policía puede ir escogiendo a lo largo de la historia a qué bando apoyar ve
 
 Se juega con teclado y ratón:
 
-- **W, A, S, D** ---\&gt; movimiento; opción de diálogo superior/inferior
-- **E** ---\&gt; interactuar; seleccionar diálogo
-- **Click Izquierdo** ---\&gt; manejar inventario; desplegar/plegar misiones
+- **W, A, S, D**      --->; movimiento; opción de diálogo superior/inferior
+- **E**               ---> interactuar; seleccionar diálogo
+- **Click Izquierdo** ---> manejar inventario; desplegar/plegar misiones
 
 **GUI:**
 
