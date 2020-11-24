@@ -160,27 +160,27 @@ Las texturas son pixeladas y minimalistas.
 
  ![#30ff85](https://via.placeholder.com/15/30ff85/000000?text=+)**Comisaría**
 
- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Taberna**
+ ![#EB4281](https://via.placeholder.com/15/EB4281/000000?text=+)**Taberna**
 
- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Iglesia**
+ ![#9900FF](https://via.placeholder.com/15/9900FF/000000?text=+)**Iglesia**
 
- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Embajada**
+ ![#A500FF](https://via.placeholder.com/15/A500FF/000000?text=+)**Embajada**
 
- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Barrio rico**
+ ![#38761D](https://via.placeholder.com/15/38761D/000000?text=+)**Barrio rico**
 
- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Barrios pobres**
+ ![#00FF00](https://via.placeholder.com/15/00FF00/000000?text=+)**Barrios pobres**
 
-![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+)**Barrios muy pobres**
+![#FFFF00](https://via.placeholder.com/15/FFFF00/000000?text=+)**Barrios muy pobres**
 
- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Parque**
+ ![#FF0000](https://via.placeholder.com/15/FF0000/000000?text=+)**Parque**
 
- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Tienda**
+ ![#E06666](https://via.placeholder.com/15/E06666/000000?text=+)**Tienda**
 
- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Carpa ferial**
+ ![#741B47](https://via.placeholder.com/15/741B47/000000?text=+)**Carpa ferial**
 
- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Bosque**
+ ![#6D9EEB](https://via.placeholder.com/15/6D9EEB/000000?text=+)**Bosque**
 
- ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Acantilado**
+ ![#6A3600](https://via.placeholder.com/15/6A3600/000000?text=+)**Acantilado**
 
  ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Pantano**
 
