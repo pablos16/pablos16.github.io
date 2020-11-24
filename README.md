@@ -89,9 +89,9 @@ Aparece al iniciar el juego e incluye su nombre, así como un botón que permite
 
 Interfaz de juego:
 
-Inventario : Está visible siempre en la esquina inferior izquierda. Permite al jugador gestionar los objetos que porta, y leer la información de los mismos.
+Inventario: Está visible siempre en la esquina inferior izquierda. Permite al jugador gestionar los objetos que porta, y leer la información de los mismos.
 
-Barra de alineamiento: Barra horizontal visible en la esquina superior izquierda con una linea vertical que fluctúa de derecha a izquierda.
+Barra de alineamiento: Barra horizontal visible en la esquina superior izquierda con una línea vertical que fluctúa de derecha a izquierda.
 
 Notas: Hoja de papel presente en la esquina inferior derecha que muestra la interfaz de misiones.
 
@@ -111,7 +111,7 @@ La conversación y las opciones a escoger aparecen en la parte inferior de la pa
 
 - **Días:**
 
-La partida se divide en 5 días que transcurren en la trama del juego. Cada día el jugador tiene asignadas 5 misiones que debe completar para terminar su turno y pasar al siguiente día. Tras transcurrir 5 días, el juego finaliza. Existe un &quot;día 0&quot; a modo de tutorial, que muestra la llegada del policía a la ciudad.
+La partida se divide en 5 días que transcurren en la trama del juego. Cada día el jugador tiene asignadas 5 misiones que debe completar para terminar su turno y pasar al siguiente día. Tras transcurrir 5 días, el juego finaliza. Existe un "día 0" a modo de tutorial, que muestra la llegada del policía a la ciudad.
 
 - **Barra de alineamiento:**
 
@@ -119,7 +119,7 @@ Esta barra representa la reputación del policía hacia los demás. En un extrem
 
 - **Misiones:**
 
-Las misiones son las tareas que le son encomendadas al policía. Es necesario completar todas las misiones de un día para pasar al siguiente. Se pueden completar de dos formas: obedeciendo incondicionalmente o conspirando e incumpliendo las &quot;máximas&quot; de su oficio. Dependiendo del modo en el que se complete, una misión hará avanzar el indicador de la barra de alineamiento al lado que corresponda. Según su ponderación, distinguimos dos grupos: normales e importantes. Las misiones importantes desplazarán el icono una mayor cantidad de unidades. Algunas misiones afectan a la historia. Las misiones correspondientes a cada día (siempre un total de 5), son preconfiguradas para siempre ser las mismas.
+Las misiones son las tareas que le son encomendadas al policía. Es necesario completar todas las misiones de un día para pasar al siguiente. Se pueden completar de dos formas: obedeciendo incondicionalmente o conspirando e incumpliendo las "máximas" de su oficio. Dependiendo del modo en el que se complete, una misión hará avanzar el indicador de la barra de alineamiento al lado que corresponda. Según su ponderación, distinguimos dos grupos: normales e importantes. Las misiones importantes desplazarán el icono una mayor cantidad de unidades. Algunas misiones afectan a la historia. Las misiones correspondientes a cada día (siempre un total de 5), son preconfiguradas para siempre ser las mismas.
 
 - **Interacción con personajes y objetos:**
 
@@ -202,7 +202,7 @@ Rudo, narcisista y vanidoso tirano que gobierna el país. No tiene intenciones o
 
 - **Coronel:**
 
-Uno de los mejores amigos del dictador. Ha sido, por obra del tirano, &quot;elegido&quot; para llevar la comisaría y liderar a los policías del régimen. Planea esperar al mejor momento para asesinar al dictador y apoderarse del país. Además, trata de entorpecer la labor del protagonista aprovechando toda ocasión posible para incriminarlo y destinarlo a la cárcel.
+Uno de los mejores amigos del dictador. Ha sido, por obra del tirano, "elegido" para llevar la comisaría y liderar a los policías del régimen. Planea esperar al mejor momento para asesinar al dictador y apoderarse del país. Además, trata de entorpecer la labor del protagonista aprovechando toda ocasión posible para incriminarlo y destinarlo a la cárcel.
 
 - **Leandro Gado:**
 
@@ -210,7 +210,7 @@ Particular individuo con mayores preocupaciones sobre el país que la mayor part
 
 - **Tabernera Ramírez:**
 
-Mujer jovial, civilizada y extrovertida. Es el centro de los rumores de la ciudad y conoce los datos más secretos acerca de sus habitantes. Tiene una personalidad muy fuerte pero mantiene sus formas. Se compadece de la familia Garte, con quienes se lleva muy bien por haberla ayudado mucho en malos momentos. Es la &quot;jefa&quot; en la taberna.
+Mujer jovial, civilizada y extrovertida. Es el centro de los rumores de la ciudad y conoce los datos más secretos acerca de sus habitantes. Tiene una personalidad muy fuerte pero mantiene sus formas. Se compadece de la familia Garte, con quienes se lleva muy bien por haberla ayudado mucho en malos momentos. Es la "jefa" en la taberna.
 
 - **Tabernero Ramírez:**
 
@@ -238,7 +238,7 @@ Mujer del Carcelero y ama de casa frustrada. Es una revolucionaria activa, así 
 
 - **Señorita Mento:**
 
-Interesada y repelente hija del carcelero. Descubrió la ideología revolucionaria de su madre y se aprovecha de ello para hacerle chantaje, consiguiendo no tener que ayudar a limpiar la casa ni lavar la ropa a cambio de no descubrirla. Tiene iniciativa y desea poder realizar las &quot;labores de los hombres&quot;, aunque no quiere acabar igual que su padre.
+Interesada y repelente hija del carcelero. Descubrió la ideología revolucionaria de su madre y se aprovecha de ello para hacerle chantaje, consiguiendo no tener que ayudar a limpiar la casa ni lavar la ropa a cambio de no descubrirla. Tiene iniciativa y desea poder realizar las "labores de los hombres", aunque no quiere acabar igual que su padre.
 
 - **Anciano Solitario:**
 
@@ -246,7 +246,7 @@ Hombre mayor que reside solo en el bosque de las afueras de la ciudad. Apoya a l
 
 - **Cura:**
 
-Cínico manipulador que tiene &quot;ganadas&quot; a todas las mujeres del pueblo con sus sermones, que emplea para enaltecer al régimen.
+Cínico manipulador que tiene "ganadas" a todas las mujeres del pueblo con sus sermones, que emplea para enaltecer al régimen.
 
 - **Embajador López:**
 
@@ -262,7 +262,7 @@ Hija de los López. Todo lo que le cuentan sus amigas (descendientes todas de pa
 
 - **Loco:**
 
-Todo el mundo le odia porque nunca para de decir &quot;¡Cuá! ¡Cuá!&quot;. La única razón por la que el tirano no le ha ejecutado es porque disfruta contemplar cómo vuelve loca a la gente que le circunda. Nadie sabe nada sobre él. Ni siquiera se conocen sus orígenes.
+Todo el mundo le odia porque nunca para de decir "¡Cuá! ¡Cuá!". La única razón por la que el tirano no le ha ejecutado es porque disfruta contemplar cómo vuelve loca a la gente que le circunda. Nadie sabe nada sobre él. Ni siquiera se conocen sus orígenes.
 
 - **(El) Feriante:**
 
@@ -274,7 +274,7 @@ Mujer del feriante. Es en realidad una contrabandista de armas que usa la feria 
 
 - **Hijo Feriante (16 años):**
 
-Analfabeto poco agraciado que intenta &quot;ligar&quot; siempre con las chicas en la feria.
+Analfabeto poco agraciado que intenta "ligar"siempre con las chicas en la feria.
 
 Relaciones Sociales:
 
