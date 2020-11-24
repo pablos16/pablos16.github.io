@@ -3,23 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="player.png" type="image/png" />
+    <link rel="shortcut icon" href="resources/game/textures/policeman.png" type="image/png"/>
     <meta name="viewport" content="width=device-width, initial-scale=2.0">
     <link rel="stylesheet" href="game.css">
     <script src="phaser.min.js"></script>
-
     <title>Regime Police</title>
 </head>
 
-<body background="Vainilla.png">
-    <h1><u>REGIME POLICE!</u></h1>
+<body background="resources/web/images/vanilla.png">
+
+    <h1><u>Regime Police</u></h1>
+
     <hr/>
 
     <form action="index.html">
         <button >Volver a la pagina principal</button>
     </form>
-    <!--ASI SE COMENTA EN HTML-->
-
 
     <script type="module">
         import Scene from './scene.js'
@@ -29,8 +28,8 @@
             type: Phaser.AUTO,
 
             //Esto tendria que ser mucho más grande
-            width:  1000,
-            height: 500,
+            width:  1280,
+            height: 720,
             scale: {
                 // mode: Phaser.Scale.FIT,  
                 autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
