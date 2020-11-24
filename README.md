@@ -152,13 +152,13 @@ Las texturas son pixeladas y minimalistas.
 ![mapa](https://user-images.githubusercontent.com/62748720/100088342-441dd800-2e50-11eb-8f21-2f5eff042412.png)
 
  
-![#CC0000](https://via.placeholder.com/15/c5f015/000000?text=+)**Casa del protagonista**
+![#cc0000](https://via.placeholder.com/15/CC0000/000000?text=+)**Casa del protagonista**
 
-![#1155CC](https://via.placeholder.com/15/c5f015/000000?text=+)**Castillo de la ciudad, donde reside el tirano y sus más importantes secuaces**
+![#1155cc](https://via.placeholder.com/15/1155cc/000000?text=+)**Castillo de la ciudad, donde reside el tirano y sus más importantes secuaces**
 
-![#F1C232](https://via.placeholder.com/15/c5f015/000000?text=+) **Cárcel**
+![#f1c232](https://via.placeholder.com/15/f1c232/000000?text=+) **Cárcel**
 
- ![#30FF85](https://via.placeholder.com/15/c5f015/000000?text=+)**Comisaría**
+ ![#30ff85](https://via.placeholder.com/15/30ff85/000000?text=+)**Comisaría**
 
  ![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+)**Taberna**
 
