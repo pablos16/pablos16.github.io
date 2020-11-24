@@ -3,51 +3,49 @@
 Repositorio -> https://pablos16.github.io/
 Organización y seguimiento -> https://www.pivotaltracker.com/n/projects/2470816
 
-![ra7105xl](https://user-images.githubusercontent.com/62879607/100020834-ca023a80-2de0-11eb-9eda-61216d445e3f.jpg)
-
 # Documento de diseño de videojuego
 
 # **Regime Police**
 
-Versión del 24/11/2020
+Versión del 22/11/2020
 
 # Tabla de contenido
 
 -
- **Resumen**
+### **Resumen**
 -
- **Descripción**
+### **Descripción**
 -
- **Interfaz**
+### **Interfaz**
 
   -
- Controles
+### Controles
   -
- GUI
+### GUI
 -
- **Jugabilidad**
+### **Jugabilidad**
 
   -
- Mecánicas
+### Mecánicas
   -
- Dinámica
+### Dinámica
   -
- Estética
+### Estética
 -
- **Contenido**
+### **Contenido**
 
   -
- Escenarios
+### Escenarios
   -
- Personajes
+### Personajes
   -
- Historia
+### Historia
   -
- Misiones
+### Misiones
   -
- Objetos
+### Objetos
 -
- **Referencias**
+### **Referencias**
 
 **Autores:**
 
@@ -80,9 +78,9 @@ El policía puede ir escogiendo a lo largo de la historia a qué bando apoyar ve
 
 Se juega con teclado y ratón:
 
-- **W, A, S, D**      --->; movimiento; opción de diálogo superior/inferior
-- **E**               ---> interactuar; seleccionar diálogo
-- **Click Izquierdo** ---> manejar inventario; desplegar/plegar misiones
+- **W, A, S, D** ---\&gt; movimiento; opción de diálogo superior/inferior
+- **E** ---\&gt; interactuar; seleccionar diálogo
+- **Click Izquierdo** ---\&gt; manejar inventario; desplegar/plegar misiones
 
 **GUI:**
 
@@ -152,7 +150,7 @@ Las texturas son pixeladas y minimalistas.
 
 **Escenarios:**
 
-![](RackMultipart20201124-4-149cq8j_html_f3c7c70ea52b95cb.png)
+![mapa](https://user-images.githubusercontent.com/62748720/100088342-441dd800-2e50-11eb-8f21-2f5eff042412.png)
 
 █ **Casa del protagonista**
 
