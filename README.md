@@ -151,37 +151,37 @@ Las texturas son pixeladas y minimalistas.
 
 ![mapa](https://user-images.githubusercontent.com/62748720/100088342-441dd800-2e50-11eb-8f21-2f5eff042412.png)
 
-█ **Casa del protagonista**
+ **Casa del protagonista**
 
-█ **Castillo de la ciudad, donde reside el tirano y sus más importantes secuaces**
+ **Castillo de la ciudad, donde reside el tirano y sus más importantes secuaces**
 
-█ **Cárcel**
+![#c5f015](https://via.placeholder.com/15/c5f015/000000?text=+) **Cárcel**
 
-█ **Comisaría**
+ **Comisaría**
 
-█ **Taberna**
+ **Taberna**
 
-█ **Iglesia**
+ **Iglesia**
 
-█ **Embajada**
+ **Embajada**
 
-█ **Barrio rico**
+ **Barrio rico**
 
-█ **Barrios pobres**
+ **Barrios pobres**
 
-█ **Barrios muy pobres**
+![#f03c15](https://via.placeholder.com/15/f03c15/000000?text=+)**Barrios muy pobres**
 
-█ **Parque**
+ **Parque**
 
-█ **Tienda**
+ **Tienda**
 
-█ **Carpa ferial**
+ **Carpa ferial**
 
-█ **Bosque**
+ **Bosque**
 
-█ **Acantilado**
+ **Acantilado**
 
-█ **Pantano**
+ **Pantano**
 
 Es posible entrar parcial o totalmente en todos los lugares cerrados salvo la mayor parte de edificios comunes.
 
