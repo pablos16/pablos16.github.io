@@ -13,6 +13,9 @@ export default class Boot extends Phaser.Scene {
 
     //MUROS
     this.load.image('Wall', 'resources/game/textures/wall.png');
+
+    //Imagen de prueba dialogo
+    this.load.image('dialogTest', 'resources/game/textures/dialoguePlaceholder.png');
   }
   create() {
     this.scene.start('scene');

@@ -1,4 +1,5 @@
 import Player from './player.js'
+import Dialogue from './Dialogue.js'
 
 export default class Scene extends Phaser.Scene {
   constructor() {
@@ -13,6 +14,7 @@ export default class Scene extends Phaser.Scene {
 
     //Personaje
     this.player = new Player(this, 200, 300);
+    this.testDialogue = new Dialogue(this, 200, 300, 'A', 'Hola');
 
     //Camara que sigue al jugador
     this.cameras.main.startFollow(this.player);
@@ -80,5 +82,9 @@ export default class Scene extends Phaser.Scene {
 
     //Escribe en pantalla el vector
     this.player.label.text = this.player.getX()+ '   ' + this.player.getY();
+
+    //Cosas de Nico
+    this.testDialogue.update()
+    //this.testDialogue.label.text = this.testDialogue.GetName();
   }
 }
