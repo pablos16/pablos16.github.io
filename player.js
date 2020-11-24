@@ -15,14 +15,15 @@ export default class Player extends Phaser.GameObjects.Sprite {
     let x = this.body.velocity.x;
     let y = this.body.velocity.y;
 
-    let module =   Math.sqrt(Math.pow(x, 2) +  Math.pow(y, 2))
+    let module = Math.sqrt(Math.pow(x, 2) +  Math.pow(y, 2));
 
-    x /= module
-    y /= module
+    x /= module;
+    y /= module;
 
     this.body.setVelocityX(x*this.speed);
     this.body.setVelocityY(y*this.speed);
   }
+
   moveUp(){
     this.body.setVelocityY(-50);
     //this.play('walk', true)
@@ -51,12 +52,12 @@ export default class Player extends Phaser.GameObjects.Sprite {
   }
   stopY(){
     this.body.setVelocityY(0);
-}
+  }
   getX(){
   return this.body.velocity.x;
-}
+  }
   getY(){
   return this.body.velocity.y;
-}
+  }
   
 }
