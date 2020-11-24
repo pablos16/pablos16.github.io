@@ -18,31 +18,31 @@ Versión del 24/11/2020
 ## **Interfaz**
 
   
-  ### Controles
+### Controles
   
-  ### GUI
+### GUI
 
 ## **Jugabilidad**
 
   
-  ### Mecánicas
+### Mecánicas
   
-  ### Dinámica
+### Dinámica
   
-  ### Estética
+### Estética
 
 ## **Contenido**
 
   
-  ### Escenarios
+### Escenarios
   
-  ### Personajes
+### Personajes
   
-  ### Historia
+### Historia
   
-  ### Misiones
+### Misiones
   
-  ### Objetos
+### Objetos
 
 ## **Referencias**
 
