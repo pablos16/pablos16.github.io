@@ -18,31 +18,31 @@ Versión del 24/11/2020
 ## **Interfaz**
 
   
-### Controles
+  ### Controles
   
-### GUI
+  ### GUI
 
 ## **Jugabilidad**
 
   
-### Mecánicas
+  ### Mecánicas
   
-### Dinámica
+  ### Dinámica
   
-### Estética
+  ### Estética
 
 ## **Contenido**
 
   
-### Escenarios
+  ### Escenarios
   
-### Personajes
+  ### Personajes
   
-### Historia
+  ### Historia
   
-### Misiones
+  ### Misiones
   
-### Objetos
+  ### Objetos
 
 ## **Referencias**
 
@@ -77,9 +77,9 @@ El policía puede ir escogiendo a lo largo de la historia a qué bando apoyar ve
 
 Se juega con teclado y ratón:
 
-- **W, A, S, D** ---\&gt; movimiento; opción de diálogo superior/inferior
-- **E** ---\&gt; interactuar; seleccionar diálogo
-- **Click Izquierdo** ---\&gt; manejar inventario; desplegar/plegar misiones
+- **W, A, S, D**      ---> movimiento; opción de diálogo superior/inferior
+- **E**               ---> interactuar; seleccionar diálogo
+- **Click Izquierdo** ---> manejar inventario; desplegar/plegar misiones
 
 **GUI:**
 
