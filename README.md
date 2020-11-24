@@ -3,6 +3,9 @@
 Repositorio -> https://pablos16.github.io/
 Organización y seguimiento -> https://www.pivotaltracker.com/n/projects/2470816
 
+# Arquitectura UML
+![UML_V2](https://user-images.githubusercontent.com/62748720/100102983-9d900200-2e64-11eb-8cb4-093ac48521d0.png)
+
 # Documento de diseño de videojuego
 
 # **Regime Police**
