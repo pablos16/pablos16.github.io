@@ -394,33 +394,33 @@ Se llevan muy mal con el Empeñista.
 
 **Historia:**
 
-&quot;Tras el rechazo hacia el nuevo presidente por parte la mayor parte de la población del país dos lustros atrás, un militar dio el golpe de estado que llevaba preparando durante años. Ha pasado tanto tiempo desde el comienzo de una dictadura que propaga el caos y siembra el miedo en todo aquel que piense de forma diferente que con los años se ha ido formando un movimiento revolucionario que espera el momento oportuno para alzarse y derrocar al tirano. Tras el último asesinato en la capital de un agente del régimen por parte de miembros de la revolución, un nuevo policía llega a la ciudad y se pone al mando del dictador. Sus decisiones serán cruciales, ya que definirán el curso de la historia y determinarán si la revolución prevalece o fracasa.&quot;
+"Tras el rechazo hacia el nuevo presidente por parte la mayor parte de la población del país dos lustros atrás, un militar dio el golpe de estado que llevaba preparando durante años. Ha pasado tanto tiempo desde el comienzo de una dictadura que propaga el caos y siembra el miedo en todo aquel que piense de forma diferente que con los años se ha ido formando un movimiento revolucionario que espera el momento oportuno para alzarse y derrocar al tirano. Tras el último asesinato en la capital de un agente del régimen por parte de miembros de la revolución, un nuevo policía llega a la ciudad y se pone al mando del dictador. Sus decisiones serán cruciales, ya que definirán el curso de la historia y determinarán si la revolución prevalece o fracasa"
 
 **Misiones:**
 
 - Logística y recados:
 
-1. Entregar mensaje a \&lt;residente\&gt;. Alternativa: entregar el mensaje a la persona equivocada. [Misión importante]
-2. Colocar carteles feriales en \&lt;zona\&gt;. Alternativa: colocar carteles incorrectos.
-3. Adquirir \&lt;producto\&gt; en una tienda. Alternativa: comprar otro objeto.
+1. Entregar mensaje a <residente>. Alternativa: entregar el mensaje a la persona equivocada. [Misión importante]
+2. Colocar carteles feriales en <zona>. Alternativa: colocar carteles incorrectos.
+3. Adquirir <producto> en una tienda. Alternativa: comprar otro objeto.
 
 - Mantenimiento e imagen:
 
-1. Borrar pintadas callejeras en \&lt;zona\&gt;. Alternativa: utilizar el equipamiento erróneo y estropear aún más la calle.
+1. Borrar pintadas callejeras en <zona>. Alternativa: utilizar el equipamiento erróneo y estropear aún más la calle.
 2. Encontrar e informar sobre edificios o monumentos deteriorados. Alternativa: hablar con la feriante acerca del defecto.
-3. Recoger la opinión popular acerca de \&lt;asunto\&gt;. Alternativa: anota sólo los comentarios positivos.
+3. Recoger la opinión popular acerca de <asunto>. Alternativa: anota sólo los comentarios positivos.
 4. Dispersar aglomeraciones. Alternativa: permitirlas por el momento. [Misión importante]
 
 - Investigación y crimen:
 
 1. Arrestar al supuesto cabecilla de la revolución (Leandro Gado). Alternativa: ayuda a escapar al sujeto. [Misión importante]
 2. Arrestar a la viuda que rechazó tener una cita con el presidente (que tiene una hija). Alternativa: ayuda a escapar al sujeto.
-3. Encontrar y detener al individuo de \&lt;prenda\&gt; \&lt;color\&gt;. Alternativa: detener a la persona incorrecta.
-4. Encontrar y detener a \&lt;individuo\&gt;. Alternativa: ayudar al individuo a fugarse.
-5. Descubrir el paradero de \&lt;residente\&gt;. Alternativa: alegar que se ha descubierto la fuga del individuo hacia el bosque.
-6. Cobrar por completo la deuda de \&lt;residente\&gt;. Alternativa: cobrar solo una parte debido a la pobreza del individuo.
+3. Encontrar y detener al individuo de <prenda> <color>. Alternativa: detener a la persona incorrecta.
+4. Encontrar y detener a <individuo>. Alternativa: ayudar al individuo a fugarse.
+5. Descubrir el paradero de <residente>. Alternativa: alegar que se ha descubierto la fuga del individuo hacia el bosque.
+6. Cobrar por completo la deuda de <residente>. Alternativa: cobrar solo una parte debido a la pobreza del individuo.
 7. Escoltar a los nuevos detenidos hacia la cárcel. Alternativa: no escoltar correctamente y permitir que un prisionero escape. [Misión importante]
-8. Colocar carteles de &quot;Se busca&quot;. Alternativa: colocar carteles incorrectos.
+8. Colocar carteles de "Se busca". Alternativa: colocar carteles incorrectos.
 9. Destruir la entrada de la mina donde se refugia un grupo revolucionario. Alternativa: encender un fuego que haga que el humo saque a todos los revolucionarios del escondite y huyan. [Misión importante]
 10. Interrogar al Loco. Alternativa: pegarle una paliza.
 
