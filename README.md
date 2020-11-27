@@ -441,6 +441,9 @@ Hay objetos con los que se puede interactuar que hacen referencia al marco circu
 
 [Papers, Please](https://store.steampowered.com/app/239030/Papers_Please/)
 
+
+# Anexo: Misiones Diarias
+
 Día 0:
 18
 
