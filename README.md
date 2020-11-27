@@ -440,3 +440,41 @@ Hay objetos con los que se puede interactuar que hacen referencia al marco circu
 [Reigns](https://store.steampowered.com/app/474750/Reigns/)
 
 [Papers, Please](https://store.steampowered.com/app/239030/Papers_Please/)
+
+Día 0:
+18
+
+Día 1:
+7
+3
+6
+17*
+10* -> ladrón
+
+Día 2:
+1
+2
+5
+11 -> mujer del Carcelero
+12* -> viuda
+
+Día 3:
+14
+4
+13
+12
+3*
+
+Día 4:
+16
+9
+15*
+6* -> moral de los soldados
+7*
+
+Día 5:
+8
+10
+1*
+5* -> posiciones / sitios para colocar minas ?
+4* -> carcel
