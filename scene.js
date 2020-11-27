@@ -11,10 +11,11 @@ export default class Scene extends Phaser.Scene {
 
     //Mapa
     this.add.image(200, 300, 'map');
+    //this.add.image(200, 525, 'dialogTest');
 
     //Personaje
     this.player = new Player(this, 200, 300);
-    this.testDialogue = new Dialogue(this, 200, 300, 'A', 'Hola');
+    this.testDialogue = new Dialogue(this, 1280/2, 720 - 720/5, 'A: ', 'Hola');
 
     //Camara que sigue al jugador
     this.cameras.main.startFollow(this.player);

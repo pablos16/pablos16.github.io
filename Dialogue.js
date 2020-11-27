@@ -1,12 +1,18 @@
 import EventDialoge from './EventDialogue.js'
 
 export default class Dialogue extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, name, message) {
-        super(scene, x, y, 'dialogTest', name, message)
-        this.characterName = this.scene.add.text(20, 20).text = name;
-        this.message = this.scene.add.text(30, 20).text = message;
-        //EventDialoge dialogues //Esto por alguna razón da error
+    constructor(scene, x, y, name, message) { 
+        super(scene, x, y, 'dialogTest')
+        this.scene.add.existing(this);
+        this.characterName = this.scene.add.text(x, y).text = name;
+        this.message = this.scene.add.text(x-x/2, y).text = message;
+        this.setScrollFactor(0);
         this.option = 0;
+
+        //EventDialoge dialogues //Esto por alguna razón da error
+        
+        //this.spriteBg = this.add.image(200, 525, 'dialogTest');
+        //this.spriteBg.setScrollFactor(0);
         //this.label = this.scene.add.text(20, 20).text = this.message;
     }
 
@@ -18,11 +24,13 @@ export default class Dialogue extends Phaser.GameObjects.Sprite {
 
     }
 
-    HideDialog() {
+    HideDialog() 
+    {
 
     }
 
-    update() {
+    update() 
+    {
         //this.label.text = this.message
     }
 }
