@@ -1,28 +1,37 @@
 
-export default class Player extends Phaser.GameObjects.Sprite {
+export default class NPC extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y) {
-    super(scene, x, y, 'player');
-    //this.score = 0;
+    super(scene, x, y, 'npc');
+
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
     this.body.setCollideWorldBounds();
-    this.speed = 300;
-    this.label = this.scene.add.text(10, 10);
   }
   
-  normalizeVector()
-  {
-    let x = this.body.velocity.x;
-    let y = this.body.velocity.y;
+  moveX(left,right){
 
-    let module = Math.sqrt(Math.pow(x, 2) +  Math.pow(y, 2));
+    
+    if(this.body.position.x<=left){
+      this.moveRight()
+      this.setFlipX(false);
 
-    x /= module;
-    y /= module;
+    }
+    else if(this.body.position.x>=right){
+      this.moveLeft();
+      this.setFlipX(true);
+    }    
 
-    this.body.setVelocityX(x*this.speed);
-    this.body.setVelocityY(y*this.speed);
   }
+  moveY(top,down){
+    if(this.body.y>top){
+      this.moveDown()
+
+    }
+    else if(this.body.y<down){
+      this.moveUp();
+    }    
+  }
+
 
   moveUp(){
     this.body.setVelocityY(-50);

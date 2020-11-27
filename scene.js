@@ -1,5 +1,6 @@
 import Player from './player.js'
 import Dialogue from './Dialogue.js'
+import NPC from './npc.js'
 
 export default class Scene extends Phaser.Scene {
   constructor() {
@@ -17,6 +18,9 @@ export default class Scene extends Phaser.Scene {
     this.player = new Player(this, 200, 300);
     this.testDialogue = new Dialogue(this, 1280/2, 720 - 720/5, 'A: ', 'Hola');
 
+    //NPC
+    this.NPC = new NPC(this,300,300);
+
     //Camara que sigue al jugador
     this.cameras.main.startFollow(this.player);
 
@@ -33,6 +37,10 @@ export default class Scene extends Phaser.Scene {
     //Esto es para poner que el collider del jugador choque con los muros
 
     this.physics.add.collider(this.player, this.wall);
+    //this.physics.add.collider(this.NPC, this.player);
+
+    //Esto debería de sobrar
+    //this.physics.add.collider(this.NPC, this.wall);
 
     //ANIMACIONES
     //No implementadas todavia porque no tenemos sprites
@@ -87,5 +95,8 @@ export default class Scene extends Phaser.Scene {
     //Cosas de Nico
     this.testDialogue.update()
     //this.testDialogue.label.text = this.testDialogue.GetName();
+
+    this.NPC.moveX(280,350);
+
   }
 }
