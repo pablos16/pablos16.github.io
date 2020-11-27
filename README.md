@@ -65,8 +65,6 @@ Pablo Sánchez Cuadrado
 | --- | --- |
 | **Público** : Usuarios mayores de 10 años | **Plataformas** : Navegadores web |
 | **Objetivo:** Tomar el papel de un policía en la capital de un país gobernado dictatorialmente por un tirano, obedeciendo las directrices de los superiores y al mismo tiempo tratando de no convertirse en objetivo de la revolución contra el régimen que en ciernes tendrá lugar. |
-|
-| |
 
 # Descripción
 
