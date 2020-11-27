@@ -448,36 +448,36 @@ Día 0:
 18
 
 Día 1:
-7
-3
-6
-17*
-10* -> ladrón
+07
+03
+06
+17
+10 -> ladrón
 
 Día 2:
-1
-2
-5
+01
+02
+05
 11 -> mujer del Carcelero
-12* -> viuda
+12 -> viuda
 
 Día 3:
 14
-4
+04
 13
 12
-3*
+03
 
 Día 4:
 16
-9
-15*
-6* -> moral de los soldados
-7*
+09
+15
+06 -> moral de los soldados
+07
 
 Día 5:
-8
+08
 10
-1*
-5* -> posiciones / sitios para colocar minas ?
-4* -> carcel
+01
+05 -> posiciones / sitios para colocar minas ?
+04 -> cárcel
