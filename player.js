@@ -36,13 +36,13 @@ export default class Player extends Phaser.GameObjects.Sprite {
   }
   moveLeft(){
     //Para utilizar menos sprites
-    this.setFlipX(true)
+    this.setFlipX(false)
     this.body.setVelocityX(-50);
     //this.play('walk', true)
 
   }
   moveRight(){
-    this.setFlipX(false)
+    this.setFlipX(true)
     this.body.setVelocityX(50);
     //this.play('walk', true)
 

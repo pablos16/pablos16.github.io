@@ -8,7 +8,12 @@ export default class Scene extends Phaser.Scene {
   }
   //Aqui te crea todo lo que necesites al inicio para todo el juego
   create() {
-    this.cursors = this.input.keyboard.createCursorKeys();
+    //this.cursors = this.input.keyboard.createCursorKeys();
+    this.w = this.input.keyboard.addKey('W');
+    this.a = this.input.keyboard.addKey('A');
+    this.s = this.input.keyboard.addKey('S');
+    this.d = this.input.keyboard.addKey('D');
+    this.e = this.input.keyboard.addKey('E');
 
     //Mapa
     this.add.image(200, 300, 'map');
@@ -67,23 +72,23 @@ export default class Scene extends Phaser.Scene {
   }
   
   update(){
-    if(!(this.cursors.left.isDown || this.cursors.right.isDown) && !(this.cursors.up.isDown ||this.cursors.down.isDown)){
+    if(!(this.a.isDown || this.d.isDown) && !(this.w.isDown || this.s.isDown)){
       //this.player.setIdle();
       this.player.stopX();
       this.player.stopY();
     }
     else {
       //Movimiento horizontal
-      if (this.cursors.left.isDown)
+      if (this.a.isDown)
         this.player.moveLeft();
-      else if (this.cursors.right.isDown)
+      else if (this.d.isDown)
         this.player.moveRight();      
       else
         this.player.stopX();
     }
     //Movimiento vertical        
-    if (this.cursors.up.isDown) this.player.moveUp();
-    else if (this.cursors.down.isDown) this.player.moveDown();
+    if (this.w.isDown) this.player.moveUp();
+    else if (this.s.isDown) this.player.moveDown();
     else this.player.stopY();
     
     //Normalizamos el vector
