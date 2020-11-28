@@ -10,7 +10,7 @@ Organización y seguimiento -> https://www.pivotaltracker.com/n/projects/2470816
 
 # **Regime Police**
 
-Versión del 24/11/2020
+Versión del 28/11/2020
 
 # Tabla de contenido
 
