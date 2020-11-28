@@ -8,12 +8,14 @@ export default class Scene extends Phaser.Scene {
   }
   //Aqui te crea todo lo que necesites al inicio para todo el juego
   create() {
-    //this.cursors = this.input.keyboard.createCursorKeys();
-    this.w = this.input.keyboard.addKey('W');
-    this.a = this.input.keyboard.addKey('A');
-    this.s = this.input.keyboard.addKey('S');
-    this.d = this.input.keyboard.addKey('D');
-    this.e = this.input.keyboard.addKey('E');
+    this.cursors = this.input.keyboard.addKeys(
+      {
+        up:     Phaser.Input.Keyboard.KeyCodes.W,
+        down:   Phaser.Input.Keyboard.KeyCodes.S,
+        right:  Phaser.Input.Keyboard.KeyCodes.D,
+        left:   Phaser.Input.Keyboard.KeyCodes.A
+      });
+    this.interaction = this.input.keyboard.addKey('E');
 
     //Deshabilitar menú contextual
     this.input.mouse.disableContextMenu();
@@ -75,23 +77,23 @@ export default class Scene extends Phaser.Scene {
   }
   
   update(){
-    if(!(this.a.isDown || this.d.isDown) && !(this.w.isDown || this.s.isDown)){
+    if(!(this.cursors.left.isDown || this.cursors.right.isDown) && !(this.cursors.up.isDown || this.cursors.down.isDown)){
       //this.player.setIdle();
       this.player.stopX();
       this.player.stopY();
     }
     else {
       //Movimiento horizontal
-      if (this.a.isDown)
+      if (this.cursors.left.isDown)
         this.player.moveLeft();
-      else if (this.d.isDown)
+      else if (this.cursors.right.isDown)
         this.player.moveRight();      
       else
         this.player.stopX();
     }
     //Movimiento vertical        
-    if (this.w.isDown) this.player.moveUp();
-    else if (this.s.isDown) this.player.moveDown();
+    if (this.cursors.up.isDown) this.player.moveUp();
+    else if (this.cursors.down.isDown) this.player.moveDown();
     else this.player.stopY();
     
     //Normalizamos el vector
