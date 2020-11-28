@@ -432,6 +432,31 @@ Se llevan muy mal con el Empeñista.
 **Objetos:**
 
 Hay objetos con los que se puede interactuar que hacen referencia al marco circunstancial de los individuos circundantes: diarios, cartas, cuadros…
+Hay objetos con los que se puede interactuar que hacen referencia al marco circunstancial de los individuos circundantes: diarios, cartas, cuadros…
+
+*Objetos referentes a las misiones:*
+
+- Dinamita: Estos explosivos son más potentes de lo que parece...
+- Alfombra barata: Luce con pelusillas, parece desgastada, pero servirá.
+- Alfombra persa: Preciada alfombra con muchos estampados. Su calidad es apreciable, aunque cuesta más de lo que debería…
+- Cojín persa: Mullido, cómodo y colorido. ¿Quién se resistiría a adquirirlo a tan buen precio?
+- Carteles de "Se Busca": El retrato es idéntico al de la persona buscada.
+- Carteles feriales: Informan acerca de la feria de la ciudad tras su llegada.
+- Carteles cuestionables: Pancartas similares a las propagandísticas del régimen. Hay algo raro en ellas.
+- Cepillo y Jabón: Funcionan a la perfección para quitar las pintadas.
+- Spray de graffiti: Si pintas todo por encima, no se notará el dibujo.
+- Cerilla y gasolina: Prende fuego a prácticamente todo.
+- Bolsa de dinero: Gran bolsa llena de dinero.
+- Monedas: Unas pocas monedas.
+- Carta: Es de mala educación abrirla si no es para tí. ¿Qué pondrá dentro?
+
+*Objetos de investigación:*
+
+- Diario de Paca: contiene toda la dura vida de Paca desde antes de conocerla
+- Fotografía de Leandro Gado y alguien más: se le ve muy feliz al lado de su amigo, pero no le has visto en toda la ciudad. ¿Quién es?
+- Oso de peluche de Sona: te lo ha dado con todo su corazón. Tiene un gran valor sentimental para ella.
+- Reliquia extraña: supuestamente da vitalidad. Hm, yo no noto nada.
+- Anillo con grabado: pone Lola dentro del anillo. ¿Por qué lo ha tirado?
 
 # Referencias
 
