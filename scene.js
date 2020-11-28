@@ -15,6 +15,9 @@ export default class Scene extends Phaser.Scene {
     this.d = this.input.keyboard.addKey('D');
     this.e = this.input.keyboard.addKey('E');
 
+    //Deshabilitar menú contextual
+    this.input.mouse.disableContextMenu();
+
     //Mapa
     this.add.image(200, 300, 'map');
     //this.add.image(200, 525, 'dialogTest');
