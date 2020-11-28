@@ -4,6 +4,7 @@ export default class Boot extends Phaser.Scene {
   }
   //Carga las imagenes necesarias para el juego
   //Este .js solo sirve para eso y dar comienzo a la escena
+  
   preload() {
     //Personaje
     this.load.image('player', 'resources/game/textures/policeman.png');
@@ -45,8 +46,11 @@ export default class Boot extends Phaser.Scene {
     this.load.image('Item_BearPlush', 'resources/game/textures/inventory/icons/plush_bear.png');
     this.load.image('Item_Rune', 'resources/game/textures/inventory/icons/rune.png');
     this.load.image('Item_Ring', 'resources/game/textures/inventory/icons/ring.png');
+
+    // Destruir:
+    ////Item_TNT.destroy();
   }
-  
+
   create() {
     this.scene.start('scene');
   }
