@@ -79,7 +79,7 @@ El policía puede ir escogiendo a lo largo de la historia a qué bando apoyar ve
 Se juega con teclado y ratón:
 
 - **W, A, S, D**      ---> movimiento; opción de diálogo superior/inferior
-- **E**               ---> interactuar; seleccionar diálogo
+- **E**               ---> interactuar; seleccionar diálogo; recoger
 - **Click Izquierdo** ---> manejar inventario; desplegar/plegar misiones
 
 **GUI:**
@@ -98,9 +98,9 @@ Notas: Hoja de papel presente en la esquina inferior derecha que muestra la inte
 
 Interfaz de misiones:
 
-Lista de misiones: Se encuentran a la izquierda de la interfaz y muestra información de las misiones del día.
+Lista de misiones: Se abre un pergamino a la derecha de la interfaz y muestra información de las misiones del día.
 
-Mapa: Aparece en la derecha de la interfaz con una leyenda para orientar al jugador.
+Mapa: Aparece en la derecha de la interfaz con una leyenda para orientar al jugador debajo de la lista de misiones.
 
 Interfaz de diálogo:
 
