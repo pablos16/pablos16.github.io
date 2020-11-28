@@ -431,8 +431,7 @@ Se llevan muy mal con el Empeñista.
 
 **Objetos:**
 
-Hay objetos con los que se puede interactuar que hacen referencia al marco circunstancial de los individuos circundantes: diarios, cartas, cuadros…
-Hay objetos con los que se puede interactuar que hacen referencia al marco circunstancial de los individuos circundantes: diarios, cartas, cuadros…
+Hay objetos con los que se puede interactuar. Unos son necesarios para completar las tareas del policía, mientras que otros aportan valor estético y/o modelan aspectos de los personajes de la trama. El jugador puede recoger, usar y dejar objetos.
 
 *Objetos referentes a las misiones:*
 
