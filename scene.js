@@ -15,7 +15,8 @@ export default class Scene extends Phaser.Scene {
         right:  Phaser.Input.Keyboard.KeyCodes.D,
         left:   Phaser.Input.Keyboard.KeyCodes.A
       });
-    this.interaction = this.input.keyboard.addKey('E');
+    this.action = this.input.keyboard.addKey('E');
+    this.pointer = this.input.activePointer;
 
     //Deshabilitar menú contextual
     this.input.mouse.disableContextMenu();
