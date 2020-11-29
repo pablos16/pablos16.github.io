@@ -1,6 +1,7 @@
 import Player from './player.js'
 import Dialogue from './Dialogue.js'
 import NPC from './npc.js'
+import Item from './item.js'
 import InventoryBar from './inventoryBar.js'
 import DroppedItem from './droppedItem.js'
 
@@ -49,12 +50,15 @@ export default class Scene extends Phaser.Scene {
     let box2 = this.add.image(-180, 92, 'inventorySlot');
     let box3 = this.add.image(-180, 26, 'inventorySlot');
     let box4 = this.add.image(-180, -40, 'inventorySlot');
+    let img0 = new Item(this, -180, 224, this.player.getInventoryItemAt(0));
+    let img1 = new Item(this, -180, 158, this.player.getInventoryItemAt(1));
+    let img2 = new Item(this, -180, 92, this.player.getInventoryItemAt(2));
+    let img3 = new Item(this, -180, 26, this.player.getInventoryItemAt(3));
+    let img4 = new Item(this, -180, -40, this.player.getInventoryItemAt(4));
     let inventoryBar = new InventoryBar(this, -180, 290);
-    inventoryBar.add(box0);
-    inventoryBar.add(box1);
-    inventoryBar.add(box2);
-    inventoryBar.add(box3);
-    inventoryBar.add(box4);
+    inventoryBar.add(box0); inventoryBar.add(box1); inventoryBar.add(box2); inventoryBar.add(box3); inventoryBar.add(box4);
+    inventoryBar.add(img0); inventoryBar.add(img1); inventoryBar.add(img2); inventoryBar.add(img3); inventoryBar.add(img4);
+
 
  
    
