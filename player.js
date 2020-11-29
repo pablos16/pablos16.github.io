@@ -9,7 +9,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.body.setCollideWorldBounds();
     this.speed = 300;
     this.label = this.scene.add.text(10, 10);
-    this.inventory = new Inventory();
+    this._inventory = new Inventory();
   }
   
   normalizeVector()
@@ -61,5 +61,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
   getY(){
   return this.body.velocity.y;
   }
-  
+
+  getInventoryItemAt(slotNumber) { return this._inventory.getItemAt(slotNumber); }
 }

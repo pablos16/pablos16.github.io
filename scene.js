@@ -1,6 +1,7 @@
 import Player from './player.js'
 import Dialogue from './Dialogue.js'
 import NPC from './npc.js'
+import Item from './item.js'
 import DroppedItem from './droppedItem.js'
 
 export default class Scene extends Phaser.Scene {
@@ -29,6 +30,14 @@ export default class Scene extends Phaser.Scene {
     //Personaje
     this.player = new Player(this, 200, 300);
     this.testDialogue = new Dialogue(this, 1280/2, 720 - 720/5, 'A: ', 'Hola');
+
+    //////////////TESTJAVI//////////////TESTJAVI//////////////TESTJAVI//////////////TESTJAVI//////////////TESTJAVI//////////////TESTJAVI
+    this.img0 = new Item(this, 50, 50, this.player.getInventoryItemAt(0));
+    this.img1 = new Item(this, 50, 100, this.player.getInventoryItemAt(1));
+    this.img2 = new Item(this, 50, 150, this.player.getInventoryItemAt(2));
+    this.img3 = new Item(this, 50, 200, this.player.getInventoryItemAt(3));
+    this.img4 = new Item(this, 50, 250, this.player.getInventoryItemAt(4));
+    //////////////TESTJAVI//////////////TESTJAVI//////////////TESTJAVI//////////////TESTJAVI//////////////TESTJAVI//////////////TESTJAVI
 
     //NPC
     this.NPC = new NPC(this,300,300);

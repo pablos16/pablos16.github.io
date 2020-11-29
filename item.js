@@ -1,6 +1,6 @@
-export default class Item
+export default class Item extends Phaser.GameObjects.Image
 {
-    constructor(ID)
+    constructor(scene, x, y, ID)
     {
         let name;
         let desc;
@@ -50,12 +50,11 @@ export default class Item
             default: name = '-'; desc = '-'; texture = 'Item_-';
                 break;
         }
-        
-        this._Id = ID;
-        this._name = name;
-        this._desc = desc;
-        this._texture = texture;
-    }
 
-    getId() { return this._Id; }
+        super(scene, x, y, texture);
+        this._desc = desc;
+        this._name = name;
+
+        this.scene.add.existing(this);
+    }
 }
