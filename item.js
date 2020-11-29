@@ -1,4 +1,4 @@
-export default class Item extends Image
+export default class Item extends Phaser.GameObjects.Image
 {
     constructor(scene, x, y, ID)
     {

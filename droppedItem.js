@@ -1,4 +1,4 @@
-export default class DroppedItem extends Sprite
+export default class DroppedItem extends Phaser.GameObjects.Sprite
 {
 
 }
