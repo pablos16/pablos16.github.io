@@ -1,8 +1,6 @@
-//import { 'Item_ExpensiveCarpet', b, c } from './boot.js'
-
-export default class Item extends Phaser.GameObjects.Image
+export default class Item
 {
-    constructor(scene, x, y, ID)
+    constructor(ID)
     {
         let name;
         let desc;
@@ -53,10 +51,11 @@ export default class Item extends Phaser.GameObjects.Image
                 break;
         }
         
-        super(scene, x, y, texture);
+        this._Id = ID;
         this._name = name;
         this._desc = desc;
-
-        this.scene.add.existing(this);
+        this._texture = texture;
     }
+
+    getId() { return this._Id; }
 }

@@ -1,3 +1,4 @@
+import Inventory from "./inventory";
 
 export default class Player extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y) {
@@ -8,6 +9,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.body.setCollideWorldBounds();
     this.speed = 300;
     this.label = this.scene.add.text(10, 10);
+    this.inventory = new Inventory();
   }
   
   normalizeVector()
