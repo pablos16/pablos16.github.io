@@ -27,27 +27,27 @@ export default class Boot extends Phaser.Scene {
     this.load.image('dropSlot', 'resources/game/textures/inventory/box_drop.png');
 
     //Objetos de inventario
-    this.load.image('Item_-', 'resources/game/textures/inventory/icons/void_.png');
+    this.load.image('Item_-', 'resources/game/textures/inventory/void_.png');
+    
+    this.load.image('Item_TNT', 'resources/game/textures/items/tnt.png');
+    this.load.image('Item_CheapCarpet', 'resources/game/textures/items/carpet_cheap.png');
+    this.load.image('Item_ExpensiveCarpet', 'resources/game/textures/items/carpet_expensive.png');
+    this.load.image('Item_Cushion', 'resources/game/textures/items/cushion.png');
+    this.load.image('Item_CircusSign', 'resources/game/textures/items/sign_circus.png');
+    this.load.image('Item_RebelsSign', 'resources/game/textures/items/sign_rebels.png');
+    this.load.image('Item_WantedSign', 'resources/game/textures/items/sign_wanted.png');
+    this.load.image('Item_SoapAndBrush', 'resources/game/textures/items/soap_and_brush.png');
+    this.load.image('Item_Dye', 'resources/game/textures/items/dye.png');
+    this.load.image('Item_OilAndMatches', 'resources/game/textures/items/oil_and_matches.png');
+    this.load.image('Item_CoinBag', 'resources/game/textures/items/coin_bag.png');
+    this.load.image('Item_Coins', 'resources/game/textures/items/coins.png');
+    this.load.image('Item_Message', 'resources/game/textures/items/message.png');
 
-    this.load.image('Item_TNT', 'resources/game/textures/inventory/icons/tnt.png');
-    this.load.image('Item_CheapCarpet', 'resources/game/textures/inventory/icons/carpet_cheap.png');
-    this.load.image('Item_ExpensiveCarpet', 'resources/game/textures/inventory/icons/carpet_expensive.png');
-    this.load.image('Item_Cushion', 'resources/game/textures/inventory/icons/cushion.png');
-    this.load.image('Item_CircusSign', 'resources/game/textures/inventory/icons/sign_circus.png');
-    this.load.image('Item_RebelsSign', 'resources/game/textures/inventory/icons/sign_rebels.png');
-    this.load.image('Item_WantedSign', 'resources/game/textures/inventory/icons/sign_wanted.png');
-    this.load.image('Item_SoapAndBrush', 'resources/game/textures/inventory/icons/soap_and_brush.png');
-    this.load.image('Item_Dye', 'resources/game/textures/inventory/icons/dye.png');
-    this.load.image('Item_OilAndMatches', 'resources/game/textures/inventory/icons/oil_and_matches.png');
-    this.load.image('Item_CoinBag', 'resources/game/textures/inventory/icons/coin_bag.png');
-    this.load.image('Item_Coins', 'resources/game/textures/inventory/icons/coins.png');
-    this.load.image('Item_Message', 'resources/game/textures/inventory/icons/message.png');
-
-    this.load.image('Item_Diary', 'resources/game/textures/inventory/icons/diary.png');
-    this.load.image('Item_Photo', 'resources/game/textures/inventory/icons/photo.png');
-    this.load.image('Item_BearPlush', 'resources/game/textures/inventory/icons/plush_bear.png');
-    this.load.image('Item_Rune', 'resources/game/textures/inventory/icons/rune.png');
-    this.load.image('Item_Ring', 'resources/game/textures/inventory/icons/ring.png');
+    this.load.image('Item_Diary', 'resources/game/textures/items/diary.png');
+    this.load.image('Item_Photo', 'resources/game/textures/items/photo.png');
+    this.load.image('Item_BearPlush', 'resources/game/textures/items/plush_bear.png');
+    this.load.image('Item_Rune', 'resources/game/textures/items/rune.png');
+    this.load.image('Item_Ring', 'resources/game/textures/items/ring.png');
 
     // Destruir:
     ////Item_TNT.destroy();
