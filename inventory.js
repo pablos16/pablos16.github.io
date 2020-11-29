@@ -2,7 +2,7 @@ export default class Inventory
 {
     constructor()
     {
-        const slot0, slot1, slot2, slot3, slot4 = 0;
+        const slot0 = 0; const slot1 = 0; const slot2 = 0; const slot3 = 0; const slot4 = 0;
 
         this._slots[slot0, slot1, slot2, slot3, slot4];
     }
