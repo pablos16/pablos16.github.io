@@ -45,23 +45,112 @@ export default class Scene extends Phaser.Scene {
     this.wall.create(300, 200, 'Wall');
 
     //Barra de Inventario
-    let box0 = this.add.image(-180, 224, 'inventorySlot');
-    let box1 = this.add.image(-180, 158, 'inventorySlot');
-    let box2 = this.add.image(-180, 92, 'inventorySlot');
-    let box3 = this.add.image(-180, 26, 'inventorySlot');
-    let box4 = this.add.image(-180, -40, 'inventorySlot');
-    let img0 = new Item(this, -180, 224, this.player.getInventoryItemAt(0));
-    let img1 = new Item(this, -180, 158, this.player.getInventoryItemAt(1));
-    let img2 = new Item(this, -180, 92, this.player.getInventoryItemAt(2));
-    let img3 = new Item(this, -180, 26, this.player.getInventoryItemAt(3));
-    let img4 = new Item(this, -180, -40, this.player.getInventoryItemAt(4));
+    this.box0 = this.add.image(-180, 224, 'inventorySlot').setInteractive();
+    this.box1 = this.add.image(-180, 158, 'inventorySlot').setInteractive();
+    this.box2 = this.add.image(-180, 92, 'inventorySlot').setInteractive();
+    this.box3 = this.add.image(-180, 26, 'inventorySlot').setInteractive();
+    this.box4 = this.add.image(-180, -40, 'inventorySlot').setInteractive();
+    this.img0 = new Item(this, this.box0.x, this.box0.y, this.player.getInventoryItemAt(0));
+    this.img1 = new Item(this, this.box1.x, this.box1.y, this.player.getInventoryItemAt(1));
+    this.img2 = new Item(this, this.box2.x, this.box2.y, this.player.getInventoryItemAt(2));
+    this.img3 = new Item(this, this.box3.x, this.box3.y, this.player.getInventoryItemAt(3));
+    this.img4 = new Item(this, this.box4.x, this.box4.y, this.player.getInventoryItemAt(4));
+    this.selectionTexture = this.add.image(-180, 290, 'inventorySlotSelection');
+    this.selectionTexture.visible = false;
     let inventoryBar = new InventoryBar(this, -180, 290);
-    inventoryBar.add(box0); inventoryBar.add(box1); inventoryBar.add(box2); inventoryBar.add(box3); inventoryBar.add(box4);
-    inventoryBar.add(img0); inventoryBar.add(img1); inventoryBar.add(img2); inventoryBar.add(img3); inventoryBar.add(img4);
-
-
- 
-   
+    inventoryBar.add(this.box0); inventoryBar.add(this.box1); inventoryBar.add(this.box2); inventoryBar.add(this.box3); inventoryBar.add(this.box4);
+    inventoryBar.add(this.img0); inventoryBar.add(this.img1); inventoryBar.add(this.img2); inventoryBar.add(this.img3); inventoryBar.add(this.img4);
+    inventoryBar.add(this.selectionTexture);
+    this.box0.on('pointerdown', pointer =>
+    {
+      if (this.player.getInventoryItemAt(0) !== 0)
+      {
+        if (inventoryBar.selected() === 0)
+        {
+          inventoryBar.select(null);
+          this.selectionTexture.visible = false;
+        }
+        else
+        {
+          inventoryBar.select(0);
+          this.selectionTexture.x = this.box0.x;
+          this.selectionTexture.y = this.box0.y;
+          this.selectionTexture.visible = true;
+        }
+      }
+    });
+    this.box1.on('pointerdown', pointer =>
+    {
+      if (this.player.getInventoryItemAt(1) !== 0)
+      {
+        if (inventoryBar.selected() === 1)
+        {
+        inventoryBar.select(null);
+        this.selectionTexture.visible = false;
+        }
+        else
+        {
+        inventoryBar.select(1);
+        this.selectionTexture.x = this.box1.x;
+        this.selectionTexture.y = this.box1.y;
+        this.selectionTexture.visible = true;
+        }
+      }
+    });
+    this.box2.on('pointerdown', pointer =>
+    {
+      if (this.player.getInventoryItemAt(2) !== 0)
+      {
+        if (inventoryBar.selected() === 2)
+        {
+        inventoryBar.select(null);
+        this.selectionTexture.visible = false;
+        }
+        else
+        {
+        inventoryBar.select(2);
+        this.selectionTexture.x = this.box2.x;
+        this.selectionTexture.y = this.box2.y;
+        this.selectionTexture.visible = true;
+        }
+      }
+    });
+    this.box3.on('pointerdown', pointer =>
+    {
+      if (this.player.getInventoryItemAt(3) !== 0)
+      {
+        if (inventoryBar.selected() === 3)
+        {
+        inventoryBar.select(null);
+        this.selectionTexture.visible = false;
+        }
+        else
+        {
+        inventoryBar.select(3);
+        this.selectionTexture.x = this.box3.x;
+        this.selectionTexture.y = this.box3.y;
+        this.selectionTexture.visible = true;
+        }
+      }
+    });
+    this.box4.on('pointerdown', pointer =>
+    {
+      if (this.player.getInventoryItemAt(4) !== 0)
+      {
+        if (inventoryBar.selected() === 4)
+        {
+        inventoryBar.select(null);
+        this.selectionTexture.visible = false;
+        }
+        else
+        {
+        inventoryBar.select(4);
+        this.selectionTexture.x = this.box4.x;
+        this.selectionTexture.y = this.box4.y;
+        this.selectionTexture.visible = true;
+        }
+      }
+    });
 
     //Colliders personaje
     //this.physics.add.collider(this.player, this.cobers);
@@ -128,5 +217,11 @@ export default class Scene extends Phaser.Scene {
 
     this.NPC.moveX(280,350);
 
+    //Actualización del Inventario
+    this.img0.change(this.player.getInventoryItemAt(0));
+    this.img1.change(this.player.getInventoryItemAt(1));
+    this.img2.change(this.player.getInventoryItemAt(2));
+    this.img3.change(this.player.getInventoryItemAt(3));
+    this.img4.change(this.player.getInventoryItemAt(4));
   }
 }
