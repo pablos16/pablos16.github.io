@@ -57,4 +57,8 @@ export default class Item extends Phaser.GameObjects.Image
 
         this.scene.add.existing(this);
     }
+
+    getName() {return this._name;}
+
+    getDesc() {return this._desc;}
 }
