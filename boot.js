@@ -27,6 +27,8 @@ export default class Boot extends Phaser.Scene {
     this.load.image('dropSlot', 'resources/game/textures/inventory/box_drop.png');
 
     //Objetos de inventario
+    this.load.image('Item_-', 'resources/game/textures/inventory/icons/void_.png');
+
     this.load.image('Item_TNT', 'resources/game/textures/inventory/icons/tnt.png');
     this.load.image('Item_CheapCarpet', 'resources/game/textures/inventory/icons/carpet_cheap.png');
     this.load.image('Item_ExpensiveCarpet', 'resources/game/textures/inventory/icons/carpet_expensive.png');
