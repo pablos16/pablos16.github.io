@@ -41,7 +41,13 @@ export default class Scene extends Phaser.Scene {
     let wall;
     this.wall = this.physics.add.staticGroup();
     this.wall.create(30, 400, 'Wall');
-    this.wall.create(300, 200, 'Wall');    
+    this.wall.create(300, 200, 'Wall');
+    
+    //__****___
+    this.item1 = new Item(this, 200, 300, 3);
+    this.item1 = new Item(this, 200, 400, 2);
+    this.item1 = new Item(this, 200, 500, 1);
+    this.item1 = new Item(this, 200, 600, 0);
 
     //Colliders personaje
     //this.physics.add.collider(this.player, this.cobers);
