@@ -1,6 +1,8 @@
 import Player from './player.js'
 import Dialogue from './Dialogue.js'
 import NPC from './npc.js'
+import Item from './item.js'
+import DroppedItem from './droppedItem.js'
 
 export default class Scene extends Phaser.Scene {
   constructor() {
