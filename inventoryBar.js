@@ -88,11 +88,11 @@ export default class InventoryBar extends Phaser.GameObjects.Container
 
     updateStatus()
     {
-        this.img0.change(this._pl.getInventoryItemAt(0));
-        this.img1.change(this._pl.getInventoryItemAt(1));
-        this.img2.change(this._pl.getInventoryItemAt(2));
-        this.img3.change(this._pl.getInventoryItemAt(3));
-        this.img4.change(this._pl.getInventoryItemAt(4));
+        this.img0.changeTo(this._pl.getInventoryItemAt(0));
+        this.img1.changeTo(this._pl.getInventoryItemAt(1));
+        this.img2.changeTo(this._pl.getInventoryItemAt(2));
+        this.img3.changeTo(this._pl.getInventoryItemAt(3));
+        this.img4.changeTo(this._pl.getInventoryItemAt(4));
     }
 
     useCurrentItem()
