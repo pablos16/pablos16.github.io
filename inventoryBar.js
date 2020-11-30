@@ -13,6 +13,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container
 
         texture.on('pointerdown', pointer =>
         {
+            // tirar
             if (this._selection !== null && scene.player.getInventoryItemAt(this._selection) !== 0)
             {
                 scene.player.dropInventoryItemAt(this._selection);
@@ -37,11 +38,11 @@ export default class InventoryBar extends Phaser.GameObjects.Container
         this.add([this.box0, this.box1, this.box2, this.box3, this.box4]);
         this.add([this.img0, this.img1, this.img2, this.img3, this.img4]);
         this.add(this.selectionTexture);
-        this.box0.on('pointerdown', pointer => { this._select_unselect_moveItem(0) });
-        this.box1.on('pointerdown', pointer => { this._select_unselect_moveItem(1) });
-        this.box2.on('pointerdown', pointer => { this._select_unselect_moveItem(2) });
-        this.box3.on('pointerdown', pointer => { this._select_unselect_moveItem(3) });
-        this.box4.on('pointerdown', pointer => { this._select_unselect_moveItem(4) });
+        this.box0.on('pointerdown', pointer => { this._manageItem(0) });
+        this.box1.on('pointerdown', pointer => { this._manageItem(1) });
+        this.box2.on('pointerdown', pointer => { this._manageItem(2) });
+        this.box3.on('pointerdown', pointer => { this._manageItem(3) });
+        this.box4.on('pointerdown', pointer => { this._manageItem(4) });
 
         this._pl = scene.player;
     }
@@ -58,7 +59,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container
         }
     }
 
-    _select_unselect_moveItem(number)
+    _manageItem(number)
     {
         // seleccionar
         if (this._selection === null)
@@ -94,5 +95,13 @@ export default class InventoryBar extends Phaser.GameObjects.Container
         this.img4.change(this._pl.getInventoryItemAt(4));
     }
 
-    //joder() { this.x = 0;}
+    useCurrentItem()
+    {
+        // usar
+        this._pl.dropInventoryItemAt(this._selection);
+        this.selectionTexture.visible = false;
+        this._selection = null;
+    }
+
+    getSelection() { return this._selection; }
 }

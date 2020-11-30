@@ -47,6 +47,20 @@ export default class Scene extends Phaser.Scene {
     //Barra de Inventario
     this.inventoryBar = new InventoryBar(this, -180, 290);
 
+    //_____-----Entidad en la que se usa un objeto (dinamita en este caso)-----_____
+    this.clickableDebug = this.add.image(0, 100, 'debug').setInteractive();
+    this.clickableDebug.requires = 1;
+    this.clickableDebug.on('pointerdown', pointer =>
+    {
+      if (this.player.getInventoryItemAt(this.inventoryBar.getSelection()) === this.clickableDebug.requires)
+      {
+        this.inventoryBar.useCurrentItem();
+        console.log('grasias loko uwu');
+        this.clickableDebug.destroy(this);
+      }
+      else console.log('oye dame dinamita :v');
+    });
+
 
     //Colliders personaje
     //this.physics.add.collider(this.player, this.cobers);

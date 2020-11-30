@@ -50,8 +50,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
   getX() { return this.body.velocity.x; }
   getY() { return this.body.velocity.y; }
 
-  
+  // Manejo de Inventario
   getInventoryItemAt(slotNumber) { return this._inventory.getItemAt(slotNumber); }
   dropInventoryItemAt(slotNumber) { this._inventory.removeItemAt(slotNumber); }
   moveInventoryItemsIn(slotNumber1, slotNumber2) { this._inventory.moveItemsIn(slotNumber1, slotNumber2); }
+  //pickUpInventoryItem(ItemID) {}
 }

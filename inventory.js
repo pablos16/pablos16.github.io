@@ -2,7 +2,7 @@ export default class Inventory
 {
     constructor()
     {
-        this._slots = [6, 8, 7, 10, 9];
+        this._slots = [6, 8, 1, 10, 9];
     }
 
     _searchForRoom()
