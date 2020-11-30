@@ -7,6 +7,8 @@ export default class DroppedItem extends Phaser.GameObjects.Sprite
         this._changeTo(ID);
 
         this.scene.add.existing(this);
+        this.scene.physics.add.existing(this);
+        this.body.setImmovable(true);
     }
 
     getID() {return this._id;}
