@@ -36,6 +36,8 @@ export default class Scene extends Phaser.Scene {
 
     //Camara que sigue al jugador
     this.cameras.main.startFollow(this.player);
+    this.cameras.main.width = 1280;
+    this.cameras.main.height = 720;
 
     //Muros creados
     let wall;

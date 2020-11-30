@@ -7,7 +7,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container
         let texture = scene.add.image(x, y, 'dropSlot').setInteractive();
         super(scene, x, y, texture);
         scene.add.existing(this);
-        //this.setScrollFactor(0);      ////////////////////////
+        //this.setScrollFactor(1, 1, true);      ////////////////////////
 
         this._selection = null;
 
