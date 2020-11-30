@@ -17,7 +17,8 @@ export default class InventoryBar extends Phaser.GameObjects.Container
             // tirar
             if (this._selection !== null && scene.player.getInventoryItemAt(this._selection) !== 0)
             {
-                scene.droppedItems.create(new DroppedItem(scene, scene.player.getXPos(), scene.player.getYPos(), scene.player.getInventoryItemAt(this._selection)));
+                let drop = new DroppedItem(scene, scene.player.getXPos(), scene.player.getYPos(), scene.player.getInventoryItemAt(this._selection));
+                scene.droppedItems.add(drop);
                 scene.player.dropInventoryItemAt(this._selection);
                 this.selectionTexture.visible = false;
                 this._selection = null;
