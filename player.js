@@ -10,6 +10,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.speed = 300;
     this.label = this.scene.add.text(10, 10);
     this._inventory = new Inventory();
+
+    
   }
   
   normalizeVector()

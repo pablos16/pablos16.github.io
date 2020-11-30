@@ -10,6 +10,9 @@ export default class Scene extends Phaser.Scene {
   }
   //Aqui te crea todo lo que necesites al inicio para todo el juego
   create() {
+
+    
+    
     this.cursors = this.input.keyboard.addKeys(
       {
         up:     Phaser.Input.Keyboard.KeyCodes.W,
@@ -32,7 +35,13 @@ export default class Scene extends Phaser.Scene {
     this.testDialogue = new Dialogue(this, 1280/2, 720 - 720/5, 'A: ', 'Hola');
 
     //NPC
-    this.NPC = new NPC(this,300,300);
+    this.NPC = new NPC(this,900,300);
+
+    //Velocidad inicial
+    this.NPC.moveRight();
+
+
+
 
     //Camara que sigue al jugador
     this.cameras.main.startFollow(this.player);
@@ -41,8 +50,8 @@ export default class Scene extends Phaser.Scene {
 
     //Muros creados
     this.wall = this.physics.add.staticGroup();
-    this.wall.create(-100, 250, 'Wall');
-    this.wall.create(-100, 450, 'Wall');
+    this.wall.create(500, 250, 'Wall');
+    this.wall.create(600, 450, 'Wall');
 
     //Barra de Inventario
     this.inventoryBar = new InventoryBar(this, -180, 290);
@@ -148,11 +157,13 @@ export default class Scene extends Phaser.Scene {
     this.testDialogue.update()
     //this.testDialogue.label.text = this.testDialogue.GetName();
 
-    this.NPC.moveX(280,350);
+    this.NPC.moveX(-50,50);
+    
 
     //Actualización del Inventario
     this.inventoryBar.updateStatus();
 
+    
     if (this.action.isDown && this.physics.overlap(this.player, this.droppedItems)) { console.log('Wasamba'); };
   }
 }

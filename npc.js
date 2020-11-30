@@ -6,28 +6,37 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
     this.body.setCollideWorldBounds();
+
+    //Trigger
+    this.trigger = scene.add.zone(x, y);
+    this.trigger.setSize(200,200);
+    this.scene.physics.world.enable(this.trigger);
+    this.trigger.body.setAllowGravity(false);
+    this.trigger.body.moves = false;
+    this.initialPosX = x;
+    this.initialPosY = y;
   }
   
   moveX(left,right){
 
-    
-    if(this.body.position.x<=left){
+    if(this.body.position.x>=this.initialPosX+right){
+      this.moveLeft();
+      this.setFlipX(true);
+
+    }
+    else if(this.body.position.x<=this.initialPosX+left){
       this.moveRight()
       this.setFlipX(false);
 
     }
-    else if(this.body.position.x>=right){
-      this.moveLeft();
-      this.setFlipX(true);
-    }    
 
   }
   moveY(top,down){
-    if(this.body.y>top){
+    if(this.body.y>this.initialPosY+top){
       this.moveDown()
 
     }
-    else if(this.body.y<down){
+    else if(this.body.y<this.initialPosY+down){
       this.moveUp();
     }    
   }
