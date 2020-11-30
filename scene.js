@@ -35,7 +35,7 @@ export default class Scene extends Phaser.Scene {
     this.testDialogue = new Dialogue(this, 1280/2, 720 - 720/5, 'A: ', 'Hola');
 
     //NPC
-    this.NPC = new NPC(this,900,300);
+    this.NPC = new NPC(this,600,300);
 
     //Velocidad inicial
     this.NPC.moveRight();
@@ -45,8 +45,8 @@ export default class Scene extends Phaser.Scene {
 
     //Camara que sigue al jugador
     this.cameras.main.startFollow(this.player);
-    this.cameras.main.width = 1280;
-    this.cameras.main.height = 720;
+    this.cameras.main.width = 1400;
+    this.cameras.main.height = 750;
 
     //Muros creados
     this.wall = this.physics.add.staticGroup();
@@ -158,12 +158,12 @@ export default class Scene extends Phaser.Scene {
     //this.testDialogue.label.text = this.testDialogue.GetName();
 
     this.NPC.moveX(-50,50);
-    
+
 
     //Actualización del Inventario
     this.inventoryBar.updateStatus();
 
-    
+
     if (this.action.isDown && this.physics.overlap(this.player, this.droppedItems)) { console.log('Wasamba'); };
   }
 }
