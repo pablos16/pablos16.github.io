@@ -4,7 +4,7 @@ export default class Item extends Phaser.GameObjects.Image
     {
         super(scene, x, y, 'debug');
 
-        this.changeTo(ID)
+        this.changeTo(ID);
 
         this.scene.add.existing(this);
     }

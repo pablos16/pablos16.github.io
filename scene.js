@@ -42,14 +42,14 @@ export default class Scene extends Phaser.Scene {
     //Muros creados
     let wall;
     this.wall = this.physics.add.staticGroup();
-    this.wall.create(30, 400, 'Wall');
-    this.wall.create(300, 200, 'Wall');
+    this.wall.create(-100, 250, 'Wall');
+    this.wall.create(-100, 450, 'Wall');
 
     //Barra de Inventario
     this.inventoryBar = new InventoryBar(this, -180, 290);
 
     //_____-----Entidad en la que se usa un objeto (dinamita en este caso)-----_____
-    this.clickableDebug = this.add.image(0, 100, 'debug').setInteractive();
+    this.clickableDebug = this.add.image(-100, 100, 'debug').setInteractive();
     this.clickableDebug.requires = 1;
     this.clickableDebug.on('pointerdown', pointer =>
     {
@@ -61,6 +61,26 @@ export default class Scene extends Phaser.Scene {
       }
       else console.log('oye dame dinamita :v');
     });
+
+    //Objetos en el suelo
+    this.dropped1 = new DroppedItem(this, 20, 100, 1);
+    this.dropped1 = new DroppedItem(this, 20, 200, 2);
+    this.dropped1 = new DroppedItem(this, 20, 300, 3);
+    this.dropped1 = new DroppedItem(this, 20, 400, 4);
+    this.dropped1 = new DroppedItem(this, 20, 500, 5);
+    this.dropped1 = new DroppedItem(this, 120, 100, 6);
+    this.dropped1 = new DroppedItem(this, 120, 200, 7);
+    this.dropped1 = new DroppedItem(this, 120, 300, 8);
+    this.dropped1 = new DroppedItem(this, 120, 400, 9);
+    this.dropped1 = new DroppedItem(this, 120, 500, 10);
+    this.dropped1 = new DroppedItem(this, 220, 100, 11);
+    this.dropped1 = new DroppedItem(this, 220, 200, 12);
+    this.dropped1 = new DroppedItem(this, 220, 300, 13);
+    this.dropped1 = new DroppedItem(this, 220, 400, 14);
+    this.dropped1 = new DroppedItem(this, 220, 500, 15);
+    this.dropped1 = new DroppedItem(this, 320, 100, 16);
+    this.dropped1 = new DroppedItem(this, 320, 200, 17);
+    this.dropped1 = new DroppedItem(this, 320, 300, 18);
 
 
     //Colliders personaje
