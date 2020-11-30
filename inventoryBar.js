@@ -94,7 +94,5 @@ export default class InventoryBar extends Phaser.GameObjects.Container
         this.img4.change(this._pl.getInventoryItemAt(4));
     }
 
-    //select(slot) { this._selection = slot; }
-    //selected() { return this._selection; }
     //joder() { this.x = 0;}
 }
