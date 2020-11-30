@@ -16,6 +16,7 @@ export default class DroppedItem extends Phaser.GameObjects.Sprite
         let texture = this._setItemTexture(ID);
         this.setTexture(texture);
         this._id = ID;
+        this.scale = 0.6;
     }
 
     _setItemTexture(ID)
