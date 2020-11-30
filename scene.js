@@ -64,23 +64,23 @@ export default class Scene extends Phaser.Scene {
 
     //Objetos en el suelo
     this.dropped1 = new DroppedItem(this, 20, 100, 1);
-    this.dropped1 = new DroppedItem(this, 20, 200, 2);
-    this.dropped1 = new DroppedItem(this, 20, 300, 3);
-    this.dropped1 = new DroppedItem(this, 20, 400, 4);
-    this.dropped1 = new DroppedItem(this, 20, 500, 5);
-    this.dropped1 = new DroppedItem(this, 120, 100, 6);
-    this.dropped1 = new DroppedItem(this, 120, 200, 7);
-    this.dropped1 = new DroppedItem(this, 120, 300, 8);
-    this.dropped1 = new DroppedItem(this, 120, 400, 9);
-    this.dropped1 = new DroppedItem(this, 120, 500, 10);
-    this.dropped1 = new DroppedItem(this, 220, 100, 11);
-    this.dropped1 = new DroppedItem(this, 220, 200, 12);
-    this.dropped1 = new DroppedItem(this, 220, 300, 13);
-    this.dropped1 = new DroppedItem(this, 220, 400, 14);
-    this.dropped1 = new DroppedItem(this, 220, 500, 15);
-    this.dropped1 = new DroppedItem(this, 320, 100, 16);
-    this.dropped1 = new DroppedItem(this, 320, 200, 17);
-    this.dropped1 = new DroppedItem(this, 320, 300, 18);
+    this.dropped2 = new DroppedItem(this, 20, 200, 2);
+    this.dropped3 = new DroppedItem(this, 20, 300, 3);
+    this.dropped4 = new DroppedItem(this, 20, 400, 4);
+    this.dropped5 = new DroppedItem(this, 20, 500, 5);
+    this.dropped6 = new DroppedItem(this, 120, 100, 6);
+    this.dropped7 = new DroppedItem(this, 120, 200, 7);
+    this.dropped8 = new DroppedItem(this, 120, 300, 8);
+    this.dropped9 = new DroppedItem(this, 120, 400, 9);
+    this.dropped10 = new DroppedItem(this, 120, 500, 10);
+    this.dropped11 = new DroppedItem(this, 220, 100, 11);
+    this.dropped12 = new DroppedItem(this, 220, 200, 12);
+    this.dropped13 = new DroppedItem(this, 220, 300, 13);
+    this.dropped14 = new DroppedItem(this, 220, 400, 14);
+    this.dropped15 = new DroppedItem(this, 220, 500, 15);
+    this.dropped16 = new DroppedItem(this, 320, 100, 16);
+    this.dropped17 = new DroppedItem(this, 320, 200, 17);
+    this.dropped18 = new DroppedItem(this, 320, 300, 18);
 
 
     //Colliders personaje

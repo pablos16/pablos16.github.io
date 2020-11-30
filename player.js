@@ -55,4 +55,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
   dropInventoryItemAt(slotNumber) { this._inventory.removeItemAt(slotNumber); }
   moveInventoryItemsIn(slotNumber1, slotNumber2) { this._inventory.moveItemsIn(slotNumber1, slotNumber2); }
   //pickUpInventoryItem(ItemID) {}
+
+  //Obtener Posición
+  getXPos() { return this.x; }
+  getYPos() { return this.y; }
 }

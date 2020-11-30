@@ -1,3 +1,4 @@
+import DroppedItem from './droppedItem.js';
 import Item from './item.js'
 
 export default class InventoryBar extends Phaser.GameObjects.Container
@@ -16,8 +17,9 @@ export default class InventoryBar extends Phaser.GameObjects.Container
             // tirar
             if (this._selection !== null && scene.player.getInventoryItemAt(this._selection) !== 0)
             {
+                let drop = new DroppedItem(scene, scene.player.getXPos(), scene.player.getYPos(), scene.player.getInventoryItemAt(this._selection));
+                scene.add.existing(drop);
                 scene.player.dropInventoryItemAt(this._selection);
-                ///  /* PONER AQUI(o en otro lugar pero en este instante) EL SPAWN DEL NUEVO droppedITEM */
                 this.selectionTexture.visible = false;
                 this._selection = null;
             }
