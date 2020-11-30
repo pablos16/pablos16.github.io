@@ -13,9 +13,9 @@ export default class InventoryBar extends Phaser.GameObjects.Container
 
         texture.on('pointerdown', pointer =>
         {
-            if (this.selection !== null && scene.player.getInventoryItemAt(this.selection) !== 0)
+            if (this._selection !== null && scene.player.getInventoryItemAt(this._selection) !== 0)
             {
-                scene.player.dropInventoryItemAt(this._selection)
+                scene.player.dropInventoryItemAt(this._selection);
                 ///  /* PONER AQUI(o en otro lugar pero en este instante) EL SPAWN DEL NUEVO droppedITEM */
                 this.selectionTexture.visible = false;
                 this._selection = null;
@@ -37,91 +37,61 @@ export default class InventoryBar extends Phaser.GameObjects.Container
         this.add([this.box0, this.box1, this.box2, this.box3, this.box4]);
         this.add([this.img0, this.img1, this.img2, this.img3, this.img4]);
         this.add(this.selectionTexture);
+        this.box0.on('pointerdown', pointer => { this._select_unselect_moveItem(0) });
+        this.box1.on('pointerdown', pointer => { this._select_unselect_moveItem(1) });
+        this.box2.on('pointerdown', pointer => { this._select_unselect_moveItem(2) });
+        this.box3.on('pointerdown', pointer => { this._select_unselect_moveItem(3) });
+        this.box4.on('pointerdown', pointer => { this._select_unselect_moveItem(4) });
 
-        this.box0.on('pointerdown', pointer =>
-        {
-            if (this._selection === 0)
-            {
-                this._selection = null;
-                this.selectionTexture.visible = false;
-            }
-            else
-            {
-                this._selection = 0;
-                this.selectionTexture.x = this.box0.x;
-                this.selectionTexture.y = this.box0.y;
-                this.selectionTexture.visible = true;
-            }
-        });
-        this.box1.on('pointerdown', pointer =>
-        {
-            if (this._selection === 1)
-            {
-                this._selection = null;
-                this.selectionTexture.visible = false;
-            }
-            else
-            {
-                this._selection = 1;
-                this.selectionTexture.x = this.box1.x;
-                this.selectionTexture.y = this.box1.y;
-                this.selectionTexture.visible = true;
-            }
-        });
-        this.box2.on('pointerdown', pointer =>
-        {
-            if (this._selection === 2)
-            {
-                this._selection = null;
-                this.selectionTexture.visible = false;
-            }
-            else
-            {
-                this._selection = 2;
-                this.selectionTexture.x = this.box2.x;
-                this.selectionTexture.y = this.box2.y;
-                this.selectionTexture.visible = true;
-            }
-        });
-        this.box3.on('pointerdown', pointer =>
-        {
-            if (this._selection === 3)
-            {
-                this._selection = null;
-                this.selectionTexture.visible = false;
-            }
-            else
-            {
-                this._selection = 3;
-                this.selectionTexture.x = this.box3.x;
-                this.selectionTexture.y = this.box3.y;
-                this.selectionTexture.visible = true;
-            }
-        });
-        this.box4.on('pointerdown', pointer =>
-        {
-            if (this._selection === 4)
-            {
-                this._selection = null;
-                this.selectionTexture.visible = false;
-            }
-            else
-            {
-                this._selection = 4;
-                this.selectionTexture.x = this.box4.x;
-                this.selectionTexture.y = this.box4.y;
-                this.selectionTexture.visible = true;
-            }
-        });
+        this._pl = scene.player;
     }
 
-    updateStatus(scene)
+    _selectionToBox(number)
     {
-        this.img0.change(scene.player.getInventoryItemAt(0));
-        this.img1.change(scene.player.getInventoryItemAt(1));
-        this.img2.change(scene.player.getInventoryItemAt(2));
-        this.img3.change(scene.player.getInventoryItemAt(3));
-        this.img4.change(scene.player.getInventoryItemAt(4));
+        switch(number)
+        {
+            case 0: return this.box0;
+            case 1: return this.box1;
+            case 2: return this.box2;
+            case 3: return this.box3;
+            case 4: return this.box4;
+        }
+    }
+
+    _select_unselect_moveItem(number)
+    {
+        // seleccionar
+        if (this._selection === null)
+        {
+            this._selection = number;
+            this.selectionTexture.x = this._selectionToBox(number).x;
+            this.selectionTexture.y = this._selectionToBox(number).y;
+            this.selectionTexture.visible = true;
+        }
+        // deseleccionar
+        else if (this._selection === number)
+        {
+            this._selection = null;
+            this.selectionTexture.visible = false;
+        }
+        // mover (y seleccionar el último clickado)
+        else
+        {
+            this._pl.moveInventoryItemsIn(this._selection, number);
+            this._selection = number;
+            this.selectionTexture.x = this._selectionToBox(number).x;
+            this.selectionTexture.y = this._selectionToBox(number).y;
+            this.selectionTexture.visible = true;
+        }
+    }
+
+    updateStatus()
+    {
+        this.img0.change(this._pl.getInventoryItemAt(0));
+        this.img1.change(this._pl.getInventoryItemAt(1));
+        this.img2.change(this._pl.getInventoryItemAt(2));
+        this.img3.change(this._pl.getInventoryItemAt(3));
+        this.img4.change(this._pl.getInventoryItemAt(4));
     }
 
     //select(slot) { this._selection = slot; }

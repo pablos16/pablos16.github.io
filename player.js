@@ -29,40 +29,29 @@ export default class Player extends Phaser.GameObjects.Sprite {
   moveUp(){
     this.body.setVelocityY(-50);
     //this.play('walk', true)
-
   }
   moveDown(){
     this.body.setVelocityY(50);
     //this.play('walk', true)
-
   }
   moveLeft(){
     //Para utilizar menos sprites
     this.setFlipX(false)
     this.body.setVelocityX(-50);
     //this.play('walk', true)
-
   }
   moveRight(){
     this.setFlipX(true)
     this.body.setVelocityX(50);
     //this.play('walk', true)
+  }
+  stopX() { this.body.setVelocityX(0); }
+  stopY() { this.body.setVelocityY(0); }
+  getX() { return this.body.velocity.x; }
+  getY() { return this.body.velocity.y; }
 
-  }
-  stopX(){
-    this.body.setVelocityX(0);
-  }
-  stopY(){
-    this.body.setVelocityY(0);
-  }
-  getX(){
-  return this.body.velocity.x;
-  }
-  getY(){
-  return this.body.velocity.y;
-  }
-
-  getInventoryItemAt(slotNumber) { return this._inventory.getItemAt(slotNumber); }
   
+  getInventoryItemAt(slotNumber) { return this._inventory.getItemAt(slotNumber); }
   dropInventoryItemAt(slotNumber) { this._inventory.removeItemAt(slotNumber); }
+  moveInventoryItemsIn(slotNumber1, slotNumber2) { this._inventory.moveItemsIn(slotNumber1, slotNumber2); }
 }

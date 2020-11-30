@@ -114,6 +114,6 @@ export default class Scene extends Phaser.Scene {
     this.NPC.moveX(280,350);
 
     //Actualización del Inventario
-    this.inventoryBar.updateStatus(this);
+    this.inventoryBar.updateStatus();
   }
 }
