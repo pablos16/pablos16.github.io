@@ -1,7 +1,6 @@
 import Player from './player.js'
 import Dialogue from './Dialogue.js'
 import NPC from './npc.js'
-import Item from './item.js'
 import InventoryBar from './inventoryBar.js'
 import DroppedItem from './droppedItem.js'
 
