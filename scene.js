@@ -10,9 +10,6 @@ export default class Scene extends Phaser.Scene {
   }
   //Aqui te crea todo lo que necesites al inicio para todo el juego
   create() {
-
-    
-    
     this.cursors = this.input.keyboard.addKeys(
       {
         up:     Phaser.Input.Keyboard.KeyCodes.W,
@@ -40,12 +37,15 @@ export default class Scene extends Phaser.Scene {
     //Velocidad inicial
     this.NPC.moveRight();
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> refs/remotes/origin/main
     //Camara que sigue al jugador
     this.cameras.main.startFollow(this.player);
-    this.cameras.main.width = 1400;
-    this.cameras.main.height = 750;
+    this.cameras.main.width = 1422;
+    this.cameras.main.height = 800;
 
     //Muros creados
     this.wall = this.physics.add.staticGroup();
@@ -70,28 +70,60 @@ export default class Scene extends Phaser.Scene {
     });
 
     //Objetos en el suelo
+    this.dropped1 = new DroppedItem(this, 20, 50, 1);
+    this.dropped2 = new DroppedItem(this, 20, 82, 2);
+    this.dropped3 = new DroppedItem(this, 20, 114, 3);
+    this.dropped4 = new DroppedItem(this, 20, 146, 4);
+    this.dropped5 = new DroppedItem(this, 20, 178, 5);
+    this.dropped6 = new DroppedItem(this, 20, 210, 6);
+    this.dropped7 = new DroppedItem(this, 20, 242, 7);
+    this.dropped8 = new DroppedItem(this, 20, 274, 8);
+    this.dropped9 = new DroppedItem(this, 20, 306, 9);
+    this.dropped10 = new DroppedItem(this, 20, 338, 10);
+    this.dropped11 = new DroppedItem(this, 20, 370, 11);
+    this.dropped12 = new DroppedItem(this, 20, 402, 12);
+    this.dropped13 = new DroppedItem(this, 20, 434, 13);
+    this.dropped14 = new DroppedItem(this, 20, 466, 14);
+    this.dropped15 = new DroppedItem(this, 20, 498, 15);
+    this.dropped16 = new DroppedItem(this, 20, 530, 16);
+    this.dropped17 = new DroppedItem(this, 20, 562, 17);
+    this.dropped18 = new DroppedItem(this, 20, 594, 18);
     this.droppedItems = this.physics.add.staticGroup();
-    this.droppedItems.create(new DroppedItem(this, 20, 100, 1));
-    this.droppedItems.create(new DroppedItem(this, 20, 100, 1));
-    this.droppedItems.create(new DroppedItem(this, 20, 200, 2));
-    this.droppedItems.create(new DroppedItem(this, 20, 300, 3));
-    this.droppedItems.create(new DroppedItem(this, 20, 400, 4));
-    this.droppedItems.create(new DroppedItem(this, 20, 500, 5));
-    this.droppedItems.create(new DroppedItem(this, 120, 100, 6));
-    this.droppedItems.create(new DroppedItem(this, 120, 200, 7));
-    this.droppedItems.create(new DroppedItem(this, 120, 300, 8));
-    this.droppedItems.create(new DroppedItem(this, 120, 400, 9));
-    this.droppedItems.create(new DroppedItem(this, 120, 500, 10));
-    this.droppedItems.create(new DroppedItem(this, 220, 100, 11));
-    this.droppedItems.create(new DroppedItem(this, 220, 200, 12));
-    this.droppedItems.create(new DroppedItem(this, 220, 300, 13));
-    this.droppedItems.create(new DroppedItem(this, 220, 400, 14));
-    this.droppedItems.create(new DroppedItem(this, 220, 500, 15));
-    this.droppedItems.create(new DroppedItem(this, 320, 100, 16));
-    this.droppedItems.create(new DroppedItem(this, 320, 200, 17));
-    this.droppedItems.create(new DroppedItem(this, 320, 300, 18));
+    this.droppedItems.add(this.dropped1);
+    this.droppedItems.add(this.dropped2);
+    this.droppedItems.add(this.dropped3);    
+    this.droppedItems.add(this.dropped4);
+    this.droppedItems.add(this.dropped5);    
+    this.droppedItems.add(this.dropped6);
+    this.droppedItems.add(this.dropped7);    
+    this.droppedItems.add(this.dropped8);
+    this.droppedItems.add(this.dropped9);    
+    this.droppedItems.add(this.dropped10);
+    this.droppedItems.add(this.dropped11);    
+    this.droppedItems.add(this.dropped12);
+    this.droppedItems.add(this.dropped13);    
+    this.droppedItems.add(this.dropped14);
+    this.droppedItems.add(this.dropped15);
+    this.droppedItems.add(this.dropped16);
+    this.droppedItems.add(this.dropped17);
+    this.droppedItems.add(this.dropped18);
 
-    this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) => { console.log('Pedro'); });
+    this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) =>
+    {
+      // recoger
+      if (this.action.isDown) { if (this.player.pickUpInventoryItem(o2.getID())) o2.destroy(); }
+    });
+
+    this.physics.add.overlap(this.player, this.NPC.trigger, (o1, o2) =>
+    {
+      // Si pulsas la E...
+      if (this.action.isDown) 
+      { 
+        //Hablas con el
+        //PONER AQUI DIÁLOGO
+        this.player.speed = 1000;
+      }
+    });
 
     //Colliders personaje
     //this.physics.add.collider(this.player, this.cobers);
@@ -156,13 +188,13 @@ export default class Scene extends Phaser.Scene {
     this.testDialogue.update()
     //this.testDialogue.label.text = this.testDialogue.GetName();
 
+    //Movimiento del noc
     this.NPC.moveX(-50,50);
-
 
     //Actualización del Inventario
     this.inventoryBar.updateStatus();
 
-
-    if (this.action.isDown && this.physics.overlap(this.player, this.droppedItems)) { console.log('Wasamba'); };
+    //Fijar Barra de Inventario
+    this.inventoryBar.relocateTo(this.player.getXPos() - 450, this.player.getYPos() + 35);
   }
 }

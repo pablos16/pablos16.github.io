@@ -36,15 +36,15 @@ export default class Item extends Phaser.GameObjects.Image
                 break;
             case 4: name = 'Cojín persa'; desc = 'Mullido, cómodo y colorido. ¿Quién se resistiría a adquirirlo a tan buen precio?'; texture = 'Item_Cushion';
                 break;
-            case 5: name = 'Carteles de “Se Busca”'; desc = 'El retrato es idéntico al del fugitivo.'; texture = 'Item_WantedSign';
+            case 5: name = 'Carteles de "Se Busca"'; desc = 'El retrato es idéntico al del fugitivo.'; texture = 'Item_WantedSign';
                 break;
             case 6: name = 'Carteles feriales'; desc = 'Informan de la llegada de la feria a la ciudad.'; texture = 'Item_CircusSign';
                 break;
             case 7: name = 'Carteles cuestionables'; desc = 'Pancartas similares a las propagandísticas del régimen. Hay algo raro en ellas.'; texture = 'Item_RebelsSign';
                 break;
-            case 8: name = 'Cepillo y Jabón'; desc = 'Funcionan a la perfección para quitar las pintadas.'; texture = 'Item_SoapAndBrush';
+            case 8: name = 'Cepillo y jabón'; desc = 'Funcionan a la perfección para quitar pintadas.'; texture = 'Item_SoapAndBrush';
                 break;
-            case 9: name = 'Tinte'; desc = 'Si cubres con esto la pintada, quizá no se note el dibujo.'; texture = 'Item_Dye';
+            case 9: name = 'Tinte'; desc = 'Si cubres con esto una pintada, quizá no se note el dibujo.'; texture = 'Item_Dye';
                 break;
             case 10: name = 'Cerillas y aceite'; desc = 'Permiten prender fuego a prácticamente todo.'; texture = 'Item_OilAndMatches';
                 break;
@@ -61,9 +61,9 @@ export default class Item extends Phaser.GameObjects.Image
                 break;
             case 16: name = 'Oso de peluche de Sona'; desc = 'Te lo ha dado con todo su corazón. Tiene un gran valor sentimental para ella.'; texture = 'Item_BearPlush';
                 break;
-            case 17: name = 'Reliquia extraña'; desc = 'Supuestamente otorga “vitalidad”, aunque no notas nada.'; texture = 'Item_Rune';
+            case 17: name = 'Reliquia extraña'; desc = 'Supuestamente otorga "vitalidad", aunque no notas nada.'; texture = 'Item_Rune';
                 break;
-            case 18: name = 'Anillo'; desc = 'El nombre “Lola” está grabado dentro de él. ¿Por qué lo habrá tirado?'; texture = 'Item_Ring';
+            case 18: name = 'Anillo'; desc = 'El nombre "Lola" está grabado dentro de él. ¿Por qué lo habrá tirado?'; texture = 'Item_Ring';
                 break;
             // Nada:
             default: name = '-'; desc = '-'; texture = 'Item_-';

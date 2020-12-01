@@ -3,12 +3,16 @@ import Inventory from "./inventory.js";
 export default class Player extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y) {
     super(scene, x, y, 'player');
-    //this.score = 0;
+
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
     this.body.setCollideWorldBounds();
     this.speed = 300;
+
+    //Texto de prueba para comprobar la velocidad del player
     this.label = this.scene.add.text(10, 10);
+
+    //Inventario
     this._inventory = new Inventory();
 
     
@@ -37,7 +41,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
     //this.play('walk', true)
   }
   moveLeft(){
-    //Para utilizar menos sprites
     this.setFlipX(false)
     this.body.setVelocityX(-50);
     //this.play('walk', true)
@@ -56,7 +59,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
   getInventoryItemAt(slotNumber) { return this._inventory.getItemAt(slotNumber); }
   dropInventoryItemAt(slotNumber) { this._inventory.removeItemAt(slotNumber); }
   moveInventoryItemsIn(slotNumber1, slotNumber2) { this._inventory.moveItemsIn(slotNumber1, slotNumber2); }
-  //pickUpInventoryItem(ItemID) {}
+  pickUpInventoryItem(ItemID) { return this._inventory.addItem(ItemID) }
 
   //Obtener Posición
   getXPos() { return this.x; }

@@ -7,8 +7,8 @@ export default class DroppedItem extends Phaser.GameObjects.Sprite
         this._changeTo(ID);
 
         this.scene.add.existing(this);
-        this.scene.physics.add.existing(this);
-        this.body.setImmovable(true);
+        //this.scene.physics.add.existing(this); ???
+        //this.body.setImmovable(true);          ???
     }
 
     getID() {return this._id;}
@@ -18,7 +18,9 @@ export default class DroppedItem extends Phaser.GameObjects.Sprite
         let texture = this._setItemTexture(ID);
         this.setTexture(texture);
         this._id = ID;
-        this.scale = 0.6;
+        this.setScale(0.5) // 1
+        this.setSize(32, 32); // 64, 64
+        this.setDisplayOrigin(0,0); // ???
     }
 
     _setItemTexture(ID)
