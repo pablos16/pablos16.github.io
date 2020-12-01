@@ -49,16 +49,16 @@ export default class InventoryBar extends Phaser.GameObjects.Container
         this.box0.on('pointerover', pointer => { if (this.img0.getName() !== '-') { console.log('a'); this._setText(0); this._text.visible = true; } });
         this.box0.on('pointerout', pointer => { this._text.visible = false; });
         this.box1.on('pointerdown', pointer => { this._manageItem(1) });
-        this.box1.on('pointerover', pointer => { if (this.img0.getName() !== '-') { this._setText(1); this._text.visible = true; } });
+        this.box1.on('pointerover', pointer => { if (this.img1.getName() !== '-') { this._setText(1); this._text.visible = true; } });
         this.box1.on('pointerout', pointer => { this._text.visible = false; });
         this.box2.on('pointerdown', pointer => { this._manageItem(2) });
-        this.box2.on('pointerover', pointer => { if (this.img0.getName() !== '-') { this._setText(2); this._text.visible = true; } });
+        this.box2.on('pointerover', pointer => { if (this.img2.getName() !== '-') { this._setText(2); this._text.visible = true; } });
         this.box2.on('pointerout', pointer => { this._text.visible = false; });
         this.box3.on('pointerdown', pointer => { this._manageItem(3) });
-        this.box3.on('pointerover', pointer => { if (this.img0.getName() !== '-') { this._setText(3); this._text.visible = true; } });
+        this.box3.on('pointerover', pointer => { if (this.img3.getName() !== '-') { this._setText(3); this._text.visible = true; } });
         this.box3.on('pointerout', pointer => { this._text.visible = false; });
         this.box4.on('pointerdown', pointer => { this._manageItem(4) });
-        this.box4.on('pointerover', pointer => { if (this.img0.getName() !== '-') { this._setText(4); this._text.visible = true; } });
+        this.box4.on('pointerover', pointer => { if (this.img4.getName() !== '-') { this._setText(4); this._text.visible = true; } });
         this.box4.on('pointerout', pointer => { this._text.visible = false; });
 
         this._pl = scene.player;
