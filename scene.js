@@ -179,5 +179,8 @@ export default class Scene extends Phaser.Scene {
 
     //Fijar Barra de Inventario
     this.inventoryBar.relocateTo(this.player.getXPos() - 450, this.player.getYPos() + 35);
+
+    //Inspección de Objeto
+    this.inventoryBar.setText(0);
   }
 }

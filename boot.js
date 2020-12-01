@@ -30,7 +30,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('inventorySlotSelection', 'resources/game/textures/inventory/selection.png');
     this.load.image('dropSlot', 'resources/game/textures/inventory/box_drop.png');
 
-    //Objetos de inventario
+    //Objetos de Inventario
     this.load.image('Item_-', 'resources/game/textures/inventory/void_.png');
     
     this.load.image('Item_TNT', 'resources/game/textures/items/tnt.png');
@@ -52,6 +52,9 @@ export default class Boot extends Phaser.Scene {
     this.load.image('Item_BearPlush', 'resources/game/textures/items/plush_bear.png');
     this.load.image('Item_Rune', 'resources/game/textures/items/rune.png');
     this.load.image('Item_Ring', 'resources/game/textures/items/ring.png');
+
+    //Fuente
+    this.load.bitmapFont('Font', 'resources/game/font/font.png', 'resources/game/font/font.fnt');
 
     // Destruir:
     ////Item_TNT.destroy();

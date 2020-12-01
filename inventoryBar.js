@@ -11,6 +11,8 @@ export default class InventoryBar extends Phaser.GameObjects.Container
         //this.setScrollFactor(1, 1, true);      ////////////////////////
 
         this._selection = null;
+        this._text = scene.add.bitmapText(x - 30, y - 680, 'Font', '(texto)', 20, 0);
+        /*this._text.text = 'Lorem ipsum:\n\n============================================================================\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';*/
 
         texture.on('pointerdown', pointer =>
         {
@@ -40,6 +42,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container
         this.add([this.box0, this.box1, this.box2, this.box3, this.box4]);
         this.add([this.img0, this.img1, this.img2, this.img3, this.img4]);
         this.add(this.selectionTexture);
+        this.add(this._text);
         this.box0.on('pointerdown', pointer => { this._manageItem(0) });
         this.box1.on('pointerdown', pointer => { this._manageItem(1) });
         this.box2.on('pointerdown', pointer => { this._manageItem(2) });
@@ -58,6 +61,18 @@ export default class InventoryBar extends Phaser.GameObjects.Container
             case 2: return this.box2;
             case 3: return this.box3;
             case 4: return this.box4;
+        }
+    }
+
+    _selectionToImage(number)
+    {
+        switch(number)
+        {
+            case 0: return this.img0;
+            case 1: return this.img1;
+            case 2: return this.img2;
+            case 3: return this.img3;
+            case 4: return this.img4;
         }
     }
 
@@ -111,5 +126,16 @@ export default class InventoryBar extends Phaser.GameObjects.Container
     {
         this.x = xPos;
         this.y = yPos;
+    }
+
+    setText(number)
+    {
+        let title = this._selectionToImage(number).getName();
+        let description = this._selectionToImage(number).getDesc();
+
+        this._text.text = '';
+        this._text.text += String(title);
+        this._text.text += '\n\n================================================\n\n';
+        this._text.text += String(description);
     }
 }
