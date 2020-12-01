@@ -42,9 +42,9 @@ export default class Item extends Phaser.GameObjects.Image
                 break;
             case 7: name = 'Carteles cuestionables'; desc = 'Pancartas similares a las propagandísticas del régimen. Hay algo raro en ellas.'; texture = 'Item_RebelsSign';
                 break;
-            case 8: name = 'Cepillo y Jabón'; desc = 'Funcionan a la perfección para quitar las pintadas.'; texture = 'Item_SoapAndBrush';
+            case 8: name = 'Cepillo y jabón'; desc = 'Funcionan a la perfección para quitar pintadas.'; texture = 'Item_SoapAndBrush';
                 break;
-            case 9: name = 'Tinte'; desc = 'Si cubres con esto la pintada, quizá no se note el dibujo.'; texture = 'Item_Dye';
+            case 9: name = 'Tinte'; desc = 'Si cubres con esto una pintada, quizá no se note el dibujo.'; texture = 'Item_Dye';
                 break;
             case 10: name = 'Cerillas y aceite'; desc = 'Permiten prender fuego a prácticamente todo.'; texture = 'Item_OilAndMatches';
                 break;
