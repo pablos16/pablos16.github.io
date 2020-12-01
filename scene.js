@@ -42,7 +42,6 @@ export default class Scene extends Phaser.Scene {
 
 
 
-
     //Camara que sigue al jugador
     this.cameras.main.startFollow(this.player);
     this.cameras.main.width = 1400;
