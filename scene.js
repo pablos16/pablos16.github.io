@@ -109,17 +109,6 @@ export default class Scene extends Phaser.Scene {
       if (this.action.isDown) { if (this.player.pickUpInventoryItem(o2.getID())) o2.destroy(); }
     });
 
-    this.physics.add.overlap(this.player, this.NPC.trigger, (o1, o2) =>
-    {
-      // Si pulsas la E...
-      if (this.action.isDown) 
-      { 
-        //Hablas con el
-        //PONER AQUI DIÁLOGO
-        this.player.speed = 1000;
-      }
-    });
-
     //Colliders personaje
     //this.physics.add.collider(this.player, this.cobers);
     //this.physics.add.collider(this.player, this.UpWall);
@@ -183,7 +172,6 @@ export default class Scene extends Phaser.Scene {
     this.testDialogue.update()
     //this.testDialogue.label.text = this.testDialogue.GetName();
 
-    //Movimiento del noc
     this.NPC.moveX(-50,50);
 
     //Actualización del Inventario
