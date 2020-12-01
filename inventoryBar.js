@@ -11,9 +11,10 @@ export default class InventoryBar extends Phaser.GameObjects.Container
         //this.setScrollFactor(1, 1, true);      ////////////////////////
 
         this._selection = null;
+
         this._text = scene.add.bitmapText(x - 30, y - 680, 'Font', '(texto)', 20, 0);
         this._text.letterSpacing = 2;
-        /*this._text.text = 'Lorem ipsum:\n\n============================================================================\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';*/
+        this._text.visible = false;
 
         texture.on('pointerdown', pointer =>
         {
@@ -45,10 +46,20 @@ export default class InventoryBar extends Phaser.GameObjects.Container
         this.add(this.selectionTexture);
         this.add(this._text);
         this.box0.on('pointerdown', pointer => { this._manageItem(0) });
+        this.box0.on('pointerover', pointer => { if (this.img0.getName() !== '-') { console.log('a'); this._setText(0); this._text.visible = true; } });
+        this.box0.on('pointerout', pointer => { this._text.visible = false; });
         this.box1.on('pointerdown', pointer => { this._manageItem(1) });
+        this.box1.on('pointerover', pointer => { if (this.img0.getName() !== '-') { this._setText(1); this._text.visible = true; } });
+        this.box1.on('pointerout', pointer => { this._text.visible = false; });
         this.box2.on('pointerdown', pointer => { this._manageItem(2) });
+        this.box2.on('pointerover', pointer => { if (this.img0.getName() !== '-') { this._setText(2); this._text.visible = true; } });
+        this.box2.on('pointerout', pointer => { this._text.visible = false; });
         this.box3.on('pointerdown', pointer => { this._manageItem(3) });
+        this.box3.on('pointerover', pointer => { if (this.img0.getName() !== '-') { this._setText(3); this._text.visible = true; } });
+        this.box3.on('pointerout', pointer => { this._text.visible = false; });
         this.box4.on('pointerdown', pointer => { this._manageItem(4) });
+        this.box4.on('pointerover', pointer => { if (this.img0.getName() !== '-') { this._setText(4); this._text.visible = true; } });
+        this.box4.on('pointerout', pointer => { this._text.visible = false; });
 
         this._pl = scene.player;
     }
@@ -129,8 +140,12 @@ export default class InventoryBar extends Phaser.GameObjects.Container
         this.y = yPos;
     }
 
-    setText(number)
+    _setText(number)
     {
+        /*
+        this._text.text = 'Lorem ipsum:\n\n============================================================================\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+        */
+
         let title = this._selectionToImage(number).getName();
         let description = this._selectionToImage(number).getDesc();
 
