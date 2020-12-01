@@ -106,4 +106,10 @@ export default class InventoryBar extends Phaser.GameObjects.Container
     }
 
     getSelection() { return this._selection; }
+
+    relocateTo(xPos, yPos)
+    {
+        this.x = xPos;
+        this.y = yPos;
+    }
 }

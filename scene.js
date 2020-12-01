@@ -10,9 +10,6 @@ export default class Scene extends Phaser.Scene {
   }
   //Aqui te crea todo lo que necesites al inicio para todo el juego
   create() {
-
-    
-    
     this.cursors = this.input.keyboard.addKeys(
       {
         up:     Phaser.Input.Keyboard.KeyCodes.W,
@@ -40,13 +37,10 @@ export default class Scene extends Phaser.Scene {
     //Velocidad inicial
     this.NPC.moveRight();
 
-
-
-
     //Camara que sigue al jugador
     this.cameras.main.startFollow(this.player);
-    this.cameras.main.width = 1400;
-    this.cameras.main.height = 750;
+    this.cameras.main.width = 1422;
+    this.cameras.main.height = 800;
 
     //Muros creados
     this.wall = this.physics.add.staticGroup();
@@ -71,24 +65,24 @@ export default class Scene extends Phaser.Scene {
     });
 
     //Objetos en el suelo
-    this.dropped1 = new DroppedItem(this, 20, 100, 1);
-    this.dropped2 = new DroppedItem(this, 20, 200, 2);
-    this.dropped3 = new DroppedItem(this, 20, 300, 3);
-    this.dropped4 = new DroppedItem(this, 20, 400, 4);
-    this.dropped5 = new DroppedItem(this, 20, 500, 5);
-    this.dropped6 = new DroppedItem(this, 120, 100, 6);
-    this.dropped7 = new DroppedItem(this, 120, 200, 7);
-    this.dropped8 = new DroppedItem(this, 120, 300, 8);
-    this.dropped9 = new DroppedItem(this, 120, 400, 9);
-    this.dropped10 = new DroppedItem(this, 120, 500, 10);
-    this.dropped11 = new DroppedItem(this, 220, 100, 11);
-    this.dropped12 = new DroppedItem(this, 220, 200, 12);
-    this.dropped13 = new DroppedItem(this, 220, 300, 13);
-    this.dropped14 = new DroppedItem(this, 220, 400, 14);
-    this.dropped15 = new DroppedItem(this, 220, 500, 15);
-    this.dropped16 = new DroppedItem(this, 320, 100, 16);
-    this.dropped17 = new DroppedItem(this, 320, 200, 17);
-    this.dropped18 = new DroppedItem(this, 320, 300, 18);
+    this.dropped1 = new DroppedItem(this, 20, 50, 1);
+    this.dropped2 = new DroppedItem(this, 20, 82, 2);
+    this.dropped3 = new DroppedItem(this, 20, 114, 3);
+    this.dropped4 = new DroppedItem(this, 20, 146, 4);
+    this.dropped5 = new DroppedItem(this, 20, 178, 5);
+    this.dropped6 = new DroppedItem(this, 20, 210, 6);
+    this.dropped7 = new DroppedItem(this, 20, 242, 7);
+    this.dropped8 = new DroppedItem(this, 20, 274, 8);
+    this.dropped9 = new DroppedItem(this, 20, 306, 9);
+    this.dropped10 = new DroppedItem(this, 20, 338, 10);
+    this.dropped11 = new DroppedItem(this, 20, 370, 11);
+    this.dropped12 = new DroppedItem(this, 20, 402, 12);
+    this.dropped13 = new DroppedItem(this, 20, 434, 13);
+    this.dropped14 = new DroppedItem(this, 20, 466, 14);
+    this.dropped15 = new DroppedItem(this, 20, 498, 15);
+    this.dropped16 = new DroppedItem(this, 20, 530, 16);
+    this.dropped17 = new DroppedItem(this, 20, 562, 17);
+    this.dropped18 = new DroppedItem(this, 20, 594, 18);
     this.droppedItems = this.physics.add.staticGroup();
     this.droppedItems.add(this.dropped1);
     this.droppedItems.add(this.dropped2);
@@ -180,8 +174,10 @@ export default class Scene extends Phaser.Scene {
 
     this.NPC.moveX(-50,50);
 
-
     //Actualización del Inventario
     this.inventoryBar.updateStatus();
+
+    //Fijar Barra de Inventario
+    this.inventoryBar.relocateTo(this.player.getXPos() - 450, this.player.getYPos() + 35);
   }
 }
