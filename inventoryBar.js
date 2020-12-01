@@ -46,7 +46,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container
         this.add(this.selectionTexture);
         this.add(this._text);
         this.box0.on('pointerdown', pointer => { this._manageItem(0) });
-        this.box0.on('pointerover', pointer => { if (this.img0.getName() !== '-') { console.log('a'); this._setText(0); this._text.visible = true; } });
+        this.box0.on('pointerover', pointer => { if (this.img0.getName() !== '-') { this._setText(0); this._text.visible = true; } });
         this.box0.on('pointerout', pointer => { this._text.visible = false; });
         this.box1.on('pointerdown', pointer => { this._manageItem(1) });
         this.box1.on('pointerover', pointer => { if (this.img1.getName() !== '-') { this._setText(1); this._text.visible = true; } });
