@@ -17,6 +17,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     this.initialPosX = x;
     this.initialPosY = y;
 
+    this.isTalking = false;
     
   }
   

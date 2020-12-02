@@ -9,6 +9,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.body.setCollideWorldBounds();
     this.speed = 300;
 
+    this.isTalking = false;
     //Texto de prueba para comprobar la velocidad del player
     this.label = this.scene.add.text(10, 10);
 

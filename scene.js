@@ -29,7 +29,8 @@ export default class Scene extends Phaser.Scene {
 
     //Personaje
     this.player = new Player(this, 200, 300);
-    this.testDialogue = new Dialogue(this, 1280/2, 720 - 720/5, 'A: ', 'Hola');
+
+
 
     //NPC
     this.NPC = new NPC(this,600,300);
@@ -37,11 +38,12 @@ export default class Scene extends Phaser.Scene {
     //Velocidad inicial
     this.NPC.moveRight();
 
-<<<<<<< HEAD
+    //Fondo del dialogo
+    this.dialogueImage = this.add.image(1300/2, 800/1.25, 'dialogTest');
+    this.dialogueImage.setScrollFactor(0);
+    this.dialogueImage.setVisible(false);
 
 
-=======
->>>>>>> refs/remotes/origin/main
     //Camara que sigue al jugador
     this.cameras.main.startFollow(this.player);
     this.cameras.main.width = 1422;
@@ -119,9 +121,32 @@ export default class Scene extends Phaser.Scene {
       // Si pulsas la E...
       if (this.action.isDown) 
       { 
+        if( !this.player.isTalking){
+          
         //Hablas con el
         //PONER AQUI DIÁLOGO
-        this.player.speed = 1000;
+        this.player.isTalking = true;
+        this.NPC.isTalking = true;
+        this.NPC.stopX();
+        this.NPC.stopY();
+        this.player.stopX();
+        this.player.stopY();
+
+
+        //this.testDialogue = new Dialogue(this, 1280/2, 720 - 720/5, 'A: ', 'Hola');
+        this.dialogueImage.setVisible(true);
+
+        }
+        else{
+          //Volvemos a mover al personaje
+          this.NPC.moveRight();
+
+          this.dialogueImage.setVisible(false);
+          this.player.isTalking=false;
+          this.NPC.isTalking = false;
+          //texto.destroy();
+        }
+
       }
     });
 
@@ -162,6 +187,8 @@ export default class Scene extends Phaser.Scene {
   }
   
   update(){
+    if(!this.player.isTalking){
+      
     if(!(this.cursors.left.isDown || this.cursors.right.isDown) && !(this.cursors.up.isDown || this.cursors.down.isDown)){
       //this.player.setIdle();
       this.player.stopX();
@@ -183,13 +210,16 @@ export default class Scene extends Phaser.Scene {
 
     //Escribe en pantalla el vector
     this.player.label.text = this.player.getX()+ '   ' + this.player.getY();
+    }
 
     //Cosas de Nico
-    this.testDialogue.update()
+    //this.testDialogue.update()
     //this.testDialogue.label.text = this.testDialogue.GetName();
 
-    //Movimiento del noc
-    this.NPC.moveX(-50,50);
+    //Movimiento del npc
+    if(!this.NPC.isTalking){
+      this.NPC.moveX(-50,50);
+    }
 
     //Actualización del Inventario
     this.inventoryBar.updateStatus();
