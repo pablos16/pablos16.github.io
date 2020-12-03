@@ -42,7 +42,11 @@ export default class Scene extends Phaser.Scene {
     this.dialogueImage = this.add.image(1300/2, 800/1.25, 'dialogTest');
     this.dialogueImage.setScrollFactor(0);
     this.dialogueImage.setVisible(false);
-
+    
+    //Barra de alineamiento
+    this.alignBar = this.add.image(1400, 100, 'bar');
+    this.alignBar.setScale(1.75);
+    this.alignBar.setScrollFactor(0);
 
     //Camara que sigue al jugador
     this.cameras.main.startFollow(this.player);
