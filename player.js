@@ -1,7 +1,7 @@
 import Inventory from "./inventory.js";
 
-export default class Player extends Phaser.GameObjects.Sprite {
-  constructor(scene, x, y) {
+export default class Player extends Phaser.GameObjects.Sprite{
+  constructor(scene, x, y){
     super(scene, x, y, 'player');
 
     this.scene.add.existing(this);
@@ -15,11 +15,9 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     //Inventario
     this.inventory = new Inventory();
-
-
   }
 
-  normalizeVector() {
+  normalizeVector(){
     let x = this.body.velocity.x;
     let y = this.body.velocity.y;
 
@@ -32,34 +30,41 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.body.setVelocityY(y * this.speed);
   }
 
-  moveUp() {
+  moveUp(){
     this.body.setVelocityY(-50);
     //this.play('walk', true)
   }
-  moveDown() {
+
+  moveDown(){
     this.body.setVelocityY(50);
     //this.play('walk', true)
   }
-  moveLeft() {
+
+  moveLeft(){
     this.setFlipX(false)
     this.body.setVelocityX(-50);
     //this.play('walk', true)
   }
-  moveRight() {
+
+  moveRight(){
     this.setFlipX(true)
     this.body.setVelocityX(50);
     //this.play('walk', true)
   }
-  stopX() {
+
+  stopX(){
     this.body.setVelocityX(0);
   }
-  stopY() {
+
+  stopY(){
     this.body.setVelocityY(0);
   }
-  getX() {
+
+  getX(){
     return this.body.velocity.x;
   }
-  getY() {
+  
+  getY(){
     return this.body.velocity.y;
   }
 }

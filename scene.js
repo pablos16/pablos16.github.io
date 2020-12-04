@@ -32,58 +32,7 @@ export default class Scene extends Phaser.Scene {
 
     //NPC
     this.NPC = new NPC(this,600,300);
-
-    //Velocidad inicial
-    this.NPC.moveRight();
-
-    //Fondo del dialogo
-    this.dialogueImage = this.add.image(1300/2, 800/1.25, 'dialogTest');
-    this.dialogueImage.setScrollFactor(0);
-    this.dialogueImage.setVisible(false);
-    
-    //Barra de alineamiento
-    this.alignBar = this.add.image(1400, 100, 'bar');
-    this.alignBar.setScale(1.75);
-    this.alignBar.setScrollFactor(0);
-
-    //Camara que sigue al jugador
-    this.cameras.main.startFollow(this.player);
-    this.cameras.main.width = 1422;
-    this.cameras.main.height = 800;
-
-    //Muros creados
-    this.wall = this.physics.add.staticGroup();
-    this.wall.create(500, 250, 'Wall');
-    this.wall.create(600, 450, 'Wall');
-
-    //Barra de Inventario
-    this.inventoryBar = new InventoryBar(this, -180, 290);
-
-    //_____-----Entidad en la que se usa un objeto (dinamita en este caso)-----_____
-    this.clickableDebug = this.add.image(-100, 100, 'debug').setInteractive();
-    this.clickableDebug.requires = 1;
-    this.clickableDebug.on('pointerdown', pointer =>
-    {
-      if (this.player.inventory.getItemAt(this.inventoryBar.getSelection()) === this.clickableDebug.requires)
-      {
-        this.inventoryBar.useCurrentItem();
-        console.log('grasias loko uwu');
-        this.clickableDebug.destroy(this);
-      }
-      else console.log('oye dame dinamita :v');
-    });
-
-    //Objetos en el suelo
-    this.dropped1 = new DroppedItem(this, 20, 50, 1);
-    this.droppedItems = this.physics.add.staticGroup();
-    this.droppedItems.add(this.dropped1);
-    this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) =>
-    {
-      // recoger
-      if (this.action.isDown) { if (this.player.inventory.addItem(o2.getID())) o2.destroy(); }
-    });
-
-
+    this.NPC.moveRight(); //Velocidad inicial
     this.physics.add.overlap(this.player, this.NPC.trigger, (o1, o2) =>
     {
       // Si pulsas la E...
@@ -118,18 +67,67 @@ export default class Scene extends Phaser.Scene {
       }
     });
 
+    //Fondo del dialogo
+    this.dialogueImage = this.add.image(1300/2, 800/1.25, 'dialogTest');
+    this.dialogueImage.setScrollFactor(0);
+    this.dialogueImage.setVisible(false);
+    
+    //Barra de alineamiento
+    this.alignBar = this.add.image(1400, 100, 'bar');
+    this.alignBar.setScale(1.75);
+    this.alignBar.setScrollFactor(0);
+
+    //Cámara que sigue al jugador
+    this.cameras.main.startFollow(this.player);
+    this.cameras.main.width = 1422;
+    this.cameras.main.height = 800;
+
+    //Muros
+    this.wall = this.physics.add.staticGroup();
+    this.wall.create(500, 250, 'Wall');
+    this.wall.create(600, 450, 'Wall');
+
+    //Barra de Inventario
+    this.inventoryBar = new InventoryBar(this, -180, 290);
+
+    //_____-----Entidad en la que se usa un objeto (dinamita en este caso)-----_____
+    this.clickableDebug = this.add.image(-100, 100, 'debug').setInteractive();
+    this.clickableDebug.requires = 1;
+    this.clickableDebug.on('pointerdown', pointer =>
+    {
+      if (this.player.inventory.getItemAt(this.inventoryBar.getSelection()) === this.clickableDebug.requires)
+      {
+        this.inventoryBar.useCurrentItem();
+        console.log('grasias loko uwu');
+        this.clickableDebug.destroy(this);
+      }
+      else console.log('oye dame dinamita :v');
+    });
+
+    //Objetos en el suelo
+    this.dropped1 = new DroppedItem(this, 20, 50, 1);
+    this.droppedItems = this.physics.add.staticGroup();
+    this.droppedItems.add(this.dropped1);
+    this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) =>
+    {
+      // recoger
+      if (this.action.isDown) { if (this.player.inventory.addItem(o2._id)) o2.destroy(); }
+    });
+
+
+
     //Colliders personaje
     //this.physics.add.collider(this.player, this.cobers);
     //this.physics.add.collider(this.player, this.UpWall);
     //this.physics.add.collider(this.player, this.DownWall);
     //Esto es para poner que el collider del jugador choque con los muros
-
     this.physics.add.collider(this.player, this.wall);
     //this.physics.add.collider(this.NPC, this.player);
-
     //Esto debería de sobrar
     //this.physics.add.collider(this.NPC, this.wall);
 
+
+    
     //ANIMACIONES
     //No implementadas todavia porque no tenemos sprites
     /*
