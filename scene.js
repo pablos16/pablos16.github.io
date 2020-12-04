@@ -18,7 +18,7 @@ export default class Scene extends Phaser.Scene {
         left:   Phaser.Input.Keyboard.KeyCodes.A
       });
     this.action = this.input.keyboard.addKey('E');
-    //this.pointer = this.input.activePointer;
+    /*this.pointer = this.input.activePointer;*/
 
     //Deshabilitar menú contextual
     this.input.mouse.disableContextMenu();
@@ -29,8 +29,6 @@ export default class Scene extends Phaser.Scene {
 
     //Personaje
     this.player = new Player(this, 200, 300);
-
-
 
     //NPC
     this.NPC = new NPC(this,600,300);

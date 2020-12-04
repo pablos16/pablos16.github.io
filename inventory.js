@@ -2,43 +2,44 @@ export default class Inventory
 {
     constructor()
     {
-        this._slots = [0, 0, 0, 0, 0];
+        let NUM_SLOTS = 5; //TODO magiaaa! :D
+
+        this.slots = [];
+        for (let i = 0; i < NUM_SLOTS; i = i + 1) { this.slots[i] = 0; }
     }
 
-    _searchForRoom()
+    searchForRoom()
     {
-        if (this._slots[0] === 0) return 0;
-        else if (this._slots[1] === 0) return 1;
-        else if (this._slots[2] === 0) return 2;
-        else if (this._slots[3] === 0) return 3;
-        else if (this._slots[4] === 0) return 4;
-        else return -1;
+        let i = 0;
+        while (i < this.slots.length && this.slots[i] !== 0) { i = i + 1; }
+        if (i === this.slots.length) return -1;
+        else return i;
     }
 
     addItem(ItemID)
     {
-        let slotNumber = this._searchForRoom();
+        let slotNumber = this.searchForRoom();
         if (slotNumber !== -1)
         {
-            this._slots[slotNumber] = ItemID;
+            this.slots[slotNumber] = ItemID;
             return true;
         }
         else return false;
     }
 
-    _validSlot(slotNumber) { return (slotNumber === 0 || slotNumber === 1 || slotNumber === 2 || slotNumber === 3 || slotNumber === 4); }
+    validSlot(slotNumber) { return (slotNumber >= 0 && slotNumber <= this.slots.length - 1); }
  
     moveItemsIn(slotNumber1, slotNumber2)
     {
-        if (this._validSlot(slotNumber1) && this._validSlot(slotNumber2))
+        if (this.validSlot(slotNumber1) && this.validSlot(slotNumber2))
         {
-            let tmp = this._slots[slotNumber1];
-            this._slots[slotNumber1] = this._slots[slotNumber2];
-            this._slots[slotNumber2] = tmp;
+            let tmp = this.slots[slotNumber1];
+            this.slots[slotNumber1] = this.slots[slotNumber2];
+            this.slots[slotNumber2] = tmp;
         }
     }
 
-    removeItemAt(slotNumber) { if (this._validSlot(slotNumber)) this._slots[slotNumber] = 0; }
+    removeItemAt(slotNumber) { if (this.validSlot(slotNumber)) this.slots[slotNumber] = 0; }
 
-    getItemAt(slotNumber) { if (this._validSlot(slotNumber)) return this._slots[slotNumber]; }
+    getItemAt(slotNumber) { if (this.validSlot(slotNumber)) return this.slots[slotNumber]; }
 }
