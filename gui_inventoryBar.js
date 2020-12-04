@@ -19,11 +19,11 @@ export default class InventoryBar extends Phaser.GameObjects.Container
         texture.on('pointerdown', pointer =>
         {
             // tirar
-            if (this._selection !== null && scene.player.getInventoryItemAt(this._selection) !== 0)
+            if (this._selection !== null && scene.player.inventory.getItemAt(this._selection) !== 0)
             {
-                let drop = new DroppedItem(scene, scene.player.x - 16, scene.player.y - 16, scene.player.getInventoryItemAt(this._selection));
+                let drop = new DroppedItem(scene, scene.player.x - 16, scene.player.y - 16, scene.player.inventory.getItemAt(this._selection));
                 scene.droppedItems.add(drop);
-                scene.player.dropInventoryItemAt(this._selection);
+                scene.player.inventory.removeItemAt(this._selection);
                 this.selectionTexture.visible = false;
                 this._selection = null;
             }
@@ -34,11 +34,11 @@ export default class InventoryBar extends Phaser.GameObjects.Container
         this.box2 = scene.add.image(-180, 92, 'inventorySlot').setInteractive();
         this.box3 = scene.add.image(-180, 26, 'inventorySlot').setInteractive();
         this.box4 = scene.add.image(-180, -40, 'inventorySlot').setInteractive();
-        this.img0 = new Item(scene, this.box0.x, this.box0.y, scene.player.getInventoryItemAt(0));
-        this.img1 = new Item(scene, this.box1.x, this.box1.y, scene.player.getInventoryItemAt(1));
-        this.img2 = new Item(scene, this.box2.x, this.box2.y, scene.player.getInventoryItemAt(2));
-        this.img3 = new Item(scene, this.box3.x, this.box3.y, scene.player.getInventoryItemAt(3));
-        this.img4 = new Item(scene, this.box4.x, this.box4.y, scene.player.getInventoryItemAt(4));
+        this.img0 = new Item(scene, this.box0.x, this.box0.y, scene.player.inventory.getItemAt(0));
+        this.img1 = new Item(scene, this.box1.x, this.box1.y, scene.player.inventory.getItemAt(1));
+        this.img2 = new Item(scene, this.box2.x, this.box2.y, scene.player.inventory.getItemAt(2));
+        this.img3 = new Item(scene, this.box3.x, this.box3.y, scene.player.inventory.getItemAt(3));
+        this.img4 = new Item(scene, this.box4.x, this.box4.y, scene.player.inventory.getItemAt(4));
         this.selectionTexture = scene.add.image(-180, 290, 'inventorySlotSelection');
         this.selectionTexture.visible = false;
         this.add([this.box0, this.box1, this.box2, this.box3, this.box4]);
@@ -101,7 +101,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container
         // (mover y) deseleccionar
         else
         {
-            if (this._selection !== number) this._pl.moveInventoryItemsIn(this._selection, number);
+            if (this._selection !== number) this._pl.inventory.moveItemsIn(this._selection, number);
             this._selection = null;
             this.selectionTexture.visible = false;
         }
@@ -109,17 +109,17 @@ export default class InventoryBar extends Phaser.GameObjects.Container
 
     updateStatus()
     {
-        this.img0.changeTo(this._pl.getInventoryItemAt(0));
-        this.img1.changeTo(this._pl.getInventoryItemAt(1));
-        this.img2.changeTo(this._pl.getInventoryItemAt(2));
-        this.img3.changeTo(this._pl.getInventoryItemAt(3));
-        this.img4.changeTo(this._pl.getInventoryItemAt(4));
+        this.img0.changeTo(this._pl.inventory.getItemAt(0));
+        this.img1.changeTo(this._pl.inventory.getItemAt(1));
+        this.img2.changeTo(this._pl.inventory.getItemAt(2));
+        this.img3.changeTo(this._pl.inventory.getItemAt(3));
+        this.img4.changeTo(this._pl.inventory.getItemAt(4));
     }
 
     useCurrentItem()
     {
         // usar
-        this._pl.dropInventoryItemAt(this._selection);
+        this._pl.inventory.removeItemAt(this._selection);
         this.selectionTexture.visible = false;
         this._selection = null;
     }

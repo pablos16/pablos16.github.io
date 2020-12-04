@@ -64,7 +64,7 @@ export default class Scene extends Phaser.Scene {
     this.clickableDebug.requires = 1;
     this.clickableDebug.on('pointerdown', pointer =>
     {
-      if (this.player.getInventoryItemAt(this.inventoryBar.getSelection()) === this.clickableDebug.requires)
+      if (this.player.inventory.getItemAt(this.inventoryBar.getSelection()) === this.clickableDebug.requires)
       {
         this.inventoryBar.useCurrentItem();
         console.log('grasias loko uwu');
@@ -80,7 +80,7 @@ export default class Scene extends Phaser.Scene {
     this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) =>
     {
       // recoger
-      if (this.action.isDown) { if (this.player.pickUpInventoryItem(o2.getID())) o2.destroy(); }
+      if (this.action.isDown) { if (this.player.inventory.addItem(o2.getID())) o2.destroy(); }
     });
 
 
