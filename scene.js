@@ -18,7 +18,7 @@ export default class Scene extends Phaser.Scene {
         left:   Phaser.Input.Keyboard.KeyCodes.A
       });
     this.action = this.input.keyboard.addKey('E');
-    this.pointer = this.input.activePointer;
+    //this.pointer = this.input.activePointer;
 
     //Deshabilitar menú contextual
     this.input.mouse.disableContextMenu();
@@ -85,7 +85,7 @@ export default class Scene extends Phaser.Scene {
       if (this.action.isDown) { if (this.player.pickUpInventoryItem(o2.getID())) o2.destroy(); }
     });
 
-    
+
     this.physics.add.overlap(this.player, this.NPC.trigger, (o1, o2) =>
     {
       // Si pulsas la E...
