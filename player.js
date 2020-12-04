@@ -16,53 +16,72 @@ export default class Player extends Phaser.GameObjects.Sprite {
     //Inventario
     this._inventory = new Inventory();
 
-    
+
   }
-  
-  normalizeVector()
-  {
+
+  normalizeVector() {
     let x = this.body.velocity.x;
     let y = this.body.velocity.y;
 
-    let module = Math.sqrt(Math.pow(x, 2) +  Math.pow(y, 2));
+    let module = Math.sqrt(x*x + y*y);
 
     x /= module;
     y /= module;
 
-    this.body.setVelocityX(x*this.speed);
-    this.body.setVelocityY(y*this.speed);
+    this.body.setVelocityX(x * this.speed);
+    this.body.setVelocityY(y * this.speed);
   }
 
-  moveUp(){
+  moveUp() {
     this.body.setVelocityY(-50);
     //this.play('walk', true)
   }
-  moveDown(){
+  moveDown() {
     this.body.setVelocityY(50);
     //this.play('walk', true)
   }
-  moveLeft(){
+  moveLeft() {
     this.setFlipX(false)
     this.body.setVelocityX(-50);
     //this.play('walk', true)
   }
-  moveRight(){
+  moveRight() {
     this.setFlipX(true)
     this.body.setVelocityX(50);
     //this.play('walk', true)
   }
-  stopX() { this.body.setVelocityX(0); }
-  stopY() { this.body.setVelocityY(0); }
-  getX() { return this.body.velocity.x; }
-  getY() { return this.body.velocity.y; }
+  stopX() {
+    this.body.setVelocityX(0);
+  }
+  stopY() {
+    this.body.setVelocityY(0);
+  }
+  getX() {
+    return this.body.velocity.x;
+  }
+  getY() {
+    return this.body.velocity.y;
+  }
 
   // Manejo de Inventario
-  getInventoryItemAt(slotNumber) { return this._inventory.getItemAt(slotNumber); }
-  dropInventoryItemAt(slotNumber) { this._inventory.removeItemAt(slotNumber); }
-  moveInventoryItemsIn(slotNumber1, slotNumber2) { this._inventory.moveItemsIn(slotNumber1, slotNumber2); }
-  pickUpInventoryItem(ItemID) { return this._inventory.addItem(ItemID) }
+  getInventoryItemAt(slotNumber) { 
+    return this._inventory.getItemAt(slotNumber); 
+  }
+  dropInventoryItemAt(slotNumber) { 
+    this._inventory.removeItemAt(slotNumber); 
+  }
+  moveInventoryItemsIn(slotNumber1, slotNumber2) { 
+    this._inventory.moveItemsIn(slotNumber1, slotNumber2); 
+  }
+  pickUpInventoryItem(ItemID) { 
+    return this._inventory.addItem(ItemID) 
+  }
 
   //Obtener Posición
-  getXPos() { return this.x; }
-  getYPos() { return this.y; }
+  getXPos() { 
+    return this.x; 
+  }
+  getYPos() { 
+    return this.y; 
+  }
 }

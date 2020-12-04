@@ -1,4 +1,5 @@
-
+//TODO Container con sprite y trigger 
+//TODO Esto no hereda de sprite, hereda de container
 export default class NPC extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y) {
     super(scene, x, y, 'npc');
@@ -9,7 +10,7 @@ export default class NPC extends Phaser.GameObjects.Sprite {
 
     //Trigger
     this.trigger = scene.add.zone(x, y);
-    this.trigger.setSize(100,100);
+    this.trigger.setSize(100, 100);
     this.scene.physics.world.enable(this.trigger);
     this.trigger.body.setAllowGravity(false);
     this.trigger.body.moves = false;
@@ -18,70 +19,71 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     this.initialPosY = y;
 
     this.isTalking = false;
-    
-  }
-  
-  moveX(left,right){
-    this.trigger.x = this.body.position.x+25;
 
-    if(this.body.position.x>=this.initialPosX+right){
+  }
+
+  moveX(left, right) {
+    //TODO quitar velocidad, con el container no tendria que estar
+    this.trigger.x = this.body.position.x + 25;
+
+    if (this.body.position.x >= this.initialPosX + right) {
       this.moveLeft();
       this.setFlipX(true);
     }
-    else if(this.body.position.x<=this.initialPosX+left){
+    else if (this.body.position.x <= this.initialPosX + left) {
       this.moveRight()
       this.setFlipX(false);
     }
 
   }
-  moveY(top,down){
+  moveY(top, down) {
 
     this.trigger.y = this.body.position.y;
-    
-    if(this.body.y>this.initialPosY+top){
+
+    if (this.body.y > this.initialPosY + top) {
       this.moveDown()
 
     }
-    else if(this.body.y<this.initialPosY+down){
+    else if (this.body.y < this.initialPosY + down) {
       this.moveUp();
-    }    
+    }
   }
 
 
-  moveUp(){
+  moveUp() {
     this.body.setVelocityY(-50);
     //this.play('walk', true)
 
   }
-  moveDown(){
+  moveDown() {
     this.body.setVelocityY(50);
     //this.play('walk', true)
 
   }
-  moveLeft(){
+  moveLeft() {
     //Para utilizar menos sprites
     this.setFlipX(true)
     this.body.setVelocityX(-50);
     //this.play('walk', true)
 
   }
-  moveRight(){
+  moveRight() {
     this.setFlipX(false)
     this.body.setVelocityX(50);
     //this.play('walk', true)
 
   }
-  stopX(){
+  stopX() {
     this.body.setVelocityX(0);
   }
-  stopY(){
+  stopY() {
     this.body.setVelocityY(0);
   }
-  getX(){
-  return this.body.velocity.x;
+  getX() {
+    return this.body.velocity.x;
   }
-  getY(){
-  return this.body.velocity.y;
+  getY() {
+    return this.body.velocity.y;
   }
-  
+  //TODO preupdate, el NPC sabe como moverse. Quitar el move de la escena
 }

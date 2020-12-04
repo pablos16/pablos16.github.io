@@ -1,4 +1,4 @@
-import EventDialoge from './EventDialogue.js'
+import EventDialoge from './eventDialogue.js'
 
 export default class Dialogue extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, name, message) { 

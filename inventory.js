@@ -12,13 +12,13 @@ export default class Inventory
         else if (this._slots[2] === 0) return 2;
         else if (this._slots[3] === 0) return 3;
         else if (this._slots[4] === 0) return 4;
-        else return null;
+        else return -1;
     }
 
     addItem(ItemID)
     {
         let slotNumber = this._searchForRoom();
-        if (slotNumber !== null)
+        if (slotNumber !== -1)
         {
             this._slots[slotNumber] = ItemID;
             return true;
