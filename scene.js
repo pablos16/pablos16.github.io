@@ -1,17 +1,16 @@
-import Player from './player.js'
-import Dialogue from './dialogue.js'
-import NPC from './npc.js'
-import InventoryBar from './gui_inventoryBar.js'
-import DroppedItem from './item.js'
+import Player from './player.js';
+import Dialogue from './dialogue.js';
+import NPC from './npc.js';
+import InventoryBar from './gui_inventoryBar.js';
+import DroppedItem from './item.js';
 
-export default class Scene extends Phaser.Scene {
-  constructor() {
+export default class Scene extends Phaser.Scene{
+  constructor(){
     super({ key: 'scene' });
   }
   //Aqui te crea todo lo que necesites al inicio para todo el juego
-  create() {
-    this.cursors = this.input.keyboard.addKeys(
-      {
+  create(){
+    this.cursors = this.input.keyboard.addKeys({
         up:     Phaser.Input.Keyboard.KeyCodes.W,
         down:   Phaser.Input.Keyboard.KeyCodes.S,
         right:  Phaser.Input.Keyboard.KeyCodes.D,
@@ -33,8 +32,7 @@ export default class Scene extends Phaser.Scene {
     //NPC
     this.NPC = new NPC(this,600,300);
     this.NPC.moveRight(); //Velocidad inicial
-    this.physics.add.overlap(this.player, this.NPC.trigger, (o1, o2) =>
-    {
+    this.physics.add.overlap(this.player, this.NPC.trigger, (o1, o2) =>{
       // Si pulsas la E...
       if (this.action.isDown) 
       { 
@@ -49,10 +47,8 @@ export default class Scene extends Phaser.Scene {
         this.player.stopX();
         this.player.stopY();
 
-
         //this.testDialogue = new Dialogue(this, 1280/2, 720 - 720/5, 'A: ', 'Hola');
         this.dialogueImage.setVisible(true);
-
         }
         else{
           //Volvemos a mover al personaje
@@ -63,7 +59,6 @@ export default class Scene extends Phaser.Scene {
           this.NPC.isTalking = false;
           //texto.destroy();
         }
-
       }
     });
 
@@ -93,10 +88,8 @@ export default class Scene extends Phaser.Scene {
     //_____-----Entidad en la que se usa un objeto (dinamita en este caso)-----_____
     this.clickableDebug = this.add.image(-100, 100, 'debug').setInteractive();
     this.clickableDebug.requires = 1;
-    this.clickableDebug.on('pointerdown', pointer =>
-    {
-      if (this.player.inventory.getItemAt(this.inventoryBar.getSelection()) === this.clickableDebug.requires)
-      {
+    this.clickableDebug.on('pointerdown', pointer =>{
+      if (this.player.inventory.getItemAt(this.inventoryBar.getSelection()) === this.clickableDebug.requires){
         this.inventoryBar.useCurrentItem();
         console.log('grasias loko uwu');
         this.clickableDebug.destroy(this);
@@ -108,10 +101,11 @@ export default class Scene extends Phaser.Scene {
     this.dropped1 = new DroppedItem(this, 20, 50, 1);
     this.droppedItems = this.physics.add.staticGroup();
     this.droppedItems.add(this.dropped1);
-    this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) =>
-    {
+    this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) =>{
       // recoger
-      if (this.action.isDown) { if (this.player.inventory.addItem(o2.id)) o2.destroy(); }
+      if (this.action.isDown){
+        if (this.player.inventory.addItem(o2.id)) o2.destroy();
+      }
     });
 
 
@@ -136,46 +130,46 @@ export default class Scene extends Phaser.Scene {
       frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
       frameRate: 10,
       repeat: -1
-  });
+    });
 
-  this.anims.create({
+    this.anims.create({
       key: 'turn',
       frames: [ { key: 'dude', frame: 4 } ],
       frameRate: 20
-  });
+    });
 
-  this.anims.create({
+    this.anims.create({
       key: 'right',
       frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
       frameRate: 10,
       repeat: -1
-  });*/
+    });*/
   }
   
   update(){
     if(!this.player.isTalking){
-      
-    if(!(this.cursors.left.isDown || this.cursors.right.isDown) && !(this.cursors.up.isDown || this.cursors.down.isDown)){
+      if(!(this.cursors.left.isDown || this.cursors.right.isDown) && !(this.cursors.up.isDown || this.cursors.down.isDown)){
       //this.player.setIdle();
       this.player.stopX();
       this.player.stopY();
-    }
-    else {
+      }
+      else{
       //Movimiento horizontal
       if (this.cursors.left.isDown) this.player.moveLeft();
       else if (this.cursors.right.isDown) this.player.moveRight();      
       else this.player.stopX();
-    }
-    //Movimiento vertical        
-    if (this.cursors.up.isDown) this.player.moveUp();
-    else if (this.cursors.down.isDown) this.player.moveDown();
-    else this.player.stopY();
+      }
+      
+      //Movimiento vertical        
+      if (this.cursors.up.isDown) this.player.moveUp();
+      else if (this.cursors.down.isDown) this.player.moveDown();
+      else this.player.stopY();
     
-    //Normalizamos el vector
-    if(this.player.getX() !== 0 || this.player.getY() !== 0) this.player.normalizeVector();
+      //Normalizamos el vector
+      if(this.player.getX() !== 0 || this.player.getY() !== 0) this.player.normalizeVector();
 
-    //Escribe en pantalla el vector
-    this.player.label.text = this.player.getX()+ '   ' + this.player.getY();
+      //Escribe en pantalla el vector
+      this.player.label.text = this.player.getX()+ '   ' + this.player.getY();
     }
 
     //Cosas de Nico
