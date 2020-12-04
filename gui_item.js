@@ -1,4 +1,4 @@
-export default class Item extends Phaser.GameObjects.Image{
+export default class ItemImage extends Phaser.GameObjects.Image{
     constructor(scene, x, y, id){
         super(scene, x, y, 'debug');
         this.changeTo(id);
@@ -8,8 +8,8 @@ export default class Item extends Phaser.GameObjects.Image{
     changeTo(id){
         let itemData = this.setItemData(id);
         this.setTexture(itemData.texture);
-        this._desc = itemData.desc;
-        this._name = itemData.name;
+        this.desc = itemData.desc;
+        this.name = itemData.name;
     }
 
     setItemData(id){

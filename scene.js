@@ -111,7 +111,7 @@ export default class Scene extends Phaser.Scene {
     this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) =>
     {
       // recoger
-      if (this.action.isDown) { if (this.player.inventory.addItem(o2._id)) o2.destroy(); }
+      if (this.action.isDown) { if (this.player.inventory.addItem(o2.id)) o2.destroy(); }
     });
 
 
