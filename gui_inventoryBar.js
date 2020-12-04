@@ -98,20 +98,12 @@ export default class InventoryBar extends Phaser.GameObjects.Container
             this.selectionTexture.y = this._selectionToBox(number).y;
             this.selectionTexture.visible = true;
         }
-        // deseleccionar
-        else if (this._selection === number)
-        {
-            this._selection = null;
-            this.selectionTexture.visible = false;
-        }
-        // mover (y seleccionar el último clickado)
+        // (mover y) deseleccionar
         else
         {
-            this._pl.moveInventoryItemsIn(this._selection, number);
-            this._selection = number;
-            this.selectionTexture.x = this._selectionToBox(number).x;
-            this.selectionTexture.y = this._selectionToBox(number).y;
-            this.selectionTexture.visible = true;
+            if (this._selection !== number) this._pl.moveInventoryItemsIn(this._selection, number);
+            this._selection = null;
+            this.selectionTexture.visible = false;
         }
     }
 
