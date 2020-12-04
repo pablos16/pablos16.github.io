@@ -89,7 +89,7 @@ export default class Scene extends Phaser.Scene{
     this.clickableDebug = this.add.image(-100, 100, 'debug').setInteractive();
     this.clickableDebug.requires = 1;
     this.clickableDebug.on('pointerdown', pointer =>{
-      if (this.player.inventory.getItemAt(this.inventoryBar.getSelection()) === this.clickableDebug.requires){
+      if (this.player.inventory.getItemAt(this.inventoryBar.selection) === this.clickableDebug.requires){
         this.inventoryBar.useCurrentItem();
         console.log('grasias loko uwu');
         this.clickableDebug.destroy(this);
