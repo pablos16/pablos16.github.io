@@ -1,4 +1,4 @@
-import DroppedItem from './droppedItem.js';
+import DroppedItem from './item.js';
 import Item from './gui_item.js'
 
 export default class InventoryBar extends Phaser.GameObjects.Container
