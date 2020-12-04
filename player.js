@@ -76,12 +76,4 @@ export default class Player extends Phaser.GameObjects.Sprite {
   pickUpInventoryItem(ItemID) { 
     return this._inventory.addItem(ItemID) 
   }
-
-  //Obtener Posición
-  getXPos() { 
-    return this.x; 
-  }
-  getYPos() { 
-    return this.y; 
-  }
 }

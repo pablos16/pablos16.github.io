@@ -193,6 +193,6 @@ export default class Scene extends Phaser.Scene {
     this.inventoryBar.updateStatus();
 
     //Fijar Barra de Inventario
-    this.inventoryBar.relocateTo(this.player.getXPos() - 450, this.player.getYPos() + 35);
+    this.inventoryBar.relocateTo(this.player.x - 450, this.player.y + 35);
   }
 }
