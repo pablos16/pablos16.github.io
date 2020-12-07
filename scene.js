@@ -147,30 +147,7 @@ export default class Scene extends Phaser.Scene{
   }
   
   update(){
-    if(!this.player.isTalking){
-      if(!(this.cursors.left.isDown || this.cursors.right.isDown) && !(this.cursors.up.isDown || this.cursors.down.isDown)){
-      //this.player.setIdle();
-      this.player.stopX();
-      this.player.stopY();
-      }
-      else{
-      //Movimiento horizontal
-      if (this.cursors.left.isDown) this.player.moveLeft();
-      else if (this.cursors.right.isDown) this.player.moveRight();      
-      else this.player.stopX();
-      }
-      
-      //Movimiento vertical        
-      if (this.cursors.up.isDown) this.player.moveUp();
-      else if (this.cursors.down.isDown) this.player.moveDown();
-      else this.player.stopY();
     
-      //Normalizamos el vector
-      if(this.player.getX() !== 0 || this.player.getY() !== 0) this.player.normalizeVector();
-
-      //Escribe en pantalla el vector
-      this.player.label.text = this.player.getX()+ '   ' + this.player.getY();
-    }
 
     //Cosas de Nico
     //this.testDialogue.update()

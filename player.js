@@ -15,6 +15,14 @@ export default class Player extends Phaser.GameObjects.Sprite{
 
     //Inventario
     this.inventory = new Inventory();
+
+    const {LEFT,RIGHT,UP,DOWN,W,A,S,D} = Phaser.Input.Keyboard.KeyCodes
+        this.cursors = scene.input.keyboard.addKeys({
+            left: A,
+            right: D,
+            up: W,
+            down: S
+        })
   }
 
   normalizeVector(){
@@ -66,5 +74,34 @@ export default class Player extends Phaser.GameObjects.Sprite{
   
   getY(){
     return this.body.velocity.y;
+  }
+  preUpdate(time,delta){
+    
+    //Algo de este estilo
+    if(!this.isTalking){
+      
+      if(!(this.cursors.left.isDown || this.cursors.right.isDown) && !(this.cursors.up.isDown || this.cursors.down.isDown)){
+      //this.player.setIdle();
+      this.stopX();
+      this.stopY();
+      }
+      else{
+      //Movimiento horizontal
+      if (this.cursors.left.isDown) this.moveLeft();
+      else if (this.cursors.right.isDown) this.moveRight();      
+      else this.stopX();
+      }
+      
+      //Movimiento vertical        
+      if (this.cursors.up.isDown) this.moveUp();
+      else if (this.cursors.down.isDown) this.moveDown();
+      else this.stopY();
+    
+      //Normalizamos el vector
+      if(this.getX() !== 0 || this.getY() !== 0) this.normalizeVector();
+
+      //Escribe en pantalla el vector
+      this.label.text = this.getX()+ '   ' + this.getY();
+    }
   }
 }
