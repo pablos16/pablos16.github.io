@@ -23,6 +23,7 @@ export default class Player extends Phaser.GameObjects.Sprite{
             up: W,
             down: S
         })
+        
   }
 
   normalizeVector(){
