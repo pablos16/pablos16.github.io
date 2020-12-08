@@ -10,10 +10,6 @@ export default class Scene extends Phaser.Scene{
   }
   //Aqui te crea todo lo que necesites al inicio para todo el juego
   create(){
-    
-    this.action = this.input.keyboard.addKey('E');
-    /*this.pointer = this.input.activePointer;*/
-
     //Deshabilitar menú contextual
     this.input.mouse.disableContextMenu();
 
@@ -78,32 +74,31 @@ export default class Scene extends Phaser.Scene{
     this.wall.create(600, 450, 'Wall');
 
     //Barra de Inventario
-    this.inventoryBar = new InventoryBar(this, -180, 290);
+    this.inventoryBar = new InventoryBar(this, 45, 360);
+
+    //Objetos en el suelo
+    this.droppedItems = this.physics.add.staticGroup();
+    this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) =>{
+      // recoger
+      if (this.player.action.isDown){
+        if (this.player.inventory.addItem(o2.id)) o2.destroy();
+      }
+    });
+    this.dropped1 = new DroppedItem(this, 20, 50, 1, this.droppedItems);
 
     //_____-----Entidad en la que se usa un objeto (dinamita en este caso)-----_____
     this.clickableDebug = this.add.image(-100, 100, 'debug').setInteractive();
     this.clickableDebug.requires = 1;
     this.clickableDebug.on('pointerdown', pointer =>{
       if (this.player.inventory.getItemAt(this.inventoryBar.selection) === this.clickableDebug.requires){
-        this.inventoryBar.useCurrentItem();
-        console.log('grasias loko uwu');
-        this.clickableDebug.destroy(this);
-      }
+            this.inventoryBar.useCurrentItem();
+            console.log('grasias loko uwu');
+            this.clickableDebug.destroy(this);
+       }
       else console.log('oye dame dinamita :v');
     });
 
-    //Objetos en el suelo
-    this.dropped1 = new DroppedItem(this, 20, 50, 1);
-    this.droppedItems = this.physics.add.staticGroup();
-    this.droppedItems.add(this.dropped1);
-    this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) =>{
-      // recoger
-      if (this.action.isDown){
-        if (this.player.inventory.addItem(o2.id)) o2.destroy();
-      }
-    });
-
-
+    
 
     //Colliders personaje
     //this.physics.add.collider(this.player, this.cobers);
@@ -142,8 +137,6 @@ export default class Scene extends Phaser.Scene{
   }
   
   update(){
-    
-
     //Cosas de Nico
     //this.testDialogue.update()
     //this.testDialogue.label.text = this.testDialogue.GetName();
@@ -152,11 +145,5 @@ export default class Scene extends Phaser.Scene{
     if(!this.NPC.isTalking){
       this.NPC.moveX(-50,50);
     }
-
-    //Actualización del Inventario
-    this.inventoryBar.updateStatus();
-
-    //Fijar Barra de Inventario
-    this.inventoryBar.relocateTo(this.player.x - 450, this.player.y + 35);
   }
 }

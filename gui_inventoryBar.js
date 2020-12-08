@@ -5,22 +5,20 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
     constructor(scene, x, y){
         //TODO magiaaa! :D
         let NUM_SLOTS = 5;
-        let BOX_POSX = -180;
-        let BOX_POSY = 224;
         let BOX_OFFSET = 66;
         let DROPPEDITEM_HALFSIZE = 16;
         let TEXT_OFFSETX = -30;
         let TEXT_OFFSETY = -680;
 
-        let texture = scene.add.image(x, y, 'dropSlot').setInteractive();
+        let texture = scene.add.image(x, y, 'dropSlot').setInteractive().setScrollFactor(0);
         super(scene, x, y, texture);
         scene.add.existing(this);
-        //this.setScrollFactor(1, 1, true);      ////////////////////////
+        this.setScrollFactor(0);
 
         texture.on('pointerdown', pointer =>{
             // tirar
             if (this.selection !== null && scene.player.inventory.getItemAt(this.selection) !== 0){
-                let drop = new DroppedItem(scene, scene.player.x - DROPPEDITEM_HALFSIZE, scene.player.y - DROPPEDITEM_HALFSIZE, scene.player.inventory.getItemAt(this.selection));
+                let drop = new DroppedItem(scene, scene.player.x - DROPPEDITEM_HALFSIZE, scene.player.y - DROPPEDITEM_HALFSIZE, scene.player.inventory.getItemAt(this.selection), scene.droppedItems);
                 scene.droppedItems.add(drop);
                 scene.player.inventory.removeItemAt(this.selection);
                 this.selectionTexture.visible = false;
@@ -38,7 +36,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
         this.boxes = [];
         this.images = [];
         for (let i = 0; i < NUM_SLOTS; i = i + 1){
-            this.boxes[i] = scene.add.image(BOX_POSX, BOX_POSY - BOX_OFFSET * i, 'inventorySlot').setInteractive();
+            this.boxes[i] = scene.add.image(x, y - BOX_OFFSET * (i + 1), 'inventorySlot').setInteractive().setScrollFactor(0);
             this.add(this.boxes[i]);
             this.boxes[i].on('pointerdown', pointer =>{
                 this.manageItem(i);
@@ -55,7 +53,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
             this.images[i] = new ItemImage(scene, this.boxes[i].x, this.boxes[i].y, scene.player.inventory.getItemAt(i));
             this.add(this.images[i]);
         }
-        this.selectionTexture = scene.add.image(BOX_POSX, BOX_POSY + BOX_OFFSET, 'inventorySlotSelection');
+        this.selectionTexture = scene.add.image(x, y + BOX_OFFSET, 'inventorySlotSelection');
         this.selectionTexture.visible = false;
         this.add(this.selectionTexture);
 
@@ -85,15 +83,11 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
         this.selection = null;
     }
 
-    updateStatus(){
+    preUpdate(){
+        //Actualizar Barra de Inventario
         for (let i = 0; i < this.images.length; i = i + 1){
             this.images[i].changeTo(this.pl.inventory.getItemAt(i))
         };
-    }
-
-    relocateTo(xPos, yPos){//////BORRRRR/////////////
-        this.x = xPos;
-        this.y = yPos;
     }
 
     setText(i){

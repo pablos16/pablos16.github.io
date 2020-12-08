@@ -10,19 +10,21 @@ export default class Player extends Phaser.GameObjects.Sprite{
     this.speed = 300;
 
     this.isTalking = false;
+
     //Texto de prueba para comprobar la velocidad del player
     this.label = this.scene.add.text(10, 10);
 
     //Inventario
     this.inventory = new Inventory();
 
-    const {LEFT,RIGHT,UP,DOWN,W,A,S,D} = Phaser.Input.Keyboard.KeyCodes
-        this.cursors = scene.input.keyboard.addKeys({
-            left: A,
-            right: D,
-            up: W,
-            down: S
-        })
+    const {LEFT,RIGHT,UP,DOWN,W,A,S,D} = Phaser.Input.Keyboard.KeyCodes;
+    this.cursors = scene.input.keyboard.addKeys({
+      left: A,
+      right: D,
+      up: W,
+      down: S
+    })
+    this.action = scene.input.keyboard.addKey('E');
         
   }
 

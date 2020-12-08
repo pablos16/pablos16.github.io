@@ -1,10 +1,11 @@
 export default class DroppedItem extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, id){
+    constructor(scene, x, y, id, group){
         super(scene, x, y, 'debug');
         this.changeTo(id);
         this.scene.add.existing(this);
         //this.scene.physics.add.existing(this); ???
         //this.body.setImmovable(true); ???
+        group.add(this);
     }
 
     changeTo(id){
