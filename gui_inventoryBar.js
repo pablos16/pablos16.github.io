@@ -42,7 +42,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
                 this.manageItem(i);
             });
             this.boxes[i].on('pointerover', pointer =>{
-                if(this.images[i].name !== '-'){
+                if(scene.player.inventory.getItemAt(i) !== 0){
                     this.setText(i);
                     this.text.visible = true;
                 }
