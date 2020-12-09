@@ -27,13 +27,10 @@ export default class Boot extends Phaser.Scene {
     this.load.image('dialogTest', 'resources/game/textures/dialoguePlaceholder.png');
 
     //Inventario
-    this.load.image('inventorySlot', 'resources/game/textures/inventory/box.png');
-    this.load.image('inventorySlotSelection', 'resources/game/textures/inventory/selection.png');
-    this.load.image('dropSlot', 'resources/game/textures/inventory/box_drop.png');
+    this.load.spritesheet('inventory', 'resources/game/textures/inventory.png', { frameWidth: 66, frameHeight: 66 });
 
     //Objetos de Inventario
     this.load.spritesheet('items', 'resources/game/textures/items.png', { frameWidth: 64, frameHeight: 64 });
-    this.load.image('emptySlot', 'resources/game/textures/inventory/void_.png');
 
     //Fuente
     this.load.bitmapFont('Font', 'resources/game/font/font.png', 'resources/game/font/font.fnt');
