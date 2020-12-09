@@ -27,6 +27,7 @@ export default class NPC extends Phaser.GameObjects.Container {
     this.isTalking = false;
 
     this.moveRight();
+    
   }
   
   moveX(left, right) {
@@ -71,7 +72,7 @@ export default class NPC extends Phaser.GameObjects.Container {
   moveRight() {
     //Para utilizar menos sprites
     this.spriteImage.setFlipX(false)
-    
+
     this.body.setVelocityX(50);
     //this.play('walk', true)
   }
