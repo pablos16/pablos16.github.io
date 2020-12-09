@@ -25,10 +25,9 @@ export default class Scene extends Phaser.Scene{
     this.NPC.moveRight(); //Velocidad inicial
     this.physics.add.overlap(this.player, this.NPC.trigger, (o1, o2) =>{
       // Si pulsas la E...
-      if (this.action.isDown) 
-      { 
+      if (this.player.action.isDown){
         if( !this.player.isTalking){
-          
+        
         //Hablas con el
         //PONER AQUI DIÁLOGO
         this.player.isTalking = true;
