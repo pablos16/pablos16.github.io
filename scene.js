@@ -83,7 +83,7 @@ export default class Scene extends Phaser.Scene{
         if (this.player.inventory.addItem(o2.id)) o2.destroy();
       }
     });
-    this.dropped = new DroppedItem(this, 20, 50, 1, this.droppedItems);
+    this.dropped = new DroppedItem(this, 50, 200, 1, this.droppedItems);
 
     //_____-----Entidad en la que se usa un objeto (dinamita en este caso)-----_____
     this.clickableDebug = this.add.image(-100, 100, 'debug').setInteractive();

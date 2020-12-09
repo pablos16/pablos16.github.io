@@ -1,6 +1,6 @@
 export default class Inventory{
     constructor(){
-        let NUM_SLOTS = 5; //TODO magiaaa! :D
+        let NUM_SLOTS = 8; //TODO magiaaa! :D
 
         this.slots = [];
         for (let i = 0; i < NUM_SLOTS; i = i + 1) { this.slots[i] = 0; }

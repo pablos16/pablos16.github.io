@@ -4,7 +4,7 @@ import ItemImage from './gui_item.js';
 export default class InventoryBar extends Phaser.GameObjects.Container{
     constructor(scene, x, y){
         //TODO magiaaa! :D
-        let NUM_SLOTS = 5;
+        let NUM_SLOTS = 8;
         let BOX_OFFSET = 66;
         let DROPPEDITEM_HALFSIZE = 16;
         let TEXT_OFFSETX = -30;
