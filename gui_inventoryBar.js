@@ -17,16 +17,16 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
 
         texture.on('pointerdown', pointer =>{
             // tirar
-            if (this.selection !== null && scene.player.inventory.getItemAt(this.selection) !== 0){
+            if (this.selection !== -1 && scene.player.inventory.getItemAt(this.selection) !== 0){
                 let drop = new DroppedItem(scene, scene.player.x - DROPPEDITEM_HALFSIZE, scene.player.y - DROPPEDITEM_HALFSIZE, scene.player.inventory.getItemAt(this.selection), scene.droppedItems);
                 scene.droppedItems.add(drop);
                 scene.player.inventory.removeItemAt(this.selection);
                 this.selectionTexture.visible = false;
-                this.selection = null;
+                this.selection = -1;
             }
         });
 
-        this.selection = null;
+        this.selection = -1;
 
         this.text = scene.add.bitmapText(x + TEXT_OFFSETX, y + TEXT_OFFSETY , 'Font', '(texto)', 20, 0);
         this.text.letterSpacing = 2;
@@ -62,7 +62,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
 
     manageItem(i){
         // seleccionar
-        if (this.selection === null){
+        if (this.selection === -1){
             this.selection = i;
             this.selectionTexture.x = this.boxes[i].x;
             this.selectionTexture.y = this.boxes[i].y;
@@ -71,7 +71,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
         // (mover y) deseleccionar
         else{
             if (this.selection !== i) this.pl.inventory.moveItemsIn(this.selection, i);
-            this.selection = null;
+            this.selection = -1;
             this.selectionTexture.visible = false;
         }
     }
@@ -80,7 +80,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
         // usar
         this.pl.inventory.removeItemAt(this.selection);
         this.selectionTexture.visible = false;
-        this.selection = null;
+        this.selection = -1;
     }
 
     preUpdate(){
