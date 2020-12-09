@@ -24,7 +24,31 @@ export default class Player extends Phaser.GameObjects.Sprite{
       up: W,
       down: S
     })
-    this.action = scene.input.keyboard.addKey('E');
+    this.action = scene.input.keyboard.addKey('E');    
+
+    //ANIMACIONES
+    //No implementadas todavia porque no tenemos sprites
+    /*
+    this.anims.create({
+      key: 'left',
+      frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
+      frameRate: 10,
+      repeat: -1
+    });
+
+    this.anims.create({
+      key: 'turn',
+      frames: [ { key: 'dude', frame: 4 } ],
+      frameRate: 20
+    });
+
+    this.anims.create({
+      key: 'right',
+      frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
+      frameRate: 10,
+      repeat: -1
+    });*/
+    
   }
 
   normalizeVector(){
@@ -70,14 +94,7 @@ export default class Player extends Phaser.GameObjects.Sprite{
     this.body.setVelocityY(0);
   }
 
-  getX(){
-    return this.body.velocity.x;
-  }
-  
-  getY(){
-    return this.body.velocity.y;
-  }
-  preUpdate(time,delta){
+  preUpdate(){
     
     //Algo de este estilo
     if(!this.isTalking){
@@ -100,10 +117,10 @@ export default class Player extends Phaser.GameObjects.Sprite{
       else this.stopY();
     
       //Normalizamos el vector
-      if(this.getX() !== 0 || this.getY() !== 0) this.normalizeVector();
+      if(this.body.velocity.x !== 0 || this.body.velocity.y!== 0) this.normalizeVector();
 
       //Escribe en pantalla el vector
-      this.label.text = this.getX()+ '   ' + this.getY();
+      this.label.text = this.body.velocity.x+ '   ' + this.body.velocity.y;
     }
   }
 }
