@@ -26,6 +26,9 @@ export default class Player extends Phaser.GameObjects.Sprite{
     })
     this.action = scene.input.keyboard.addKey('E');
         
+
+
+    
   }
 
   normalizeVector(){

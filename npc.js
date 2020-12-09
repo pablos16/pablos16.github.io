@@ -1,44 +1,48 @@
-//TODO Container con sprite y trigger 
-//TODO Esto no hereda de sprite, hereda de container
-export default class NPC extends Phaser.GameObjects.Sprite {
+import NPCImage from './npcSprite.js';
+
+//Diego tk <3
+export default class NPC extends Phaser.GameObjects.Container {
   constructor(scene, x, y) {
-    super(scene, x, y, 'npc');
+    super(scene, x, y);
 
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
     this.body.setCollideWorldBounds();
 
-    //Trigger
-    this.trigger = scene.add.zone(x, y);
+    //Trigger del container
+    this.trigger = scene.add.zone(0, 0);
     this.trigger.setSize(100, 100);
     this.scene.physics.world.enable(this.trigger);
     this.trigger.body.setAllowGravity(false);
     this.trigger.body.moves = false;
 
+    //Sprite del container
+    this.spriteImage = new NPCImage(scene,0,0);
+
+    this.add(this.trigger);
+    this.add(this.spriteImage);
+    //Variables
     this.initialPosX = x;
     this.initialPosY = y;
-
     this.isTalking = false;
 
+    this.moveRight();
   }
-
+  
   moveX(left, right) {
     //TODO quitar velocidad, con el container no tendria que estar
-    this.trigger.x = this.body.position.x + 25;
 
     if (this.body.position.x >= this.initialPosX + right) {
       this.moveLeft();
-      this.setFlipX(true);
+      this.spriteImage.setFlipX(true);
     }
     else if (this.body.position.x <= this.initialPosX + left) {
       this.moveRight()
-      this.setFlipX(false);
+      this.spriteImage.setFlipX(false);
     }
-
   }
   moveY(top, down) {
 
-    this.trigger.y = this.body.position.y;
 
     if (this.body.y > this.initialPosY + top) {
       this.moveDown()
@@ -49,29 +53,27 @@ export default class NPC extends Phaser.GameObjects.Sprite {
     }
   }
 
-
   moveUp() {
     this.body.setVelocityY(-50);
     //this.play('walk', true)
-
   }
   moveDown() {
     this.body.setVelocityY(50);
     //this.play('walk', true)
-
   }
   moveLeft() {
     //Para utilizar menos sprites
-    this.setFlipX(true)
+    this.spriteImage.setFlipX(true)
+
     this.body.setVelocityX(-50);
     //this.play('walk', true)
-
   }
   moveRight() {
-    this.setFlipX(false)
+    //Para utilizar menos sprites
+    this.spriteImage.setFlipX(false)
+    
     this.body.setVelocityX(50);
     //this.play('walk', true)
-
   }
   stopX() {
     this.body.setVelocityX(0);
@@ -79,11 +81,11 @@ export default class NPC extends Phaser.GameObjects.Sprite {
   stopY() {
     this.body.setVelocityY(0);
   }
-  getX() {
-    return this.body.velocity.x;
+  preUpdate(){
+    //Movimiento del npc
+    if(!this.isTalking){
+      this.moveX(-50,50);
+    }
   }
-  getY() {
-    return this.body.velocity.y;
-  }
-  //TODO preupdate, el NPC sabe como moverse. Quitar el move de la escena
+  
 }

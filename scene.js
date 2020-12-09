@@ -19,39 +19,9 @@ export default class Scene extends Phaser.Scene{
 
     //Personaje
     this.player = new Player(this, 200, 300);
-
-    //NPC
+    
     this.NPC = new NPC(this,600,300);
-    this.NPC.moveRight(); //Velocidad inicial
-    this.physics.add.overlap(this.player, this.NPC.trigger, (o1, o2) =>{
-      // Si pulsas la E...
-      if (this.action.isDown) 
-      { 
-        if( !this.player.isTalking){
-          
-        //Hablas con el
-        //PONER AQUI DIÁLOGO
-        this.player.isTalking = true;
-        this.NPC.isTalking = true;
-        this.NPC.stopX();
-        this.NPC.stopY();
-        this.player.stopX();
-        this.player.stopY();
-
-        //this.testDialogue = new Dialogue(this, 1280/2, 720 - 720/5, 'A: ', 'Hola');
-        this.dialogueImage.setVisible(true);
-        }
-        else{
-          //Volvemos a mover al personaje
-          this.NPC.moveRight();
-
-          this.dialogueImage.setVisible(false);
-          this.player.isTalking=false;
-          this.NPC.isTalking = false;
-          //texto.destroy();
-        }
-      }
-    });
+    
 
     //Fondo del dialogo
     this.dialogueImage = this.add.image(1300/2, 800/1.25, 'dialogTest');
@@ -141,9 +111,6 @@ export default class Scene extends Phaser.Scene{
     //this.testDialogue.update()
     //this.testDialogue.label.text = this.testDialogue.GetName();
 
-    //Movimiento del npc
-    if(!this.NPC.isTalking){
-      this.NPC.moveX(-50,50);
-    }
+    
   }
 }
