@@ -1,7 +1,8 @@
 import Inventory from "./inventory.js";
+import Maths from "./MathFunc.js";
 
-export default class Player extends Phaser.GameObjects.Sprite{
-  constructor(scene, x, y){
+export default class Player extends Phaser.GameObjects.Sprite {
+  constructor(scene, x, y) {
     super(scene, x, y, 'player');
 
     this.scene.add.existing(this);
@@ -17,14 +18,14 @@ export default class Player extends Phaser.GameObjects.Sprite{
     //Inventario
     this.inventory = new Inventory();
 
-    const {LEFT,RIGHT,UP,DOWN,W,A,S,D} = Phaser.Input.Keyboard.KeyCodes;
+    const { LEFT, RIGHT, UP, DOWN, W, A, S, D } = Phaser.Input.Keyboard.KeyCodes;
     this.cursors = scene.input.keyboard.addKeys({
       left: A,
       right: D,
       up: W,
       down: S
     })
-    this.action = scene.input.keyboard.addKey('E');    
+    this.action = scene.input.keyboard.addKey('E');
 
     //ANIMACIONES
     //No implementadas todavia porque no tenemos sprites
@@ -48,79 +49,58 @@ export default class Player extends Phaser.GameObjects.Sprite{
       frameRate: 10,
       repeat: -1
     });*/
-    
+
   }
 
-  normalizeVector(){
-    let x = this.body.velocity.x;
-    let y = this.body.velocity.y;
+  calculateVelocity() {
 
-    let module = Math.sqrt(x*x + y*y);
+    let object = { x: this.body.velocity.x, y: this.body.velocity.y }
 
-    x /= module;
-    y /= module;
+    Maths.normalizeVector(object);
 
-    this.body.setVelocityX(x * this.speed);
-    this.body.setVelocityY(y * this.speed);
+    this.body.setVelocityX(object.x * this.speed);
+    this.body.setVelocityY(object.y * this.speed);
   }
 
-  moveUp(){
-    this.body.setVelocityY(-50);
+  verticalMove(dir) {
+    this.body.setVelocityY(dir);
     //this.play('walk', true)
   }
 
-  moveDown(){
-    this.body.setVelocityY(50);
+  horizontalMove(dir) {
+    this.setFlipX(dir === -1)
+    this.body.setVelocityX(dir);
     //this.play('walk', true)
   }
 
-  moveLeft(){
-    this.setFlipX(false)
-    this.body.setVelocityX(-50);
-    //this.play('walk', true)
-  }
-
-  moveRight(){
-    this.setFlipX(true)
-    this.body.setVelocityX(50);
-    //this.play('walk', true)
-  }
-
-  stopX(){
+  stopX() {
     this.body.setVelocityX(0);
   }
 
-  stopY(){
+  stopY() {
     this.body.setVelocityY(0);
   }
 
-  preUpdate(){
-    
+  preUpdate() {
+
     //Algo de este estilo
-    if(!this.isTalking){
-      
-      if(!(this.cursors.left.isDown || this.cursors.right.isDown) && !(this.cursors.up.isDown || this.cursors.down.isDown)){
-      //this.player.setIdle();
-      this.stopX();
-      this.stopY();
-      }
-      else{
+    if (!this.isTalking) {
+
       //Movimiento horizontal
-      if (this.cursors.left.isDown) this.moveLeft();
-      else if (this.cursors.right.isDown) this.moveRight();      
+      if (this.cursors.left.isDown) this.horizontalMove(-1);
+      else if (this.cursors.right.isDown) this.horizontalMove(1);
       else this.stopX();
-      }
-      
+
+
       //Movimiento vertical        
-      if (this.cursors.up.isDown) this.moveUp();
-      else if (this.cursors.down.isDown) this.moveDown();
+      if (this.cursors.up.isDown) this.verticalMove(-1);
+      else if (this.cursors.down.isDown) this.verticalMove(1);
       else this.stopY();
-    
-      //Normalizamos el vector
-      if(this.body.velocity.x !== 0 || this.body.velocity.y!== 0) this.normalizeVector();
+
+      this.calculateVelocity()
 
       //Escribe en pantalla el vector
-      this.label.text = this.body.velocity.x+ '   ' + this.body.velocity.y;
+      this.label.text = this.body.velocity.x + '   ' + this.body.velocity.y;
     }
   }
 }
