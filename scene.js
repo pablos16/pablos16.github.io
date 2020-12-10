@@ -3,6 +3,7 @@ import Dialogue from './dialogue.js';
 import NPC from './npc.js';
 import InventoryBar from './gui_inventoryBar.js';
 import DroppedItem from './item.js';
+import Obstacle from './obstacle.js';
 
 export default class Scene extends Phaser.Scene{
   constructor(){
@@ -20,6 +21,7 @@ export default class Scene extends Phaser.Scene{
     //Personaje
     this.player = new Player(this, 200, 300);
     
+    //NPC
     this.NPC = new NPC(this,600,300);
     
     //TODO REVISAR
@@ -85,17 +87,8 @@ export default class Scene extends Phaser.Scene{
     });
     this.dropped = new DroppedItem(this, 50, 200, 1, this.droppedItems);
 
-    //_____-----Entidad en la que se usa un objeto (dinamita en este caso)-----_____
-    this.clickableDebug = this.add.image(-100, 100, 'debug').setInteractive();
-    this.clickableDebug.requires = 1;
-    this.clickableDebug.on('pointerdown', pointer =>{
-      if (this.player.inventory.getItemAt(this.inventoryBar.selection) === this.clickableDebug.requires){
-            this.inventoryBar.useCurrentItem();
-            console.log('grasias loko uwu');
-            this.clickableDebug.destroy(this);
-       }
-      else console.log('oye dame dinamita :v');
-    });
+    //Obstáculo (entidad en la que se usa un objeto)
+    this.obtacle = new Obstacle(this, 100, 100, 'debug', 1);
 
     
 
