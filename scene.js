@@ -24,7 +24,6 @@ export default class Scene extends Phaser.Scene{
     //NPC
     this.NPC = new NPC(this,600,300);
     
-    //TODO REVISAR
     this.physics.add.overlap(this.player, this.NPC.trigger, (o1, o2) =>{
       // Si pulsas la E...
       if (this.player.action.isDown){
@@ -59,6 +58,7 @@ export default class Scene extends Phaser.Scene{
     this.dialogueImage.setScrollFactor(0);
     this.dialogueImage.setVisible(false);
     
+    //TODO CAMBIAR ESTO Y CREAR UN JS. PABLO
     //Barra de alineamiento
     this.alignBar = this.add.image(1400, 100, 'bar');
     this.alignBar.setScale(1.75);
@@ -66,10 +66,11 @@ export default class Scene extends Phaser.Scene{
 
     //Cámara que sigue al jugador
     this.cameras.main.startFollow(this.player);
+    //TODO CREAR CLASE CON VARIABLES
     this.cameras.main.width = 1422;
     this.cameras.main.height = 800;
 
-    //Muros
+    //Muros que tendremos que eliminar una vez creemos el tilemap
     this.wall = this.physics.add.staticGroup();
     this.wall.create(500, 250, 'Wall');
     this.wall.create(600, 450, 'Wall');
@@ -94,7 +95,7 @@ export default class Scene extends Phaser.Scene{
     //this.physics.add.collider(this.player, this.cobers);
     //this.physics.add.collider(this.player, this.UpWall);
     //this.physics.add.collider(this.player, this.DownWall);
-    //Esto es para poner que el collider del jugador choque con los muros
+    //Esto es para poner que el collider del jugador choque con los muros pero se tendra que eliminar tras hacer los tiles
     this.physics.add.collider(this.player, this.wall);
     //this.physics.add.collider(this.NPC, this.player);
     //Esto debería de sobrar
