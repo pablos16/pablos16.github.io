@@ -1,3 +1,5 @@
+import CT from "./constants.js";
+
 export default class DroppedItem extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, id, group){
         super(scene, x, y, 'debug');
@@ -11,8 +13,9 @@ export default class DroppedItem extends Phaser.GameObjects.Sprite{
     changeTo(id){
         this.setTexture('items', id);
         this.id = id;
-        this.setScale(0.5) // (por defecto: 1)
-        this.setSize(32, 32); // (por defecto: 64, 64)
-        this.setDisplayOrigin(0,0); // ???
+        this.setOrigin(0);
+        this.setScale(CT.DROPPED_ITEM_SIZE);
+        this.setSize(this.width * CT.DROPPED_ITEM_SIZE, this.height * CT.DROPPED_ITEM_SIZE);
+        this.setPosition(this.x - this.width / 2, this.y - this.height / 2);
     }
 }

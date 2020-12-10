@@ -4,8 +4,6 @@ import CT from './constants.js';
 
 export default class InventoryBar extends Phaser.GameObjects.Container{
     constructor(scene, x, y){
-        let BOX_OFFSET = 66;
-        let DROPPEDITEM_HALFSIZE = 16;
         let TEXT_OFFSETX = -30;
         let TEXT_OFFSETY = -680;
 
@@ -14,10 +12,11 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
         scene.add.existing(this);
         this.setScrollFactor(0);
 
+        let boxOffset = texture.height;
         texture.on('pointerdown', pointer =>{
             // tirar
             if (this.selection !== -1 && scene.player.inventory.getItemAt(this.selection) !== 0){
-                let drop = new DroppedItem(scene, scene.player.x - DROPPEDITEM_HALFSIZE, scene.player.y - DROPPEDITEM_HALFSIZE, scene.player.inventory.getItemAt(this.selection), scene.droppedItems);
+                let drop = new DroppedItem(scene, scene.player.x, scene.player.y, scene.player.inventory.getItemAt(this.selection), scene.droppedItems);
                 scene.droppedItems.add(drop);
                 scene.player.inventory.removeItemAt(this.selection);
                 this.selectionTexture.visible = false;
@@ -35,7 +34,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
         this.boxes = [];
         this.images = [];
         for (let i = 0; i < CT.NUM_SLOTS; i = i + 1){
-            this.boxes[i] = scene.add.image(x, y - BOX_OFFSET * (i + 1), 'inventory', 1).setInteractive().setScrollFactor(0);
+            this.boxes[i] = scene.add.image(x, y - boxOffset * (i + 1), 'inventory', 1).setInteractive().setScrollFactor(0);
             this.add(this.boxes[i]);
             this.boxes[i].on('pointerdown', pointer =>{
                 this.manageItem(i);
@@ -52,7 +51,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
             this.images[i] = new ItemImage(scene, this.boxes[i].x, this.boxes[i].y, scene.player.inventory.getItemAt(i));
             this.add(this.images[i]);
         }
-        this.selectionTexture = scene.add.image(x, y + BOX_OFFSET, 'inventory', 2);
+        this.selectionTexture = scene.add.image(x, y + boxOffset, 'inventory', 2);
         this.selectionTexture.visible = false;
         this.add(this.selectionTexture);
 
