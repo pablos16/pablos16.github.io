@@ -31,6 +31,7 @@ export default class Boot extends Phaser.Scene {
 
     //Objetos de Inventario
     this.load.spritesheet('items', 'resources/game/textures/items.png', { frameWidth: 64, frameHeight: 64 });
+    //TODO HACER LO MISMO QUE ESTO PERO CON LOS NPC
 
     //Fuente
     this.load.bitmapFont('Font', 'resources/game/font/font.png', 'resources/game/font/font.fnt');
