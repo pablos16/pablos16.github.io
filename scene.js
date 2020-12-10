@@ -52,6 +52,8 @@ export default class Scene extends Phaser.Scene{
         }
       }
     });
+    //this.physics.add.collider(this.player, this.NPCs);
+    /*this.physics.add.collider(this.NPCs, this.walls);*/ //Esto debería de sobrar
 
     //Fondo del dialogo
     this.dialogueImage = this.add.image(1300/2, 800/1.25, 'dialogTest');
@@ -71,9 +73,10 @@ export default class Scene extends Phaser.Scene{
     this.cameras.main.height = 800;
 
     //Muros que tendremos que eliminar una vez creemos el tilemap
-    this.wall = this.physics.add.staticGroup();
-    this.wall.create(500, 250, 'Wall');
-    this.wall.create(600, 450, 'Wall');
+    this.walls = this.physics.add.staticGroup();
+    this.walls.create(500, 250, 'Wall');
+    this.walls.create(600, 450, 'Wall');
+    this.physics.add.collider(this.player, this.walls); //Esto es para poner que el collider del jugador choque con los muros pero se tendra que eliminar tras hacer los tiles
 
     //Barra de Inventario
     this.inventoryBar = new InventoryBar(this, 45, 360);
@@ -90,24 +93,11 @@ export default class Scene extends Phaser.Scene{
 
     //Obstáculo (entidad en la que se usa un objeto)
     this.obtacle = new Obstacle(this, 100, 100, 'debug', 1);
-
-    //Colliders personaje
-    //this.physics.add.collider(this.player, this.cobers);
-    //this.physics.add.collider(this.player, this.UpWall);
-    //this.physics.add.collider(this.player, this.DownWall);
-    //Esto es para poner que el collider del jugador choque con los muros pero se tendra que eliminar tras hacer los tiles
-    this.physics.add.collider(this.player, this.wall);
-    //this.physics.add.collider(this.NPC, this.player);
-    //Esto debería de sobrar
-    //this.physics.add.collider(this.NPC, this.wall);
   }
   
   update(){
-
     //Cosas de Nico
     //this.testDialogue.update()
     //this.testDialogue.label.text = this.testDialogue.GetName();
-
-    
   }
 }
