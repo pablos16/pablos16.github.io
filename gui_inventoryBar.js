@@ -1,10 +1,9 @@
 import DroppedItem from './item.js';
 import ItemImage from './gui_item.js';
+import CT from './constants.js';
 
 export default class InventoryBar extends Phaser.GameObjects.Container{
     constructor(scene, x, y){
-        //TODO magiaaa! :D
-        let NUM_SLOTS = 8;
         let BOX_OFFSET = 66;
         let DROPPEDITEM_HALFSIZE = 16;
         let TEXT_OFFSETX = -30;
@@ -35,7 +34,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
 
         this.boxes = [];
         this.images = [];
-        for (let i = 0; i < NUM_SLOTS; i = i + 1){
+        for (let i = 0; i < CT.NUM_SLOTS; i = i + 1){
             this.boxes[i] = scene.add.image(x, y - BOX_OFFSET * (i + 1), 'inventory', 1).setInteractive().setScrollFactor(0);
             this.add(this.boxes[i]);
             this.boxes[i].on('pointerdown', pointer =>{
