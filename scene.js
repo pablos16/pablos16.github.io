@@ -90,8 +90,6 @@ export default class Scene extends Phaser.Scene{
     //Obstáculo (entidad en la que se usa un objeto)
     this.obtacle = new Obstacle(this, 100, 100, 'debug', 1);
 
-    
-
     //Colliders personaje
     //this.physics.add.collider(this.player, this.cobers);
     //this.physics.add.collider(this.player, this.UpWall);
@@ -104,6 +102,7 @@ export default class Scene extends Phaser.Scene{
   }
   
   update(){
+
     //Cosas de Nico
     //this.testDialogue.update()
     //this.testDialogue.label.text = this.testDialogue.GetName();
