@@ -27,7 +27,7 @@ export default class Scene extends Phaser.Scene{
     
     this.physics.add.overlap(this.player, this.NPC.trigger, (o1, o2) =>{
       // Si pulsas la E...
-      if (this.player.action.isDown){
+      if (this.player.action.isDown && !this.NPC.isTalking){
         if(!this.player.isTalking){
         
         //Hablas con el
@@ -41,6 +41,7 @@ export default class Scene extends Phaser.Scene{
 
         //this.testDialogue = new Dialogue(this, 1280/2, 720 - 720/5, 'A: ', 'Hola');
         this.dialogueImage.setVisible(true);
+        this.NPC.StartDialog()
         }
         else{
           //Volvemos a mover al personaje
