@@ -93,7 +93,7 @@ Interfaz de juego:
 
 Inventario: Está visible siempre en la esquina inferior izquierda. Permite al jugador gestionar los objetos que porta, y leer la información de los mismos.
 
-Barra de alineamiento: Barra horizontal visible en la esquina superior izquierda con una línea vertical que fluctúa de derecha a izquierda.
+Barra de alineamiento: Barra vertical visible en la esquina superior derecha con una línea vertical que fluctúa de derecha a izquierda.
 
 Notas: Hoja de papel presente en la esquina inferior derecha que muestra la interfaz de misiones.
 
