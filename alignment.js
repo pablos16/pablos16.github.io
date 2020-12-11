@@ -1,5 +1,3 @@
-
-
 export default class Alignment extends Phaser.GameObjects.Container{
     constructor(scene, x, y){
         
