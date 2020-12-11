@@ -55,7 +55,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
   calculateVelocity() {
 
     let object = { x: this.body.velocity.x, y: this.body.velocity.y }
-    
+
     normalizeVector(object);
 
     this.body.setVelocityX(object.x);
