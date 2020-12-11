@@ -1,7 +1,9 @@
-export default CT =
+const CT =
 {
      NUM_SLOTS : 8,
      DROPPED_ITEM_SIZE : 0.50,
      gameWidth : 1280,
      gameHeight : 720
 }
+
+export default CT;
