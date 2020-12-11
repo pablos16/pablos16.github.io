@@ -1,5 +1,7 @@
-export default class CT
+export default CT =
 {
-    static NUM_SLOTS = 8;
-    static DROPPED_ITEM_SIZE = 0.50;
+     NUM_SLOTS : 8,
+     DROPPED_ITEM_SIZE : 0.50,
+     gameWidth : 1280,
+     gameHeight : 720
 }

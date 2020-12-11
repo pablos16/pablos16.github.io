@@ -29,13 +29,14 @@
     <script type="module">
         import Scene from './scene.js'
         import Boot from './boot.js'
+        import CT from './constants.js'
 
         var config = {
             type: Phaser.AUTO,
 
             //Esto tendria que ser mucho más grande
-            width:  1422,
-            height: 800,
+            width:  CT.gameWidth,
+            height: CT.gameHeight,
             scale: {
                 // mode: Phaser.Scale.FIT,  
                 autoCenter: Phaser.Scale.CENTER_HORIZONTALLY

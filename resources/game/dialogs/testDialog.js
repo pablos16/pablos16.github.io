@@ -1,3 +1,4 @@
+export default Dialog =
 [
     {
         "id": 0,

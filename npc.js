@@ -33,7 +33,7 @@ export default class NPC extends Phaser.GameObjects.Container {
     
   }
   
-Dialog()
+StartDialog()
 {
   
 }

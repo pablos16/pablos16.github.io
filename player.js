@@ -1,5 +1,5 @@
 import Inventory from "./inventory.js";
-import Maths from "./MathFunc.js";
+import {normalizeVector} from "./MathFunc.js";
 
 export default class Player extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y) {
@@ -55,11 +55,11 @@ export default class Player extends Phaser.GameObjects.Sprite {
   calculateVelocity() {
 
     let object = { x: this.body.velocity.x, y: this.body.velocity.y }
+    
+    normalizeVector(object);
 
-    Maths.normalizeVector(object);
-
-    this.body.setVelocityX(object.x * this.speed);
-    this.body.setVelocityY(object.y * this.speed);
+    this.body.setVelocityX(object.x);
+    this.body.setVelocityY(object.y);
   }
 
   verticalMove(dir) {

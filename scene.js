@@ -5,6 +5,7 @@ import InventoryBar from './gui_inventoryBar.js';
 import DroppedItem from './item.js';
 import Obstacle from './obstacle.js';
 import Alignment from './alignment.js';
+import CT from './constants.js';
 
 export default class Scene extends Phaser.Scene{
   constructor(){
@@ -58,7 +59,7 @@ export default class Scene extends Phaser.Scene{
     /*this.physics.add.collider(this.NPCs, this.walls);*/ //Esto debería de sobrar
 
     //Fondo del dialogo
-    this.dialogueImage = this.add.image(1300/2, 800/1.25, 'dialogTest');
+    this.dialogueImage = this.add.image(CT.gameWidth/2, CT.gameHeight/1.25, 'dialogTest');
     this.dialogueImage.setScrollFactor(0);
     this.dialogueImage.setVisible(false);
     
@@ -70,8 +71,8 @@ export default class Scene extends Phaser.Scene{
     //Cámara que sigue al jugador
     this.cameras.main.startFollow(this.player);
     //TODO CREAR CLASE CON VARIABLES
-    this.cameras.main.width = 1422;
-    this.cameras.main.height = 800;
+    this.cameras.main.width = CT.gameWidth; 
+    this.cameras.main.height = CT.gameHeight;
 
     //Muros que tendremos que eliminar una vez creemos el tilemap
     this.walls = this.physics.add.staticGroup();
