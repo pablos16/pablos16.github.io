@@ -4,6 +4,7 @@ import NPC from './npc.js';
 import InventoryBar from './gui_inventoryBar.js';
 import DroppedItem from './item.js';
 import Obstacle from './obstacle.js';
+import Alignment from './alignment.js';
 
 export default class Scene extends Phaser.Scene{
   constructor(){
@@ -26,7 +27,7 @@ export default class Scene extends Phaser.Scene{
     
     this.physics.add.overlap(this.player, this.NPC.trigger, (o1, o2) =>{
       // Si pulsas la E...
-      if (this.player.action.isDown){
+      if (this.player.action.isDown && !this.NPC.isTalking){
         if(!this.player.isTalking){
         
         //Hablas con el
@@ -40,6 +41,7 @@ export default class Scene extends Phaser.Scene{
 
         //this.testDialogue = new Dialogue(this, 1280/2, 720 - 720/5, 'A: ', 'Hola');
         this.dialogueImage.setVisible(true);
+        this.NPC.StartDialog()
         }
         else{
           //Volvemos a mover al personaje
@@ -60,11 +62,10 @@ export default class Scene extends Phaser.Scene{
     this.dialogueImage.setScrollFactor(0);
     this.dialogueImage.setVisible(false);
     
-    //TODO CAMBIAR ESTO Y CREAR UN JS. PABLO
+    
     //Barra de alineamiento
-    this.alignBar = this.add.image(1400, 100, 'bar');
-    this.alignBar.setScale(1.75);
-    this.alignBar.setScrollFactor(0);
+    this.align = new Alignment(this, 700, 50);
+    
 
     //Cámara que sigue al jugador
     this.cameras.main.startFollow(this.player);
