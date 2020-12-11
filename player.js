@@ -1,5 +1,5 @@
 import Inventory from "./inventory.js";
-import {normalizeVector} from "./MathFunc.js";
+import {normalizeVector} from "./mathFunc.js";
 
 export default class Player extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y) {
