@@ -1,4 +1,4 @@
-export default Dialog =
+const Dialog =
 [
     {
         "id": 0,
@@ -29,3 +29,5 @@ export default Dialog =
         ]
     }
 ]
+
+export default Dialog;

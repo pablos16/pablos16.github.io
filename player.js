@@ -58,8 +58,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     normalizeVector(object);
 
-    this.body.setVelocityX(object.x);
-    this.body.setVelocityY(object.y);
+    this.body.setVelocityX(object.x * this.speed);
+    this.body.setVelocityY(object.y * this.speed);
   }
 
   verticalMove(dir) {
