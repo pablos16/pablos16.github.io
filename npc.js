@@ -24,19 +24,9 @@ export default class NPC extends Phaser.GameObjects.Container {
     //Variables
     this.initialPosX = x;
     this.initialPosY = y;
-    this.isTalking = false;
 
     this.moveRight();
-
-    //Cosas de Nico
-    this.state = 0
-    
   }
-  
-StartDialog()
-{
-  
-}
 
   moveX(left, right) {
     //TODO quitar velocidad, con el container no tendria que estar
