@@ -30,7 +30,7 @@ export default class NPCDialog extends NPC {
 
     ContinueDialog() {
         //if (this.timerStart + this.timerEnd > this.currentScene.time.now) return;
-        console.log(this.index)
+        //console.log(this.index)
         if (this.index === -1) {
             this.FinishDialog()
             return;
@@ -40,7 +40,7 @@ export default class NPCDialog extends NPC {
         this.description.name = this.d().name
 
         if (this.d().numOptions.length === 0) {
-            console.log(this.d().state)
+            //console.log(this.d().state)
             for (let i = 0; i < this.d().state.length; i++) {
               if (this.d().state[i].targetState === this.state) {
                     this.state = this.d().state[i].nextState;
@@ -67,7 +67,14 @@ export default class NPCDialog extends NPC {
 
     FinishDialog() {
         this.isTalking = false
-        this.index = 0;
+        this.index = this.dialog.length-1
+        for (let i = 0; i < this.d().state.length; i++) {
+            if (this.d().state[i].targetState === this.state) {
+                  this.index = this.d().state[i].nextIndex;
+                  break;
+              }
+            }
+        //this.index = 0;
         this.description.visible = false;
         this.name.visible = false;
     }

@@ -11,12 +11,6 @@ const Dialog =
                     "nextState": 1,
                     "nextIndex": 2
                 },
-                {
-                    "targetState": 1,
-                    "nextState": 1,
-                    "nextIndex": 2
-                },
-
             ]
         },
         {
@@ -47,7 +41,21 @@ const Dialog =
                     "nextIndex": -1
                 }
             ]
-        }
+        },
+        {
+            "id": -1,
+            "state": [
+                {
+                    "targetState": 0,
+                    "nextIndex": 0
+                },
+                {
+                    "targetState": 1,
+                    "nextIndex": 2
+                },
+
+            ]
+        },
     ]
 
 export default Dialog;
