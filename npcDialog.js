@@ -20,19 +20,34 @@ export default class NPCDialog extends NPC {
     StartDialog() {
         this.description.visible = true;
         this.name.visible = true;
-        this.index++
         this.timerStart = this.currentScene.time.now
     }
 
     ContinueDialog() {
-        if(this.timerStart + this.timerEnd > this.currentScene.time.now) return;
+        if (this.timerStart + this.timerEnd > this.currentScene.time.now) return;
 
         if (this.d().id === -1) {
             this.FinishDialog()
         }
         this.description.text = this.d().text
         this.description.name = this.d().name
-        if(this.index < 3)this.index++;
+
+        if(this.d().numOptions === 0)
+        {
+            for (let i = 0; i < this.d().state.length-1; i++) 
+            { 
+                if(this.d().state[i].targetState === -1){
+                    this.isTalking = false;
+                    return;
+                }
+                else if(this.d().state[i].targetState === this.state)
+                {
+                    this.index = this.d().state[i].nextIndex;
+                    this.state = this.d().state[i].nextState;
+                }
+
+            }
+        }
 
         this.timerStart = this.currentScene.time.now
     }
@@ -48,8 +63,7 @@ export default class NPCDialog extends NPC {
         this.name.visible = false;
     }
 
-    preUpdate()
-    {
+    preUpdate() {
 
     }
 }
