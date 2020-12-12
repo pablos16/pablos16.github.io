@@ -29,12 +29,13 @@ export default class Scene extends Phaser.Scene {
     this.mapBorder = this.map.createStaticLayer('Border' , tileSet);
     this.mapPathway = this.map.createStaticLayer('Pathway' , tileSet);
     this.mapFences = this.map.createStaticLayer('Fences' , tileSet);
+    this.mapDecorations = this.map.createStaticLayer('Decorations' , tileSet);
+    this.player = new Player(this, 200, 300); //Personaje
     this.mapBuildings = this.map.createStaticLayer('Buildings' , tileSet);
     this.mapRooftops = this.map.createStaticLayer('Rooftops' , tileSet);
-    this.mapDecorations = this.map.createStaticLayer('Decorations' , tileSet);
-
-    //Personaje
-    this.player = new Player(this, 200, 300);
+    this.mapCollisions = this.map.createStaticLayer('Collisions' , tileSet);
+    this.mapCollisions.setCollisionBetween(0, 999);
+    this.physics.add.collider(this.player, this.mapCollisions);
 
     //NPC
     this.NPC = new NPCDialog(this, 200, 300, testDialogue);
