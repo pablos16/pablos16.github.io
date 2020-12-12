@@ -9,7 +9,7 @@ const CT =
      yDialogTextPos: 500,
      xDialogNamePos: -200,
      yDialogNamePos: 425,
-     dialogFont : 'Font',
+     dialogFont : 'font',
      dialogSize : 30,
      dialogAlign: 0
 }
