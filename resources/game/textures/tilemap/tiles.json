@@ -1,0 +1,14 @@
+{ "columns":22,
+ "image":"Desktop\/town_rpg_pack\/town_rpg_pack\/graphics\/tiles.png",
+ "imageheight":576,
+ "imagewidth":352,
+ "margin":0,
+ "name":"tiles",
+ "spacing":0,
+ "tilecount":792,
+ "tiledversion":"1.4.3",
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset",
+ "version":1.4
+}
