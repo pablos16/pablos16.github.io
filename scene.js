@@ -36,6 +36,7 @@ export default class Scene extends Phaser.Scene {
     this.mapCollisions = this.map.createStaticLayer('Collisions', tileSet);
     this.mapCollisions.setCollisionBetween(0, 999);
     this.physics.add.collider(this.player, this.mapCollisions);
+    this.flipFlop = false
 
     //Fondo del dialogo
     this.dialogueImage = this.add.image(CT.gameWidth / 2, CT.gameHeight / 1.25, 'dialogTest');
@@ -47,7 +48,8 @@ export default class Scene extends Phaser.Scene {
 
     this.physics.add.overlap(this.player, this.NPC.trigger, (o1, o2) => {
       // Si pulsas la E...
-      if (this.player.action.isDown && this.NPC.CanDialog()) {
+      if (this.player.action.isDown && !this.flipFlop) {
+        this.flipFlop = true
         if (!this.player.isTalking) {
 
           //Hablas con el
@@ -69,7 +71,7 @@ export default class Scene extends Phaser.Scene {
           //console.log("Hola");
           this.NPC.ContinueDialog()
         }
-        else {
+        if (!this.NPC.isTalking){
           //Volvemos a mover al personaje
           this.NPC.moveRight();
 
@@ -112,5 +114,10 @@ export default class Scene extends Phaser.Scene {
 
     //Obstáculo (entidad en la que se usa un objeto)
     this.obtacle = new Obstacle(this, 100, 100, 'debug', 1);
+  }
+  update() {
+    if (this.player.action.isUp) {
+      this.flipFlop = false;
+    }
   }
 }
