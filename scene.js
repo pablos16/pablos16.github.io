@@ -75,7 +75,7 @@ export default class Scene extends Phaser.Scene {
 
           this.dialogueImage.setVisible(false);
           this.player.isTalking = false;
-          this.NPC.isTalking = false;
+          //this.NPC.isTalking = false;
           //texto.destroy();
         }
       }

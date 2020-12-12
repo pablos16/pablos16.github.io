@@ -21,7 +21,6 @@ export default class NPCDialog extends NPC {
         this.description.visible = true;
         this.name.visible = true;
         this.timerStart = this.currentScene.time.now
-        if(this.index === -1)this.index = 0
     }
 
     CanDialog()
@@ -68,7 +67,7 @@ export default class NPCDialog extends NPC {
 
     FinishDialog() {
         this.isTalking = false
-        //this.index = 0;
+        this.index = 0;
         this.description.visible = false;
         this.name.visible = false;
     }
