@@ -26,7 +26,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
 
         this.selection = -1;
 
-        this.text = scene.add.bitmapText(x + TEXT_OFFSETX, y + TEXT_OFFSETY , 'Font', '(texto)', 20, 0);
+        this.text = scene.add.bitmapText(x + TEXT_OFFSETX, y + TEXT_OFFSETY , 'font', '(texto)', 20, 0);
         this.text.letterSpacing = 2;
         this.text.visible = false;
         this.add(this.text);

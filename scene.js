@@ -18,8 +18,20 @@ export default class Scene extends Phaser.Scene {
     this.input.mouse.disableContextMenu();
 
     //Mapa
-    this.add.image(200, 300, 'map');
     //this.add.image(200, 525, 'dialogTest');
+    this.map = this.make.tilemap({ 
+      key: 'tileMap',
+      tileWidth: 16,
+      tileHeight: 16
+    });
+    let tileSet = this.map.addTilesetImage('tiles', 'mapTiles');
+    this.mapGround = this.map.createStaticLayer('Ground' , tileSet);
+    this.mapBorder = this.map.createStaticLayer('Border' , tileSet);
+    this.mapPathway = this.map.createStaticLayer('Pathway' , tileSet);
+    this.mapFences = this.map.createStaticLayer('Fences' , tileSet);
+    this.mapBuildings = this.map.createStaticLayer('Buildings' , tileSet);
+    this.mapRooftops = this.map.createStaticLayer('Rooftops' , tileSet);
+    this.mapDecorations = this.map.createStaticLayer('Decorations' , tileSet);
 
     //Personaje
     this.player = new Player(this, 200, 300);
@@ -83,10 +95,12 @@ export default class Scene extends Phaser.Scene {
     this.cameras.main.zoom = CT.cameraZoom;
 
     //Muros que tendremos que eliminar una vez creemos el tilemap
+    
     this.walls = this.physics.add.staticGroup();
     this.walls.create(500, 250, 'Wall');
     this.walls.create(600, 450, 'Wall');
     this.physics.add.collider(this.player, this.walls); //Esto es para poner que el collider del jugador choque con los muros pero se tendra que eliminar tras hacer los tiles
+    
 
     //Barra de Inventario
     this.inventoryBar = new InventoryBar(this, 45, 360);

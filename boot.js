@@ -22,8 +22,9 @@ export default class Boot extends Phaser.Scene {
     //NPC
     this.load.image('npc', 'resources/game/textures/npc.png');
 
-    //Fondo MAPA
-    this.load.image('map', 'resources/game/textures/background.png');
+    //Mapa
+    this.load.tilemapTiledJSON('tileMap', 'resources/game/textures/tilemap/map.json');
+    this.load.image('mapTiles', 'resources/game/textures/tilemap/tiles.png');
 
     //MUROS
     this.load.image('Wall', 'resources/game/textures/wall.png');
@@ -39,7 +40,7 @@ export default class Boot extends Phaser.Scene {
     //TODO HACER LO MISMO QUE ESTO PERO CON LOS NPC
 
     //Fuente
-    this.load.bitmapFont('Font', 'resources/game/font/font.png', 'resources/game/font/font.fnt');
+    this.load.bitmapFont('font', 'resources/game/font/font.png', 'resources/game/font/font.fnt');
 
     //Barra de alineamiento (prototipo)
     this.load.image('bar', 'resources/game/textures/protobarra2.png');

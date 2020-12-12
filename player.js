@@ -7,7 +7,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
-    this.body.setCollideWorldBounds();
+    //this.body.setCollideWorldBounds();
     this.speed = 300;
 
     this.isTalking = false;
