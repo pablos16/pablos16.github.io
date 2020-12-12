@@ -1,11 +1,12 @@
 import Player from './player.js';
-import Dialogue from './dialogue.js';
 import NPC from './npc.js';
 import InventoryBar from './gui_inventoryBar.js';
 import DroppedItem from './item.js';
 import Obstacle from './obstacle.js';
 import Alignment from './alignment.js';
 import CT from './constants.js';
+import NPCDialog from './npcDialog.js';
+import testDialogue from './resources/game/dialogs/testDialog.js'
 
 export default class Scene extends Phaser.Scene{
   constructor(){
@@ -36,7 +37,7 @@ export default class Scene extends Phaser.Scene{
     this.player = new Player(this, 200, 300);
     
     //NPC
-    this.NPC = new NPC(this,600,300);
+    this.NPC = new NPCDialog(this,600,300, testDialogue);
     
     this.physics.add.overlap(this.player, this.NPC.trigger, (o1, o2) =>{
       // Si pulsas la E...
@@ -109,11 +110,5 @@ export default class Scene extends Phaser.Scene{
 
     //Obstáculo (entidad en la que se usa un objeto)
     this.obtacle = new Obstacle(this, 100, 100, 'debug', 1);
-  }
-  
-  update(){
-    //Cosas de Nico
-    //this.testDialogue.update()
-    //this.testDialogue.label.text = this.testDialogue.GetName();
   }
 }

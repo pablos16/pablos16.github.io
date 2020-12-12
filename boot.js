@@ -7,6 +7,11 @@ export default class Boot extends Phaser.Scene {
   
   preload()
   {
+    //Menu principal
+    this.load.image('mainMenu', 'resources/game/textures/menu.jpg');
+    this.load.image('play', 'resources/game/textures/PlayButton.png');
+    this.load.image('controls', 'resources/game/textures/ControlsButton.png');
+
     //Dameros
     this.load.image('debug', 'resources/game/textures/debug.png');
     this.load.spritesheet('debugSheet', 'resources/game/textures/debugSheet.png', { frameWidth: 64, frameHeight: 64 });
@@ -44,5 +49,5 @@ export default class Boot extends Phaser.Scene {
     ////Item_TNT.destroy();
   }
 
-  create() { this.scene.start('scene'); }
+  create() { this.scene.start('menu'); }
 }
