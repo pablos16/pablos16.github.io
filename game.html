@@ -30,6 +30,7 @@
         import Scene from './scene.js'
         import Boot from './boot.js'
         import CT from './constants.js'
+        import Menu from './menu.js'
 
         var config = {
             type: Phaser.AUTO,
@@ -38,11 +39,12 @@
             width:  CT.gameWidth,
             height: CT.gameHeight,
             scale: {
+                //TODO PONER ESTO Y CORREGIR EL TAMAÑO DE LA CAMARA
                 // mode: Phaser.Scale.FIT,  
                 autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
             },
             pixelArt: true,
-            scene: [Boot, Scene],
+            scene: [Boot,Menu],
             physics: { default: 'arcade', arcade: { debug: true } }
         };
 

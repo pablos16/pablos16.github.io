@@ -7,6 +7,9 @@ export default class Boot extends Phaser.Scene {
   
   preload()
   {
+    //Menu principal
+    this.load.image('mainMenu', 'resources/game/textures/menu.jng');
+
     //Dameros
     this.load.image('debug', 'resources/game/textures/debug.png');
     this.load.spritesheet('debugSheet', 'resources/game/textures/debugSheet.png', { frameWidth: 64, frameHeight: 64 });
