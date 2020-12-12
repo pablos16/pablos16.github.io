@@ -1,5 +1,13 @@
 { "columns":22,
- "image":"Desktop\/town_rpg_pack\/town_rpg_pack\/graphics\/tiles.png",
+ "editorsettings":
+    {
+     "export":
+        {
+         "format":"",
+         "target":"."
+        }
+    },
+ "image":"tiles.png",
  "imageheight":576,
  "imagewidth":352,
  "margin":0,
