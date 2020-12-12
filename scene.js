@@ -29,12 +29,13 @@ export default class Scene extends Phaser.Scene {
     this.mapBorder = this.map.createStaticLayer('Border' , tileSet);
     this.mapPathway = this.map.createStaticLayer('Pathway' , tileSet);
     this.mapFences = this.map.createStaticLayer('Fences' , tileSet);
+    this.mapDecorations = this.map.createStaticLayer('Decorations' , tileSet);
+    this.player = new Player(this, 200, 300); //Personaje
     this.mapBuildings = this.map.createStaticLayer('Buildings' , tileSet);
     this.mapRooftops = this.map.createStaticLayer('Rooftops' , tileSet);
-    this.mapDecorations = this.map.createStaticLayer('Decorations' , tileSet);
-
-    //Personaje
-    this.player = new Player(this, 200, 300);
+    this.mapCollisions = this.map.createStaticLayer('Collisions' , tileSet);
+    this.mapCollisions.setCollisionBetween(0, 999);
+    this.physics.add.collider(this.player, this.mapCollisions);
 
     //NPC
     this.NPC = new NPCDialog(this, 200, 300, testDialogue);
@@ -92,15 +93,7 @@ export default class Scene extends Phaser.Scene {
     //TODO CREAR CLASE CON VARIABLES
     this.cameras.main.width = CT.gameWidth;
     this.cameras.main.height = CT.gameHeight;
-    this.cameras.main.zoom = CT.cameraZoom;
-
-    //Muros que tendremos que eliminar una vez creemos el tilemap
-    
-    this.walls = this.physics.add.staticGroup();
-    this.walls.create(500, 250, 'Wall');
-    this.walls.create(600, 450, 'Wall');
-    this.physics.add.collider(this.player, this.walls); //Esto es para poner que el collider del jugador choque con los muros pero se tendra que eliminar tras hacer los tiles
-    
+    this.cameras.main.zoom = CT.cameraZoom;    
 
     //Barra de Inventario
     this.inventoryBar = new InventoryBar(this, 45, 360);

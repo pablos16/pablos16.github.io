@@ -11,6 +11,10 @@ export default class Boot extends Phaser.Scene {
     this.load.image('mainMenu', 'resources/game/textures/menu.jpg');
     this.load.image('play', 'resources/game/textures/PlayButton.png');
     this.load.image('controls', 'resources/game/textures/ControlsButton.png');
+    this.load.image('background', 'resources/game/textures/fondoNegro.png');
+    this.load.image('back', 'resources/game/textures/return.png');
+    this.load.image('controlsImage', 'resources/game/textures/controls.png');
+
 
     //Dameros
     this.load.image('debug', 'resources/game/textures/debug.png');
