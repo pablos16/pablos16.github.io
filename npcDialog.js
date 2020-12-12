@@ -21,32 +21,42 @@ export default class NPCDialog extends NPC {
         this.description.visible = true;
         this.name.visible = true;
         this.timerStart = this.currentScene.time.now
+        if(this.index === -1)this.index = 0
+    }
+
+    CanDialog()
+    {
+        return this.timerStart + this.timerEnd < this.currentScene.time.now
     }
 
     ContinueDialog() {
-        if (this.timerStart + this.timerEnd > this.currentScene.time.now) return;
-
-        if (this.d().id === -1) {
+        //if (this.timerStart + this.timerEnd > this.currentScene.time.now) return;
+        console.log(this.index)
+        if (this.index === -1) {
             this.FinishDialog()
+            return;
         }
+
         this.description.text = this.d().text
         this.description.name = this.d().name
 
-        if(this.d().numOptions === 0)
-        {
-            for (let i = 0; i < this.d().state.length-1; i++) 
-            { 
-                if(this.d().state[i].targetState === -1){
-                    this.isTalking = false;
-                    return;
-                }
-                else if(this.d().state[i].targetState === this.state)
-                {
-                    this.index = this.d().state[i].nextIndex;
+        if (this.d().numOptions.length === 0) {
+            console.log(this.d().state)
+            for (let i = 0; i < this.d().state.length; i++) {
+              if (this.d().state[i].targetState === this.state) {
                     this.state = this.d().state[i].nextState;
+                    this.index = this.d().state[i].nextIndex;
+                    break;
                 }
+            }
+        }
+        else {
+            for (let i = 0; i < this.d().numOptions.lengt; i++) {
+
+                this.description = this.currentScene.add.bitmapText(CT.xDialogTextPos, CT.yDialogTextPos, CT.dialogFont, this.d().text, CT.dialogSize, CT.dialogAlign);
 
             }
+
         }
 
         this.timerStart = this.currentScene.time.now
@@ -58,7 +68,7 @@ export default class NPCDialog extends NPC {
 
     FinishDialog() {
         this.isTalking = false
-        this.index = 0;
+        //this.index = 0;
         this.description.visible = false;
         this.name.visible = false;
     }
