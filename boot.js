@@ -48,5 +48,5 @@ export default class Boot extends Phaser.Scene {
     ////Item_TNT.destroy();
   }
 
-  create() { this.scene.start('scene'); }
+  create() { this.scene.start('menu'); }
 }
