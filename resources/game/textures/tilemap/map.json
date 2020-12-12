@@ -3,7 +3,8 @@
     {
      "export":
         {
-         "target":"."
+         "format":"json",
+         "target":"tiles.json"
         }
     },
  "height":32,
@@ -123,13 +124,22 @@
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
- "tileheight":16,
+ "tileheight":32,
  "tilesets":[
         {
+         "columns":22,
          "firstgid":1,
-         "source":"tiles.json"
+         "image":"tiles.png",
+         "imageheight":1152,
+         "imagewidth":704,
+         "margin":0,
+         "name":"tiles",
+         "spacing":0,
+         "tilecount":792,
+         "tileheight":32,
+         "tilewidth":32
         }],
- "tilewidth":16,
+ "tilewidth":32,
  "type":"map",
  "version":1.4,
  "width":32
