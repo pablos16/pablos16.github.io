@@ -93,15 +93,7 @@ export default class Scene extends Phaser.Scene {
     //TODO CREAR CLASE CON VARIABLES
     this.cameras.main.width = CT.gameWidth;
     this.cameras.main.height = CT.gameHeight;
-    this.cameras.main.zoom = CT.cameraZoom;
-
-    //Muros que tendremos que eliminar una vez creemos el tilemap
-    
-    this.walls = this.physics.add.staticGroup();
-    this.walls.create(500, 250, 'Wall');
-    this.walls.create(600, 450, 'Wall');
-    this.physics.add.collider(this.player, this.walls); //Esto es para poner que el collider del jugador choque con los muros pero se tendra que eliminar tras hacer los tiles
-    
+    this.cameras.main.zoom = CT.cameraZoom;    
 
     //Barra de Inventario
     this.inventoryBar = new InventoryBar(this, 45, 360);
