@@ -1,6 +1,5 @@
-export default class InputKey extends Phaser.GameObjects.Container {
+export default class InputKey  {
     constructor(scene, keyName) {
-        super(scene, 0, 0)
         this.key = scene.input.keyboard.addKey(keyName)
         this.flipflop = false;
     }
