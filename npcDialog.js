@@ -1,8 +1,8 @@
 import CT from './constants.js';
 import NPC from './npc.js';
 
-export default class NPCDialog extends NPC {
-    constructor(scene, x, y, dialog2) {
+export default class NPCDialog extends NPC{
+    constructor(scene, x, y, dialog2){
         super(scene, x, y);
         this.currentScene = scene;
         this.isTalking = false;
@@ -17,7 +17,7 @@ export default class NPCDialog extends NPC {
         this.timerEnd = 1000;
     }
 
-    StartDialog() {
+    StartDialog(){
         this.description.visible = true;
         this.name.visible = true;
         this.timerStart = this.currentScene.time.now
@@ -28,10 +28,10 @@ export default class NPCDialog extends NPC {
         return this.timerStart + this.timerEnd < this.currentScene.time.now
     }
 
-    ContinueDialog() {
+    ContinueDialog(){
         //if (this.timerStart + this.timerEnd > this.currentScene.time.now) return;
         //console.log(this.index)
-        if (this.index === -1) {
+        if (this.index === -1){
             this.FinishDialog()
             return;
         }
@@ -39,18 +39,18 @@ export default class NPCDialog extends NPC {
         this.description.text = this.d().text
         this.description.name = this.d().name
 
-        if (this.d().numOptions.length === 0) {
+        if (this.d().numOptions.length === 0){
             //console.log(this.d().state)
-            for (let i = 0; i < this.d().state.length; i++) {
-              if (this.d().state[i].targetState === this.state) {
+            for (let i = 0; i < this.d().state.length; i++){
+              if (this.d().state[i].targetState === this.state){
                     this.state = this.d().state[i].nextState;
                     this.index = this.d().state[i].nextIndex;
                     break;
                 }
             }
         }
-        else {
-            for (let i = 0; i < this.d().numOptions.lengt; i++) {
+        else{
+            for (let i = 0; i < this.d().numOptions.lengt; i++){
 
                 this.description = this.currentScene.add.bitmapText(CT.xDialogTextPos, CT.yDialogTextPos, CT.dialogFont, this.d().text, CT.dialogSize, CT.dialogAlign);
 
@@ -61,15 +61,15 @@ export default class NPCDialog extends NPC {
         this.timerStart = this.currentScene.time.now
     }
 
-    d() {
+    d(){
         return this.dialog[this.index];
     }
 
-    FinishDialog() {
+    FinishDialog(){
         this.isTalking = false
         this.index = this.dialog.length-1
-        for (let i = 0; i < this.d().state.length; i++) {
-            if (this.d().state[i].targetState === this.state) {
+        for (let i = 0; i < this.d().state.length; i++){
+            if (this.d().state[i].targetState === this.state){
                   this.index = this.d().state[i].nextIndex;
                   break;
               }
@@ -79,7 +79,7 @@ export default class NPCDialog extends NPC {
         this.name.visible = false;
     }
 
-    preUpdate() {
+    preUpdate(){
 
     }
 }

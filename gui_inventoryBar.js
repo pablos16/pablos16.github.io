@@ -16,6 +16,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
         texture.on('pointerdown', pointer =>{
             // tirar
             if (this.selection !== -1 && scene.player.inventory.getItemAt(this.selection) !== 0){
+                ////////////////////////////////////scene.droppedItems ya no es util por cambio en el constructor (la funcionalidad se mantiene de todos modos WTF???)
                 let drop = new DroppedItem(scene, scene.player.x, scene.player.y, scene.player.inventory.getItemAt(this.selection), scene.droppedItems);
                 scene.droppedItems.add(drop);
                 scene.player.inventory.removeItemAt(this.selection);

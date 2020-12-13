@@ -7,6 +7,10 @@ export default class Boot extends Phaser.Scene {
   
   preload()
   {
+    //Dameros
+    this.load.image('debug', 'resources/game/textures/debug.png');
+    this.load.spritesheet('debugSheet', 'resources/game/textures/debugSheet.png', { frameWidth: 64, frameHeight: 64 });
+
     //Menu principal
     this.load.image('mainMenu', 'resources/game/textures/menu.jpg');
     this.load.image('play', 'resources/game/textures/PlayButton.png');
@@ -14,11 +18,6 @@ export default class Boot extends Phaser.Scene {
     this.load.image('background', 'resources/game/textures/fondoNegro.png');
     this.load.image('back', 'resources/game/textures/return.png');
     this.load.image('controlsImage', 'resources/game/textures/controls.png');
-
-
-    //Dameros
-    this.load.image('debug', 'resources/game/textures/debug.png');
-    this.load.spritesheet('debugSheet', 'resources/game/textures/debugSheet.png', { frameWidth: 64, frameHeight: 64 });
     
     //Personaje
     this.load.image('player', 'resources/game/textures/policeman.png');
@@ -31,7 +30,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('mapTiles', 'resources/game/textures/tilemap/tiles.png');
 
     //MUROS
-    this.load.image('Wall', 'resources/game/textures/wall.png');
+    this.load.image('wall', 'resources/game/textures/wall.png');
 
     //Imagen de prueba dialogo
     this.load.image('dialogTest', 'resources/game/textures/dialoguePlaceholder.png');
