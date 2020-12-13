@@ -18,8 +18,7 @@ export default class Scene extends Phaser.Scene {
     this.input.mouse.disableContextMenu();
 
     //Mapa
-    //this.add.image(200, 525, 'dialogTest');
-    this.map = this.make.tilemap({ 
+    this.map = this.make.tilemap({
       key: 'tileMap',
       tileWidth: 16,
       tileHeight: 16
@@ -32,23 +31,32 @@ export default class Scene extends Phaser.Scene {
     this.mapDecorations = this.map.createStaticLayer('Decorations' , tileSet);
     this.mapFoundations = this.map.createStaticLayer('Foundations' , tileSet);
     this.player = new Player(this, 200, 300); //Personaje
-    this.mapBuildings = this.map.createStaticLayer('Buildings' , tileSet);
-    this.mapRooftops = this.map.createStaticLayer('Rooftops' , tileSet);
-    this.mapCollisions = this.map.createStaticLayer('Collisions' , tileSet);
+    this.mapBuildings = this.map.createStaticLayer('Buildings', tileSet);
+    this.mapRooftops = this.map.createStaticLayer('Rooftops', tileSet);
+    this.mapCollisions = this.map.createStaticLayer('Collisions', tileSet);
     this.mapCollisions.setCollisionBetween(0, 999);
     this.physics.add.collider(this.player, this.mapCollisions);
     this.mapCollisions.visible = false;
 
-    //NPC
-    this.NPC = new NPCDialog(this, 200, 300, testDialogue);
+
+
+    this.flipFlop = false
+
+
+    
     //Fondo del dialogo
     this.dialogueImage = this.add.image(CT.gameWidth / 2, CT.gameHeight / 1.25, 'dialogTest');
     this.dialogueImage.setScrollFactor(0);
     this.dialogueImage.setVisible(false);
 
+    //NPC
+    this.NPC = new NPCDialog(this, 200, 300, testDialogue);
+
     this.physics.add.overlap(this.player, this.NPC.trigger, (o1, o2) => {
       // Si pulsas la E...
-      if (this.player.action.isDown) {
+      if (this.player.action.isDown()) {
+      //if (this.player.action.isDown && !this.flipFlop) {
+        this.flipFlop = true
         if (!this.player.isTalking) {
 
           //Hablas con el
@@ -62,20 +70,21 @@ export default class Scene extends Phaser.Scene {
 
           //this.testDialogue = new Dialogue(this, 1280/2, 720 - 720/5, 'A: ', 'Hola');
           this.dialogueImage.setVisible(true);
+          console.log("hey")
+          this.NPC.ContinueDialog()
           this.NPC.StartDialog()
         }
-        else if(this.NPC.isTalking)
-        {
+        else if (this.NPC.isTalking) {
           //console.log("Hola");
           this.NPC.ContinueDialog()
         }
-        else {
+        if (!this.NPC.isTalking) {
           //Volvemos a mover al personaje
           this.NPC.moveRight();
 
           this.dialogueImage.setVisible(false);
           this.player.isTalking = false;
-          this.NPC.isTalking = false;
+          //this.NPC.isTalking = false;
           //texto.destroy();
         }
       }
@@ -95,7 +104,7 @@ export default class Scene extends Phaser.Scene {
     //TODO CREAR CLASE CON VARIABLES
     this.cameras.main.width = CT.gameWidth;
     this.cameras.main.height = CT.gameHeight;
-    this.cameras.main.zoom = CT.cameraZoom;    
+    this.cameras.main.zoom = CT.cameraZoom;
 
     //Barra de Inventario
     this.inventoryBar = new InventoryBar(this, 45, 360);
