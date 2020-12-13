@@ -1,3 +1,4 @@
+import InputKey from "./inputKey.js";
 import Inventory from "./inventory.js";
 import {normalizeVector} from "./mathFunc.js";
 
@@ -25,7 +26,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
       up: W,
       down: S
     })
-    this.action = scene.input.keyboard.addKey('E');
+    //this.action = scene.input.keyboard.addKey('E');
+    this.action = new InputKey(scene, 'E')
 
     //ANIMACIONES
     //No implementadas todavia porque no tenemos sprites
@@ -83,6 +85,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   preUpdate() {
 
+    this.action.update();
     //Algo de este estilo
     if (!this.isTalking) {
 

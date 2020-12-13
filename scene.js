@@ -48,7 +48,8 @@ export default class Scene extends Phaser.Scene {
 
     this.physics.add.overlap(this.player, this.NPC.trigger, (o1, o2) => {
       // Si pulsas la E...
-      if (this.player.action.isDown && !this.flipFlop) {
+      if (this.player.action.isDown()) {
+      //if (this.player.action.isDown && !this.flipFlop) {
         this.flipFlop = true
         if (!this.player.isTalking) {
 
@@ -71,7 +72,7 @@ export default class Scene extends Phaser.Scene {
           //console.log("Hola");
           this.NPC.ContinueDialog()
         }
-        if (!this.NPC.isTalking){
+        if (!this.NPC.isTalking) {
           //Volvemos a mover al personaje
           this.NPC.moveRight();
 
@@ -114,10 +115,5 @@ export default class Scene extends Phaser.Scene {
 
     //Obstáculo (entidad en la que se usa un objeto)
     this.obtacle = new Obstacle(this, 100, 100, 'debug', 1);
-  }
-  update() {
-    if (this.player.action.isUp) {
-      this.flipFlop = false;
-    }
   }
 }
