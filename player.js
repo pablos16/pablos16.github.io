@@ -85,7 +85,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   preUpdate() {
 
-    this.action.update();
+    //this.action.preUpdate();
     //Algo de este estilo
     if (!this.isTalking) {
 

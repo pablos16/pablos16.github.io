@@ -16,12 +16,16 @@ export default class InputKey extends Phaser.GameObjects.Container {
             this.flipFlop = true;
             return this.flipFlop;
         }
-    }
 
-    update() {
-        console.log("Me ejecuto")
         if (this.key.isUp) {
             this.flipFlop = false;
         }
+    }
+
+    preUpdate() {
+        console.log("Me ejecuto")
+        // if (this.key.isUp) {
+        //     this.flipFlop = false;
+        // }
     }
 }
