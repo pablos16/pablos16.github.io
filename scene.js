@@ -8,16 +8,14 @@ import CT from './constants.js';
 import NPCDialog from './npcDialog.js';
 import testDialogue from './resources/game/dialogs/testDialog.js'
 
-export default class Scene extends Phaser.Scene {
-  constructor() {
+export default class Scene extends Phaser.Scene{
+  constructor(){
     super({ key: 'scene' });
   }
   //Aqui te crea todo lo que necesites al inicio para todo el juego
   create() {
     //Deshabilitar menú contextual
     this.input.mouse.disableContextMenu();
-
-
 
 
 
@@ -60,7 +58,7 @@ export default class Scene extends Phaser.Scene {
 
     //Grupo físico para los objetos en el suelo
     this.droppedItems = this.physics.add.staticGroup();
-    this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) => {
+    this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) =>{
       // recoger
       if (this.player.action.isDown()){
         if (this.player.inventory.addItem(o2.id)) o2.destroy();
@@ -143,6 +141,6 @@ export default class Scene extends Phaser.Scene {
     this.cameras.main.zoom = CT.cameraZoom;
 
     //Barra de Inventario
-    this.inventoryBar = new InventoryBar(this, 45, 360);
+    this.inventoryBar = new InventoryBar(this, CT.invBarPosX, CT.invBarPosY);
   }
 }

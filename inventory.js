@@ -3,12 +3,12 @@ import CT from './constants.js';
 export default class Inventory{
     constructor(){
         this.slots = [];
-        for (let i = 0; i < CT.numSlots; i = i + 1) { this.slots[i] = 0; }
+        for (let i = 0; i < CT.numSlots; i = i + 1) { this.slots[i] = CT.inventoryVoid; }
     }
 
     searchForRoom(){
         let i = 0;
-        while (i < this.slots.length && this.slots[i] !== 0) { i = i + 1; }
+        while (i < this.slots.length && this.slots[i] !== CT.inventoryVoid) { i = i + 1; }
         if (i === this.slots.length) return -1;
         else return i;
     }
@@ -37,7 +37,7 @@ export default class Inventory{
     }
 
     removeItemAt(slotNumber){
-        if (this.validSlot(slotNumber)) this.slots[slotNumber] = 0;
+        if (this.validSlot(slotNumber)) this.slots[slotNumber] = CT.inventoryVoid;
     }
 
     getItemAt(slotNumber){

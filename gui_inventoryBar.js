@@ -4,9 +4,6 @@ import CT from './constants.js';
 
 export default class InventoryBar extends Phaser.GameObjects.Container{
     constructor(scene, x, y){
-        let TEXT_OFFSETX = -30;
-        let TEXT_OFFSETY = -680;
-
         let texture = scene.add.image(x, y, 'inventory', 0).setInteractive().setScrollFactor(0);
         super(scene, x, y, texture);
         scene.add.existing(this);
@@ -15,8 +12,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
         let boxOffset = texture.height;
         texture.on('pointerdown', pointer =>{
             // tirar
-            if (this.selection !== -1 && scene.player.inventory.getItemAt(this.selection) !== 0){
-                ////////////////////////////////////scene.droppedItems ya no es util por cambio en el constructor (la funcionalidad se mantiene de todos modos WTF???)
+            if (this.selection !== -1 && scene.player.inventory.getItemAt(this.selection) !== CT.inventoryVoid){
                 let drop = new DroppedItem(scene, scene.player.x, scene.player.y, scene.player.inventory.getItemAt(this.selection), scene.droppedItems);
                 scene.droppedItems.add(drop);
                 scene.player.inventory.removeItemAt(this.selection);
@@ -27,8 +23,8 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
 
         this.selection = -1;
 
-        this.text = scene.add.bitmapText(x + TEXT_OFFSETX, y + TEXT_OFFSETY , 'font', '(texto)', 20, 0);
-        this.text.letterSpacing = 2;
+        this.text = scene.add.bitmapText(CT.textPosX - CT.invBarPosX, CT.textPosY - CT.invBarPosY, CT.textFont, '(texto)', CT.textextSize, CT.textAlign);
+        this.text.letterSpacing = CT.textSpacing;
         this.text.visible = false;
         this.add(this.text);
 
@@ -41,7 +37,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
                 this.manageItem(i);
             });
             this.boxes[i].on('pointerover', pointer =>{
-                if(scene.player.inventory.getItemAt(i) !== 0){
+                if(scene.player.inventory.getItemAt(i) !== CT.inventoryVoid){
                     this.setText(i);
                     this.text.visible = true;
                 }
