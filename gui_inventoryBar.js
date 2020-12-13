@@ -34,7 +34,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
 
         this.boxes = [];
         this.images = [];
-        for (let i = 0; i < CT.NUM_SLOTS; i = i + 1){
+        for (let i = 0; i < CT.numSlots; i = i + 1){
             this.boxes[i] = scene.add.image(x, y - boxOffset * (i + 1), 'inventory', 1).setInteractive().setScrollFactor(0);
             this.add(this.boxes[i]);
             this.boxes[i].on('pointerdown', pointer =>{

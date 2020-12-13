@@ -1,7 +1,7 @@
 const CT =
 {
-     NUM_SLOTS : 8,
-     DROPPED_ITEM_SIZE : 0.50,
+     numSlots : 8,
+     droppedItemSize : 0.50,
      gameWidth : 1280,
      gameHeight : 720,
      cameraZoom : 1,

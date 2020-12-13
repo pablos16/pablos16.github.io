@@ -11,8 +11,8 @@ export default class DroppedItem extends Phaser.GameObjects.Sprite{
         this.setTexture('items', id);
         this.id = id;
         this.setOrigin(0);
-        this.setScale(CT.DROPPED_ITEM_SIZE);
-        this.setSize(this.width * CT.DROPPED_ITEM_SIZE, this.height * CT.DROPPED_ITEM_SIZE);
+        this.setScale(CT.droppedItemSize);
+        this.setSize(this.width * CT.droppedItemSize, this.height * CT.droppedItemSize);
         this.setPosition(this.x - this.width / 2, this.y - this.height / 2);
     }
 }

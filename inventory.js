@@ -3,7 +3,7 @@ import CT from './constants.js';
 export default class Inventory{
     constructor(){
         this.slots = [];
-        for (let i = 0; i < CT.NUM_SLOTS; i = i + 1) { this.slots[i] = 0; }
+        for (let i = 0; i < CT.numSlots; i = i + 1) { this.slots[i] = 0; }
     }
 
     searchForRoom(){
