@@ -98,7 +98,6 @@ export default class Scene extends Phaser.Scene {
     //Barra de alineamiento
     this.align = new Alignment(this, 700, 50);
 
-
     //Cámara que sigue al jugador
     this.cameras.main.startFollow(this.player);
     //TODO CREAR CLASE CON VARIABLES
@@ -113,11 +112,11 @@ export default class Scene extends Phaser.Scene {
     this.droppedItems = this.physics.add.staticGroup();
     this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) => {
       // recoger
-      if (this.player.action.isDown) {
+      if (this.player.action.isDown()){
         if (this.player.inventory.addItem(o2.id)) o2.destroy();
       }
     });
-    this.dropped = new DroppedItem(this, 50, 200, 1, this.droppedItems);
+    this.dropped = new DroppedItem(this, 220, 200, 1, this.droppedItems);
 
     //Obstáculo (entidad en la que se usa un objeto)
     this.obtacle = new Obstacle(this, 100, 100, 'debug', 1);
