@@ -2,7 +2,7 @@ import NPCImage from './npcSprite.js';
 
 //Diego tk <3
 export default class NPC extends Phaser.GameObjects.Container {
-  constructor(scene, x, y) {
+  constructor(scene, x, y, npcImage) {
     super(scene, x, y);
 
     this.scene.add.existing(this);
@@ -17,7 +17,7 @@ export default class NPC extends Phaser.GameObjects.Container {
     this.trigger.body.moves = false;
 
     //Sprite del container
-    this.spriteImage = new NPCImage(scene,0,0);
+    this.spriteImage = new NPCImage(scene,0,0, npcImage);
 
     this.add(this.trigger);
     this.add(this.spriteImage);

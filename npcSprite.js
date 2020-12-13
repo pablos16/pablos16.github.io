@@ -1,8 +1,8 @@
 //TODO Container con sprite y trigger 
 //TODO Esto no hereda de sprite, hereda de container
 export default class NPCImage extends Phaser.GameObjects.Sprite{
-  constructor(scene, x, y) {
-    super(scene, x, y, 'npc');
+  constructor(scene, x, y, imageName) {
+    super(scene, x, y, imageName);
 
     this.scene.add.existing(this);
 

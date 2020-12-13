@@ -2,8 +2,8 @@ import CT from './constants.js';
 import NPC from './npc.js';
 
 export default class NPCDialog extends NPC{
-    constructor(scene, x, y, dialog2){
-        super(scene, x, y);
+    constructor(scene, x, y, dialog2, npcImage){
+        super(scene, x, y, npcImage);
         this.currentScene = scene;
         this.isTalking = false;
         this.state = 0;
