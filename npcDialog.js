@@ -12,6 +12,8 @@ export default class NPCDialog extends NPC {
         this.description = this.currentScene.add.bitmapText(CT.xDialogTextPos, CT.yDialogTextPos, CT.dialogFont, this.d().text, CT.dialogSize, CT.dialogAlign);
         this.name = this.currentScene.add.bitmapText(CT.xDialogNamePos, CT.yDialogNamePos, CT.dialogFont, this.d().name, CT.dialogSize, CT.dialogAlign);
         this.description.visible = false;
+        this.name.setScrollFactor(0);
+        this.description.setScrollFactor(0);
         this.name.visible = false;
         this.timerStart = 0;
         this.timerEnd = 1000;
