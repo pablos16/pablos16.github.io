@@ -1,5 +1,4 @@
 import Player from './player.js';
-import NPC from './npc.js';
 import InventoryBar from './gui_inventoryBar.js';
 import DroppedItem from './item.js';
 import Obstacle from './obstacle.js';
@@ -60,7 +59,7 @@ export default class Scene extends Phaser.Scene{
     this.droppedItems = this.physics.add.staticGroup();
     this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) =>{
       // recoger
-      if (this.player.action.isDown()){
+      if (this.player.action.isDown){
         if (this.player.inventory.addItem(o2.id)) o2.destroy();
       }
     });
@@ -90,7 +89,7 @@ export default class Scene extends Phaser.Scene{
     ////this.NPC = new NPCDialog(this, 200, 300, testDialogue);
     this.physics.add.overlap(this.player, this.NPC.trigger, (o1, o2) => {
       // Si pulsas la E...
-      if (this.player.action.isDown()) {
+      if (Phaser.Input.Keyboard.JustDown(this.player.action)) {
       //if (this.player.action.isDown && !this.flipFlop) {
         this.flipFlop = true
         if (!this.player.isTalking) {
