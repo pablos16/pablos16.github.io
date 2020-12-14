@@ -16,8 +16,6 @@ export default class Scene extends Phaser.Scene{
     //Deshabilitar menú contextual
     this.input.mouse.disableContextMenu();
 
-
-
     this.dropped = [];
     //Mapa
     this.map = this.make.tilemap({
@@ -72,14 +70,6 @@ export default class Scene extends Phaser.Scene{
     this.physics.add.collider(this.player, this.mapCollisions);
     this.mapCollisions.visible = false;
 
-
-
-
-
-    this.flipFlop = false;
-
-
-    
     //Fondo del dialogo
     this.dialogueImage = this.add.image(CT.gameWidth / 2, CT.gameHeight / 1.25, 'dialogTest');
     this.dialogueImage.setScrollFactor(0);
@@ -87,48 +77,10 @@ export default class Scene extends Phaser.Scene{
 
     //NPC
     ////this.NPC = new NPCDialog(this, 200, 300, testDialogue);
-    this.physics.add.overlap(this.player, this.NPC.trigger, (o1, o2) => {
-      // Si pulsas la E...
-      if (Phaser.Input.Keyboard.JustDown(this.player.action)) {
-      //if (this.player.action.isDown && !this.flipFlop) {
-        this.flipFlop = true
-        if (!this.player.isTalking) {
-
-          //Hablas con el
-          //PONER AQUI DIÁLOGO
-          this.player.isTalking = true;
-          this.NPC.isTalking = true;
-          this.NPC.stopX();
-          this.NPC.stopY();
-          this.player.stopX();
-          this.player.stopY();
-
-          //this.testDialogue = new Dialogue(this, 1280/2, 720 - 720/5, 'A: ', 'Hola');
-          this.dialogueImage.setVisible(true);
-          console.log("hey")
-          this.NPC.ContinueDialog()
-          this.NPC.StartDialog()
-        }
-        else if (this.NPC.isTalking) {
-          //console.log("Hola");
-          this.NPC.ContinueDialog()
-        }
-        if (!this.NPC.isTalking) {
-          //Volvemos a mover al personaje
-          this.NPC.moveRight();
-
-          this.dialogueImage.setVisible(false);
-          this.player.isTalking = false;
-          //this.NPC.isTalking = false;
-          //texto.destroy();
-        }
-      }
-    });
+    
     //this.physics.add.collider(this.player, this.NPCs);
     /*this.physics.add.collider(this.NPCs, this.walls);*/ //Esto debería de sobrar
     
-
-
     //Barra de alineamiento
     this.align = new Alignment(this, 700, 50);
 

@@ -17,7 +17,7 @@ export default class NPC extends Phaser.GameObjects.Container {
     this.trigger.body.moves = false;
 
     //Sprite del container
-    this.spriteImage = new NPCImage(scene,0,0, npcImage);
+    this.spriteImage = new NPCImage(scene, 0, 0, npcImage);
 
     this.add(this.trigger);
     this.add(this.spriteImage);
@@ -26,6 +26,12 @@ export default class NPC extends Phaser.GameObjects.Container {
     this.initialPosY = y;
 
     this.moveRight();
+
+    this.scene.physics.add.overlap(scene.player,
+      this.trigger,
+      () => {
+        this.accion(scene);
+      });
   }
 
   moveX(left, right) {
@@ -80,11 +86,11 @@ export default class NPC extends Phaser.GameObjects.Container {
   stopY() {
     this.body.setVelocityY(0);
   }
-  preUpdate(){
+  preUpdate() {
     //Movimiento del npc
-    if(!this.isTalking){
-      this.moveX(-50,50);
+    if (!this.isTalking) {
+      this.moveX(-50, 50);
     }
   }
-  
+
 }
