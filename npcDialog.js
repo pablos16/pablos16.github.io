@@ -14,12 +14,15 @@ export default class NPCDialog extends NPC {
         this.description.visible = false;
         this.name.setScrollFactor(0);
         this.description.setScrollFactor(0);
+        this.description.depth = 100
+        this.name.depth = 100
         this.name.visible = false;
         this.timerStart = 0;
         this.timerEnd = 1000;
     }
 
     StartDialog() {
+        
         this.description.visible = true;
         this.name.visible = true;
         this.timerStart = this.currentScene.time.now
