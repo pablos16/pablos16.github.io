@@ -94,4 +94,11 @@ export default class Scene extends Phaser.Scene{
     //Barra de Inventario
     this.inventoryBar = new InventoryBar(this, CT.invBarPosX, CT.invBarPosY);
   }
+
+  update()
+  {
+    if (Phaser.Input.Keyboard.JustDown(this.player.fullScreen)) {
+        this.scale.toggleFullscreen()
+  }
+  }
 }
