@@ -11,21 +11,22 @@ export default class NPCDialog extends NPC {
         this.index = 0;
         this.description = this.currentScene.add.bitmapText(CT.xDialogTextPos, CT.yDialogTextPos, CT.dialogFont, this.d().text, CT.dialogSize, CT.dialogAlign);
         this.name = this.currentScene.add.bitmapText(CT.xDialogNamePos, CT.yDialogNamePos, CT.dialogFont, this.d().name, CT.dialogSize, CT.dialogAlign);
-        this.description.visible = false;
-        this.name.setScrollFactor(0);
-        this.description.setScrollFactor(0);
-        this.description.depth = 100
-        this.name.depth = 100
-        this.name.visible = false;
-        this.timerStart = 0;
-        this.timerEnd = 1000;
+        this.initializeText([this.name, this.description], false)
     }
 
     StartDialog() {
 
         this.description.visible = true;
         this.name.visible = true;
-        this.timerStart = this.currentScene.time.now
+    }
+
+    initializeText(texts, visibility) {
+        for (let i = 0; i < texts.length; i++)
+        {
+            texts[i].visible = visibility;
+            texts[i].setScrollFactor(0);
+            texts[i].depth = 100
+        }
     }
 
     accion(scene) {
@@ -65,12 +66,7 @@ export default class NPCDialog extends NPC {
         }
     }
 
-    CanDialog() {
-        return this.timerStart + this.timerEnd < this.currentScene.time.now
-    }
-
     ContinueDialog() {
-        //if (this.timerStart + this.timerEnd > this.currentScene.time.now) return;
         //console.log(this.index)
         if (this.index === -1) {
             this.FinishDialog()
@@ -91,20 +87,19 @@ export default class NPCDialog extends NPC {
             }
         }
         else {
+
+            //Creacion opciones de dialogo
             let options = [];
             for (let i = 0; i < this.d().numOptions.length; i++) {
                 options.push(this.currentScene.add.bitmapText(
-                    CT.xDialogTextPos + CT.xSubDialogSpacing, CT.yDialogTextPos + CT.subDialogInSpacing + i * CT.ySubDialogSpacing, 
+                    CT.xDialogTextPos + CT.xSubDialogSpacing, CT.yDialogTextPos + CT.subDialogInSpacing + i * CT.ySubDialogSpacing,
                     CT.dialogFont, this.d().numOptions[i].text, CT.subDialogSize, CT.dialogAlign))
-                options[i].depth = 100
-                options[i].setScrollFactor(0);
-
             }
+            this.initializeText(options, true)
 
+            //Gestion ???
             console.log(options)
         }
-
-        this.timerStart = this.currentScene.time.now
     }
 
     d() {
@@ -123,10 +118,6 @@ export default class NPCDialog extends NPC {
         //this.index = 0;
         this.description.visible = false;
         this.name.visible = false;
-    }
-
-    preUpdate() {
-
     }
 }
 
