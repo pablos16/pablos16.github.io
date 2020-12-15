@@ -60,6 +60,11 @@ export default class Player extends Phaser.GameObjects.Sprite {
     playerInput.right = Phaser.Input.Keyboard.JustDown(this.cursors.right)
     playerInput.down = Phaser.Input.Keyboard.JustDown(this.cursors.down)
     playerInput.up = Phaser.Input.Keyboard.JustDown(this.cursors.up)
+    playerInput.any = playerInput.interact || 
+                      playerInput.lef || 
+                      playerInput.right ||
+                      playerInput.down ||
+                      playerInput.up;
 
     return playerInput
   }
