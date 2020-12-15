@@ -6,3 +6,7 @@ export function normalizeVector(obj) {
     obj.y /= module;
   }
 }
+
+export function loop(id, lenght) {
+  return (Math.abs(id + lenght) % lenght);
+}
