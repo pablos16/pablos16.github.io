@@ -21,7 +21,6 @@ export default class NPCDialog extends NPC {
 
     StartDialog() {
 
-        this.arrow.visible = true
         this.description.visible = true;
         this.name.visible = true;
     }
@@ -34,7 +33,20 @@ export default class NPCDialog extends NPC {
         }
     }
 
+    setVisiblity(objects, visibility) {
+        for (let i = 0; i < objects.length; i++) {
+            objects[i].visible = visibility;
+        }
+    }
+
     accion(scene) {
+
+        if (this.choosing) {
+            let input = scene.player.keyDown()
+            if (input.any) {
+                this.chooseOption(scene, input)
+            }
+        }
 
         if (!this.choosing) {
             if (scene.player.keyDown().interact) {
@@ -70,16 +82,10 @@ export default class NPCDialog extends NPC {
                 }
             }
         }
-        else if (this.choosing) {
-            let input = scene.player.keyDown()
-            if (input.any) 
-            {
-                this.chooseOption(scene, input)
-            }
-        }
+       
     }
 
-    ContinueDialog(scene) {
+    ContinueDialog() {
         //console.log(this.index)
         if (this.index === -1) {
             this.FinishDialog()
@@ -90,6 +96,7 @@ export default class NPCDialog extends NPC {
         this.description.name = this.d().name
 
         if (this.d().numOptions.length === 0) {
+
             //console.log(this.d().state)
             for (let i = 0; i < this.d().state.length; i++) {
                 if (this.d().state[i].targetState === this.state) {
@@ -100,6 +107,8 @@ export default class NPCDialog extends NPC {
             }
         }
         else {
+
+            this.arrow.visible = true
 
             //Creacion opciones de dialogo
             this.dialogOptions = []
@@ -124,7 +133,15 @@ export default class NPCDialog extends NPC {
             console.log("First " + this.selection)
             this.selection = this.loop(this.selection, this.d().numOptions.length)
             console.log("Second " + this.selection)
+        }
 
+        if (input.interact) {
+            this.index = this.d().numOptions[this.selection].nextIndex
+            this.choosing = false
+            this.setVisiblity(this.dialogOptions, false)
+            this.arrow.visible = false
+            if(this.index === -1) this.FinishDialog()
+            this.ContinueDialog()
         }
 
         this.arrow.y = CT.yDialogTextPos +

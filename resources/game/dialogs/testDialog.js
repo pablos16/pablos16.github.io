@@ -21,22 +21,31 @@ const Dialog =
                 [
                     {
                         text: "Si",
-                        nextIndex: 4
+                        nextIndex: 3
                     },
                     {
                         text: "No",
-                        nextIndex: 5
+                        nextIndex: 2
                     },
-                    {
-                        text: "foo",
-                        nextIndex: -1
-                    }
                 ],
         },
         {
             id: 2,
             name: "Muro",
             text: "Nada que hacer aqui",
+            numOptions: [],
+            state: [
+                {
+                    targetState: 1,
+                    nextState: 1,
+                    nextIndex: -1
+                }
+            ]
+        },
+        {
+            id: 3,
+            name: "Muro",
+            text: "Hecho",
             numOptions: [],
             state: [
                 {
