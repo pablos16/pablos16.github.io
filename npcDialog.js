@@ -6,11 +6,13 @@ export default class NPCDialog extends NPC {
         super(scene, x, y, npcImage);
         this.currentScene = scene;
         this.isTalking = false;
+        this.choosing = false
         this.state = 0;
         this.dialog = dialog2
         this.index = 0;
         this.description = this.currentScene.add.bitmapText(CT.xDialogTextPos, CT.yDialogTextPos, CT.dialogFont, this.d().text, CT.dialogSize, CT.dialogAlign);
         this.name = this.currentScene.add.bitmapText(CT.xDialogNamePos, CT.yDialogNamePos, CT.dialogFont, this.d().name, CT.dialogSize, CT.dialogAlign);
+        this.dialogOptions = [1, 2, 3]
         this.initializeText([this.name, this.description], false)
     }
 
@@ -21,8 +23,7 @@ export default class NPCDialog extends NPC {
     }
 
     initializeText(texts, visibility) {
-        for (let i = 0; i < texts.length; i++)
-        {
+        for (let i = 0; i < texts.length; i++) {
             texts[i].visible = visibility;
             texts[i].setScrollFactor(0);
             texts[i].depth = 100
@@ -31,7 +32,7 @@ export default class NPCDialog extends NPC {
 
     accion(scene) {
 
-        if (Phaser.Input.Keyboard.JustDown(scene.player.action)) {
+        if (scene.player.keyDown().interact && !this.choosing) {
             //if (this.player.action.isDown && !this.flipFlop) {
             if (!scene.player.isTalking) {
 
@@ -47,12 +48,12 @@ export default class NPCDialog extends NPC {
                 //this.testDialogue = new Dialogue(this, 1280/2, 720 - 720/5, 'A: ', 'Hola');
                 scene.dialogueImage.setVisible(true);
                 console.log("hey")
-                this.ContinueDialog()
+                this.ContinueDialog(scene)
                 this.StartDialog()
             }
             else if (this.isTalking) {
                 //console.log("Hola");
-                this.ContinueDialog()
+                this.ContinueDialog(scene)
             }
             if (!this.isTalking) {
                 //Volvemos a mover al personaje
@@ -63,10 +64,12 @@ export default class NPCDialog extends NPC {
                 //this.NPC.isTalking = false;
                 //texto.destroy();
             }
+        } else if (this.choosing) {
+            this.chooseOption()
         }
     }
 
-    ContinueDialog() {
+    ContinueDialog(scene) {
         //console.log(this.index)
         if (this.index === -1) {
             this.FinishDialog()
@@ -89,17 +92,23 @@ export default class NPCDialog extends NPC {
         else {
 
             //Creacion opciones de dialogo
-            let options = [];
+            this.dialogOptions = []
+
             for (let i = 0; i < this.d().numOptions.length; i++) {
-                options.push(this.currentScene.add.bitmapText(
+                this.dialogOptions.push(this.currentScene.add.bitmapText(
                     CT.xDialogTextPos + CT.xSubDialogSpacing, CT.yDialogTextPos + CT.subDialogInSpacing + i * CT.ySubDialogSpacing,
                     CT.dialogFont, this.d().numOptions[i].text, CT.subDialogSize, CT.dialogAlign))
             }
-            this.initializeText(options, true)
+            this.initializeText(this.dialogOptions, true)
 
-            //Gestion ???
-            console.log(options)
+            this.choosing = true;
+
         }
+    }
+
+    chooseOption() 
+    {
+
     }
 
     d() {

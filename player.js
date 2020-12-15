@@ -52,6 +52,18 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   }
 
+  keyDown() {
+    let playerInput = {}
+
+    playerInput.interact = Phaser.Input.Keyboard.JustDown(this.action)
+    playerInput.left = Phaser.Input.Keyboard.JustDown(this.cursors.left)
+    playerInput.right = Phaser.Input.Keyboard.JustDown(this.cursors.right)
+    playerInput.down = Phaser.Input.Keyboard.JustDown(this.cursors.down)
+    playerInput.up = Phaser.Input.Keyboard.JustDown(this.cursors.up)
+
+    return playerInput
+  }
+
   calculateVelocity() {
 
     let object = { x: this.body.velocity.x, y: this.body.velocity.y }
