@@ -21,7 +21,7 @@ const Dialog =
                 [
                     {
                         text: "Si",
-                        nextIndex: 3
+                        nextIndex: -1
                     },
                     {
                         text: "No",

@@ -19,11 +19,28 @@ export default class NPCDialog extends NPC {
         this.initializeText([this.name, this.description, this.arrow], false)
     }
 
-    StartDialog() {
 
-        this.description.visible = true;
-        this.name.visible = true;
+    accion(scene) {
+        if (!this.choosing && scene.player.keyDown().interact) {
+            if (!this.isTalking) {
+                this.StartDialog(scene)
+            }
+            else if (this.isTalking) {
+                //console.log("Hola");
+                this.ContinueDialog(scene)
+            }
+            if (!this.isTalking) {
+                this.FinishDialog(scene)
+            }
+        }
+        else if (this.choosing) {
+            let input = scene.player.keyDown()
+            if (input.any) {
+                this.chooseOption(scene, input)
+            }
+        }
     }
+
 
     initializeText(texts, visibility) {
         for (let i = 0; i < texts.length; i++) {
@@ -39,56 +56,35 @@ export default class NPCDialog extends NPC {
         }
     }
 
-    accion(scene) {
-
-        if (this.choosing) {
-            let input = scene.player.keyDown()
-            if (input.any) {
-                this.chooseOption(scene, input)
-            }
-        }
-
-        if (!this.choosing) {
-            if (scene.player.keyDown().interact) {
-                if (!scene.player.isTalking) {
-
-                    //Hablas con el
-                    //PONER AQUI DIÁLOGO
-                    scene.player.isTalking = true;
-                    this.isTalking = true;
-                    this.stopX();
-                    this.stopY();
-                    scene.player.stopX();
-                    scene.player.stopY();
-
-                    //this.testDialogue = new Dialogue(this, 1280/2, 720 - 720/5, 'A: ', 'Hola');
-                    scene.dialogueImage.setVisible(true);
-                    console.log("hey")
-                    this.ContinueDialog(scene)
-                    this.StartDialog()
-                }
-                else if (this.isTalking) {
-                    //console.log("Hola");
-                    this.ContinueDialog(scene)
-                }
-                if (!this.isTalking) {
-                    //Volvemos a mover al personaje
-                    this.moveRight();
-
-                    scene.dialogueImage.setVisible(false);
-                    scene.player.isTalking = false;
-                    //this.NPC.isTalking = false;
-                    //texto.destroy();
-                }
-            }
-        }
-       
+    loop(id, lenght) {
+        return (Math.abs(id + lenght) % lenght);
     }
 
-    ContinueDialog() {
+    d() {
+        return this.dialog[this.index];
+    }
+
+    StartDialog(scene) {
+
+        scene.player.isTalking = true;
+        this.isTalking = true;
+        this.stopX();
+        this.stopY();
+        scene.player.stopX();
+        scene.player.stopY();
+
+        scene.dialogueImage.setVisible(true);
+        console.log("hey")
+        this.ContinueDialog(scene)
+
+        this.description.visible = true;
+        this.name.visible = true;
+    }
+
+    ContinueDialog(scene) {
         //console.log(this.index)
         if (this.index === -1) {
-            this.FinishDialog()
+            this.FinishDialog(scene)
             return;
         }
 
@@ -127,38 +123,51 @@ export default class NPCDialog extends NPC {
     chooseOption(scene, input) {
         let down = input.down
         let up = input.up
-        //console.log("Choosing " + down +" "+up)
+
+        //Actualizar selección y posicion del cursor
         if (up || down) {
+            //Actualiza internamente el indice
             this.selection = up ? this.selection - 1 : this.selection + 1;
-            console.log("First " + this.selection)
             this.selection = this.loop(this.selection, this.d().numOptions.length)
-            console.log("Second " + this.selection)
+
+            //Actualiza la posicion del cursor en pantalla
+            this.arrow.y = CT.yDialogTextPos +
+            CT.subDialogInSpacing + CT.yDialogSelection +
+            this.selection * (CT.subDialogInSpacing - CT.yDialogSelection)
         }
 
+        //En caso de elegir opción
+        /*
+         Lo que hacemos es:
+         1- Actualizar el índice
+         2- Decir que ya hemos acabado de elegir
+         3- Ocultar opciones de diálogo y cursor
+         4- Finalizar dialogo o continuarlo según corresponda
+        */
         if (input.interact) {
             this.index = this.d().numOptions[this.selection].nextIndex
             this.choosing = false
             this.setVisiblity(this.dialogOptions, false)
             this.arrow.visible = false
-            if(this.index === -1) this.FinishDialog()
-            this.ContinueDialog()
+            if (this.index === -1) this.FinishDialog(scene)
+            else this.ContinueDialog()
         }
-
-        this.arrow.y = CT.yDialogTextPos +
-            CT.subDialogInSpacing + CT.yDialogSelection +
-            this.selection * (CT.subDialogInSpacing - CT.yDialogSelection)
     }
 
-    loop(id, lenght) {
-        return (Math.abs(id + lenght) % lenght);
-    }
 
-    d() {
-        return this.dialog[this.index];
-    }
+    FinishDialog(scene) {
 
-    FinishDialog() {
+        //Volvemos a mover al personaje
+        this.moveRight();
+
+        //Ocultamos la imagen de dialogo y player ya no está hablando
+        scene.dialogueImage.setVisible(false);
+        scene.player.isTalking = false;
+
+        //Ya no se está hablando
         this.isTalking = false
+
+        //Preparar indice para la siguiente vez que se hable
         this.index = this.dialog.length - 1
         for (let i = 0; i < this.d().state.length; i++) {
             if (this.d().state[i].targetState === this.state) {
@@ -166,7 +175,8 @@ export default class NPCDialog extends NPC {
                 break;
             }
         }
-        //this.index = 0;
+
+        //Ocultar textos
         this.description.visible = false;
         this.name.visible = false;
     }
