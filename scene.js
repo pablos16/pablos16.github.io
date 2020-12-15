@@ -7,8 +7,8 @@ import CT from './constants.js';
 import NPCDialog from './npcDialog.js';
 import testDialogue from './resources/game/dialogs/testDialog.js'
 
-export default class Scene extends Phaser.Scene{
-  constructor(){
+export default class Scene extends Phaser.Scene {
+  constructor() {
     super({ key: 'scene' });
   }
   //Aqui te crea todo lo que necesites al inicio para todo el juego
@@ -25,44 +25,47 @@ export default class Scene extends Phaser.Scene{
     });
     let tileSet = this.map.addTilesetImage('tiles', 'mapTiles');
 
-    this.mapGround = this.map.createStaticLayer('Ground' , tileSet);
-    this.mapBorder = this.map.createStaticLayer('Border' , tileSet);
-    this.mapPathway = this.map.createStaticLayer('Pathway' , tileSet);
-    this.mapFences = this.map.createStaticLayer('Fences' , tileSet);
-    this.mapDecorations = this.map.createStaticLayer('Decorations' , tileSet);
-    this.mapFoundations = this.map.createStaticLayer('Foundations' , tileSet);
+    //Tecla de pantalla completa
+    this.fullScreen = this.input.keyboard.addKey('F');
+
+    this.mapGround = this.map.createStaticLayer('Ground', tileSet);
+    this.mapBorder = this.map.createStaticLayer('Border', tileSet);
+    this.mapPathway = this.map.createStaticLayer('Pathway', tileSet);
+    this.mapFences = this.map.createStaticLayer('Fences', tileSet);
+    this.mapDecorations = this.map.createStaticLayer('Decorations', tileSet);
+    this.mapFoundations = this.map.createStaticLayer('Foundations', tileSet);
 
     //Entidades en el mapa
-    for (const objeto of this.map.getObjectLayer('Objects').objects){
-      switch(objeto.name){
+    for (const objeto of this.map.getObjectLayer('Objects').objects) {
+      switch (objeto.name) {
         case 'Player': //Personaje
-          this.player = new Player(this, objeto.x, objeto.y);     
-        break;
+          this.player = new Player(this, objeto.x, objeto.y);
+          break;
         case 'Item': //Objetos en el suelo
           //this.dropped = new DroppedItem(this, objeto.x, objeto.y, objeto.type, this.droppedItems);
           this.dropped.push(new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type)));
-        break;
+          break;
         case 'Obstacle': //Obstáculo (entidad en la que se usa un objeto)
           const props = {};
-          if (objeto.properties){ for (const { name, value } of objeto.properties){ props[name] = value;}}
+          if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
           this.obtacle = new Obstacle(this, objeto.x, objeto.y, props.texture, parseInt(objeto.type));
-        break;
+          break;
         case 'Npc': //NPC
           this.NPC = new NPCDialog(this, objeto.x, objeto.y, testDialogue, 'npc');
-        break;
+          break;
       }
     }
 
     //Grupo físico para los objetos en el suelo
     this.droppedItems = this.physics.add.staticGroup();
-    this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) =>{
+    this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) => {
       // recoger
-      if (this.player.action.isDown){
+      if (this.player.action.isDown) {
         if (this.player.inventory.addItem(o2.id)) o2.destroy();
       }
     });
     for (let i = 0; i < this.dropped.length; i = i + 1) { this.droppedItems.add(this.dropped[i]); }
-    
+
     this.mapBuildings = this.map.createStaticLayer('Buildings', tileSet);
     this.mapRooftops = this.map.createStaticLayer('Rooftops', tileSet);
     this.mapCollisions = this.map.createStaticLayer('Collisions', tileSet);
@@ -77,10 +80,10 @@ export default class Scene extends Phaser.Scene{
 
     //NPC
     ////this.NPC = new NPCDialog(this, 200, 300, testDialogue);
-    
+
     //this.physics.add.collider(this.player, this.NPCs);
     /*this.physics.add.collider(this.NPCs, this.walls);*/ //Esto debería de sobrar
-    
+
     //Barra de alineamiento
     this.align = new Alignment(this, 700, 50);
 
@@ -95,10 +98,9 @@ export default class Scene extends Phaser.Scene{
     this.inventoryBar = new InventoryBar(this, CT.invBarPosX, CT.invBarPosY);
   }
 
-  update()
-  {
-    if (Phaser.Input.Keyboard.JustDown(this.player.fullScreen)) {
-        this.scale.toggleFullscreen()
-  }
+  update() {
+    if (Phaser.Input.Keyboard.JustDown(this.fullScreen)) {
+      this.scale.toggleFullscreen()
+    }
   }
 }

@@ -26,7 +26,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
       down: S
     })
     this.action = scene.input.keyboard.addKey('E');
-    this.fullScreen = scene.input.keyboard.addKey('F');
 
     //ANIMACIONES
     //No implementadas todavia porque no tenemos sprites

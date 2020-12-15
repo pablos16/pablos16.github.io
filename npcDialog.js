@@ -22,7 +22,7 @@ export default class NPCDialog extends NPC {
     }
 
     StartDialog() {
-        
+
         this.description.visible = true;
         this.name.visible = true;
         this.timerStart = this.currentScene.time.now
@@ -91,12 +91,17 @@ export default class NPCDialog extends NPC {
             }
         }
         else {
-            for (let i = 0; i < this.d().numOptions.lengt; i++) {
-
-                this.description = this.currentScene.add.bitmapText(CT.xDialogTextPos, CT.yDialogTextPos, CT.dialogFont, this.d().text, CT.dialogSize, CT.dialogAlign);
+            let options = [];
+            for (let i = 0; i < this.d().numOptions.length; i++) {
+                options.push(this.currentScene.add.bitmapText(
+                    CT.xDialogTextPos + CT.xSubDialogSpacing, CT.yDialogTextPos + CT.subDialogInSpacing + i * CT.ySubDialogSpacing, 
+                    CT.dialogFont, this.d().numOptions[i].text, CT.subDialogSize, CT.dialogAlign))
+                options[i].depth = 100
+                options[i].setScrollFactor(0);
 
             }
 
+            console.log(options)
         }
 
         this.timerStart = this.currentScene.time.now

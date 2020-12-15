@@ -23,9 +23,12 @@ const CT =
      yDialogTextPos: 720 - 72*2.5,
      xDialogNamePos: 1280/5.25,
      yDialogNamePos: 720 - 72*3.25,
+     ySubDialogSpacing: 30,
+     xSubDialogSpacing: 50,
+     subDialogInSpacing: 40,
      dialogFont: 'font',
      dialogSize: 30,
-     subDialogSize: 15,
+     subDialogSize: 25,
      dialogAlign: 0
 }
 
