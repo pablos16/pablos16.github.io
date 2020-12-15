@@ -39,6 +39,11 @@ const Dialog =
                     targetState: 1,
                     nextState: 1,
                     nextIndex: -1
+                },
+                {
+                    targetState: 0,
+                    nextState: 1,
+                    nextIndex: -1
                 }
             ]
         },
