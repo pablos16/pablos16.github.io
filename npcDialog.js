@@ -58,18 +58,14 @@ export default class NPCDialog extends NPC {
     }
 
     StartDialog(scene) {
+        scene.player.isTalking = true
         this.isTalking = true;
-        this.stopX();
-        this.stopY();
-        scene.player.stopX();
-        scene.player.stopY();
-        this.initializeIndex()
-        scene.dialogueImage.setVisible(true);
+
         console.log("hey " + this.index)
 
-        this.description.visible = true;
-        this.name.visible = true;
-
+        this.stop();
+        this.setVisiblity([this.description, this.name, scene.dialogueImage],true)
+        this.initializeIndex()
         this.ContinueDialog(scene)
     }
 
@@ -169,7 +165,6 @@ export default class NPCDialog extends NPC {
 
         //Ya no se está hablando
         this.isTalking = false
-
 
         //Ocultar textos
         this.description.visible = false;

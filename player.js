@@ -60,11 +60,11 @@ export default class Player extends Phaser.GameObjects.Sprite {
     playerInput.right = Phaser.Input.Keyboard.JustDown(this.cursors.right)
     playerInput.down = Phaser.Input.Keyboard.JustDown(this.cursors.down)
     playerInput.up = Phaser.Input.Keyboard.JustDown(this.cursors.up)
-    playerInput.any = playerInput.interact || 
-                      playerInput.lef || 
-                      playerInput.right ||
-                      playerInput.down ||
-                      playerInput.up;
+    playerInput.any = playerInput.interact ||
+      playerInput.lef ||
+      playerInput.right ||
+      playerInput.down ||
+      playerInput.up;
 
     return playerInput
   }
@@ -100,20 +100,19 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   preUpdate() {
 
-    //this.action.preUpdate();
-    //Algo de este estilo
+    //Al principio de cada preUpdate, el Player se para
+    this.stopX()
+    this.stopY()
+
     if (!this.isTalking) {
 
       //Movimiento horizontal
       if (this.cursors.left.isDown) this.horizontalMove(-1);
       else if (this.cursors.right.isDown) this.horizontalMove(1);
-      else this.stopX();
-
 
       //Movimiento vertical        
       if (this.cursors.up.isDown) this.verticalMove(-1);
       else if (this.cursors.down.isDown) this.verticalMove(1);
-      else this.stopY();
 
       this.calculateVelocity()
 

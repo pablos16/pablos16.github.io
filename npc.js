@@ -86,6 +86,12 @@ export default class NPC extends Phaser.GameObjects.Container {
   stopY() {
     this.body.setVelocityY(0);
   }
+
+  stop()
+  {
+    this.stopX()
+    this.stopY()
+  }
   preUpdate() {
     //Movimiento del npc
     if (!this.isTalking) {
