@@ -19,6 +19,7 @@ const CT =
      textAlign: 0,
      textSpacing: 1,
 
+     dialogSpacing : 10,
      xDialogTextPos: 1280 / 5.25,
      yDialogTextPos: 720 - 72 * 2.5,
      xDialogNamePos: 1280 / 5.25,
@@ -35,7 +36,9 @@ const CT =
 
      misionListX: 1280/2,
      misionListY: 720 + 720/4,
-     misionOffsetToggle: 400
+     misionOffsetToggle: 400,
+
+     textLimit: 50
 }
 
 export default CT;

@@ -129,6 +129,44 @@ export default class NPCDialog extends NPC {
         //console.log(this.index + " " +this.currentDialog().text)    
         let random = getRandomInt(this.currentDialog().text.length)
         this.description.text = this.currentDialog().text[random]
+        this.description.text = this.indentText(this.description.text)
+        this.description.update()
+    }
+
+    indentText(text) {
+        String.prototype.insert = function (index, string) {
+            if (index > 0) {
+                return this.substring(0, index) + string + this.substr(index);
+            }
+        };
+
+        console.log(text)
+        let l = text.length
+        for (let i = 0; i < l; i++) {
+            if (i % CT.textLimit === 0 && i !== 0) {
+                let j = i
+                while (text[j] !== " " && j < l) {
+                    console.log(text[j])
+                    j++;
+                }
+                j++;
+
+                let x = i
+                while (text[x] !== " " && x < l) {
+                    console.log(text[j])
+                    x--;
+                }
+                x++
+
+                let final = (j - i) >= (i - x) ? x : j
+                text = text.insert(final, "\n\n")
+            }
+        }
+        return text;
+    }
+
+    indentTexts(texts) {
+        for (let i = 0; i < texts.length; i++) this.indentText(texts[i]);
     }
 
     initializeIndex() {
@@ -146,11 +184,9 @@ export default class NPCDialog extends NPC {
     }
 
     updateState(context, i = 0) {
-        if("nextState" in context.currentDialog().state[i])
-        {
+        if ("nextState" in context.currentDialog().state[i]) {
             context.state = context.currentDialog().state[i].nextState;
         }
-        else console.log(context.currentDialog())
     }
 
     updateStateAndIndex(context, i = 0) {
@@ -163,7 +199,7 @@ export default class NPCDialog extends NPC {
         for (let i = 0; i < this.currentDialog().state.length; i++) {
             for (let j = 0; j < this.currentDialog().state[i].targetState.length; j++) {
                 if (this.currentDialog().state[i].targetState[j] === this.state
-                || this.currentDialog().state[i].targetState[j] === "any") {
+                    || this.currentDialog().state[i].targetState[j] === "any") {
                     doThing(this, i)
                     break loop;
                 }
