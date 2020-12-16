@@ -21,6 +21,7 @@ const Dialog =
         [
             "...",  "No te preocupes..."
         ],
+        completed: 1,
         random: false,
         numOptions: [],
         state: [

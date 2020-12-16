@@ -40,7 +40,7 @@ export default class NPCDialog extends NPC {
 
     StartDialog(scene) {
         //Debug
-        console.log("hey " + this.index)
+        //console.log("hey " + this.index)
 
         this.setTalking(scene, true)
         this.stop();
@@ -51,13 +51,17 @@ export default class NPCDialog extends NPC {
 
     ContinueDialog(scene) {
 
-        console.log("hey " + this.index)
-        console.log(this.currentDialog().state)
+        //console.log("hey " + this.index)
+        //console.log(this.currentDialog().state)
 
         //Actualizar textos
         this.updateTexts()
+
+        //Miramos si este dialogo era necesario para completar alguna mision
+        this.checkMisionCompleted(scene)
+
         //Actualizar índice y estado (el indice cambia en función del estado actual)
-        if (this.currentDialog().numOptions.length === 0)  this.iterateStates(this.updateStateAndIndex)
+        if (this.currentDialog().numOptions.length === 0) this.iterateStates(this.updateStateAndIndex)
         else {
             this.arrow.visible = true
 
@@ -112,6 +116,13 @@ export default class NPCDialog extends NPC {
 
     //Metoodos auxiliares
 
+    checkMisionCompleted(scene) {
+        let completed = "completed" in this.currentDialog()
+        if (completed) {
+            scene.player.misionList.setCompleted(this.currentDialog().completed)
+        }
+    }
+
     updateTexts() {
         this.name.text = this.currentDialog().name
         let random = getRandomInt(this.currentDialog().text.length)
@@ -122,8 +133,8 @@ export default class NPCDialog extends NPC {
         if (this.index === -1) {
             //Preparar indice para la siguiente vez que se hable
             this.index = this.dialog.length - 1
-            console.log(this.currentDialog().state.length)
-            console.log(this.currentDialog().state[0].targetState.length)
+            //console.log(this.currentDialog().state.length)
+            //console.log(this.currentDialog().state[0].targetState.length)
             this.iterateStates(this.updateIndex)
         }
     }

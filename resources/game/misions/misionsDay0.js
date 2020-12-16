@@ -7,10 +7,10 @@ const Misions =
             total: 5
         },
         {
-            text: "Muere",
+            text: "Habla con el NPC de pruebas",
             parts: [],
             completed: 0,
-            total: 2
+            total: 1
         }
     ]
 
