@@ -140,25 +140,19 @@ export default class NPCDialog extends NPC {
             }
         };
 
-        console.log(text)
         let l = text.length
         for (let i = 0; i < l; i++) {
             if (i % CT.textLimit === 0 && i !== 0) {
-                let j = i
-                while (text[j] !== " " && j < l) {
-                    console.log(text[j])
-                    j++;
-                }
-                j++;
 
-                let x = i
-                while (text[x] !== " " && x < l) {
-                    console.log(text[j])
-                    x--;
-                }
-                x++
+                let wordEnd = i
+                while (text[wordEnd] !== " " && wordEnd < l) {  wordEnd++;  }
+                wordEnd++;
 
-                let final = (j - i) >= (i - x) ? x : j
+                let wordBeggining = i
+                while (text[wordBeggining] !== " " && wordBeggining < l) { wordBeggining--; }
+                wordBeggining++
+
+                let final = (wordEnd - i) >= (i - wordBeggining) ? wordBeggining : wordEnd
                 text = text.insert(final, "\n\n")
             }
         }

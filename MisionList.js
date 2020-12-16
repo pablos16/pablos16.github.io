@@ -9,19 +9,8 @@ export default class Misions extends Phaser.GameObjects.Sprite {
         this.depth = 100
         this.setScrollFactor(0)
         this.misionList = misionList
-        this.initializeMisionsList()
         this.visible = false
         this.on('pointerdown', pointer => { this.toggleListInterface() })
-    }
-
-    initializeMisionsList() {
-        let iLenght = this.misionList.length
-
-        for (let i = 0; i < iLenght; i++) {
-            this.misionList[i].parts.length = this.misionList[i].total
-            this.misionList[i].parts.fill(false)
-        }
-        //console.log(this.misionList)
     }
 
     missionCompleted(misionIndex) {
