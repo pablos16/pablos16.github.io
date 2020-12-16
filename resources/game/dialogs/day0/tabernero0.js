@@ -16,10 +16,10 @@ const Dialog =
     },   
     {
         id: 1,
-        name: "Tabernero",
+        name: "Jugador",
         text:
         [
-            "...", "*burp*", "No te preocupes..."
+            "...",  "No te preocupes..."
         ],
         random: false,
         numOptions: [],
