@@ -22,6 +22,7 @@ export default class NPCDialog extends NPC {
         this.initializeText([this.name, this.description, this.arrow], false)
     }
 
+    //Metodos principales
 
     accion(scene) {
         if (!this.choosing && scene.player.keyDown().interact) {
@@ -48,12 +49,6 @@ export default class NPCDialog extends NPC {
         this.ContinueDialog(scene)
     }
 
-    updateTexts() {
-        this.name.text = this.currentDialog().name
-        let random = getRandomInt(this.currentDialog().text.length)
-        this.description.text = this.currentDialog().text[random]
-    }
-
     ContinueDialog(scene) {
 
         console.log("hey " + this.index)
@@ -62,17 +57,7 @@ export default class NPCDialog extends NPC {
         //Actualizar textos
         this.updateTexts()
         //Actualizar índice y estado (el indice cambia en función del estado actual)
-        if (this.currentDialog().numOptions.length === 0) {
-            loop: for (let i = 0; i < this.currentDialog().state.length; i++) {
-                for (let j = 0; j < this.currentDialog().state[i].targetState.length; j++) {
-                    if (this.currentDialog().state[i].targetState[j] === this.state) {
-                        this.state = this.currentDialog().state[i].nextState;
-                        this.index = this.currentDialog().state[i].nextIndex;
-                        break loop;
-                    }
-                }
-            }
-        }
+        if (this.currentDialog().numOptions.length === 0)  this.iterateStates(this.updateStateAndIndex)
         else {
             this.arrow.visible = true
 
@@ -93,6 +78,12 @@ export default class NPCDialog extends NPC {
         }
     }
 
+    FinishDialog(scene) {
+        this.moveRight();
+        utils.setVisiblity([this.description, this.name, scene.dialogueImage], false)
+        this.setTalking(scene, false)
+    }
+
     chooseOption(scene, input) {
         let down = input.down
         let up = input.up
@@ -109,14 +100,6 @@ export default class NPCDialog extends NPC {
                 this.selection * (CT.subDialogInSpacing - CT.yDialogSelection)
         }
 
-        //En caso de elegir opción
-        /*
-         Lo que hacemos es:
-         1- Actualizar el índice
-         2- Decir que ya hemos acabado de elegir
-         3- Ocultar opciones de diálogo y cursor
-         4- Finalizar dialogo o continuarlo según corresponda
-        */
         if (input.interact) {
             this.arrow.visible = false
             this.choosing = false
@@ -127,10 +110,12 @@ export default class NPCDialog extends NPC {
         }
     }
 
-    FinishDialog(scene) {
-        this.moveRight();
-        utils.setVisiblity([this.description, this.name, scene.dialogueImage], false)
-        this.setTalking(scene, false)
+    //Metoodos auxiliares
+
+    updateTexts() {
+        this.name.text = this.currentDialog().name
+        let random = getRandomInt(this.currentDialog().text.length)
+        this.description.text = this.currentDialog().text[random]
     }
 
     initializeIndex() {
@@ -139,12 +124,30 @@ export default class NPCDialog extends NPC {
             this.index = this.dialog.length - 1
             console.log(this.currentDialog().state.length)
             console.log(this.currentDialog().state[0].targetState.length)
-            loop: for (let i = 0; i < this.currentDialog().state.length; i++) {
-                for (let j = 0; j < this.currentDialog().state[i].targetState.length; j++) {
-                    if (this.currentDialog().state[i].targetState[j] === this.state) {
-                        this.index = this.currentDialog().state[i].nextIndex;
-                        break loop;
-                    }
+            this.iterateStates(this.updateIndex)
+        }
+    }
+
+    updateIndex(context, i = 0) {
+        context.index = context.currentDialog().state[i].nextIndex;
+    }
+
+    updateState(context, i = 0) {
+        context.state = context.currentDialog().state[i].nextState;
+    }
+
+    updateStateAndIndex(context, i = 0) {
+        context.updateState(context, i)
+        context.updateIndex(context, i)
+    }
+
+    iterateStates(doThing) {
+        loop:
+        for (let i = 0; i < this.currentDialog().state.length; i++) {
+            for (let j = 0; j < this.currentDialog().state[i].targetState.length; j++) {
+                if (this.currentDialog().state[i].targetState[j] === this.state) {
+                    doThing(this, i)
+                    break loop;
                 }
             }
         }
