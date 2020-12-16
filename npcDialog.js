@@ -126,7 +126,7 @@ export default class NPCDialog extends NPC {
     updateTexts() {
         this.initializeIndex()
         this.name.text = this.currentDialog().name
-        console.log(this.index + " " +this.currentDialog().text)
+        //console.log(this.index + " " +this.currentDialog().text)    
         let random = getRandomInt(this.currentDialog().text.length)
         this.description.text = this.currentDialog().text[random]
     }
@@ -146,7 +146,11 @@ export default class NPCDialog extends NPC {
     }
 
     updateState(context, i = 0) {
-        context.state = context.currentDialog().state[i].nextState;
+        if("nextState" in context.currentDialog().state[i])
+        {
+            context.state = context.currentDialog().state[i].nextState;
+        }
+        else console.log(context.currentDialog())
     }
 
     updateStateAndIndex(context, i = 0) {

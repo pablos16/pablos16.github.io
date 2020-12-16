@@ -7,7 +7,7 @@ const Dialog =
             state: [
                 {
                     targetState: ["any"],
-                    nextIndex: 5
+                    nextIndex: 1
                 },
             ]
         },
@@ -82,7 +82,7 @@ const Dialog =
             id: -1,
             state: [
                 {
-                    targetState: [1],
+                    targetState: [0],
                     nextIndex: 0
                 },
                 {
