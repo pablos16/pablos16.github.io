@@ -90,7 +90,7 @@ export default class Scene extends Phaser.Scene {
     /*this.physics.add.collider(this.NPCs, this.walls);*/ //Esto debería de sobrar
 
     //Barra de alineamiento
-    this.align = new Alignment(this, 700, 50);
+    this.align = new Alignment(this, CT.alignmentBarX, CT.alignmentBarY, 0);
 
     //Cámara que sigue al jugador
     this.cameras.main.startFollow(this.player);
