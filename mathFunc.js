@@ -10,3 +10,7 @@ export function normalizeVector(obj) {
 export function loop(id, lenght) {
   return (Math.abs(id + lenght) % lenght);
 }
+
+export function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}

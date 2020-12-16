@@ -1,6 +1,7 @@
 import CT from './constants.js';
 import NPC from './npc.js';
 import { loop } from "./mathFunc.js";
+import { getRandomInt } from "./mathFunc.js";
 import * as utils from './phaserUtilities.js'
 
 
@@ -47,11 +48,16 @@ export default class NPCDialog extends NPC {
         this.ContinueDialog(scene)
     }
 
+    updateTexts() {
+        this.name.text = this.currentDialog().name
+        let random = getRandomInt(this.currentDialog().text.length)
+        this.description.text = this.currentDialog().text[random]
+    }
+
     ContinueDialog(scene) {
 
         //Actualizar textos
-        this.description.text = this.currentDialog().text
-        this.name.text = this.currentDialog().name
+        this.updateTexts()
 
         //Actualizar índice y estado (el indice cambia en función del estado actual)
         if (this.currentDialog().numOptions.length === 0) {

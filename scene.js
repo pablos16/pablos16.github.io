@@ -5,7 +5,8 @@ import Obstacle from './obstacle.js';
 import Alignment from './alignment.js';
 import CT from './constants.js';
 import NPCDialog from './npcDialog.js';
-import testDialogue from './resources/game/dialogs/testDialog.js'
+import testDialogue from './resources/game/dialogs/day0/testDialog.js'
+import taberneto0 from '/resources/game/dialogs/day0/tabernero0.js'
 
 export default class Scene extends Phaser.Scene {
   constructor() {
@@ -51,7 +52,7 @@ export default class Scene extends Phaser.Scene {
           this.obtacle = new Obstacle(this, objeto.x, objeto.y, props.texture, parseInt(objeto.type));
           break;
         case 'Npc': //NPC
-          this.NPC = new NPCDialog(this, objeto.x, objeto.y, testDialogue, 'npc');
+          this.NPC = new NPCDialog(this, objeto.x, objeto.y, taberneto0, 'npc');
           break;
       }
     }

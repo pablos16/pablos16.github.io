@@ -3,7 +3,7 @@ const Dialog =
         {
             id: 0,
             name: "Muro",
-            text: "Es una zona para colocar carteles de búsqueda",
+            text: ["Es una zona para colocar carteles de búsqueda"],
             numOptions: [],
             state: [
                 {
@@ -16,7 +16,7 @@ const Dialog =
         {
             id: 1,
             name: "Muro",
-            text: "¿Quieres colocar carteles de se busca ahora?",
+            text: ["¿Quieres colocar carteles de se busca ahora?"],
             numOptions:
                 [
                     {
@@ -32,7 +32,7 @@ const Dialog =
         {
             id: 2,
             name: "Muro",
-            text: "Nada que hacer aqui",
+            text: ["Nada que hacer aqui"],
             numOptions: [],
             state: [
                 {
@@ -50,7 +50,7 @@ const Dialog =
         {
             id: 3,
             name: "Muro",
-            text: "Hecho",
+            text: ["Hecho"],
             numOptions: [],
             state: [
                 {
