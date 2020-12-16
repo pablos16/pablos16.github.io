@@ -10,6 +10,7 @@ export default class Misions extends Phaser.GameObjects.Sprite {
         this.setScrollFactor(0)
         this.misionList = misionList
         this.initializeMisionsList()
+        this.visible = false
         this.on('pointerdown', pointer => { this.toggleListInterface() })
     }
 
