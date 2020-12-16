@@ -7,6 +7,7 @@ import CT from './constants.js';
 import NPCDialog from './npcDialog.js';
 import testDialogue from './resources/game/dialogs/day0/testDialog.js'
 import tabernero0 from '/resources/game/dialogs/day0/tabernero0.js'
+import Misions from './resources/game/misions/misionsDay0.js';
 
 export default class Scene extends Phaser.Scene {
   constructor() {
@@ -40,7 +41,7 @@ export default class Scene extends Phaser.Scene {
     for (const objeto of this.map.getObjectLayer('Objects').objects) {
       switch (objeto.name) {
         case 'Player': //Personaje
-          this.player = new Player(this, objeto.x, objeto.y);
+          this.player = new Player(this, objeto.x, objeto.y, Misions);
           break;
         case 'Item': //Objetos en el suelo
           //this.dropped = new DroppedItem(this, objeto.x, objeto.y, objeto.type, this.droppedItems);

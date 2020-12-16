@@ -38,6 +38,9 @@ export default class Boot extends Phaser.Scene {
     //Imagen test dialogo sub
     this.load.image('arrow', 'resources/game/textures/dialogArrow.png');
 
+    //Imagen de prueba de misiones
+    this.load.image('mision', 'resources/game/textures/dialogInterface.png');
+
     //Inventario
     this.load.spritesheet('inventory', 'resources/game/textures/inventory.png', { frameWidth: 66, frameHeight: 66 });
 
