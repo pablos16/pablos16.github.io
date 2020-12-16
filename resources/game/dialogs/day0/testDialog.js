@@ -7,7 +7,7 @@ const Dialog =
             numOptions: [],
             state: [
                 {
-                    targetState: 0,
+                    targetState: [0],
                     nextState: 1,
                     nextIndex: 1
                 },
@@ -36,12 +36,7 @@ const Dialog =
             numOptions: [],
             state: [
                 {
-                    targetState: 1,
-                    nextState: 1,
-                    nextIndex: -1
-                },
-                {
-                    targetState: 0,
+                    targetState: [0,1],
                     nextState: 1,
                     nextIndex: -1
                 }
@@ -54,7 +49,7 @@ const Dialog =
             numOptions: [],
             state: [
                 {
-                    targetState: 1,
+                    targetState: [1],
                     nextState: 1,
                     nextIndex: -1
                 }
@@ -64,11 +59,11 @@ const Dialog =
             id: -1,
             state: [
                 {
-                    targetState: 0,
+                    targetState: [0],
                     nextIndex: 0
                 },
                 {
-                    targetState: 1,
+                    targetState: [1],
                     nextIndex: 2
                 },
 

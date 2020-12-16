@@ -56,16 +56,20 @@ export default class NPCDialog extends NPC {
 
     ContinueDialog(scene) {
 
+        console.log("hey " + this.index)
+        console.log(this.currentDialog().state)
+
         //Actualizar textos
         this.updateTexts()
-
         //Actualizar índice y estado (el indice cambia en función del estado actual)
         if (this.currentDialog().numOptions.length === 0) {
-            for (let i = 0; i < this.currentDialog().state.length; i++) {
-                if (this.currentDialog().state[i].targetState === this.state) {
-                    this.state = this.currentDialog().state[i].nextState;
-                    this.index = this.currentDialog().state[i].nextIndex;
-                    break;
+            loop: for (let i = 0; i < this.currentDialog().state.length; i++) {
+                for (let j = 0; j < this.currentDialog().state[i].targetState.length; j++) {
+                    if (this.currentDialog().state[i].targetState[j] === this.state) {
+                        this.state = this.currentDialog().state[i].nextState;
+                        this.index = this.currentDialog().state[i].nextIndex;
+                        break loop;
+                    }
                 }
             }
         }
@@ -133,10 +137,14 @@ export default class NPCDialog extends NPC {
         if (this.index === -1) {
             //Preparar indice para la siguiente vez que se hable
             this.index = this.dialog.length - 1
-            for (let i = 0; i < this.currentDialog().state.length; i++) {
-                if (this.currentDialog().state[i].targetState === this.state) {
-                    this.index = this.currentDialog().state[i].nextIndex;
-                    break;
+            console.log(this.currentDialog().state.length)
+            console.log(this.currentDialog().state[0].targetState.length)
+            loop: for (let i = 0; i < this.currentDialog().state.length; i++) {
+                for (let j = 0; j < this.currentDialog().state[i].targetState.length; j++) {
+                    if (this.currentDialog().state[i].targetState[j] === this.state) {
+                        this.index = this.currentDialog().state[i].nextIndex;
+                        break loop;
+                    }
                 }
             }
         }
