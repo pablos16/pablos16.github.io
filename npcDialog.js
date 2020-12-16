@@ -61,7 +61,7 @@ export default class NPCDialog extends NPC {
         this.checkMisionCompleted(scene)
 
         //Actualizar índice y estado (el indice cambia en función del estado actual)
-        if (this.currentDialog().numOptions.length === 0) this.iterateStates(this.updateStateAndIndex)
+        if (!("numOptions" in this.currentDialog())) this.iterateStates(this.updateStateAndIndex)
         else {
             this.arrow.visible = true
 

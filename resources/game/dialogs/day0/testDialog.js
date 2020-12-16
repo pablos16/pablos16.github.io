@@ -4,7 +4,6 @@ const Dialog =
             id: 0,
             name: "Muro",
             text: ["Es una zona para colocar carteles de búsqueda"],
-            numOptions: [],
             state: [
                 {
                     targetState: [0],
@@ -33,7 +32,6 @@ const Dialog =
             id: 2,
             name: "Muro",
             text: ["Nada que hacer aqui"],
-            numOptions: [],
             state: [
                 {
                     targetState: [0,1],
@@ -46,7 +44,6 @@ const Dialog =
             id: 3,
             name: "Muro",
             text: ["Hecho"],
-            numOptions: [],
             state: [
                 {
                     targetState: [1],

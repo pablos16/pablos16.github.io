@@ -5,7 +5,6 @@ const Dialog =
         name: "Tabernero",
         text: ["(Borracho) Burp...eres el nuevo policía de la zona?A ver si te gastas más dinero en mi taberna que el antiguo, sois todos unos tacaños."],
         random: false,
-        numOptions: [],
         state: [
             {
                 targetState: [0],
@@ -23,7 +22,6 @@ const Dialog =
         ],
         completed: 1,
         random: false,
-        numOptions: [],
         state: [
             {
                 targetState: [0,1],
