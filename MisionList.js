@@ -17,9 +17,9 @@ export default class Misions extends Phaser.GameObjects.Sprite {
         return this.misionList[misionIndex].completed === this.misionList[misionIndex].total
     }
 
-    setCompleted(mision) {
+    setCompleted(mision, points) {
         this.misionList[mision].completed++
-        console.log("Completada " + this.misionList[mision].completed + " de "+ this.misionList[mision].total)
+        console.log("Completada " + this.misionList[mision].completed + " de "+ this.misionList[mision].total+ " puntos: "+points)
     }
 
     toggleListInterface() {

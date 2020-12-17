@@ -119,7 +119,7 @@ export default class NPCDialog extends NPC {
     checkMisionCompleted(scene) {
         let completed = "completed" in this.currentDialog()
         if (completed) {
-            scene.player.misionList.setCompleted(this.currentDialog().completed)
+            scene.player.misionList.setCompleted(this.currentDialog().completed, this.currentDialog().points)
         }
     }
 
