@@ -53,6 +53,7 @@ export default class Boot extends Phaser.Scene {
 
     //Barra de alineamiento (prototipo)
     this.load.image('bar', 'resources/game/textures/protobarra2.png');
+    this.load.image('indicator', 'resources/game/textures/indicator.png');
 
     // Destruir:
     ////Item_TNT.destroy();

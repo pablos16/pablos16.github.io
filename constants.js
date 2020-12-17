@@ -34,11 +34,14 @@ const CT =
      subDialogSize: 25,
      dialogAlign: 0,
 
+     textLimit: 50,
+
      misionListX: 1280/2,
      misionListY: 720 + 720/4,
      misionOffsetToggle: 400,
 
-     textLimit: 50
+     alignmentBarX: 630,
+     alignmentBarY: 50
 }
 
 export default CT;
