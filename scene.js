@@ -38,6 +38,9 @@ export default class Scene extends Phaser.Scene {
     this.mapDecorations = this.map.createStaticLayer('Decorations', tileSet);
     this.mapFoundations = this.map.createStaticLayer('Foundations', tileSet);
 
+    //Barra de alineamiento
+    this.align = new Alignment(this, CT.alignmentBarX, CT.alignmentBarY, 0);
+
     //Entidades en el mapa
     for (const objeto of this.map.getObjectLayer('Objects').objects) {
       switch (objeto.name) {
@@ -56,7 +59,7 @@ export default class Scene extends Phaser.Scene {
         case 'Npc': //NPC
           this.NPC = new NPCDialog(this, objeto.x, objeto.y, tabernera0, 'npc');
           this.NPC = new NPCDialog(this, objeto.x - 200, objeto.y, tabernero0, 'npc');
-          this.NPC = new NPCDialog(this, objeto.x -100, objeto.y - 100, testDialogue, 'npc');
+          this.NPC = new NPCDialog(this, objeto.x - 100, objeto.y - 100, testDialogue, 'npc');
           break;
       }
     }
@@ -88,9 +91,6 @@ export default class Scene extends Phaser.Scene {
 
     //this.physics.add.collider(this.player, this.NPCs);
     /*this.physics.add.collider(this.NPCs, this.walls);*/ //Esto debería de sobrar
-
-    //Barra de alineamiento
-    this.align = new Alignment(this, CT.alignmentBarX, CT.alignmentBarY, 0);
 
     //Cámara que sigue al jugador
     this.cameras.main.startFollow(this.player);
