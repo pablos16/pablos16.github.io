@@ -61,7 +61,7 @@ export default class NPCDialog extends NPC {
         //Miramos si este dialogo era necesario para completar alguna mision
         this.checkMisionCompleted(scene)
 
-        this.checkSocialGroup()
+        console.log(this.checkSocialGroup())
 
         //Actualizar índice y estado (el indice cambia en función del estado actual)
         if (!("numOptions" in this.currentDialog())) this.iterateStates(this.updateStateAndIndex)
@@ -121,14 +121,10 @@ export default class NPCDialog extends NPC {
     //Metoodos auxiliares
 
     checkSocialGroup() {
-        let l = socialGroup.length
-        loop: for (let i = 0; i < l; i++) {
-            let aux = socialGroup[i].peopleIn.length
-            for (let j = 0; j < aux; j++) {
-                if (socialGroup[i].peopleIn[j].includes(this.currentDialog().name)) {
-                    console.log("Está hablando " + socialGroup[i].name)
-                    break loop
-                }
+        let groups = socialGroup.length
+        for (let i = 0; i < groups; i++) {
+            if (socialGroup[i].peopleIn.includes(this.currentDialog().name)) {
+                return socialGroup[i].name
             }
         }
     }

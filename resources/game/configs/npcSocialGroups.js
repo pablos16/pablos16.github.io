@@ -1,16 +1,17 @@
 import Names from '../configs/npcNames.js'
+import SocialGroupNames from '../configs/socialGroupNames.js'
 
 const SocialGroup=
 [
     {
-        name: "un pobre de mierda",
+        name: SocialGroupNames.Pobres,
         peopleIn:
         [
            Names.Police, Names.Tabernero
         ]
     },
     {
-        name: "la mejor del puto juego",
+        name: SocialGroupNames.Ricos,
         peopleIn:
         [
             Names.Tabernera
