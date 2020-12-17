@@ -41,7 +41,10 @@ const CT =
      misionOffsetToggle: 400,
 
      alignmentBarX: 630,
-     alignmentBarY: 50
+     alignmentBarY: 50,
+     alignmentMaxOffset: 85,
+     alignmentMaxPoints: 10
+
 }
 
 export default CT;
