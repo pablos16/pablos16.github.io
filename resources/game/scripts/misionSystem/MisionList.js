@@ -20,7 +20,7 @@ export default class Misions extends Phaser.GameObjects.Sprite {
 
     setCompleted(mision, points) {
         this.misionList[mision].completed++
-        console.log("Completada " + this.misionList[mision].completed + " de "+ this.misionList[mision].total+ " puntos: "+points)
+        //console.log("Completada " + this.misionList[mision].completed + " de "+ this.misionList[mision].total+ " puntos: "+points)
         if(this.missionCompleted(mision)) this.alignment.addReputation(points)
     }
 

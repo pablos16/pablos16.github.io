@@ -3,6 +3,7 @@ import NPC from './npc.js';
 import { loop } from "../libraries/mathFunc.js";
 import { getRandomInt } from "../libraries/mathFunc.js";
 import * as utils from '../libraries/phaserUtilities.js'
+import socialGroup from '../../configs/npcSocialGroups.js'
 
 
 export default class NPCDialog extends NPC {
@@ -59,6 +60,8 @@ export default class NPCDialog extends NPC {
 
         //Miramos si este dialogo era necesario para completar alguna mision
         this.checkMisionCompleted(scene)
+
+        this.checkSocialGroup()
 
         //Actualizar índice y estado (el indice cambia en función del estado actual)
         if (!("numOptions" in this.currentDialog())) this.iterateStates(this.updateStateAndIndex)
@@ -117,19 +120,31 @@ export default class NPCDialog extends NPC {
 
     //Metoodos auxiliares
 
+    checkSocialGroup() {
+        let l = socialGroup.length
+        loop: for (let i = 0; i < l; i++) {
+            let aux = socialGroup[i].peopleIn.length
+            for (let j = 0; j < aux; j++) {
+                if (socialGroup[i].peopleIn[j].includes(this.currentDialog().name)) {
+                    console.log("Está hablando " + socialGroup[i].name)
+                    break loop
+                }
+            }
+        }
+    }
+
     checkMisionCompleted(scene, index = -1) {
         let completed = "completed" in this.currentDialog()
         if (completed) {
             scene.player.misionList.setCompleted(this.currentDialog().completed, this.currentDialog().points)
         }
 
-        if(index === -1) return;
+        if (index === -1) return;
         completed = "completed" in this.currentDialog().numOptions[index]
-        if(completed)
-        {
+        if (completed) {
             //console.log()
-            scene.player.misionList.setCompleted(this.currentDialog().numOptions[index].completed, 
-            this.currentDialog().numOptions[index].points)
+            scene.player.misionList.setCompleted(this.currentDialog().numOptions[index].completed,
+                this.currentDialog().numOptions[index].points)
 
         }
     }
@@ -150,7 +165,7 @@ export default class NPCDialog extends NPC {
             if (i % CT.textLimit === 0 && i !== 0) {
 
                 let wordEnd = i
-                while (text[wordEnd] !== " " && wordEnd < l) {  wordEnd++;  }
+                while (text[wordEnd] !== " " && wordEnd < l) { wordEnd++; }
                 wordEnd++;
 
                 let wordBeggining = i
