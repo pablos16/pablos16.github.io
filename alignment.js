@@ -26,7 +26,7 @@ export default class Alignment extends Phaser.GameObjects.Container{
     }
 
     updatePosition(){
-        this.setPosition(this.x, this.y + points);
+        this.indicatorTexture.setPosition(this.x, this.y + points);
     }
   
 }
