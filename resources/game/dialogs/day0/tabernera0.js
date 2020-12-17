@@ -1,8 +1,10 @@
+import Names from '../../configs/npcNames.js'
+
 const Dialog =
     [
         {
             id: 0,
-            name: "Tabernera",
+            name: Names.Tabernera,
             text: ["Tú debes de ser el nuevo policía que ha venido a sustituir al antiguo. Espero que no te pase lo mismo que a él JAJAJAMejor no preguntes. Quieres una birra? Son 2 pavos"],
             state: [
                 {
@@ -13,7 +15,7 @@ const Dialog =
         },
         {
             id: 1,
-            name: "Tabernera",
+            name: Names.Police,
             text: ["Hmmm..."],
             numOptions:
             [
@@ -33,7 +35,7 @@ const Dialog =
         },
         {
             id: 2,
-            name: "Tabernera",
+            name: Names.Tabernera,
             text: ["Madre mía, has tenido un mal día?Como seas así en el pueblo vas a durar 3 días contados...mucha suerte canalla, la vas a necesitar"],
             state: [
                 {
@@ -45,7 +47,7 @@ const Dialog =
         },
         {
             id: 3,
-            name: "Tabernera",
+            name: Names.Tabernera,
             text: ["Uhh, que lanzado. Me gusta tu iniciativa, pero estoy casado con el borracho que tienes ahí en frente cielo.Aquí tienes tu cerveza. Mucha suerte en este sitio."],
             state: [
                 {
@@ -57,7 +59,7 @@ const Dialog =
         },
         {
             id: 4,
-            name: "Tabernera",
+            name: Names.Tabernera,
             text: ["Aqui tienes cielo, mucha suerte por aquí, la vas a necesitar"],
             state: [
                 {
@@ -69,7 +71,7 @@ const Dialog =
         },
         {
             id: 5,
-            name: "Tabernera",
+            name: Names.Tabernera,
             text: ["Estoy ocupado cielo, ¿Podrías volver luego?"],
             state: [
                 {

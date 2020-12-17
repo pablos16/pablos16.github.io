@@ -1,8 +1,10 @@
+import Names from '../../configs/npcNames.js'
+
 const Dialog =
     [
         {
             id: 0,
-            name: "Tabernero",
+            name: Names.Tabernero,
             text: ["(Borracho) Burp...eres el nuevo policía de la zona? A ver si te gastas más dinero en mi taberna que el antiguo, sois todos unos tacaños."],
             state: [
                 {
@@ -13,7 +15,7 @@ const Dialog =
         },
         {
             id: 1,
-            name: "Jugador",
+            name: Names.Police,
             text:
                 [
                     "...", "No te preocupes..."
@@ -30,7 +32,7 @@ const Dialog =
         },
         {
             id: 2,
-            name: "Jugador",
+            name: Names.Police,
             text:
                 [
                     "...", "No te preocupes..."
