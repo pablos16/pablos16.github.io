@@ -212,6 +212,17 @@
                  "height":32,
                  "id":13,
                  "name":"Npc",
+                 "properties":[
+                        {
+                         "name":"dialog",
+                         "type":"file",
+                         "value":"..\/..\/dialogs\/day0\/testDialog.js"
+                        }, 
+                        {
+                         "name":"sprite",
+                         "type":"string",
+                         "value":"npc"
+                        }],
                  "rotation":0,
                  "type":"",
                  "visible":true,

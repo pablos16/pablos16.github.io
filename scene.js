@@ -59,7 +59,7 @@ export default class Scene extends Phaser.Scene {
         case 'Npc': //NPC
           this.NPC = new NPCDialog(this, objeto.x, objeto.y, tabernera0, 'npc');
           this.NPC = new NPCDialog(this, objeto.x - 200, objeto.y, tabernero0, 'npc');
-          this.NPC = new NPCDialog(this, objeto.x - 100, objeto.y - 100, testDialogue, 'npc');
+          this.NPC = new NPCDialog(this, objeto.x - 100, objeto.y - 100, testDialogue, objeto.properties[1].value);
           break;
       }
     }
