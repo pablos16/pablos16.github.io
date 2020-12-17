@@ -3,7 +3,7 @@ const Dialog =
         {
             id: 0,
             name: "Tabernero",
-            text: ["(Borracho) Burp...eres el nuevo policía de la zona?A ver si te gastas más dinero en mi taberna que el antiguo, sois todos unos tacaños."],
+            text: ["(Borracho) Burp...eres el nuevo policía de la zona? A ver si te gastas más dinero en mi taberna que el antiguo, sois todos unos tacaños."],
             state: [
                 {
                     targetState: ["any"],

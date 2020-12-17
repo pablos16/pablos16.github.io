@@ -19,6 +19,7 @@ const CT =
      textAlign: 0,
      textSpacing: 1,
 
+     dialogSpacing : 10,
      xDialogTextPos: 1280 / 5.25,
      yDialogTextPos: 720 - 72 * 2.5,
      xDialogNamePos: 1280 / 5.25,
@@ -32,6 +33,8 @@ const CT =
      dialogSize: 30,
      subDialogSize: 25,
      dialogAlign: 0,
+
+     textLimit: 50,
 
      misionListX: 1280/2,
      misionListY: 720 + 720/4,
