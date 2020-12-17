@@ -1,6 +1,6 @@
 const SocialGroupNames =
 {
-    Pobres: "Barrios Bajos",
-    Ricos: "la mejor del puto jeuego"
+    Pobres: "Gente de barrio bajo",
+    Ricos: "Gente de barrios altos"
 }
 export default SocialGroupNames;

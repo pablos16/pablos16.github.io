@@ -4,6 +4,7 @@ import { loop } from "../libraries/mathFunc.js";
 import { getRandomInt } from "../libraries/mathFunc.js";
 import * as utils from '../libraries/phaserUtilities.js'
 import socialGroup from '../../configs/npcSocialGroups.js'
+import SocialGroupNames from '../../configs/socialGroupNames.js'
 
 
 export default class NPCDialog extends NPC {
@@ -61,7 +62,7 @@ export default class NPCDialog extends NPC {
         //Miramos si este dialogo era necesario para completar alguna mision
         this.checkMisionCompleted(scene)
 
-        console.log(this.checkSocialGroup())
+        this.changeDialogImage(this.checkSocialGroup())
 
         //Actualizar índice y estado (el indice cambia en función del estado actual)
         if (!("numOptions" in this.currentDialog())) this.iterateStates(this.updateStateAndIndex)
@@ -119,6 +120,17 @@ export default class NPCDialog extends NPC {
     }
 
     //Metoodos auxiliares
+
+    changeDialogImage(SocialName) {
+        switch (SocialName) {
+            case SocialGroupNames.Pobres:
+                console.log("Joe tio pobres de mierda");
+                break;
+            case SocialGroupNames.Ricos:
+                console.log("Joe tio que suerte");
+                break;
+        }
+    }
 
     checkSocialGroup() {
         let groups = socialGroup.length
