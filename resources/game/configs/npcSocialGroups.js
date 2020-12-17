@@ -1,17 +1,17 @@
 import Names from '../configs/npcNames.js'
-import SocialGroupNames from '../configs/socialGroupNames.js'
+import SocialStateName from '../configs/socialGroupNames.js'
 
-const SocialGroup=
+const SocialStatePeople=
 [
     {
-        name: SocialGroupNames.Pobres,
+        name: SocialStateName.Pobres,
         peopleIn:
         [
            Names.Police, Names.Tabernero
         ]
     },
     {
-        name: SocialGroupNames.Ricos,
+        name: SocialStateName.Ricos,
         peopleIn:
         [
             Names.Tabernera
@@ -19,4 +19,4 @@ const SocialGroup=
     }
 ]
 
-export default SocialGroup;
+export default SocialStatePeople;

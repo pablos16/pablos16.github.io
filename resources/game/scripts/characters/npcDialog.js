@@ -3,8 +3,8 @@ import NPC from './npc.js';
 import { loop } from "../libraries/mathFunc.js";
 import { getRandomInt } from "../libraries/mathFunc.js";
 import * as utils from '../libraries/phaserUtilities.js'
-import socialGroup from '../../configs/npcSocialGroups.js'
-import SocialGroupNames from '../../configs/socialGroupNames.js'
+import SocialStatePeople from '../../configs/npcSocialGroups.js'
+import SocialStateName from '../../configs/socialGroupNames.js'
 
 
 export default class NPCDialog extends NPC {
@@ -123,20 +123,19 @@ export default class NPCDialog extends NPC {
 
     changeDialogImage(SocialName) {
         switch (SocialName) {
-            case SocialGroupNames.Pobres:
-                console.log("Joe tio pobres de mierda");
+            case SocialStateName.Pobres:
                 break;
-            case SocialGroupNames.Ricos:
-                console.log("Joe tio que suerte");
+            case SocialStateName.Ricos:
                 break;
         }
+        console.log(SocialName);
     }
 
     checkSocialGroup() {
-        let groups = socialGroup.length
+        let groups = SocialStatePeople.length
         for (let i = 0; i < groups; i++) {
-            if (socialGroup[i].peopleIn.includes(this.currentDialog().name)) {
-                return socialGroup[i].name
+            if (SocialStatePeople[i].peopleIn.includes(this.currentDialog().name)) {
+                return SocialStatePeople[i].name
             }
         }
     }
