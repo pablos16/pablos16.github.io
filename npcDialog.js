@@ -145,12 +145,6 @@ export default class NPCDialog extends NPC {
     }
 
     indentText(text) {
-        String.prototype.insert = function (index, string) {
-            if (index > 0) {
-                return this.substring(0, index) + string + this.substr(index);
-            }
-        };
-
         let l = text.length
         for (let i = 0; i < l; i++) {
             if (i % CT.textLimit === 0 && i !== 0) {
