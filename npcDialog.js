@@ -127,6 +127,7 @@ export default class NPCDialog extends NPC {
         completed = "completed" in this.currentDialog().numOptions[index]
         if(completed)
         {
+            //console.log()
             scene.player.misionList.setCompleted(this.currentDialog().numOptions[index].completed, 
             this.currentDialog().numOptions[index].points)
 

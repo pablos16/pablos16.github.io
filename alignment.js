@@ -25,24 +25,12 @@ export default class Alignment extends Phaser.GameObjects.Container{
         this.addReputation(5);
     }
 
-    setPoints(points){
-        this.points = points;
-        this.updatePosition();
-    }
-
     addReputation(amount){
-        this.setPoints(this.points + amount);
-        
+        this.points += amount
+        this.updatePosition(amount)
     }
 
-    updatePosition(){
-        console.log(this.indicatorTexture.y)
-        this.indicatorTexture.y += (CT.alignmentMaxOffset / (CT.alignmentMaxPoints/this.points));
-        console.log(this.indicatorTexture.y)
+    updatePosition(amount){
+        this.indicatorTexture.y += (CT.alignmentMaxOffset / (CT.alignmentMaxPoints/amount));
     }
-
-                         //point 5 return 40
-                        //point 10 return 80
-                        //point -5 return -40
-  
 }
