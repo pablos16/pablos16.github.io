@@ -1,6 +1,6 @@
-import Inventory from "./inventory.js";
-import { normalizeVector } from "./mathFunc.js";
-import Misions from "./MisionList.js";
+import Inventory from "../inventory/inventory.js";
+import { normalizeVector } from "../Libraries/mathFunc.js";
+import Misions from "../misionSystem/MisionList.js";
 
 export default class Player extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, misionList) {

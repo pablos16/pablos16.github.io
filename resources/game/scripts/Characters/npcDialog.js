@@ -1,8 +1,8 @@
-import CT from './constants.js';
+import CT from '../../configs/constants.js';
 import NPC from './npc.js';
-import { loop } from "./mathFunc.js";
-import { getRandomInt } from "./mathFunc.js";
-import * as utils from './phaserUtilities.js'
+import { loop } from "../Libraries/mathFunc.js";
+import { getRandomInt } from "../Libraries/mathFunc.js";
+import * as utils from '../Libraries/phaserUtilities.js'
 
 
 export default class NPCDialog extends NPC {

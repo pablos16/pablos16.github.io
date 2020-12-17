@@ -1,14 +1,14 @@
-import Player from './player.js';
-import InventoryBar from './gui_inventoryBar.js';
-import DroppedItem from './item.js';
-import Obstacle from './obstacle.js';
-import Alignment from './alignment.js';
-import CT from './constants.js';
-import NPCDialog from './npcDialog.js';
-import testDialogue from './resources/game/dialogs/day0/testDialog.js'
+import Player from '../scripts/Characters/player.js';
+import InventoryBar from '../scripts/inventory/gui_inventoryBar.js';
+import DroppedItem from '../scripts/inventory/item.js';
+import Obstacle from '../scripts/inventory/obstacle.js';
+import Alignment from '../scripts/misionSystem/alignment.js';
+import CT from '../configs/constants.js';
+import NPCDialog from '../scripts/Characters/npcDialog.js';
+import testDialogue from '../dialogs/day0/testDialog.js'
 import tabernero0 from '/resources/game/dialogs/day0/tabernero0.js'
 import tabernera0 from '/resources/game/dialogs/day0/tabernera0.js'
-import Misions from './resources/game/misions/misionsDay0.js';
+import Misions from '../misions/misionsDay0.js';
 
 export default class Scene extends Phaser.Scene {
   constructor() {

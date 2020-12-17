@@ -1,4 +1,4 @@
-import CT from "./constants.js";
+import CT from '../../configs/constants.js';
 
 export default class ItemImage extends Phaser.GameObjects.Image{
     constructor(scene, x, y, id){

@@ -1,4 +1,4 @@
-import CT from './constants.js';
+import CT from '../../configs/constants.js';
 export default class Alignment extends Phaser.GameObjects.Container{
     constructor(scene, x, y, points){
         super(scene, x, y);

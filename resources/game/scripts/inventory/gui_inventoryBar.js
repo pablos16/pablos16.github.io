@@ -1,6 +1,6 @@
 import DroppedItem from './item.js';
 import ItemImage from './gui_item.js';
-import CT from './constants.js';
+import CT from '../../configs/constants.js';
 
 export default class InventoryBar extends Phaser.GameObjects.Container{
     constructor(scene, x, y){

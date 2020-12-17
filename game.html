@@ -6,7 +6,7 @@
     <link rel="shortcut icon" href="resources/game/textures/policeman.png" type="image/png"/>
     <meta name="viewport" content="width=device-width, initial-scale=2.0">
     <link rel="stylesheet" href="game.css">
-    <script src="phaser.min.js"></script>
+    <script src="./resources/game/scripts/Phaser/phaser.min.js"></script>
     <title>Regime Police</title>
 </head>
 
@@ -27,11 +27,11 @@
     <br/>
 
     <script type="module">
-        import Scene from './scene.js'
-        import Boot from './boot.js'
-        import CT from './constants.js'
-        import Menu from './menu.js'
-        import ExtensionMethods from './extensionMethods.js'
+        import Scene from './resources/game/scenes/scene.js'
+        import Boot from './resources/game/scripts/Phaser/boot.js'
+        import CT from './resources/game/configs/constants.js'
+        import Menu from './resources/game/scenes/menu.js'
+        import ExtensionMethods from './resources/game/scripts/libraries/extensionMethods.js'
 
         let Extensions = new ExtensionMethods()
 

@@ -1,4 +1,4 @@
-import CT from "./constants.js";
+import CT from '../../configs/constants.js';
 
 export default class DroppedItem extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, id){

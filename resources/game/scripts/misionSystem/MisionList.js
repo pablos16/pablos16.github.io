@@ -1,4 +1,4 @@
-import CT from './constants.js';
+import CT from '../../configs/constants.js';
 
 export default class Misions extends Phaser.GameObjects.Sprite {
     constructor(scene, misionList) {
