@@ -1,3 +1,4 @@
+import CT from './constants.js';
 export default class Alignment extends Phaser.GameObjects.Container{
     constructor(scene, x, y, points){
         super(scene, x, y);
@@ -35,7 +36,13 @@ export default class Alignment extends Phaser.GameObjects.Container{
     }
 
     updatePosition(){
-        this.indicatorTexture.setPosition(this.x, this.y + this.points);
+        console.log(this.indicatorTexture.y)
+        this.indicatorTexture.y += (CT.alignmentMaxOffset / (CT.alignmentMaxPoints/this.points));
+        console.log(this.indicatorTexture.y)
     }
+
+                         //point 5 return 40
+                        //point 10 return 80
+                        //point -5 return -40
   
 }

@@ -19,7 +19,7 @@ const Dialog =
                     "...", "No te preocupes..."
                 ],
             completed: 1,
-            points: 10,
+            points: -5,
             state: [
                 {
                     targetState: ["any"],

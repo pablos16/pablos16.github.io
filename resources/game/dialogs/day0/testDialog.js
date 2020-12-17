@@ -20,6 +20,8 @@ const Dialog =
                 [
                     {
                         text: "Si",
+                        completed: 0,
+                        points: 10,
                         nextIndex: -1
                     },
                     {

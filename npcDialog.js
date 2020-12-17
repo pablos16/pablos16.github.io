@@ -105,6 +105,7 @@ export default class NPCDialog extends NPC {
         }
 
         if (input.interact) {
+            this.checkMisionCompleted(scene, this.selection)
             this.arrow.visible = false
             this.choosing = false
             this.index = this.currentDialog().numOptions[this.selection].nextIndex
@@ -116,10 +117,19 @@ export default class NPCDialog extends NPC {
 
     //Metoodos auxiliares
 
-    checkMisionCompleted(scene) {
+    checkMisionCompleted(scene, index = -1) {
         let completed = "completed" in this.currentDialog()
         if (completed) {
             scene.player.misionList.setCompleted(this.currentDialog().completed, this.currentDialog().points)
+        }
+
+        if(index === -1) return;
+        completed = "completed" in this.currentDialog().numOptions[index]
+        if(completed)
+        {
+            scene.player.misionList.setCompleted(this.currentDialog().numOptions[index].completed, 
+            this.currentDialog().numOptions[index].points)
+
         }
     }
 
