@@ -4,8 +4,8 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.Paca,
-            text: ["No te molestes en hablarme, ya se quién eres y no quiero más problemas.Haz el favor de dejarme en paz."],
+            name: Names.Carcelero,
+            text: ["*sigh* Ya hablaremos mañana en el curro,novato, déjame descansar hoy que es mi día libre."],
             state: [
                 {
                     targetState: ["any"],
@@ -16,7 +16,7 @@ const Dialog =
         {
             id: 1,
             name: Names.Police,
-            text: ["(¿Qué la habrá pasado?...)"],
+            text: ["(¿Aquí todo el mundo está amargado?)"],
             state: [
                 {
                     targetState: ["any"],
@@ -27,8 +27,8 @@ const Dialog =
         },
         {
             id: 2,
-            name: Names.BestFriend,
-            text: ["He dicho que no me hables", "¿Quieres hacer el favor de dejarme en paz?"],
+            name: Names.Carcelero,
+            text: ["ya te dire mañana lo que hay que hacer, no seas impaciente","no me apetece hablar"],
             state: [
                 {
                     targetState: ["any"],

@@ -282,6 +282,28 @@
                         {
                          "name":"dialog",
                          "type":"string",
+                         "value":"loco"
+                        }, 
+                        {
+                         "name":"sprite",
+                         "type":"string",
+                         "value":"npc"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":885,
+                 "y":775
+                }, 
+                {
+                 "height":32,
+                 "id":17,
+                 "name":"Npc",
+                 "properties":[
+                        {
+                         "name":"dialog",
+                         "type":"string",
                          "value":"paca"
                         }, 
                         {
@@ -293,8 +315,30 @@
                  "type":"",
                  "visible":true,
                  "width":32,
+                 "x":225,
+                 "y":882
+                }, 
+                {
+                 "height":32,
+                 "id":18,
+                 "name":"Npc",
+                 "properties":[
+                        {
+                         "name":"dialog",
+                         "type":"string",
+                         "value":"carcelero"
+                        }, 
+                        {
+                         "name":"sprite",
+                         "type":"string",
+                         "value":"npc"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
                  "x":378,
-                 "y":461
+                 "y":453
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -303,7 +347,7 @@
          "y":0
         }],
  "nextlayerid":14,
- "nextobjectid":17,
+ "nextobjectid":19,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
