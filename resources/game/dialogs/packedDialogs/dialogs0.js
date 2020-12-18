@@ -4,6 +4,8 @@ import leandro from '../day0/leandroGado.js'
 import paca from '../day0/PacaGarte.js'
 import loco from '../day0/loco.js'
 import carcelero from '../day0/carcelero.js'
+import srtaMento from '../day0/srtaMento.js'
+
 
 
 const dialogs =
@@ -13,7 +15,8 @@ const dialogs =
     leandro,
     paca,
     loco,
-    carcelero
+    carcelero,
+    srtaMento
 }
 
 export default dialogs
