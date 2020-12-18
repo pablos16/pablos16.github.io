@@ -44,23 +44,20 @@ export default class Scene extends Phaser.Scene {
 
     //Entidades en el mapa
     for (const objeto of this.map.getObjectLayer('Objects').objects) {
+      const props = {};
+      if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
       switch (objeto.name) {
         case 'Player': //Personaje
           this.player = new Player(this, objeto.x, objeto.y, Misions);
           break;
         case 'Item': //Objetos en el suelo
-          //this.dropped = new DroppedItem(this, objeto.x, objeto.y, objeto.type, this.droppedItems);
           this.dropped.push(new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type)));
           break;
         case 'Obstacle': //Obstáculo (entidad en la que se usa un objeto)
-          const props = {};
-          if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
           this.obtacle = new Obstacle(this, objeto.x, objeto.y, props.texture, parseInt(objeto.type));
           break;
         case 'Npc': //NPC
-        const prop = {};
-          if (objeto.properties) { for (const { name, value } of objeto.properties) { prop[name] = value; } }
-          this.NPC = new NPCDialog(this, objeto.x, objeto.y, dialogs[prop.dialog], prop.sprite);
+          this.NPC = new NPCDialog(this, objeto.x, objeto.y, dialogs[props.dialog], props.sprite);
           break;
       }
     }
