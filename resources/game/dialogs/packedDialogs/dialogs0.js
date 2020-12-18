@@ -6,6 +6,7 @@ import loco from '../day0/loco.js'
 import carcelero from '../day0/carcelero.js'
 import srtaMento from '../day0/srtaMento.js'
 import embajadora from '../day0/Embajadora.js'
+import srtaEmbajadora from '../day0/srtaEmbajadora.js'
 
 
 
@@ -19,7 +20,8 @@ const dialogs =
     loco,
     carcelero,
     srtaMento,
-    embajadora
+    embajadora,
+    srtaEmbajadora
 }
 
 export default dialogs

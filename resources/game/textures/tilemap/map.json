@@ -359,8 +359,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":374,
-                 "y":450
+                 "x":888,
+                 "y":898
                 }, 
                 {
                  "height":32,
@@ -383,6 +383,28 @@
                  "width":32,
                  "x":230,
                  "y":726
+                }, 
+                {
+                 "height":32,
+                 "id":21,
+                 "name":"Npc",
+                 "properties":[
+                        {
+                         "name":"dialog",
+                         "type":"string",
+                         "value":"srtaEmbajadora"
+                        }, 
+                        {
+                         "name":"sprite",
+                         "type":"string",
+                         "value":"npc"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":375,
+                 "y":502
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -391,7 +413,7 @@
          "y":0
         }],
  "nextlayerid":14,
- "nextobjectid":21,
+ "nextobjectid":22,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
