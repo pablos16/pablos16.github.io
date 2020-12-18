@@ -115,7 +115,7 @@ export default class NPCDialog extends NPC {
             this.index = this.currentDialog().options[this.selection].nextIndex
             utils.setVisiblity(this.dialogOptions, false)
             if (this.index === -1) this.FinishDialog(scene)
-            else this.ContinueDialog()
+            else this.ContinueDialog(scene)
         }
     }
 

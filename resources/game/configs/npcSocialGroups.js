@@ -7,14 +7,50 @@ const SocialStatePeople=
         name: SocialStateName.Pobres,
         peopleIn:
         [
-           Names.Tabernero
+            Names.BestFriend, 
+            Names.Tabernera, 
+            Names.Tabernero,
+            Names.Paca,
+            Names.Sona,
+            Names.OldMan,
+            Names.MadMan,
+            Names.Feriante,
+            Names.Ferianta,
+            Names.SrtaFeriante
         ]
     },
     {
         name: SocialStateName.Ricos,
         peopleIn:
         [
-            Names.Tabernera, Names.Police
+            Names.Carcelero,
+            Names.Lola,
+            Names.SrtaMento,
+            Names.Embajador,
+            Names.Embajadora,
+            Names.SrtaEmbajadora
+
+        ]
+    },
+    {
+        name: SocialStateName.Dictador,
+        peopleIn:
+        [
+           Names.Dictator
+        ]
+    },
+    {
+        name: SocialStateName.Player,
+        peopleIn:
+        [
+            Names.Police
+        ]
+    },
+    {
+        name: SocialStateName.Objetos,
+        peopleIn:
+        [
+            Names.Muro
         ]
     }
 ]

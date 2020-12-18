@@ -80,7 +80,7 @@ export default class Scene extends Phaser.Scene {
     this.mapCollisions.visible = false;
 
     //Fondo del dialogo
-    this.dialogueImage = this.add.image(CT.gameWidth / 2, CT.gameHeight / 1.25, 'dialogTest');
+    this.dialogueImage = this.add.image(CT.gameWidth / 2, CT.gameHeight / 1.25, 'dialogFinal');
     this.dialogueImage.setScrollFactor(0);
     this.dialogueImage.setVisible(false);
 
