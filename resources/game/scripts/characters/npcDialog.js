@@ -62,7 +62,7 @@ export default class NPCDialog extends NPC {
         //Miramos si este dialogo era necesario para completar alguna mision
         this.checkMisionCompleted(scene)
 
-        this.changeDialogImage(this.checkSocialGroup())
+        this.changeDialogImage(this.checkSocialGroup(), scene)
 
         //Actualizar índice y estado (el indice cambia en función del estado actual)
         if (!("numOptions" in this.currentDialog())) this.iterateStates(this.updateStateAndIndex)
@@ -121,14 +121,8 @@ export default class NPCDialog extends NPC {
 
     //Metoodos auxiliares
 
-    changeDialogImage(SocialName) {
-        switch (SocialName) {
-            case SocialStateName.Pobres:
-                break;
-            case SocialStateName.Ricos:
-                break;
-        }
-        console.log(SocialName);
+    changeDialogImage(SocialName, scene) {
+        scene.dialogueImage.setFrame(SocialName)
     }
 
     checkSocialGroup() {

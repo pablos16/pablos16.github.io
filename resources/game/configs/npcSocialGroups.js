@@ -7,14 +7,14 @@ const SocialStatePeople=
         name: SocialStateName.Pobres,
         peopleIn:
         [
-           Names.Police, Names.Tabernero
+           Names.Tabernero
         ]
     },
     {
         name: SocialStateName.Ricos,
         peopleIn:
         [
-            Names.Tabernera
+            Names.Tabernera, Names.Police
         ]
     }
 ]
