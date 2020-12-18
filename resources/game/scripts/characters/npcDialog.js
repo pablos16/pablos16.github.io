@@ -105,7 +105,8 @@ export default class NPCDialog extends NPC {
             //Actualiza la posicion del cursor en pantalla
             this.arrow.y = CT.yDialogTextPos +
                 CT.subDialogInSpacing + CT.yDialogSelection +
-                this.selection * (CT.subDialogInSpacing - CT.yDialogSelection)
+                this.selection * (CT.subDialogInSpacing - CT.yDialogSelection) +
+                this.selection * CT.extra
         }
 
         if (input.interact) {
