@@ -315,8 +315,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":225,
-                 "y":882
+                 "x":518,
+                 "y":1115
                 }, 
                 {
                  "height":32,
@@ -337,12 +337,34 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":245,
-                 "y":795
+                 "x":736,
+                 "y":1085
                 }, 
                 {
                  "height":32,
                  "id":19,
+                 "name":"Npc",
+                 "properties":[
+                        {
+                         "name":"dialog",
+                         "type":"string",
+                         "value":"embajadora"
+                        }, 
+                        {
+                         "name":"sprite",
+                         "type":"string",
+                         "value":"npc"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":374,
+                 "y":450
+                }, 
+                {
+                 "height":32,
+                 "id":20,
                  "name":"Npc",
                  "properties":[
                         {
@@ -359,8 +381,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":397,
-                 "y":448
+                 "x":230,
+                 "y":726
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -369,7 +391,7 @@
          "y":0
         }],
  "nextlayerid":14,
- "nextobjectid":20,
+ "nextobjectid":21,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",

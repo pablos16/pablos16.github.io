@@ -5,6 +5,8 @@ import paca from '../day0/PacaGarte.js'
 import loco from '../day0/loco.js'
 import carcelero from '../day0/carcelero.js'
 import srtaMento from '../day0/srtaMento.js'
+import embajadora from '../day0/Embajadora.js'
+
 
 
 
@@ -16,7 +18,8 @@ const dialogs =
     paca,
     loco,
     carcelero,
-    srtaMento
+    srtaMento,
+    embajadora
 }
 
 export default dialogs
