@@ -65,7 +65,7 @@ export default class NPCDialog extends NPC {
         this.changeDialogImage(this.checkSocialGroup(), scene)
 
         //Actualizar índice y estado (el indice cambia en función del estado actual)
-        if (!("numOptions" in this.currentDialog())) this.iterateStates(this.updateStateAndIndex)
+        if (!("options" in this.currentDialog())) this.iterateStates(this.updateStateAndIndex)
         else {
             this.arrow.visible = true
 
@@ -73,10 +73,10 @@ export default class NPCDialog extends NPC {
             this.dialogOptions = []
 
             //Actualizar textos
-            for (let i = 0; i < this.currentDialog().numOptions.length; i++) {
+            for (let i = 0; i < this.currentDialog().options.length; i++) {
                 this.dialogOptions.push(scene.add.bitmapText(
                     CT.xDialogTextPos + CT.xSubDialogSpacing, CT.yDialogTextPos + CT.subDialogInSpacing + i * CT.ySubDialogSpacing,
-                    CT.dialogFont, this.currentDialog().numOptions[i].text, CT.subDialogSize, CT.dialogAlign))
+                    CT.dialogFont, this.currentDialog().options[i].text, CT.subDialogSize, CT.dialogAlign))
             }
 
             //Poner textos visible
@@ -100,7 +100,7 @@ export default class NPCDialog extends NPC {
         if (up || down) {
             //Actualiza internamente el indice
             this.selection = up ? this.selection - 1 : this.selection + 1;
-            this.selection = loop(this.selection, this.currentDialog().numOptions.length)
+            this.selection = loop(this.selection, this.currentDialog().options.length)
 
             //Actualiza la posicion del cursor en pantalla
             this.arrow.y = CT.yDialogTextPos +
@@ -112,7 +112,7 @@ export default class NPCDialog extends NPC {
             this.checkMisionCompleted(scene, this.selection)
             this.arrow.visible = false
             this.choosing = false
-            this.index = this.currentDialog().numOptions[this.selection].nextIndex
+            this.index = this.currentDialog().options[this.selection].nextIndex
             utils.setVisiblity(this.dialogOptions, false)
             if (this.index === -1) this.FinishDialog(scene)
             else this.ContinueDialog()
@@ -141,11 +141,11 @@ export default class NPCDialog extends NPC {
         }
 
         if (index === -1) return;
-        completed = "completed" in this.currentDialog().numOptions[index]
+        completed = "completed" in this.currentDialog().options[index]
         if (completed) {
             //console.log()
-            scene.player.misionList.setCompleted(this.currentDialog().numOptions[index].completed,
-                this.currentDialog().numOptions[index].points)
+            scene.player.misionList.setCompleted(this.currentDialog().options[index].completed,
+                this.currentDialog().options[index].points)
 
         }
     }

@@ -1,8 +1,10 @@
+import Names from '../../configs/npcNames.js'
+
 const Dialog =
     [
         {
             id: 0,
-            name: "Muro",
+            name: Names.Muro,
             text: ["Es una zona para colocar carteles de búsqueda"],
             state: [
                 {
@@ -14,13 +16,13 @@ const Dialog =
         },
         {
             id: 1,
-            name: "Muro",
+            name: Names.Muro,
             text: ["¿Quieres colocar carteles de se busca ahora?"],
-            numOptions:
+            options:
                 [
                     {
                         text: "Si",
-                        completed: 0,
+                        completed: 1,
                         points: 10,
                         nextIndex: -1
                     },
@@ -32,7 +34,7 @@ const Dialog =
         },
         {
             id: 2,
-            name: "Muro",
+            name: Names.Muro,
             text: ["Nada que hacer aqui"],
             state: [
                 {
@@ -44,7 +46,7 @@ const Dialog =
         },
         {
             id: 3,
-            name: "Muro",
+            name: Names.Muro,
             text: ["Hecho"],
             state: [
                 {

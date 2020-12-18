@@ -227,8 +227,30 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":608,
-                 "y":128
+                 "x":617.333333333333,
+                 "y":117.333333333333
+                }, 
+                {
+                 "height":32,
+                 "id":14,
+                 "name":"Npc",
+                 "properties":[
+                        {
+                         "name":"dialog",
+                         "type":"string",
+                         "value":"tabernera"
+                        }, 
+                        {
+                         "name":"sprite",
+                         "type":"string",
+                         "value":"npc"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":368,
+                 "y":493.333333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -237,7 +259,7 @@
          "y":0
         }],
  "nextlayerid":14,
- "nextobjectid":14,
+ "nextobjectid":15,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",

@@ -8,7 +8,7 @@ const Misions =
         {
             text: "Habla con el NPC de pruebas",
             completed: 0,
-            total: 1
+            total: 2
         }
     ]
 

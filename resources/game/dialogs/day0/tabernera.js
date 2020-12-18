@@ -17,7 +17,7 @@ const Dialog =
             id: 1,
             name: Names.Police,
             text: ["Hmmm..."],
-            numOptions:
+            options:
             [
                 {
                     text: "¿2 pavos? No gracias",

@@ -52,6 +52,8 @@ export default class Boot extends Phaser.Scene {
     //Fuente
     this.load.bitmapFont('font', 'resources/game/font/font.png', 'resources/game/font/font.fnt');
 
+    this.load.bitmapFont('dialogFont', 'resources/game/font/dialogFont.png', 'resources/game/font/dialogFont.fnt');
+
     //Barra de alineamiento (prototipo)
     this.load.image('bar', 'resources/game/textures/protobarra2.png');
     this.load.image('indicator', 'resources/game/textures/indicator.png');
