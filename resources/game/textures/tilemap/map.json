@@ -216,7 +216,7 @@
                         {
                          "name":"dialog",
                          "type":"string",
-                         "value":"tabernero"
+                         "value":"leandro"
                         }, 
                         {
                          "name":"sprite",
@@ -227,8 +227,8 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":617.333333333333,
-                 "y":117.333333333333
+                 "x":228.333333333333,
+                 "y":625.333333333333
                 }, 
                 {
                  "height":32,
@@ -251,6 +251,28 @@
                  "width":32,
                  "x":368,
                  "y":493.333333333333
+                }, 
+                {
+                 "height":32,
+                 "id":15,
+                 "name":"Npc",
+                 "properties":[
+                        {
+                         "name":"dialog",
+                         "type":"string",
+                         "value":"tabernero"
+                        }, 
+                        {
+                         "name":"sprite",
+                         "type":"string",
+                         "value":"npc"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":628,
+                 "y":113
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -259,7 +281,7 @@
          "y":0
         }],
  "nextlayerid":14,
- "nextobjectid":15,
+ "nextobjectid":16,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.4.3",
