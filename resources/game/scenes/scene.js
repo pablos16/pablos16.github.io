@@ -6,8 +6,9 @@ import Alignment from '../scripts/misionSystem/alignment.js';
 import CT from '../configs/constants.js';
 import NPCDialog from '../scripts/characters/npcDialog.js';
 import testDialogue from '../dialogs/day0/testDialog.js'
-import tabernero0 from '/resources/game/dialogs/day0/tabernero0.js'
-import tabernera0 from '/resources/game/dialogs/day0/tabernera0.js'
+import dialogs from '../dialogs/packedDialogs/dialogs0.js'
+import tabernero0 from '../dialogs/day0/tabernero.js'
+import tabernera0 from '../dialogs/day0/tabernera.js'
 import Misions from '../misions/misionsDay0.js';
 
 export default class Scene extends Phaser.Scene {
@@ -57,9 +58,7 @@ export default class Scene extends Phaser.Scene {
           this.obtacle = new Obstacle(this, objeto.x, objeto.y, props.texture, parseInt(objeto.type));
           break;
         case 'Npc': //NPC
-          this.NPC = new NPCDialog(this, objeto.x, objeto.y, tabernera0, 'npc');
-          this.NPC = new NPCDialog(this, objeto.x - 200, objeto.y, tabernero0, 'npc');
-          this.NPC = new NPCDialog(this, objeto.x - 100, objeto.y - 100, testDialogue, objeto.properties[1].value);
+          this.NPC = new NPCDialog(this, objeto.x, objeto.y, dialogs[objeto.properties[0].value], objeto.properties[1].value);
           break;
       }
     }

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=2.0">
     <link rel="stylesheet" href="game.css">
     <script src="./resources/game/scripts/phaser/phaser.min.js"></script>
+    <script src="./resources/game/scripts/libraries/extensionMethods.js"></script>
     <title>Regime Police</title>
 </head>
 
@@ -31,9 +32,6 @@
         import Boot from './resources/game/scripts/phaser/boot.js'
         import CT from './resources/game/configs/constants.js'
         import Menu from './resources/game/scenes/menu.js'
-        import ExtensionMethods from './resources/game/scripts/libraries/extensionMethods.js'
-
-        let Extensions = new ExtensionMethods()
 
         var config = {
             type: Phaser.AUTO,

@@ -1,6 +1,6 @@
 const SocialState =
 {
-    Pobres: "Gente de barrio bajo",
-    Ricos: "Gente de barrios altos"
+    Pobres: 0,
+    Ricos: 1
 }
 export default SocialState;

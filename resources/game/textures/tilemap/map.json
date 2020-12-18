@@ -215,8 +215,8 @@
                  "properties":[
                         {
                          "name":"dialog",
-                         "type":"file",
-                         "value":"..\/..\/dialogs\/day0\/testDialog.js"
+                         "type":"string",
+                         "value":"tabernero"
                         }, 
                         {
                          "name":"sprite",
