@@ -28,8 +28,8 @@ export default class Scene extends Phaser.Scene {
     this.dropped = [];
     this.map = this.make.tilemap({
       key: 'tileMap',
-      tileWidth: 16,
-      tileHeight: 16
+      tileWidth: 32,
+      tileHeight: 32
     });
     let tileSet = this.map.addTilesetImage('tiles', 'mapTiles');
     this.mapGround = this.map.createStaticLayer('Ground', tileSet);
@@ -38,7 +38,7 @@ export default class Scene extends Phaser.Scene {
     this.mapFences = this.map.createStaticLayer('Fences', tileSet);
     this.mapDecorations = this.map.createStaticLayer('Decorations', tileSet);
     this.mapFoundations = this.map.createStaticLayer('Foundations', tileSet);
-    
+
     //Entidades en el mapa
     for (const objeto of this.map.getObjectLayer('Objects').objects) {
       const props = {};
