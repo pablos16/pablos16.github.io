@@ -19,29 +19,26 @@ export default class Scene extends Phaser.Scene {
   create() {
     //Deshabilitar menú contextual
     this.input.mouse.disableContextMenu();
+    
+    //Tecla de pantalla completa
+    this.fullScreen = this.input.keyboard.addKey('F');
 
-    this.dropped = [];
+
     //Mapa
+    this.dropped = [];
     this.map = this.make.tilemap({
       key: 'tileMap',
       tileWidth: 16,
       tileHeight: 16
     });
     let tileSet = this.map.addTilesetImage('tiles', 'mapTiles');
-
-    //Tecla de pantalla completa
-    this.fullScreen = this.input.keyboard.addKey('F');
-
     this.mapGround = this.map.createStaticLayer('Ground', tileSet);
     this.mapBorder = this.map.createStaticLayer('Border', tileSet);
     this.mapPathway = this.map.createStaticLayer('Pathway', tileSet);
     this.mapFences = this.map.createStaticLayer('Fences', tileSet);
     this.mapDecorations = this.map.createStaticLayer('Decorations', tileSet);
     this.mapFoundations = this.map.createStaticLayer('Foundations', tileSet);
-
-    //Barra de alineamiento
-    this.align = new Alignment(this, CT.alignmentBarX, CT.alignmentBarY, 0);
-
+    
     //Entidades en el mapa
     for (const objeto of this.map.getObjectLayer('Objects').objects) {
       const props = {};
@@ -78,6 +75,10 @@ export default class Scene extends Phaser.Scene {
     this.mapCollisions.setCollisionBetween(0, 999);
     this.physics.add.collider(this.player, this.mapCollisions);
     this.mapCollisions.visible = false;
+
+
+    //Barra de alineamiento
+    this.align = new Alignment(this, CT.alignmentBarX, CT.alignmentBarY, 0);
 
     //Fondo del dialogo
     this.dialogueImage = this.add.image(CT.gameWidth / 2, CT.gameHeight / 1.25, 'dialogFinal');
