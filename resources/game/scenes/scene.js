@@ -10,6 +10,7 @@ import dialogs from '../dialogs/packedDialogs/dialogs0.js'
 import tabernero0 from '../dialogs/day0/tabernero.js'
 import tabernera0 from '../dialogs/day0/tabernera.js'
 import Misions from '../misions/misionsDay0.js';
+import TPLINK from '../scripts/characters/tp.js'
 
 export default class Scene extends Phaser.Scene {
   constructor() {
@@ -19,7 +20,7 @@ export default class Scene extends Phaser.Scene {
   create() {
     //Deshabilitar menú contextual
     this.input.mouse.disableContextMenu();
-    
+
     //Tecla de pantalla completa
     this.fullScreen = this.input.keyboard.addKey('F');
 
@@ -28,8 +29,8 @@ export default class Scene extends Phaser.Scene {
     this.dropped = [];
     this.map = this.make.tilemap({
       key: 'tileMap',
-      tileWidth: 32,
-      tileHeight: 32
+      tileWidth: 16,
+      tileHeight: 16
     });
     let tileSet = this.map.addTilesetImage('tiles', 'mapTiles');
     this.mapGround = this.map.createStaticLayer('Ground', tileSet);
@@ -39,13 +40,17 @@ export default class Scene extends Phaser.Scene {
     this.mapDecorations = this.map.createStaticLayer('Decorations', tileSet);
     this.mapFoundations = this.map.createStaticLayer('Foundations', tileSet);
 
+    let mapObjects = this.map.getObjectLayer('Objects').objects
+    console.log(this.map.getObjectLayer('Objects').objects)
+
     //Entidades en el mapa
-    for (const objeto of this.map.getObjectLayer('Objects').objects) {
+    for (const objeto of mapObjects) {
       const props = {};
       if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
       switch (objeto.name) {
         case 'Player': //Personaje
           this.player = new Player(this, objeto.x, objeto.y, Misions);
+          //this.TP = new TPLINK(this, objeto.x, objeto.y, { x: 0, y: 0 }, true);
           break;
         case 'Item': //Objetos en el suelo
           this.dropped.push(new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type)));
@@ -56,8 +61,24 @@ export default class Scene extends Phaser.Scene {
         case 'Npc': //NPC
           this.NPC = new NPCDialog(this, objeto.x, objeto.y, dialogs[props.dialog], props.sprite);
           break;
+        case 'Tp':
+          
+          let it = 0;
+          loop: for (const tpstatus of mapObjects) {
+            if (props.tplink === tpstatus.id) {
+              props.tplink = it;
+              console.log("Le vas a pasar :")
+              console.log(mapObjects[props.tplink])
+              break loop;
+            }
+            it++;
+          }
+
+          this.TP = new TPLINK(this, objeto.x, objeto.y, mapObjects[props.tplink], props.instant);
+          break;
       }
     }
+
 
     //Grupo físico para los objetos en el suelo
     this.droppedItems = this.physics.add.staticGroup();
