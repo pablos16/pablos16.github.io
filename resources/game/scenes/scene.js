@@ -41,7 +41,7 @@ export default class Scene extends Phaser.Scene {
     this.mapFoundations = this.map.createStaticLayer('Foundations', tileSet);
 
     let mapObjects = this.map.getObjectLayer('Objects').objects
-    console.log(this.map.getObjectLayer('Objects').objects)
+    ///console.log(this.map.getObjectLayer('Objects').objects)
 
     //Entidades en el mapa
     for (const objeto of mapObjects) {
@@ -62,13 +62,13 @@ export default class Scene extends Phaser.Scene {
           this.NPC = new NPCDialog(this, objeto.x, objeto.y, dialogs[props.dialog], props.sprite);
           break;
         case 'Tp':
-          
+
           let it = 0;
           loop: for (const tpstatus of mapObjects) {
             if (props.tplink === tpstatus.id) {
               props.tplink = it;
-              console.log("Le vas a pasar :")
-              console.log(mapObjects[props.tplink])
+              //console.log("Le vas a pasar :")
+              //console.log(mapObjects[props.tplink])
               break loop;
             }
             it++;
