@@ -132,7 +132,7 @@ export default class NPCDialog extends NPC {
 
     animateDialog(scene, value, start = true) {
         let imgAlpha = 0
-        scene.dialogueImage.y = CT.gameHeight / 1.25
+        scene.dialogueImage.y = CT.yDialogImage
         if (start) {
             scene.dialogueImage.y += value
             scene.dialogueImage.alpha = 0

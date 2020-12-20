@@ -19,11 +19,14 @@ const CT =
      textAlign: 0,
      textSpacing: 1,
 
-     dialogSpacing : 10,
+     xDialogImage: 1280 / 2,
+     yDialogImage: 720 / 1.25 + 50,
+
+     dialogSpacing: 10,
      xDialogTextPos: 1280 / 5.25,
-     yDialogTextPos: 720 - 72 * 2.5 - 25,
+     yDialogTextPos: 720 - 72 * 2.5 - 25 + 50,
      xDialogNamePos: 1280 / 5.25 + 35,
-     yDialogNamePos: 720 - 72 * 3.25 - 25,
+     yDialogNamePos: 720 - 72 * 3.25 - 25 + 50,
      ySubDialogSpacing: 30,
      xSubDialogSpacing: 50,
      subDialogInSpacing: 40,
@@ -37,8 +40,8 @@ const CT =
 
      textLimit: 50,
 
-     misionListX: 1280/2,
-     misionListY: 720 + 720/4,
+     misionListX: 1280 / 2,
+     misionListY: 720 + 720 / 4,
      misionOffsetToggle: 400,
 
      alignmentBarX: 630,

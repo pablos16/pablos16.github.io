@@ -102,7 +102,7 @@ export default class Scene extends Phaser.Scene {
     this.align = new Alignment(this, CT.alignmentBarX, CT.alignmentBarY, 0);
 
     //Fondo del dialogo
-    this.dialogueImage = this.add.image(CT.gameWidth / 2, CT.gameHeight / 1.25, 'dialogFinal');
+    this.dialogueImage = this.add.image(CT.xDialogImage, CT.yDialogImage, 'dialogFinal');
     this.dialogueImage.setScrollFactor(0);
     this.dialogueImage.setVisible(false);
 
