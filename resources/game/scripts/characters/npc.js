@@ -7,7 +7,7 @@ export default class NPC extends Phaser.GameObjects.Container {
 
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
-    this.body.setCollideWorldBounds();
+    //this.body.setCollideWorldBounds();
 
     //Trigger del container
     this.trigger = scene.add.zone(0, 0);

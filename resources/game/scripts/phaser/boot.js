@@ -22,7 +22,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('tpImg', 'resources/game/textures/tpImage.png');
 
     //Personaje
-    this.load.image('player', 'resources/game/textures/policeman.png');
+    this.load.image('player', 'resources/game/textures/player.png');
 
     //NPC
     this.load.image('npc', 'resources/game/textures/npc.png');
