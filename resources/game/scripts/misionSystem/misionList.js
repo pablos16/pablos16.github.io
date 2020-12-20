@@ -10,13 +10,46 @@ export default class Misions extends Phaser.GameObjects.Container {
         this.img = scene.add.sprite(CT.misionListX, CT.misionListY, 'mision').setInteractive()
         this.img.depth = 99
         this.img.setScrollFactor(0)
-        this.add(this.img)
         this.misionList = misionList
         this.img.on('pointerdown', pointer => { this.toggleListInterface() })
         this.sceneRef = scene
-
         this.orign = this.y
+        this.misionTexts = []
+        this.completedTexts = []
+        this.initialiceTexts()
 
+        this.add(this.img)
+        this.add(this.misionTexts)
+        this.add(this.completedTexts)
+    }
+
+    initialiceTexts() {
+        let l = this.misionList.length
+        console.log(this.sceneRef)
+        for(let i = 0; i< l;i++)
+        {
+            this.misionTexts.push(this.sceneRef.add.bitmapText(
+                CT.xMisionText,
+                CT.yMisionText + i * CT.yMissionOffset,
+                'font',
+                this.misionList[i].text,
+                CT.misionTextSize
+                ))
+                
+                this.misionTexts[i].setScrollFactor(0)
+                this.misionTexts[i].depth = 100
+
+                this.completedTexts.push(this.sceneRef.add.bitmapText(
+                    CT.xMisionText,
+                    (CT.yMisionText + CT.ySubMisionTextOffset) + i * CT.yMissionOffset,
+                    'font',
+                    "foo",
+                    CT.subMisionTextSize,
+                    ))
+                    
+                    this.completedTexts[i].setScrollFactor(0)
+                    this.completedTexts[i].depth = 100
+        }
     }
 
     missionCompleted(misionIndex) {

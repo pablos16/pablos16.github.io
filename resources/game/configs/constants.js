@@ -26,8 +26,14 @@ const CT =
      alignmentBarX: 630,
      alignmentBarY: 50,
      alignmentMaxOffset: 85,
-     alignmentMaxPoints: 100
+     alignmentMaxPoints: 100,
 
+     misionTextSize: 27.5,
+     subMisionTextSize: 20,
+     xMisionText: 1280 * 0.625,
+     yMisionText: 720,
+     yMissionOffset: 60,
+     ySubMisionTextOffset: 25
 }
 
 export default CT;
