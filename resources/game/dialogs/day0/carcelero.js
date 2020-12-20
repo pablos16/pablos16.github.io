@@ -25,7 +25,6 @@ const Dialog =
                 },
             ],
             completed:0,
-            points:0
         },
         {
             id: 2,

@@ -55,15 +55,18 @@ const Dialog =
             [
                 {
                     text: "Por mi genial, ¡Nos vemos!",
-                    nextIndex: 5
+                    nextIndex: 5,
+                    points: 10
                 },
                 {
                     text: "Adios",
-                    nextIndex: 5
+                    nextIndex: 5,
+                    points: -10
                 },
                 {
                     text: "Vale,chao",
-                    nextIndex: 5
+                    nextIndex: 5,
+                    points: -5
                 }
             ],
         },
@@ -88,7 +91,8 @@ const Dialog =
                     nextState: 1,
                     nextIndex: -1
                 },
-            ]
+            ],
+            completed:0
         },
         {
             id: 7,
