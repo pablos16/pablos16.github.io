@@ -40,34 +40,22 @@ export default class NPCDialog extends NPC {
         }
     }
 
-    startTween(scene) {
-        scene.dialogueImage.y += 50
-        scene.dialogueImage.alpha = 0
+    animateDialog(scene, value, start = true) {
+        let imgAlpha = 0
+        if (start) {
+            scene.dialogueImage.y += value
+            scene.dialogueImage.alpha = 0
+            imgAlpha = 1
+            value *= -1
+        }
 
         scene.tweens.add({
             targets: scene.dialogueImage,
             duration: 250,
-            y: scene.dialogueImage.y - 50,
-            alpha: 1,
+            y: scene.dialogueImage.y + value,
+            alpha: imgAlpha,
             ease: 'Circ',
-        })
-    }
-
-    finishTween(scene)
-    {
-        let origin = scene.dialogueImage.y
-
-        scene.tweens.add({
-            targets: scene.dialogueImage,
-            duration: 250,
-            y: scene.dialogueImage.y + 50,
-            alpha: 0,
-            ease: 'Circ',
-            onComplete: () =>
-            {
-                scene.dialogueImage.y -= 50
-            }
-
+            onComplete: () => {if(!start)scene.dialogueImage.y -= value}
         })
     }
 
@@ -76,7 +64,8 @@ export default class NPCDialog extends NPC {
         //console.log("hey " + this.index)
 
 
-        this.startTween(scene);
+        //this.startTween(scene);
+        this.animateDialog(scene, 50)
         this.setTalking(scene, true)
         this.stop();
         utils.setVisiblity([this.description, this.name, scene.dialogueImage], true)
@@ -121,7 +110,7 @@ export default class NPCDialog extends NPC {
 
     FinishDialog(scene) {
         this.moveRight();
-        this.finishTween(scene)
+        this.animateDialog(scene, 50, false)
         utils.setVisiblity([this.description, this.name], false)
         this.setTalking(scene, false)
     }
