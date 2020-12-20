@@ -1,4 +1,4 @@
-import CT from '../../configs/constants.js';
+import Dialog from '../../configs/dialogConfig.js';
 import NPC from './npc.js';
 import { loop } from "../libraries/mathFunc.js";
 import { getRandomInt } from "../libraries/mathFunc.js";
@@ -16,11 +16,11 @@ export default class NPCDialog extends NPC {
         this.dialog = dialog
         this.index = -1;
         this.selection = 0
-        this.description = this.scene.add.bitmapText(CT.xDialogTextPos, CT.yDialogTextPos, CT.dialogFont, "foo", CT.dialogSize, CT.dialogAlign);
-        this.name = this.scene.add.bitmapText(CT.xDialogNamePos, CT.yDialogNamePos, CT.dialogFont, "foo", CT.dialogSize, CT.dialogAlign);
+        this.description = this.scene.add.bitmapText(Dialog.xDialogTextPos, Dialog.yDialogTextPos, Dialog.dialogFont, "foo", Dialog.dialogSize, Dialog.dialogAlign);
+        this.name = this.scene.add.bitmapText(Dialog.xDialogNamePos, Dialog.yDialogNamePos, Dialog.dialogFont, "foo", Dialog.dialogSize, Dialog.dialogAlign);
         this.dialogOptions = [1, 2, 3]
-        this.arrow = scene.add.image(CT.xDialogTextPos + CT.xSubDialogSpacing + CT.xDialogSelection,
-            CT.yDialogTextPos + CT.subDialogInSpacing + CT.yDialogSelection, 'arrow');
+        this.arrow = scene.add.image(Dialog.xDialogTextPos + Dialog.xSubDialogSpacing + Dialog.xDialogSelection,
+            Dialog.yDialogTextPos + Dialog.subDialogInSpacing + Dialog.yDialogSelection, 'arrow');
         this.initializeText([this.name, this.description, this.arrow], false)
     }
 
@@ -77,8 +77,8 @@ export default class NPCDialog extends NPC {
             //Actualizar textos
             for (let i = 0; i < this.currentDialog().options.length; i++) {
                 this.dialogOptions.push(scene.add.bitmapText(
-                    CT.xDialogTextPos + CT.xSubDialogSpacing, CT.yDialogTextPos + CT.subDialogInSpacing + i * CT.ySubDialogSpacing,
-                    CT.dialogFont, this.currentDialog().options[i].text, CT.subDialogSize, CT.dialogAlign))
+                    Dialog.xDialogTextPos + Dialog.xSubDialogSpacing, Dialog.yDialogTextPos + Dialog.subDialogInSpacing + i * Dialog.ySubDialogSpacing,
+                    Dialog.dialogFont, this.currentDialog().options[i].text, Dialog.subDialogSize, Dialog.dialogAlign))
 
                 this.animateText(scene, this.dialogOptions[i])
 
@@ -111,10 +111,10 @@ export default class NPCDialog extends NPC {
             this.selection = loop(this.selection, this.currentDialog().options.length)
 
             //Actualiza la posicion del cursor en pantalla
-            this.arrow.y = CT.yDialogTextPos +
-                CT.subDialogInSpacing + CT.yDialogSelection +
-                this.selection * (CT.subDialogInSpacing - CT.yDialogSelection) +
-                this.selection * CT.extra
+            this.arrow.y = Dialog.yDialogTextPos +
+                Dialog.subDialogInSpacing + Dialog.yDialogSelection +
+                this.selection * (Dialog.subDialogInSpacing - Dialog.yDialogSelection) +
+                this.selection * Dialog.extra
         }
 
         if (input.interact) {
@@ -132,7 +132,7 @@ export default class NPCDialog extends NPC {
 
     animateDialog(scene, value, start = true) {
         let imgAlpha = 0
-        scene.dialogueImage.y = CT.yDialogImage
+        scene.dialogueImage.y = Dialog.yDialogImage
         if (start) {
             scene.dialogueImage.y += value
             scene.dialogueImage.alpha = 0
@@ -207,7 +207,7 @@ export default class NPCDialog extends NPC {
 
     indentText(text) {
         let l = text.length
-        for (let i = 0; i < l; i += CT.textLimit) {
+        for (let i = 0; i < l; i += Dialog.textLimit) {
             if (i === 0) continue
 
             let wordEnd = i

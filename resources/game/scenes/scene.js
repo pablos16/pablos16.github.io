@@ -4,6 +4,7 @@ import DroppedItem from '../scripts/inventory/item.js';
 import Obstacle from '../scripts/inventory/obstacle.js';
 import Alignment from '../scripts/misionSystem/alignment.js';
 import CT from '../configs/constants.js';
+import Dialog from '../configs/dialogConfig.js';
 import NPCDialog from '../scripts/characters/npcDialog.js';
 import testDialogue from '../dialogs/day0/testDialog.js'
 import dialogs from '../dialogs/packedDialogs/dialogs0.js'
@@ -102,7 +103,7 @@ export default class Scene extends Phaser.Scene {
     this.align = new Alignment(this, CT.alignmentBarX, CT.alignmentBarY, 0);
 
     //Fondo del dialogo
-    this.dialogueImage = this.add.image(CT.xDialogImage, CT.yDialogImage, 'dialogFinal');
+    this.dialogueImage = this.add.image(Dialog.xDialogImage, Dialog.yDialogImage, 'dialogFinal');
     this.dialogueImage.setScrollFactor(0);
     this.dialogueImage.setVisible(false);
 
