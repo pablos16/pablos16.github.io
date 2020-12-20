@@ -17,19 +17,15 @@ const Dialog =
         {
             id: 1,
             name: Names.Police,
-            text:
-                [
-                    "...", "No te preocupes..."
-                ],
-            completed: 1,
-            points: -5,
+            text:["...", "No te preocupes..."],
             state: [
                 {
                     targetState: ["any"],
                     nextState: 1,
                     nextIndex: -1
                 }
-            ]
+            ],
+            completed: 0,
         },
         {
             id: 2,

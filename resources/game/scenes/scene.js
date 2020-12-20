@@ -6,10 +6,7 @@ import Alignment from '../scripts/misionSystem/alignment.js';
 import CT from '../configs/constants.js';
 import Dialog from '../configs/dialogConfig.js';
 import NPCDialog from '../scripts/characters/npcDialog.js';
-import testDialogue from '../dialogs/day0/testDialog.js'
 import dialogs from '../dialogs/packedDialogs/dialogs0.js'
-import tabernero0 from '../dialogs/day0/tabernero.js'
-import tabernera0 from '../dialogs/day0/tabernera.js'
 import Misions from '../misions/misionsDay0.js';
 import TPLINK from '../scripts/characters/tp.js'
 
@@ -41,6 +38,11 @@ export default class Scene extends Phaser.Scene {
     this.mapDecorations = this.map.createStaticLayer('Decorations', tileSet);
     this.mapFoundations = this.map.createStaticLayer('Foundations', tileSet);
 
+    let tileSetIndoors = this.map.addTilesetImage('tiles_indoors', 'mapTilesIndoors');
+    this.bar1 = this.map.createStaticLayer('bar1', tileSetIndoors);
+    this.bar2 = this.map.createStaticLayer('bar2', tileSetIndoors);
+    this.bar3 = this.map.createStaticLayer('bar3', tileSetIndoors);
+
     let mapObjects = this.map.getObjectLayer('Objects').objects
     ///console.log(this.map.getObjectLayer('Objects').objects)
 
@@ -51,7 +53,6 @@ export default class Scene extends Phaser.Scene {
       switch (objeto.name) {
         case 'Player': //Personaje
           this.player = new Player(this, objeto.x, objeto.y, Misions);
-          //this.TP = new TPLINK(this, objeto.x, objeto.y, { x: 0, y: 0 }, true);
           break;
         case 'Item': //Objetos en el suelo
           this.dropped.push(new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type)));
@@ -63,10 +64,9 @@ export default class Scene extends Phaser.Scene {
           this.NPC = new NPCDialog(this, objeto.x, objeto.y, dialogs[props.dialog], props.sprite);
           break;
         case 'Tp':
-
           let it = 0;
-          loop: for (const tpstatus of mapObjects) {
-            if (props.tplink === tpstatus.id) {
+          loop: for (const tpstatus of mapObjects){
+            if (props.tplink === tpstatus.id){
               props.tplink = it;
               //console.log("Le vas a pasar :")
               //console.log(mapObjects[props.tplink])
