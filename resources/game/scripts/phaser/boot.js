@@ -4,9 +4,8 @@ export default class Boot extends Phaser.Scene {
   }
   //Carga las imagenes necesarias para el juego
   //Este .js solo sirve para eso y dar comienzo a la escena
-  
-  preload()
-  {
+
+  preload() {
     //Dameros
     this.load.image('debug', 'resources/game/textures/debug.png');
     this.load.spritesheet('debugSheet', 'resources/game/textures/debugSheet.png', { frameWidth: 64, frameHeight: 64 });
@@ -18,7 +17,11 @@ export default class Boot extends Phaser.Scene {
     this.load.image('background', 'resources/game/textures/fondoNegro.png');
     this.load.image('back', 'resources/game/textures/return.png');
     this.load.image('controlsImage', 'resources/game/textures/controls.png');
-    
+
+    //TP Image
+    this.load.image('tpImg', 'resources/game/textures/tpImage.png');
+
+
     //Personaje
     this.load.image('player', 'resources/game/textures/policeman.png');
 

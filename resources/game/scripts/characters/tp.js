@@ -1,6 +1,6 @@
 export default class Tp extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, tpLink, isInstant) {
-        super(scene, x, y, 'debug');
+        super(scene, x, y, 'tpImg');
 
         this.scene.add.existing(this);
         this.trigger = scene.add.zone(x, y);
@@ -8,9 +8,11 @@ export default class Tp extends Phaser.GameObjects.Sprite {
         this.scene.physics.world.enable(this.trigger);
         this.trigger.body.setAllowGravity(false);
         this.scene.physics.add.existing(this);
-        this.visible = false;
+        this.visible = true;
+        this.alpha = 0
         //this.canTp = true;
         this.playerRef = scene.player
+        this.depth = 200;
         //this.body.setCollideWorldBounds();
 
         this.tpThisFrame = true;
@@ -25,7 +27,7 @@ export default class Tp extends Phaser.GameObjects.Sprite {
         // console.log("La otra es:")
         // console.log(this.link)
 
-        this.instant = isInstant;
+        this.instant = true;
 
         this.scene.physics.add.overlap(scene.player,
             this.trigger,
@@ -39,7 +41,7 @@ export default class Tp extends Phaser.GameObjects.Sprite {
             this.playerRef.canTp = true;
         }
 
-        if(this.playerRef.canTp && !this.checkOverlap()) this.tpThisFrame = false
+        if (this.playerRef.canTp && !this.checkOverlap()) this.tpThisFrame = false
     }
 
     tp() {
@@ -61,7 +63,32 @@ export default class Tp extends Phaser.GameObjects.Sprite {
 
     accion(scene) {
         if ((!this.instant && this.playerRef.keyDown().interact) || (this.instant && this.playerRef.canTp)) {
-            this.tp(scene)
+            scene.tweens.add({
+                targets: this,
+                duration: 250,
+                alpha: 1,
+                ease: 'Circ',
+                onStart: () => {
+                    this.playerRef.isTalking = true
+                },
+                onComplete: () => 
+                {
+                    scene.tweens.add({
+                        targets: this,
+                        duration: 1000,
+                        alpha: 0,
+                        ease: 'Circ',
+                        onStart: () => 
+                        {
+                            this.tp(scene)
+                            this.playerRef.isTalking = false
+                        }
+                    })
+                }
+            })
+
+           
+
         }
     }
 }
