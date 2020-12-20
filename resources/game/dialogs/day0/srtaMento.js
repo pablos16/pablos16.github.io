@@ -49,7 +49,7 @@ const Dialog =
         {
             id: 3,
             name: Names.Carcelero,
-            text: ["A ver que dia me dejas tu ropa","Con tu ropa me pido ser la policia y tu el ladron"," "],
+            text: ["A ver que dia me dejas tu ropa","Con tu ropa me pido ser la policia y tu el ladron","..."],
             state: [
                 {
                     targetState: ["any"],
