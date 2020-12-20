@@ -80,7 +80,7 @@ export default class NPCDialog extends NPC {
                     CT.xDialogTextPos + CT.xSubDialogSpacing, CT.yDialogTextPos + CT.subDialogInSpacing + i * CT.ySubDialogSpacing,
                     CT.dialogFont, this.currentDialog().options[i].text, CT.subDialogSize, CT.dialogAlign))
 
-        this.animateText(scene, this.dialogOptions[i])
+                this.animateText(scene, this.dialogOptions[i])
 
             }
 
@@ -158,7 +158,7 @@ export default class NPCDialog extends NPC {
         scene.time.addEvent({
             callback: () => {
                 aux += copy[i]
-                target.text= aux
+                target.text = aux
                 ++i
             },
             repeat: copy.length - 1,
@@ -207,20 +207,20 @@ export default class NPCDialog extends NPC {
 
     indentText(text) {
         let l = text.length
-        for (let i = 0; i < l; i++) {
-            if (i % CT.textLimit === 0 && i !== 0) {
+        for (let i = 0; i < l; i += CT.textLimit) {
+            if (i === 0) continue
 
-                let wordEnd = i
-                while (text[wordEnd] !== " " && wordEnd < l) { wordEnd++; }
-                wordEnd++;
+            let wordEnd = i
+            while (text[wordEnd] !== " " && wordEnd < l) { wordEnd++; }
+            wordEnd++;
 
-                let wordBeggining = i
-                while (text[wordBeggining] !== " " && wordBeggining < l) { wordBeggining--; }
-                wordBeggining++
+            let wordBeggining = i
+            while (text[wordBeggining] !== " " && wordBeggining < l) { wordBeggining--; }
+            wordBeggining++
 
-                let final = (wordEnd - i) >= (i - wordBeggining) ? wordBeggining : wordEnd
-                text = text.insert(final, "\n\n")
-            }
+            let final = (wordEnd - i) >= (i - wordBeggining) ? wordBeggining : wordEnd
+            text = text.insert(final, "\n\n")
+
         }
         return text;
     }
