@@ -20,8 +20,8 @@ const CT =
      textSpacing: 1,
 
      misionListX: 1280 / 2,
-     misionListY: 720 + 720 / 4,
-     misionOffsetToggle: 400,
+     misionListY: 720,
+     misionOffsetToggle: 300,
 
      alignmentBarX: 630,
      alignmentBarY: 50,
