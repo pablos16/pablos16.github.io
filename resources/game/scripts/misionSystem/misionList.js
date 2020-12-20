@@ -36,16 +36,17 @@ export default class Misions extends Phaser.GameObjects.Container {
     hideInterface() {
         this.hidden = true
 
+        if(this.desplegado)this.animateInterface(this.toggleInterface(1))
+        else this.toggleInterface(1)
+
         //if(this.desplegado)
-        this.toggleInterface(1)
+        //this.toggleInterface(1)
     }
 
     showInterface() {
         this.hidden = false
         console.log("showing")
-
         this.toggleInterface(-1)
-
     }
 
     initialiceTexts() {
@@ -90,7 +91,7 @@ export default class Misions extends Phaser.GameObjects.Container {
         scene.align.addReputation(points)
     }
 
-    animateInterface() {
+    animateInterface(onComplete) {
 
         console.log("Animating")
         this.y = !this.desplegado ? this.orign : this.orign - CT.misionOffsetToggle
@@ -104,6 +105,7 @@ export default class Misions extends Phaser.GameObjects.Container {
             onComplete: () => {
                 this.desplegado = !this.desplegado
                 this.y = !this.desplegado ? this.orign : this.orign - CT.misionOffsetToggle
+                if(this.hidden) this.toggleInterface(1)
             }
         })
     }
