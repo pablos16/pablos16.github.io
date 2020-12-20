@@ -18,6 +18,8 @@ export default class Alignment extends Phaser.GameObjects.Container{
 
         this.texture.setInteractive();
         this.texture.on('pointerdown', pointer => { this.test() })
+
+        this.sceneRef = scene
     }
 
     test(){
@@ -32,6 +34,12 @@ export default class Alignment extends Phaser.GameObjects.Container{
     }
 
     updatePosition(amount){
-        this.indicatorTexture.y += (CT.alignmentMaxOffset / (CT.alignmentMaxPoints/amount));
+        
+        this.sceneRef.tweens.add({
+            targets: this.indicatorTexture,
+            duration: 250,
+            y: this.indicatorTexture.y + (CT.alignmentMaxOffset / (CT.alignmentMaxPoints/amount)),
+            ease: 'Circ',
+        })
     }
 }
