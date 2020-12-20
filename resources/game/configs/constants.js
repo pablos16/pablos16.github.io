@@ -22,6 +22,7 @@ const CT =
      misionListX: 1280 / 2,
      misionListY: 720,
      misionOffsetToggle: 300,
+     hideOffset: 50,
 
      alignmentBarX: 630,
      alignmentBarY: 50,

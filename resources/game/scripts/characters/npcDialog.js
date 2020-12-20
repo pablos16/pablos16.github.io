@@ -44,6 +44,7 @@ export default class NPCDialog extends NPC {
 
     StartDialog(scene) {
         //this.startTween(scene);
+        scene.player.misionList.hideInterface()
         this.animateDialog(scene, 50)
         this.setTalking(scene, true)
         this.stop();
@@ -101,6 +102,7 @@ export default class NPCDialog extends NPC {
     }
 
     FinishDialog(scene) {
+        scene.player.misionList.showInterface()
         this.moveRight();
         this.animateDialog(scene, 50, false)
         utils.setVisiblity([this.description, this.name], false)
@@ -119,9 +121,9 @@ export default class NPCDialog extends NPC {
 
             //Actualiza la posicion del cursor en pantalla
             this.arrow.y = (Dialog.yDialogTextPos +
-                Dialog.subDialogInSpacing +
-                (this.selection * Dialog.ySubDialogSpacing) +
-                Dialog.yDialogSelection)
+                            Dialog.subDialogInSpacing +
+                           (this.selection * Dialog.ySubDialogSpacing) +
+                            Dialog.yDialogSelection)
         }
 
         if (input.interact) {
