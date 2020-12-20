@@ -5,6 +5,7 @@ export default class NPC extends Phaser.GameObjects.Container {
   constructor(scene, x, y, npcImage) {
     super(scene, x, y);
 
+
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
     //this.body.setCollideWorldBounds();
@@ -18,6 +19,7 @@ export default class NPC extends Phaser.GameObjects.Container {
 
     //Sprite del container
     this.spriteImage = new NPCImage(scene, 0, 0, npcImage);
+
 
     this.add(this.trigger);
     this.add(this.spriteImage);
