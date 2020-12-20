@@ -26,7 +26,7 @@ const CT =
      alignmentBarX: 630,
      alignmentBarY: 50,
      alignmentMaxOffset: 85,
-     alignmentMaxPoints: 10
+     alignmentMaxPoints: 100
 
 }
 

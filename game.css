@@ -10,6 +10,7 @@ table{
   font-size: 14pt;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
 button{
   color: white;
   background-color: darksalmon;
@@ -19,3 +20,7 @@ button{
 
   padding: 10px 20px;
 }
+body{
+  background-size: cover;
+}
+

@@ -5,6 +5,8 @@ import { getRandomInt } from "../libraries/mathFunc.js";
 import * as utils from '../libraries/phaserUtilities.js'
 import SocialStatePeople from '../../configs/npcSocialGroups.js'
 import SocialStateName from '../../configs/socialGroupNames.js'
+import Vector2 from '../libraries/vector2.js'
+import vector2 from '../libraries/vector2.js';
 
 
 export default class NPCDialog extends NPC {
@@ -46,8 +48,14 @@ export default class NPCDialog extends NPC {
         this.setTalking(scene, true)
         this.stop();
         utils.setVisiblity([this.description, this.name, scene.dialogueImage], true)
-        this.initializeIndex()
+        this.initializeIndex(scene)
         this.ContinueDialog(scene)
+    }
+
+    checkCallbacks(scene) {
+        if ("callback" in this.currentDialog()) {
+            this.currentDialog().callback(this, scene);
+        }
     }
 
     ContinueDialog(scene) {
@@ -61,8 +69,10 @@ export default class NPCDialog extends NPC {
         this.animateText(scene, this.description)
         //this.animateText(scene, this.name)
 
+        this.checkCallbacks(scene)
+
         //Miramos si este dialogo era necesario para completar alguna mision
-        this.checkMisionCompleted(scene)
+        this.checkMisionCompleted(scene, this.currentDialog())
 
         this.changeDialogImage(this.checkSocialGroup(), scene)
 
@@ -81,10 +91,7 @@ export default class NPCDialog extends NPC {
                     Dialog.dialogFont, this.currentDialog().options[i].text, Dialog.subDialogSize, Dialog.dialogAlign))
 
                 this.animateText(scene, this.dialogOptions[i])
-
             }
-
-
 
             //Poner textos visible
             this.initializeText(this.dialogOptions, true)
@@ -118,7 +125,7 @@ export default class NPCDialog extends NPC {
         }
 
         if (input.interact) {
-            this.checkMisionCompleted(scene, this.selection)
+            this.checkMisionCompleted(scene, this.currentDialog().options[selection])
             this.arrow.visible = false
             this.choosing = false
             this.index = this.currentDialog().options[this.selection].nextIndex
@@ -162,7 +169,7 @@ export default class NPCDialog extends NPC {
                 ++i
             },
             repeat: copy.length - 1,
-            delay: 20,
+            delay: Dialog.dialogSpeed,
         })
     }
 
@@ -179,20 +186,10 @@ export default class NPCDialog extends NPC {
         }
     }
 
-    checkMisionCompleted(scene, index = -1) {
-        let completed = "completed" in this.currentDialog()
-        if (completed) {
-            scene.player.misionList.setCompleted(this.currentDialog().completed, this.currentDialog().points)
-        }
-
-        if (index === -1) return;
-        completed = "completed" in this.currentDialog().options[index]
-        if (completed) {
-            //console.log()
-            scene.player.misionList.setCompleted(this.currentDialog().options[index].completed,
-                this.currentDialog().options[index].points)
-
-        }
+    checkMisionCompleted(scene, context) {
+        if ("completed" in context) scene.player.misionList.setCompleted(context.completed)
+        if ("points" in context) scene.player.misionList.setPoints(context.points, scene)
+            
     }
 
     updateTexts() {
@@ -229,15 +226,34 @@ export default class NPCDialog extends NPC {
         for (let i = 0; i < texts.length; i++) this.indentText(texts[i]);
     }
 
-    initializeIndex() {
+    initializeIndex(scene) {
         if (this.index === -1) {
             //Preparar indice para la siguiente vez que se hable
             this.index = this.dialog.length - 1
+            this.getTogether(scene)
             //console.log(this.currentDialog().state.length)
             //console.log(this.currentDialog().state[0].targetState.length)
             this.iterateStates(this.updateIndex)
         }
     }
+
+    getTogether(scene) {
+        console.log("Vamos a juntarnos")
+
+        //Uso mi propia clase vector2 porque la de Phaser me da problemas
+        let playerPos = new Vector2(scene.player.x, scene.player.y)
+        let thisPos = new Vector2(this.x, this.y)
+
+        let Offset = playerPos.substract(thisPos);
+
+        scene.tweens.add({
+            targets: scene.player,
+            duration: 250,
+            y: this.y + Dialog.characterOffset * Math.sign(Offset.y),
+            x: this.x + Dialog.characterOffset * Math.sign(Offset.x),
+        })
+    }
+
 
     updateIndex(context, i = 0) {
         context.index = context.currentDialog().state[i].nextIndex;
