@@ -21,15 +21,22 @@ const Dialog =
             [
                 {
                     text: "Emm...claro claro",
-                    nextIndex: 2
+                    nextIndex: 2,
+                    completed:0,
+                    points: 5
                 },
                 {
                     text: "Bueno...estaremos en contacto",
-                    nextIndex: 2
+                    nextIndex: 2,
+                    completed:0,
+                    points: 0
                 },
                 {
                     text: "Por supuesto, no lo dudes!",
-                    nextIndex: 2
+                    nextIndex: 2,
+                    completed:0,
+                    points:-10
+                    
                 }
             ],
         },
@@ -43,7 +50,7 @@ const Dialog =
                     nextState: 1,
                     nextIndex: -1
                 },
-            ]
+            ],
         },
         {
             id: 3,
