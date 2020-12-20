@@ -21,7 +21,6 @@ export default class Boot extends Phaser.Scene {
     //TP Image
     this.load.image('tpImg', 'resources/game/textures/tpImage.png');
 
-
     //Personaje
     this.load.image('player', 'resources/game/textures/policeman.png');
 
@@ -31,12 +30,12 @@ export default class Boot extends Phaser.Scene {
     //Mapa
     this.load.tilemapTiledJSON('tileMap', 'resources/game/textures/tilemap/map.json');
     this.load.image('mapTiles', 'resources/game/textures/tilemap/tiles.png');
+    this.load.image('mapTilesIndoors', 'resources/game/textures/tilemap/tiles_indoors.png');
 
-    //MUROS
+    //Muro
     this.load.image('wall', 'resources/game/textures/wall.png');
 
     //Imagen de prueba dialogo
-    //this.load.image('dialogTest', 'resources/game/textures/dialoguePlaceholder.png');
     this.load.spritesheet('dialogFinal', 'resources/game/textures/dialoguePlaceholder.png', { frameWidth: 900, frameHeight: 300 });
 
     //Imagen test dialogo sub
@@ -55,14 +54,9 @@ export default class Boot extends Phaser.Scene {
     //Fuente
     this.load.bitmapFont('font', 'resources/game/font/font.png', 'resources/game/font/font.fnt');
 
-    this.load.bitmapFont('dialogFont', 'resources/game/font/dialogFont.png', 'resources/game/font/dialogFont.fnt');
-
     //Barra de alineamiento (prototipo)
     this.load.image('bar', 'resources/game/textures/protobarra2.png');
     this.load.image('indicator', 'resources/game/textures/indicator.png');
-
-    // Destruir:
-    ////Item_TNT.destroy();
   }
 
   create() { this.scene.start('menu'); }

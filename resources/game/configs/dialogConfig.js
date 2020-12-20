@@ -21,6 +21,7 @@ const CT =
      dialogAlign: 0,
      extra: 3,
      dialogSpeed: 10,
+     characterOffset: 40,
 
      textLimit: 50,
 }
