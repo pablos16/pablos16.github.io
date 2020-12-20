@@ -125,7 +125,7 @@ export default class NPCDialog extends NPC {
         }
 
         if (input.interact) {
-            this.checkMisionCompleted(scene, this.currentDialog().options[selection])
+            this.checkMisionCompleted(scene, this.currentDialog().options[this.selection])
             this.arrow.visible = false
             this.choosing = false
             this.index = this.currentDialog().options[this.selection].nextIndex
@@ -204,20 +204,17 @@ export default class NPCDialog extends NPC {
 
     indentText(text) {
         let l = text.length
-        for (let i = 0; i < l; i += Dialog.textLimit) {
-            if (i === 0) continue
-
+        for (let i = Dialog.textLimit; i < l; i += Dialog.textLimit) {
             let wordEnd = i
-            while (text[wordEnd] !== " " && wordEnd < l) { wordEnd++; }
+            while (wordEnd < l && text[wordEnd] !== " " ) { wordEnd++; }
             wordEnd++;
 
             let wordBeggining = i
-            while (text[wordBeggining] !== " " && wordBeggining < l) { wordBeggining--; }
+            while (wordBeggining > 0 && text[wordBeggining] !== " ") { wordBeggining--; }
             wordBeggining++
 
             let final = (wordEnd - i) >= (i - wordBeggining) ? wordBeggining : wordEnd
             text = text.insert(final, "\n\n")
-
         }
         return text;
     }
