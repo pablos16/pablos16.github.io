@@ -5,6 +5,8 @@ import { getRandomInt } from "../libraries/mathFunc.js";
 import * as utils from '../libraries/phaserUtilities.js'
 import SocialStatePeople from '../../configs/npcSocialGroups.js'
 import SocialStateName from '../../configs/socialGroupNames.js'
+import Vector2 from '../libraries/vector2.js'
+import vector2 from '../libraries/vector2.js';
 
 
 export default class NPCDialog extends NPC {
@@ -46,7 +48,7 @@ export default class NPCDialog extends NPC {
         this.setTalking(scene, true)
         this.stop();
         utils.setVisiblity([this.description, this.name, scene.dialogueImage], true)
-        this.initializeIndex()
+        this.initializeIndex(scene)
         this.ContinueDialog(scene)
     }
 
@@ -237,15 +239,34 @@ export default class NPCDialog extends NPC {
         for (let i = 0; i < texts.length; i++) this.indentText(texts[i]);
     }
 
-    initializeIndex() {
+    initializeIndex(scene) {
         if (this.index === -1) {
             //Preparar indice para la siguiente vez que se hable
             this.index = this.dialog.length - 1
+            this.getTogether(scene)
             //console.log(this.currentDialog().state.length)
             //console.log(this.currentDialog().state[0].targetState.length)
             this.iterateStates(this.updateIndex)
         }
     }
+
+    getTogether(scene) {
+        console.log("Vamos a juntarnos")
+
+        //Uso mi propia clase vector2 porque la de Phaser me da problemas
+        let playerPos = new Vector2(scene.player.x, scene.player.y)
+        let thisPos = new Vector2(this.x, this.y)
+
+        let Offset = playerPos.substract(thisPos);
+
+        scene.tweens.add({
+            targets: scene.player,
+            duration: 250,
+            y: this.y + Dialog.characterOffset * Math.sign(Offset.y),
+            x: this.x + Dialog.characterOffset * Math.sign(Offset.x),
+        })
+    }
+
 
     updateIndex(context, i = 0) {
         context.index = context.currentDialog().state[i].nextIndex;
