@@ -7,7 +7,7 @@ export default class NPCImage extends Phaser.GameObjects.Sprite{
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
 
-    //this.scene.physics.add.collider(scene.player, this);
+    //this.scene.physics.add.collider(this,scene.player);
 
 
     //ANIMACIONES
