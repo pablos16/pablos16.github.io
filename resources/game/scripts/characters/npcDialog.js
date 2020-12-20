@@ -59,6 +59,7 @@ export default class NPCDialog extends NPC {
         this.updateTexts()
 
         this.animateText(scene, this.description)
+        //this.animateText(scene, this.name)
 
         //Miramos si este dialogo era necesario para completar alguna mision
         this.checkMisionCompleted(scene)
@@ -78,7 +79,12 @@ export default class NPCDialog extends NPC {
                 this.dialogOptions.push(scene.add.bitmapText(
                     CT.xDialogTextPos + CT.xSubDialogSpacing, CT.yDialogTextPos + CT.subDialogInSpacing + i * CT.ySubDialogSpacing,
                     CT.dialogFont, this.currentDialog().options[i].text, CT.subDialogSize, CT.dialogAlign))
+
+        this.animateText(scene, this.dialogOptions[i])
+
             }
+
+
 
             //Poner textos visible
             this.initializeText(this.dialogOptions, true)
@@ -136,7 +142,7 @@ export default class NPCDialog extends NPC {
 
         scene.tweens.add({
             targets: scene.dialogueImage,
-            duration: 250,
+            duration: 150,
             y: scene.dialogueImage.y + value,
             alpha: imgAlpha,
             ease: 'Circ',
@@ -145,15 +151,17 @@ export default class NPCDialog extends NPC {
     }
 
     animateText(scene, target) {
-        this.copy = target.text
+        let copy = target.text
         target.text = ""
+        let aux = ""
         let i = 0
         scene.time.addEvent({
             callback: () => {
-                target.text += this.copy[i]
+                aux += copy[i]
+                target.text= aux
                 ++i
             },
-            repeat: this.copy.length - 1,
+            repeat: copy.length - 1,
             delay: 20,
         })
     }
