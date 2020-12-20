@@ -24,7 +24,8 @@ export default class Misions extends Phaser.GameObjects.Container {
         this.add(this.completedTexts)
     }
 
-    toggleInterface(sign) {
+    toggleInterface() {
+        let sign = this.hidden ? 1 : -1
         this.sceneRef.tweens.add({
             targets: this,
             duration: 150,
@@ -38,15 +39,12 @@ export default class Misions extends Phaser.GameObjects.Container {
 
         if(this.desplegado)this.animateInterface(this.toggleInterface(1))
         else this.toggleInterface(1)
-
-        //if(this.desplegado)
-        //this.toggleInterface(1)
     }
 
     showInterface() {
         this.hidden = false
         console.log("showing")
-        this.toggleInterface(-1)
+        this.toggleInterface()
     }
 
     initialiceTexts() {
@@ -105,7 +103,7 @@ export default class Misions extends Phaser.GameObjects.Container {
             onComplete: () => {
                 this.desplegado = !this.desplegado
                 this.y = !this.desplegado ? this.orign : this.orign - CT.misionOffsetToggle
-                if(this.hidden) this.toggleInterface(1)
+                if(this.hidden) this.toggleInterface()
             }
         })
     }
