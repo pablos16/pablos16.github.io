@@ -27,7 +27,7 @@ export default class Alignment extends Phaser.GameObjects.Container{
 
     addReputation(amount){
         this.points += amount
-        //if(Math.abs(this.points) == CT.alignmentMaxPoints) //mueres
+        //if(Math.abs(this.points) >= CT.alignmentMaxPoints) //mueres
         this.updatePosition(amount)
     }
 

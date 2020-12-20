@@ -72,7 +72,7 @@ export default class NPCDialog extends NPC {
         this.checkCallbacks(scene)
 
         //Miramos si este dialogo era necesario para completar alguna mision
-        this.checkMisionCompleted(scene)
+        this.checkMisionCompleted(scene, this.currentDialog())
 
         this.changeDialogImage(this.checkSocialGroup(), scene)
 
@@ -91,10 +91,7 @@ export default class NPCDialog extends NPC {
                     Dialog.dialogFont, this.currentDialog().options[i].text, Dialog.subDialogSize, Dialog.dialogAlign))
 
                 this.animateText(scene, this.dialogOptions[i])
-
             }
-
-
 
             //Poner textos visible
             this.initializeText(this.dialogOptions, true)
@@ -128,7 +125,7 @@ export default class NPCDialog extends NPC {
         }
 
         if (input.interact) {
-            this.checkMisionCompleted(scene, this.selection)
+            this.checkMisionCompleted(scene, this.currentDialog().options[selection])
             this.arrow.visible = false
             this.choosing = false
             this.index = this.currentDialog().options[this.selection].nextIndex
@@ -189,20 +186,10 @@ export default class NPCDialog extends NPC {
         }
     }
 
-    checkMisionCompleted(scene, index = -1) {
-        let completed = "completed" in this.currentDialog()
-        if (completed) {
-            scene.player.misionList.setCompleted(this.currentDialog().completed, this.currentDialog().points)
-        }
-
-        if (index === -1) return;
-        completed = "completed" in this.currentDialog().options[index]
-        if (completed) {
-            //console.log()
-            scene.player.misionList.setCompleted(this.currentDialog().options[index].completed,
-                this.currentDialog().options[index].points)
-
-        }
+    checkMisionCompleted(scene, context) {
+        if ("completed" in context) scene.player.misionList.setCompleted(context.completed)
+        if ("points" in context) scene.player.misionList.setPoints(context.points, scene)
+            
     }
 
     updateTexts() {

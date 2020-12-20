@@ -4,7 +4,6 @@ export default class Misions extends Phaser.GameObjects.Sprite {
     constructor(scene, misionList) {
         super(scene, CT.misionListX, CT.misionListY, 'mision');
         this.setInteractive()
-        this.alignment = scene.align
         this.desplegado = false
         this.scene.add.existing(this)
         this.depth = 100
@@ -12,17 +11,23 @@ export default class Misions extends Phaser.GameObjects.Sprite {
         this.misionList = misionList
         this.visible = false
         this.on('pointerdown', pointer => { this.toggleListInterface() })
+        this.sceneRef = scene
     }
 
     missionCompleted(misionIndex) {
         return this.misionList[misionIndex].completed === this.misionList[misionIndex].total
     }
 
-    setCompleted(mision, points) {
+    setCompleted(mision) {
         this.misionList[mision].completed++
-        //console.log("Completada " + this.misionList[mision].completed + " de "+ this.misionList[mision].total+ " puntos: "+points)
-        if(this.missionCompleted(mision)) this.alignment.addReputation(points)
+        console.log("Completada " + this.misionList[mision].completed + " de "+ this.misionList[mision].total)
+        //if(this.missionCompleted(mision)) 
     }
+
+    setPoints(points, scene) {
+        scene.align.addReputation(points)
+    }
+
 
     toggleListInterface() {
         if (!this.desplegado) {
