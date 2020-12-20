@@ -40,30 +40,7 @@ export default class NPCDialog extends NPC {
         }
     }
 
-    animateDialog(scene, value, start = true) {
-        let imgAlpha = 0
-        if (start) {
-            scene.dialogueImage.y += value
-            scene.dialogueImage.alpha = 0
-            imgAlpha = 1
-            value *= -1
-        }
-
-        scene.tweens.add({
-            targets: scene.dialogueImage,
-            duration: 250,
-            y: scene.dialogueImage.y + value,
-            alpha: imgAlpha,
-            ease: 'Circ',
-            onComplete: () => {if(!start)scene.dialogueImage.y -= value}
-        })
-    }
-
     StartDialog(scene) {
-        //Debug
-        //console.log("hey " + this.index)
-
-
         //this.startTween(scene);
         this.animateDialog(scene, 50)
         this.setTalking(scene, true)
@@ -80,6 +57,8 @@ export default class NPCDialog extends NPC {
 
         //Actualizar textos
         this.updateTexts()
+
+        this.animateText(scene, this.description)
 
         //Miramos si este dialogo era necesario para completar alguna mision
         this.checkMisionCompleted(scene)
@@ -144,6 +123,40 @@ export default class NPCDialog extends NPC {
     }
 
     //Metoodos auxiliares
+
+    animateDialog(scene, value, start = true) {
+        let imgAlpha = 0
+        scene.dialogueImage.y = CT.gameHeight / 1.25
+        if (start) {
+            scene.dialogueImage.y += value
+            scene.dialogueImage.alpha = 0
+            imgAlpha = 1
+            value *= -1
+        }
+
+        scene.tweens.add({
+            targets: scene.dialogueImage,
+            duration: 250,
+            y: scene.dialogueImage.y + value,
+            alpha: imgAlpha,
+            ease: 'Circ',
+            onComplete: () => { if (!start) scene.dialogueImage.y -= value }
+        })
+    }
+
+    animateText(scene, target) {
+        this.copy = target.text
+        target.text = ""
+        let i = 0
+        scene.time.addEvent({
+            callback: () => {
+                target.text += this.copy[i]
+                ++i
+            },
+            repeat: this.copy.length - 1,
+            delay: 20,
+        })
+    }
 
     changeDialogImage(SocialName, scene) {
         scene.dialogueImage.setFrame(SocialName)
