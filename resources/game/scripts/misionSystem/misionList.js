@@ -37,7 +37,7 @@ export default class Misions extends Phaser.GameObjects.Container {
     hideInterface() {
         this.hidden = true
 
-        if(this.desplegado)this.animateInterface(this.toggleInterface(1))
+        if (this.desplegado) this.animateInterface(this.toggleInterface(1))
         else this.toggleInterface(1)
     }
 
@@ -66,12 +66,20 @@ export default class Misions extends Phaser.GameObjects.Container {
                 CT.xMisionText,
                 (CT.yMisionText + CT.ySubMisionTextOffset) + i * CT.yMissionOffset,
                 'font',
-                "foo",
+                (this.misionList[i].completed + "/" + this.misionList[i].total),
                 CT.subMisionTextSize,
             ))
 
             this.completedTexts[i].setScrollFactor(0)
             this.completedTexts[i].depth = 100
+        }
+    }
+
+    resetCompletedTexts() {
+        let l = this.misionList.length
+        for (let i = 0; i < l; i++) {
+
+            this.completedTexts[i].text = (this.misionList[i].completed + "/" + this.misionList[i].total)
         }
     }
 
@@ -91,6 +99,8 @@ export default class Misions extends Phaser.GameObjects.Container {
 
     animateInterface(onComplete) {
 
+        this.resetCompletedTexts()
+
         console.log("Animating")
         this.y = !this.desplegado ? this.orign : this.orign - CT.misionOffsetToggle
 
@@ -103,7 +113,7 @@ export default class Misions extends Phaser.GameObjects.Container {
             onComplete: () => {
                 this.desplegado = !this.desplegado
                 this.y = !this.desplegado ? this.orign : this.orign - CT.misionOffsetToggle
-                if(this.hidden) this.toggleInterface()
+                if (this.hidden) this.toggleInterface()
             }
         })
     }
