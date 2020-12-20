@@ -4,9 +4,9 @@ import { loop } from "../libraries/mathFunc.js";
 import { getRandomInt } from "../libraries/mathFunc.js";
 import * as utils from '../libraries/phaserUtilities.js'
 import SocialStatePeople from '../../configs/npcSocialGroups.js'
-import SocialStateName from '../../configs/socialGroupNames.js'
+//import SocialStateName from '../../configs/socialGroupNames.js'
 import Vector2 from '../libraries/vector2.js'
-import vector2 from '../libraries/vector2.js';
+//import vector2 from '../libraries/vector2.js';
 
 
 export default class NPCDialog extends NPC {
@@ -118,10 +118,10 @@ export default class NPCDialog extends NPC {
             this.selection = loop(this.selection, this.currentDialog().options.length)
 
             //Actualiza la posicion del cursor en pantalla
-            this.arrow.y = Dialog.yDialogTextPos +
-                Dialog.subDialogInSpacing + Dialog.yDialogSelection +
-                this.selection * (Dialog.subDialogInSpacing - Dialog.yDialogSelection) +
-                this.selection * Dialog.extra
+            this.arrow.y = (Dialog.yDialogTextPos +
+                Dialog.subDialogInSpacing +
+                (this.selection * Dialog.ySubDialogSpacing) +
+                Dialog.yDialogSelection)
         }
 
         if (input.interact) {
@@ -189,7 +189,7 @@ export default class NPCDialog extends NPC {
     checkMisionCompleted(scene, context) {
         if ("completed" in context) scene.player.misionList.setCompleted(context.completed)
         if ("points" in context) scene.player.misionList.setPoints(context.points, scene)
-            
+
     }
 
     updateTexts() {
@@ -206,7 +206,7 @@ export default class NPCDialog extends NPC {
         let l = text.length
         for (let i = Dialog.textLimit; i < l; i += Dialog.textLimit) {
             let wordEnd = i
-            while (wordEnd < l && text[wordEnd] !== " " ) { wordEnd++; }
+            while (wordEnd < l && text[wordEnd] !== " ") { wordEnd++; }
             wordEnd++;
 
             let wordBeggining = i
