@@ -3,7 +3,7 @@ const Misions =
         {
             text: "Habla con todos en el pueblo",
             completed: 0,
-            total: 1
+            total: 9
         },
         {
             text: "Habla con el NPC de pruebas",
