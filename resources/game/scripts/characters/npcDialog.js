@@ -50,6 +50,12 @@ export default class NPCDialog extends NPC {
         this.ContinueDialog(scene)
     }
 
+    checkCallbacks(scene) {
+        if ("callback" in this.currentDialog()) {
+            this.currentDialog().callback(this, scene);
+        }
+    }
+
     ContinueDialog(scene) {
 
         //console.log("hey " + this.index)
@@ -60,6 +66,8 @@ export default class NPCDialog extends NPC {
 
         this.animateText(scene, this.description)
         //this.animateText(scene, this.name)
+
+        this.checkCallbacks(scene)
 
         //Miramos si este dialogo era necesario para completar alguna mision
         this.checkMisionCompleted(scene)
@@ -162,7 +170,7 @@ export default class NPCDialog extends NPC {
                 ++i
             },
             repeat: copy.length - 1,
-            delay: 20,
+            delay: Dialog.dialogSpeed,
         })
     }
 
