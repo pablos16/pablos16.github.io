@@ -15,7 +15,7 @@ const CT =
      subDialogInSpacing: 40,
      xDialogSelection: -20,
      yDialogSelection: 15,
-     dialogFont: 'font',
+     dialogFont: 'dialogue',
      dialogSize: 30,
      subDialogSize: 25,
      dialogAlign: 0,

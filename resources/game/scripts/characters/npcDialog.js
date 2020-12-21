@@ -216,7 +216,7 @@ export default class NPCDialog extends NPC {
             wordBeggining++
 
             let final = (wordEnd - i) >= (i - wordBeggining) ? wordBeggining : wordEnd
-            text = text.insert(final, "\n\n")
+            text = text.insert(final, "\n")
         }
         return text;
     }

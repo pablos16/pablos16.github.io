@@ -8,6 +8,7 @@ const CT =
      hideOffset: 50,
 
      misionTextSize: 27.5,
+     font: 'dialogue',
      subMisionTextSize: 20,
      xMisionText: -212,
      yMisionText: -144,
