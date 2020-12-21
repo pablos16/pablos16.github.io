@@ -4,9 +4,9 @@ import { loop } from "../libraries/mathFunc.js";
 import { getRandomInt } from "../libraries/mathFunc.js";
 import * as utils from '../libraries/phaserUtilities.js'
 import SocialStatePeople from '../../configs/npcSocialGroups.js'
-import SocialStateName from '../../configs/socialGroupNames.js'
+//import SocialStateName from '../../configs/socialGroupNames.js'
 import Vector2 from '../libraries/vector2.js'
-import vector2 from '../libraries/vector2.js';
+//import vector2 from '../libraries/vector2.js';
 
 
 export default class NPCDialog extends NPC {
@@ -44,6 +44,7 @@ export default class NPCDialog extends NPC {
 
     StartDialog(scene) {
         //this.startTween(scene);
+        scene.player.misionList.hideInterface()
         this.animateDialog(scene, 50)
         this.setTalking(scene, true)
         this.stop();
@@ -101,6 +102,7 @@ export default class NPCDialog extends NPC {
     }
 
     FinishDialog(scene) {
+        scene.player.misionList.showInterface()
         this.moveRight();
         this.animateDialog(scene, 50, false)
         utils.setVisiblity([this.description, this.name], false)
@@ -118,14 +120,14 @@ export default class NPCDialog extends NPC {
             this.selection = loop(this.selection, this.currentDialog().options.length)
 
             //Actualiza la posicion del cursor en pantalla
-            this.arrow.y = Dialog.yDialogTextPos +
-                Dialog.subDialogInSpacing + Dialog.yDialogSelection +
-                this.selection * (Dialog.subDialogInSpacing - Dialog.yDialogSelection) +
-                this.selection * Dialog.extra
+            this.arrow.y = (Dialog.yDialogTextPos +
+                            Dialog.subDialogInSpacing +
+                           (this.selection * Dialog.ySubDialogSpacing) +
+                            Dialog.yDialogSelection)
         }
 
         if (input.interact) {
-            this.checkMisionCompleted(scene, this.currentDialog().options[selection])
+            this.checkMisionCompleted(scene, this.currentDialog().options[this.selection])
             this.arrow.visible = false
             this.choosing = false
             this.index = this.currentDialog().options[this.selection].nextIndex
@@ -189,7 +191,7 @@ export default class NPCDialog extends NPC {
     checkMisionCompleted(scene, context) {
         if ("completed" in context) scene.player.misionList.setCompleted(context.completed)
         if ("points" in context) scene.player.misionList.setPoints(context.points, scene)
-            
+
     }
 
     updateTexts() {
@@ -204,20 +206,17 @@ export default class NPCDialog extends NPC {
 
     indentText(text) {
         let l = text.length
-        for (let i = 0; i < l; i += Dialog.textLimit) {
-            if (i === 0) continue
-
+        for (let i = Dialog.textLimit; i < l; i += Dialog.textLimit) {
             let wordEnd = i
-            while (text[wordEnd] !== " " && wordEnd < l) { wordEnd++; }
+            while (wordEnd < l && text[wordEnd] !== " ") { wordEnd++; }
             wordEnd++;
 
             let wordBeggining = i
-            while (text[wordBeggining] !== " " && wordBeggining < l) { wordBeggining--; }
+            while (wordBeggining > 0 && text[wordBeggining] !== " ") { wordBeggining--; }
             wordBeggining++
 
             let final = (wordEnd - i) >= (i - wordBeggining) ? wordBeggining : wordEnd
-            text = text.insert(final, "\n\n")
-
+            text = text.insert(final, "\n")
         }
         return text;
     }

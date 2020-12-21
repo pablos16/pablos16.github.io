@@ -10,15 +10,18 @@ const Dialog =
             [
                 {
                     text: "...(¿Quién es esta cria?)",
-                    nextIndex: 2
+                    nextIndex: 2,
+                    points:-10
                 },
                 {
                     text: "¿Quizás otro día vale cielo?",
-                    nextIndex: 1
+                    nextIndex: 1,
+                    points:10
                 },
                 {
                     text: "ehm...No",
-                    nextIndex: 2
+                    nextIndex: 2,
+                    points:-5
                 }
             ],
         },
@@ -32,7 +35,8 @@ const Dialog =
                     nextState: 1,
                     nextIndex: -1
                 },
-            ]
+            ],
+            completed:0
         },
         {
             id: 2,
@@ -44,7 +48,8 @@ const Dialog =
                     nextState: 2,
                     nextIndex: -1
                 },
-            ]
+            ],
+            completed:0
         },
         {
             id: 3,

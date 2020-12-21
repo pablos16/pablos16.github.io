@@ -21,15 +21,18 @@ const Dialog =
             [
                 {
                     text: "¿2 pavos? No gracias",
-                    nextIndex: 2
+                    nextIndex: 2,
+                    points:-20
                 },
                 {
                     text: "Si me lo sirves tú, encantado",
-                    nextIndex: 3
+                    nextIndex: 3,
+                    points:15
                 },
                 {
                     text: "Venga Vale",
-                    nextIndex: 4
+                    nextIndex: 4,
+                    points:5
                 }
             ],
         },
@@ -43,7 +46,8 @@ const Dialog =
                     nextState: 1,
                     nextIndex: -1
                 },
-            ]
+            ],
+            completed:0
         },
         {
             id: 3,
@@ -55,7 +59,9 @@ const Dialog =
                     nextState: 1,
                     nextIndex: -1
                 },
-            ]
+            ],
+            completed:0
+
         },
         {
             id: 4,
@@ -67,7 +73,8 @@ const Dialog =
                     nextState: 1,
                     nextIndex: -1
                 },
-            ]
+            ],
+            completed:0
         },
         {
             id: 5,

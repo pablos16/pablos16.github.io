@@ -19,15 +19,10 @@ const CT =
      textAlign: 0,
      textSpacing: 1,
 
-     misionListX: 1280 / 2,
-     misionListY: 720 + 720 / 4,
-     misionOffsetToggle: 400,
-
      alignmentBarX: 630,
      alignmentBarY: 50,
      alignmentMaxOffset: 85,
-     alignmentMaxPoints: 100
-
+     alignmentMaxPoints: 100,
 }
 
 export default CT;

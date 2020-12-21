@@ -23,7 +23,8 @@ const Dialog =
                     nextState: 1,
                     nextIndex: -1
                 },
-            ]
+            ],
+            completed:0,
         },
         {
             id: 2,

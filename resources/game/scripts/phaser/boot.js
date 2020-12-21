@@ -22,7 +22,7 @@ export default class Boot extends Phaser.Scene {
     this.load.image('tpImg', 'resources/game/textures/tpImage.png');
 
     //Personaje
-    this.load.image('player', 'resources/game/textures/policeman.png');
+    this.load.image('player', 'resources/game/textures/player.png');
 
     //NPC
     this.load.image('npc', 'resources/game/textures/npc.png');
@@ -52,7 +52,9 @@ export default class Boot extends Phaser.Scene {
     //TODO HACER LO MISMO QUE ESTO PERO CON LOS NPC
 
     //Fuente
-    this.load.bitmapFont('font', 'resources/game/font/font.png', 'resources/game/font/font.fnt');
+    this.load.bitmapFont('font',     './resources/game/font/font.png',             './resources/game/font/font.fnt');
+    this.load.bitmapFont('subMision', './resources/game/font/dialogueFont.png', './resources/game/font/dialogueFont.fnt');
+    this.load.bitmapFont('misionText',   './resources/game/font/mision.png',         './resources/game/font/mision.fnt');
 
     //Barra de alineamiento (prototipo)
     this.load.image('bar', 'resources/game/textures/protobarra2.png');

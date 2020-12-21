@@ -93,7 +93,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
 
         this.text.text = '';
         this.text.text += String(title);
-        this.text.text += '\n\n================================================\n\n';
+        this.text.text += '\n================================================\n';
         this.text.text += String(description);
     }
 }
