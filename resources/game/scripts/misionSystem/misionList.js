@@ -2,12 +2,12 @@ import CT from '../../configs/misionConfig.js';
 
 export default class Misions extends Phaser.GameObjects.Container {
     constructor(scene, misionList) {
-        super(scene, 0, 0);
+        super(scene, CT.misionListX, CT.misionListY);
         this.desplegado = false
         this.scene.add.existing(this)
         this.depth = 100
         this.setScrollFactor(0)
-        this.img = scene.add.sprite(CT.misionListX, CT.misionListY, 'mision').setInteractive()
+        this.img = scene.add.sprite(0, 0, 'mision').setInteractive()
         this.img.depth = 99
         this.img.setScrollFactor(0)
         this.misionList = misionList

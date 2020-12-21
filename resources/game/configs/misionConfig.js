@@ -9,8 +9,8 @@ const CT =
 
      misionTextSize: 27.5,
      subMisionTextSize: 20,
-     xMisionText: Game.gameWidth * 0.625,
-     yMisionText: Game.gameHeight,
+     xMisionText: Game.gameWidth / 8,
+     yMisionText: 0,
      yMissionOffset: 60,
      ySubMisionTextOffset: 25
 }
