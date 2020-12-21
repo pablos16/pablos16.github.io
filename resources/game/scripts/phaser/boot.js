@@ -52,9 +52,9 @@ export default class Boot extends Phaser.Scene {
     //TODO HACER LO MISMO QUE ESTO PERO CON LOS NPC
 
     //Fuente
-    this.load.bitmapFont('font', 'resources/game/font/font.png', 'resources/game/font/font.fnt');
-    this.load.bitmapFont('dialogue', 'resources/game/font/dialogueFont.png', 'resources/game/font/dialogueFont.fnt');
-    this.load.bitmapFont('mision', 'resources/game/font/dialogueFont.png', 'resources/game/font/dialogueFont.fnt');
+    this.load.bitmapFont('font',     './resources/game/font/font.png',             './resources/game/font/font.fnt');
+    this.load.bitmapFont('dialogue', './resources/game/font/dialogueFont.png', './resources/game/font/dialogueFont.fnt');
+    this.load.bitmapFont('mision',   './resources/game/font/mision.png',         './resources/game/font/mision.fnt');
 
     //Barra de alineamiento (prototipo)
     this.load.image('bar', 'resources/game/textures/protobarra2.png');
