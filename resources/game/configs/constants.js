@@ -3,7 +3,7 @@ const CT =
      gameWidth: 1280,
      gameHeight: 720,
 
-     cameraZoom: 0.5,
+     cameraZoom: 1,
 
      numSlots: 8,
      inventoryVoid: 0,
