@@ -19,7 +19,6 @@ const CT =
      dialogSize: 30,
      subDialogSize: 25,
      dialogAlign: 0,
-     extra: 3,
      dialogSpeed: 10,
      characterOffset: 40,
 
