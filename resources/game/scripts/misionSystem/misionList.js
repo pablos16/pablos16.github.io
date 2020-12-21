@@ -65,7 +65,7 @@ export default class Misions extends Phaser.GameObjects.Container {
             this.completedTexts.push(this.sceneRef.add.bitmapText(
                 CT.xMisionText,
                 (CT.yMisionText + CT.ySubMisionTextOffset) + i * CT.yMissionOffset,
-                CT.font,
+                CT.subFont,
                 (this.misionList[i].completed + "/" + this.misionList[i].total),
                 CT.subMisionTextSize,
             ))
