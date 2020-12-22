@@ -25,7 +25,7 @@ export default class AnimatedText extends Phaser.GameObjects.BitmapText {
     }
 
     stopAnimation() {
-        this.timer.remove(false);
+        this.timer.remove();
         this.destroy(true)
     }
 
