@@ -6,6 +6,7 @@ import * as utils from '../libraries/phaserUtilities.js'
 import SocialStatePeople from '../../configs/npcSocialGroups.js'
 //import SocialStateName from '../../configs/socialGroupNames.js'
 import Vector2 from '../libraries/vector2.js'
+import AnimatedText from '../libraries/AnimatedText.js'
 //import vector2 from '../libraries/vector2.js';
 
 
@@ -102,6 +103,7 @@ export default class NPCDialog extends NPC {
     }
 
     FinishDialog(scene) {
+        if("timer" in this)this.timer.stopAnimation()
         scene.player.misionList.showInterface()
         this.moveRight();
         this.animateDialog(scene, 50, false)
@@ -121,9 +123,9 @@ export default class NPCDialog extends NPC {
 
             //Actualiza la posicion del cursor en pantalla
             this.arrow.y = (Dialog.yDialogTextPos +
-                            Dialog.subDialogInSpacing +
-                           (this.selection * Dialog.ySubDialogSpacing) +
-                            Dialog.yDialogSelection)
+                Dialog.subDialogInSpacing +
+                (this.selection * Dialog.ySubDialogSpacing) +
+                Dialog.yDialogSelection)
         }
 
         if (input.interact) {
@@ -160,19 +162,9 @@ export default class NPCDialog extends NPC {
     }
 
     animateText(scene, target) {
-        let copy = target.text
-        target.text = ""
-        let aux = ""
-        let i = 0
-        scene.time.addEvent({
-            callback: () => {
-                aux += copy[i]
-                target.text = aux
-                ++i
-            },
-            repeat: copy.length - 1,
-            delay: Dialog.dialogSpeed,
-        })
+        target.visible = false
+        if("timer" in this)this.timer.stopAnimation()
+        this.timer = new AnimatedText(scene, this.description)
     }
 
     changeDialogImage(SocialName, scene) {
