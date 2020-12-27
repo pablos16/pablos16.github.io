@@ -4,7 +4,7 @@
      "export":
         {
          "format":"json",
-         "target":"map.json"
+         "target":"source\/map.json"
         }
     },
  "height":128,
@@ -508,7 +508,7 @@
         {
          "columns":22,
          "firstgid":1,
-         "image":"tiles.png",
+         "image":"..\/textures\/map\/tiles.png",
          "imageheight":1152,
          "imagewidth":704,
          "margin":0,
@@ -521,7 +521,7 @@
         {
          "columns":14,
          "firstgid":793,
-         "image":"tiles_indoors.png",
+         "image":"..\/textures\/map\/tiles_indoors.png",
          "imageheight":1952,
          "imagewidth":448,
          "margin":0,

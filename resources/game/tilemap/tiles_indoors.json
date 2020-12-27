@@ -1,5 +1,13 @@
 { "columns":14,
- "image":"tiles_indoors.png",
+ "editorsettings":
+    {
+     "export":
+        {
+         "format":"",
+         "target":"."
+        }
+    },
+ "image":"..\/textures\/map\/tiles_indoors.png",
  "imageheight":1952,
  "imagewidth":448,
  "margin":0,

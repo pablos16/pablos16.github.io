@@ -7,7 +7,7 @@
          "target":"."
         }
     },
- "image":"tiles.png",
+ "image":"..\/textures\/map\/tiles.png",
  "imageheight":1152,
  "imagewidth":704,
  "margin":0,
