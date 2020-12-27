@@ -22,7 +22,6 @@ export default class Scene extends Phaser.Scene{
     //Tecla de pantalla completa
     this.fullScreen = this.input.keyboard.addKey('F');
 
-
     //Mapa
     this.dropped = [];
     this.map = this.make.tilemap({
@@ -81,12 +80,19 @@ export default class Scene extends Phaser.Scene{
     }
 
 
+    //Barra de Inventario
+    this.inventoryBar = new InventoryBar(this, CT.invBarPosX, CT.invBarPosY);
+
     //Grupo físico para los objetos en el suelo
     this.droppedItems = this.physics.add.staticGroup();
     this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) =>{
       // recoger
-      if (this.player.action.isDown) {
-        if (this.player.inventory.addItem(o2.id)) o2.destroy();
+      if (this.player.action.isDown){
+        let placeIn = this.player.inventory.addItem(o2.id);
+        if (placeIn != -1){
+          o2.destroy();
+          this.inventoryBar.updateSlot(placeIn);
+        }
       }
     });
     for (let i = 0; i < this.dropped.length; i = i + 1) { this.droppedItems.add(this.dropped[i]); }
@@ -119,9 +125,6 @@ export default class Scene extends Phaser.Scene{
     this.cameras.main.width = CT.gameWidth;
     this.cameras.main.height = CT.gameHeight;
     this.cameras.main.zoom = CT.cameraZoom;
-
-    //Barra de Inventario
-    this.inventoryBar = new InventoryBar(this, CT.invBarPosX, CT.invBarPosY);
   }
 
   update() {

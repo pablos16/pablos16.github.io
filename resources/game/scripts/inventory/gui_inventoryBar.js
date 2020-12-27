@@ -16,6 +16,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
                 let drop = new DroppedItem(scene, scene.player.x, scene.player.y, scene.player.inventory.getItemAt(this.selection), scene.droppedItems);
                 scene.droppedItems.add(drop);
                 scene.player.inventory.removeItemAt(this.selection);
+                this.updateSlot(this.selection);
                 this.selectionTexture.visible = false;
                 this.selection = -1;
             }
@@ -65,7 +66,11 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
         }
         // (mover y) deseleccionar
         else{
-            if (this.selection !== i) this.pl.inventory.moveItemsIn(this.selection, i);
+            if (this.selection !== i){
+                this.pl.inventory.moveItemsIn(this.selection, i);
+                this.updateSlot(this.selection);
+                this.updateSlot(i);
+            }
             this.selection = -1;
             this.selectionTexture.visible = false;
         }
@@ -74,15 +79,13 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
     useCurrentItem(){
         // usar
         this.pl.inventory.removeItemAt(this.selection);
+        this.updateSlot(this.selection);
         this.selectionTexture.visible = false;
         this.selection = -1;
     }
 
-    preUpdate(){
-        //Actualizar Barra de Inventario
-        for (let i = 0; i < this.images.length; i = i + 1){
-            this.images[i].changeTo(this.pl.inventory.getItemAt(i))
-        };
+    updateSlot(slot){
+        this.images[slot].changeTo(this.pl.inventory.getItemAt(slot));
     }
 
     setText(i){

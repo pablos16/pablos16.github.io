@@ -15,12 +15,8 @@ export default class Inventory{
 
     addItem(ItemId){
         let slotNumber = this.searchForRoom();
-        if (slotNumber !== -1)
-        {
-            this.slots[slotNumber] = ItemId;
-            return true;
-        }
-        else return false;
+        if (slotNumber !== -1) this.slots[slotNumber] = ItemId;
+        return slotNumber;
     }
 
     validSlot(slotNumber){
