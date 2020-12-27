@@ -1,17 +1,17 @@
-import Player from '../scripts/characters/player.js';
-import InventoryBar from '../scripts/inventory/gui_inventoryBar.js';
-import DroppedItem from '../scripts/inventory/item.js';
-import Obstacle from '../scripts/inventory/obstacle.js';
-import Alignment from '../scripts/misionSystem/alignment.js';
-import CT from '../configs/constants.js';
-import Dialog from '../configs/dialogConfig.js';
-import NPCDialog from '../scripts/characters/npcDialog.js';
-import dialogs from '../dialogs/packedDialogs/dialogs0.js'
-import Misions from '../misions/misionsDay0.js';
-import TPLINK from '../scripts/characters/tp.js'
+import Player from '../characters/player.js';
+import InventoryBar from '../inventory/gui_inventoryBar.js';
+import DroppedItem from '../inventory/item.js';
+import Obstacle from '../inventory/obstacle.js';
+import Alignment from '../missionSystem/alignment.js';
+import CT from '../../configs/constants.js';
+import Dialog from '../../configs/dialogConfig.js';
+import NPCDialog from '../characters/npcDialog.js';
+import dialogs from '../../dialogs/packedDialogs/dialogs0.js'
+import Missions from '../../missions/missionsDay0.js';
+import TPLINK from '../characters/tp.js'
 
-export default class Scene extends Phaser.Scene {
-  constructor() {
+export default class Scene extends Phaser.Scene{
+  constructor(){
     super({ key: 'scene' });
   }
   //Aqui te crea todo lo que necesites al inicio para todo el juego
@@ -47,12 +47,12 @@ export default class Scene extends Phaser.Scene {
     ///console.log(this.map.getObjectLayer('Objects').objects)
 
     //Entidades en el mapa
-    for (const objeto of mapObjects) {
+    for (const objeto of mapObjects){
       const props = {};
       if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
-      switch (objeto.name) {
+      switch (objeto.name){
         case 'Player': //Personaje
-          this.player = new Player(this, objeto.x, objeto.y, Misions);
+          this.player = new Player(this, objeto.x, objeto.y, Missions);
           break;
         case 'Item': //Objetos en el suelo
           this.dropped.push(new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type)));
@@ -83,7 +83,7 @@ export default class Scene extends Phaser.Scene {
 
     //Grupo físico para los objetos en el suelo
     this.droppedItems = this.physics.add.staticGroup();
-    this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) => {
+    this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) =>{
       // recoger
       if (this.player.action.isDown) {
         if (this.player.inventory.addItem(o2.id)) o2.destroy();
@@ -125,7 +125,7 @@ export default class Scene extends Phaser.Scene {
   }
 
   update() {
-    if (Phaser.Input.Keyboard.JustDown(this.fullScreen)) {
+    if (Phaser.Input.Keyboard.JustDown(this.fullScreen)){
       this.scale.toggleFullscreen()
     }
   }

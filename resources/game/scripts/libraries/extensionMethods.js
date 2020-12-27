@@ -7,7 +7,3 @@ Object.defineProperty(String.prototype, "insert", {
   writable: true,
   configurable: true
 });
-
-
-
-

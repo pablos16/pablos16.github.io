@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="resources/game/textures/policeman.png" type="image/png"/>
+    <link rel="shortcut icon" href="./resources/game/textures/policeman.png" type="image/png"/>
     <meta name="viewport" content="width=device-width, initial-scale=2.0">
     <link rel="stylesheet" href="game.css">
     <script src="./resources/game/scripts/phaser/phaser.min.js"></script>
@@ -21,22 +21,21 @@
 
     <center>
         <form action="index.html">
-            <button>Volver a la pagina principal</button>
+            <button>Volver a la página principal</button>
         </form>
     </center>
 
     <br/>
 
     <script type="module">
-        import Scene from './resources/game/scenes/scene.js'
-        import Boot from './resources/game/scripts/phaser/boot.js'
+        import Boot from './resources/game/scripts/scenes/boot.js'
+        import Menu from './resources/game/scripts/scenes/menu.js'
+        import Scene from './resources/game/scripts/scenes/scene.js'
         import CT from './resources/game/configs/constants.js'
-        import Menu from './resources/game/scenes/menu.js'
 
         var config = {
             type: Phaser.AUTO,
 
-            //Esto tendria que ser mucho más grande
             width:  CT.gameWidth,
             height: CT.gameHeight,
             scale: {
@@ -46,7 +45,7 @@
             },
             pixelArt: true,
             scene: [Boot,Menu,Scene],
-            physics: { default: 'arcade', arcade: { debug: false } }
+            physics: { default: 'arcade', arcade: { debug: true } }
         };
 
         new Phaser.Game(config);

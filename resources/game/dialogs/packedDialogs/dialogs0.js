@@ -8,9 +8,6 @@ import srtaMento from '../day0/srtaMento.js'
 import embajadora from '../day0/Embajadora.js'
 import srtaEmbajadora from '../day0/srtaEmbajadora.js'
 
-
-
-
 const dialogs =
 {
     tabernera,

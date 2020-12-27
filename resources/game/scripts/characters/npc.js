@@ -1,6 +1,5 @@
 import NPCImage from './npcSprite.js';
 
-//Diego tk <3
 export default class NPC extends Phaser.GameObjects.Container {
   constructor(scene, x, y, npcImage) {
     super(scene, x, y);

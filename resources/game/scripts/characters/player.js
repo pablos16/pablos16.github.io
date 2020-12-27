@@ -1,9 +1,9 @@
 import Inventory from "../inventory/inventory.js";
 import { normalizeVector } from "../libraries/mathFunc.js";
-import Misions from "../misionSystem/misionList.js";
+import Missions from "../missionSystem/missionList.js";
 
 export default class Player extends Phaser.GameObjects.Sprite {
-  constructor(scene, x, y, misionList) {
+  constructor(scene, x, y, missionList) {
     super(scene, x, y, 'player');
 
     this.scene.add.existing(this);
@@ -21,7 +21,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     //Inventario
     this.inventory = new Inventory();
 
-    this.misionList = new Misions(scene, misionList)
+    this.missionList = new Missions(scene, missionList)
 
     const { LEFT, RIGHT, UP, DOWN, W, A, S, D } = Phaser.Input.Keyboard.KeyCodes;
     this.cursors = scene.input.keyboard.addKeys({

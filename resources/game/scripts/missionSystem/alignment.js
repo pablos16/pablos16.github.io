@@ -4,7 +4,7 @@ export default class Alignment extends Phaser.GameObjects.Container{
         super(scene, x, y);
 
         this.texture = scene.add.image(x, y, 'bar');//.setScrollFactor(0);
-        
+
         
         scene.add.existing(this);
         this.setScrollFactor(0);

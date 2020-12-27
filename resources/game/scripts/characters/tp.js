@@ -1,6 +1,6 @@
-export default class Tp extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, tpLink, isInstant) {
-        super(scene, x, y, 'tpImg');
+export default class Tp extends Phaser.GameObjects.Sprite{
+    constructor(scene, x, y, tpLink){
+        super(scene, x, y, 'tpTransition');
 
         this.scene.add.existing(this);
         this.trigger = scene.add.zone(x, y);
@@ -17,8 +17,7 @@ export default class Tp extends Phaser.GameObjects.Sprite {
 
         this.tpThisFrame = true;
 
-        this.link =
-        {
+        this.link = {
             x: tpLink.x,
             y: tpLink.y
         }
@@ -31,64 +30,56 @@ export default class Tp extends Phaser.GameObjects.Sprite {
 
         this.scene.physics.add.overlap(scene.player,
             this.trigger,
-            () => {
-                this.accion(scene);
-            });
+            () => { this.accion(scene); });
     }
 
-    preUpdate() {
-        if (!this.tpThisFrame && !this.playerRef.canTp && !this.checkOverlap()) {
+    preUpdate(){
+        if (!this.tpThisFrame && !this.playerRef.canTp && !this.checkOverlap()){
             this.playerRef.canTp = true;
         }
 
         if (this.playerRef.canTp && !this.checkOverlap()) this.tpThisFrame = false
     }
 
-    tp() {
+    tp(){
         this.tpThisFrame = true;
         this.playerRef.canTp = false;
         this.playerRef.x = this.link.x
         this.playerRef.y = this.link.y
     }
 
-    checkOverlap() {
+    checkOverlap(){
 
         var boundsA = this.trigger.getBounds();
         var boundsB = this.playerRef.getBounds();
 
         //return Phaser.Rectangle.intersects(boundsA, boundsB);
         return Phaser.Geom.Intersects.RectangleToRectangle(boundsA, boundsB);
-
     }
 
-    accion(scene) {
-        if ((!this.instant && this.playerRef.keyDown().interact) || (this.instant && this.playerRef.canTp)) {
+    accion(scene){
+        if ((!this.instant && this.playerRef.keyDown().interact) || (this.instant && this.playerRef.canTp)){
             scene.tweens.add({
                 targets: this,
                 duration: 250,
                 alpha: 1,
                 ease: 'Circ',
-                onStart: () => {
+                onStart: () =>{
                     this.playerRef.isTalking = true
                 },
-                onComplete: () => 
-                {
+                onComplete: () =>{
                     scene.tweens.add({
                         targets: this,
                         duration: 1000,
                         alpha: 0,
                         ease: 'Circ',
-                        onStart: () => 
-                        {
+                        onStart: () =>{
                             this.tp(scene)
                             this.playerRef.isTalking = false
                         }
                     })
                 }
             })
-
-           
-
         }
     }
 }
