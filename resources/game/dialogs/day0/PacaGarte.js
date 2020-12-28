@@ -28,7 +28,7 @@ const Dialog =
         },
         {
             id: 2,
-            name: Names.BestFriend,
+            name: Names.Paca,
             text: ["He dicho que no me hables", "¿Quieres hacer el favor de dejarme en paz?"],
             state: [
                 {

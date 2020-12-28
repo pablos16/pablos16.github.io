@@ -16,7 +16,7 @@ const Dialog =
         {
             id: 1,
             name: Names.Police,
-            text: ["(¿?)"],
+            text: ["Otra vez con lo mismo..."],
             state: [
                 {
                     targetState: ["any"],

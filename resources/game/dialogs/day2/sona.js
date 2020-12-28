@@ -4,8 +4,8 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.Paca,
-            text: ["Qué haces aquí, te dije que no quería tener nada que que ver contigo. Vete"],
+            name: Names.Sona,
+            text: ["¿Eres un policia?"],
             state: [
                 {
                     targetState: ["any"],
@@ -15,26 +15,20 @@ const Dialog =
         },
         {
             id: 1,
-            name: Names.Police,
-            text: ["¿Entregarás la carta a Paca Garte?"],
-            options:
-            [
+            name: Names.Sona,
+            text: ["ME ENCANTAN LOS POLICIAS"],
+            state: [
                 {
-                    text: "No se merece ningún mal, darle la carta",
-                    nextIndex: 2,
-                    points: -10
+                    targetState: ["any"],
+                    nextState: 1,
+                    nextIndex: -1
                 },
-                {
-                    text: "Parece una hoja de un revolucionario...prefiero guardármela",
-                    nextIndex: 5,
-                    points: 10
-                }
             ],
         },
         {
             id: 2,
-            name: Names.Paca,
-            text: ["AAAAAAAAA TENGO QUE PREPARAR ESTO FUCK"],
+            name: Names.Sona,
+            text: ["Pium Pium","Manos arriba!"],
             state: [
                 {
                     targetState: ["any"],
