@@ -15,7 +15,7 @@ export default class Scene extends Phaser.Scene{
     super({ key: 'scene' });
   }
   //Aqui te crea todo lo que necesites al inicio para todo el juego
-  create() {
+  create(){
     //Deshabilitar menú contextual
     this.input.mouse.disableContextMenu();
 
@@ -23,12 +23,12 @@ export default class Scene extends Phaser.Scene{
     this.fullScreen = this.input.keyboard.addKey('F');
 
     //Mapa
-    this.dropped = [];
     this.map = this.make.tilemap({
       key: 'tileMap',
       tileWidth: 16,
       tileHeight: 16
     });
+    //Mapa - Capas Normales 1 - Parte 1
     let tileSet = this.map.addTilesetImage('tiles', 'mapTiles');
     this.mapGround = this.map.createStaticLayer('Ground', tileSet);
     this.mapBorder = this.map.createStaticLayer('Border', tileSet);
@@ -36,16 +36,13 @@ export default class Scene extends Phaser.Scene{
     this.mapFences = this.map.createStaticLayer('Fences', tileSet);
     this.mapDecorations = this.map.createStaticLayer('Decorations', tileSet);
     this.mapFoundations = this.map.createStaticLayer('Foundations', tileSet);
-
+    //Mapa - Capas Normales 2
     let tileSetIndoors = this.map.addTilesetImage('tiles_indoors', 'mapTilesIndoors');
     this.bar1 = this.map.createStaticLayer('bar1', tileSetIndoors);
     this.bar2 = this.map.createStaticLayer('bar2', tileSetIndoors);
     this.bar3 = this.map.createStaticLayer('bar3', tileSetIndoors);
-
-    let mapObjects = this.map.getObjectLayer('Objects').objects
-    ///console.log(this.map.getObjectLayer('Objects').objects)
-
-    //Entidades en el mapa
+    //Mapa - Capa De Objetos
+    let mapObjects = this.map.getObjectLayer('Objects').objects;
     for (const objeto of mapObjects){
       const props = {};
       if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
@@ -54,7 +51,7 @@ export default class Scene extends Phaser.Scene{
           this.player = new Player(this, objeto.x, objeto.y, Missions);
           break;
         case 'Item': //Objetos en el suelo
-          this.dropped.push(new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type)));
+          this.dropped = new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type));
           break;
         case 'Obstacle': //Obstáculo (entidad en la que se usa un objeto)
           this.obtacle = new Obstacle(this, objeto.x, objeto.y, props.texture, parseInt(objeto.type));
@@ -67,8 +64,6 @@ export default class Scene extends Phaser.Scene{
           loop: for (const tpstatus of mapObjects){
             if (props.tplink === tpstatus.id){
               props.tplink = it;
-              //console.log("Le vas a pasar :")
-              //console.log(mapObjects[props.tplink])
               break loop;
             }
             it++;
@@ -77,25 +72,7 @@ export default class Scene extends Phaser.Scene{
           break;
       }
     }
-
-
-    //Barra de Inventario
-    this.inventoryBar = new InventoryBar(this, CT.invBarPosX, CT.invBarPosY);
-
-    //Grupo físico para los objetos en el suelo
-    this.droppedItems = this.physics.add.staticGroup();
-    this.physics.add.overlap(this.player, this.droppedItems, (o1, o2) =>{
-      // recoger
-      if (this.player.action.isDown){
-        let placeIn = this.player.inventory.addItem(o2.id);
-        if (placeIn != -1){
-          o2.destroy();
-          this.inventoryBar.updateSlot(placeIn);
-        }
-      }
-    });
-    for (let i = 0; i < this.dropped.length; i = i + 1) { this.droppedItems.add(this.dropped[i]); }
-
+    //Mapa - Capas Normales 1 - Parte 2
     this.mapBuildings = this.map.createStaticLayer('Buildings', tileSet);
     this.mapRooftops = this.map.createStaticLayer('Rooftops', tileSet);
     this.mapCollisions = this.map.createStaticLayer('Collisions', tileSet);
@@ -103,6 +80,8 @@ export default class Scene extends Phaser.Scene{
     this.physics.add.collider(this.player, this.mapCollisions);
     this.mapCollisions.visible = false;
 
+    //Barra de Inventario
+    this.inventoryBar = new InventoryBar(this, CT.invBarPosX, CT.invBarPosY);
 
     //Barra de alineamiento
     this.align = new Alignment(this, CT.alignmentBarX, CT.alignmentBarY, 0);
@@ -112,21 +91,14 @@ export default class Scene extends Phaser.Scene{
     this.dialogueImage.setScrollFactor(0);
     this.dialogueImage.setVisible(false);
 
-    //NPC
-    ////this.NPC = new NPCDialog(this, 200, 300, testDialogue);
-
-    //this.physics.add.collider(this.player, this.NPCs);
-    /*this.physics.add.collider(this.NPCs, this.walls);*/ //Esto debería de sobrar
-
     //Cámara que sigue al jugador
     this.cameras.main.startFollow(this.player);
-    //TODO CREAR CLASE CON VARIABLES
     this.cameras.main.width = CT.gameWidth;
     this.cameras.main.height = CT.gameHeight;
     this.cameras.main.zoom = CT.cameraZoom;
   }
 
-  update() {
+  update(){
     if (Phaser.Input.Keyboard.JustDown(this.fullScreen)){
       this.scale.toggleFullscreen()
     }
