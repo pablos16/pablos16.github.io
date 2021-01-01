@@ -19,7 +19,8 @@ export default class Tp extends Phaser.GameObjects.Sprite{
 
         this.link = {
             x: tpLink.x,
-            y: tpLink.y
+            y: tpLink.y,
+            offset: tpLink.offset
         }
 
         // console.log("Mi posicion es " + this.x + " " + this.y)
