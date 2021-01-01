@@ -30,6 +30,7 @@
     <script type="module">
         import Boot from './resources/game/scripts/scenes/boot.js'
         import Menu from './resources/game/scripts/scenes/menu.js'
+        import Derrota from './resources/game/scripts/scenes/derrota.js'
         import Scene from './resources/game/scripts/scenes/scene.js'
         import CT from './resources/game/configs/constants.js'
 
@@ -44,7 +45,7 @@
                 autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
             },
             pixelArt: true,
-            scene: [Boot,Menu,Scene],
+            scene: [Boot,Menu,Scene,Derrota],
             physics: { default: 'arcade', arcade: { debug: true } }
         };
 
