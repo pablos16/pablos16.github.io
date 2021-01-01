@@ -20,7 +20,8 @@ const Names =
     Feriante: "(El) Feriante",
     Ferianta: "(La) Feriante",
     SrtaFeriante: "Hija Feriante",
-    Muro: "Muro"
+    Muro: "Muro",
+    Edificio: "Edificio deteriorado"
 }
 
 export default Names;

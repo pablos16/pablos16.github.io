@@ -5,7 +5,7 @@ const Dialog =
         {
             id: 0,
             name: Names.Tabernera,
-            text: ["Tú debes de ser el nuevo policía que ha venido a sustituir al antiguo. Espero que no te pase lo mismo que a él JAJAJAMejor no preguntes. Quieres una birra? Son 2 pavos"],
+            text: ["Tú debes de ser el nuevo policía que ha venido a sustituir al antiguo. Espero que no te pase lo mismo que a él JAJAJA Mejor no preguntes. Quieres una birra? Son 2 pavos"],
             state: [
                 {
                     targetState: ["any"],

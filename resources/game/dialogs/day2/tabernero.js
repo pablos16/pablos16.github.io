@@ -6,7 +6,7 @@ const Dialog =
             id: 0,
             name: Names.Tabernero,
             //callback: (context) => {context.y += 50},
-            text: ["(Borracho) Burp...eres el nuevo policía de la zona? A ver si te gastas más dinero en mi taberna que el antiguo, sois todos unos tacaños."],
+            text: ["..."],
             state: [
                 {
                     targetState: ["any"],
@@ -17,7 +17,7 @@ const Dialog =
         {
             id: 1,
             name: Names.Police,
-            text:["...", "No te preocupes..."],
+            text: ["(¿Ya va borracho a estas horas del dia?)"],
             state: [
                 {
                     targetState: ["any"],
@@ -29,10 +29,10 @@ const Dialog =
         },
         {
             id: 2,
-            name: Names.Police,
+            name: Names.Tabernero,
             text:
                 [
-                    "...", "No te preocupes..."
+                    "...", "*Burp*"
                 ],
             state: [
                 {
