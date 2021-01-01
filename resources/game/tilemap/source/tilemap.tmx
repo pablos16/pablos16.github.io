@@ -135,13 +135,13 @@
   </object>
   <object id="42" name="Tp" x="256" y="4064" width="32" height="32">
    <properties>
-    <property name="offset" type="int" value="-15"/>
+    <property name="offset" type="int" value="20"/>
     <property name="tplink" type="object" value="43"/>
    </properties>
   </object>
   <object id="43" name="Tp" x="800" y="1280" width="32" height="32">
    <properties>
-    <property name="offset" type="int" value="20"/>
+    <property name="offset" type="int" value="-15"/>
     <property name="tplink" type="object" value="42"/>
    </properties>
   </object>
