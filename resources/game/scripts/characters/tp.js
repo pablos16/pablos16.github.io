@@ -15,19 +15,20 @@ export default class Tp extends Phaser.GameObjects.Sprite{
         this.depth = 200;
         //this.body.setCollideWorldBounds();
 
+        this.offset = offset;
+
         this.tpThisFrame = true;
 
         this.link = {
             x: tpLink.x,
             y: tpLink.y,
-            offset: tpLink.offset
         }
 
+        // console.log(tpLink.offset)
         // console.log("Mi posicion es " + this.x + " " + this.y)
         // console.log("La otra es:")
         // console.log(this.link)
 
-        this.offset = offset;
         this.scene.physics.add.overlap(scene.player,
             this.trigger,
             () => { this.accion(scene); });
@@ -45,7 +46,7 @@ export default class Tp extends Phaser.GameObjects.Sprite{
         this.tpThisFrame = true;
         this.playerRef.canTp = false;
         this.playerRef.x = this.link.x
-        this.playerRef.y = this.link.y + this.link.offset;
+        this.playerRef.y = this.link.y + this.offset;
     }
 
     checkOverlap(){
