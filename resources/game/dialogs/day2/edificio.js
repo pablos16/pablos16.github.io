@@ -4,37 +4,35 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.Muro,
-            text: ["Es una zona para colocar carteles de búsqueda"],
+            name: Names.Edificio,
+            text: ["(Observas un edificio deteriorado)"],
             state: [
                 {
                     targetState: [0],
-                    nextState: 1,
                     nextIndex: 1
                 },
             ]
         },
         {
             id: 1,
-            name: Names.Muro,
-            text: ["¿Quieres colocar carteles de se busca ahora?"],
+            name: Names.Police,
+            text: ["¿Quieres inspeccionar la construcción?"],
             options:
                 [
                     {
                         text: "Si",
-                        completed: 1,
                         points: 10,
-                        nextIndex: -1
+                        nextIndex: 3
                     },
                     {
                         text: "No",
-                        nextIndex: 2
+                        nextIndex: -1
                     },
                 ],
         },
         {
             id: 2,
-            name: Names.Muro,
+            name: Names.Police,
             text: ["Nada que hacer aqui"],
             state: [
                 {
@@ -46,11 +44,32 @@ const Dialog =
         },
         {
             id: 3,
-            name: Names.Muro,
+            name: Names.Edificio,
+            text: ["Analizas la construcción y ves que está en mal estado, ¿Qué quieres hacer?"],
+            options:
+                [
+                    {
+                        text: "Crear un informe del edificio",
+                        completed: 1,
+                        points: -10,
+                        nextIndex: 4
+                    },
+                    {
+                        text: "Hm...mejor dejarlo así y no decir nada",
+                        nextState:1,
+                        completed:1,
+                        nextIndex: -1,
+                        points: 10,
+                    },
+                ],
+        },
+        {
+            id: 4,
+            name: Names.Police,
             text: ["Hecho"],
             state: [
                 {
-                    targetState: [1],
+                    targetState: ["any"],
                     nextState: 1,
                     nextIndex: -1
                 }
@@ -67,7 +86,6 @@ const Dialog =
                     targetState: [1],
                     nextIndex: 2
                 },
-
             ]
         },
     ]

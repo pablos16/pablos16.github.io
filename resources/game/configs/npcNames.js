@@ -19,9 +19,10 @@ const Names =
     MadMan: "Loco",
     Feriante: "(El) Feriante",
     Ferianta: "(La) Feriante",
-    SrtaFeriante: "Hija Feriante",
+    SrFeriante: "Hijo Feriante",
     Muro: "Muro",
-    Edificio: "Edificio deteriorado"
+    Edificio: "Edificio deteriorado",
+    Cura: "Cura"
 }
 
 export default Names;
