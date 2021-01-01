@@ -1,6 +1,6 @@
 export default class Tp extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, tpLink){
-        super(scene, x, y, 'tpTransition');
+        super(scene, x, y, 'tpImg');
 
         this.scene.add.existing(this);
         this.trigger = scene.add.zone(x, y);
