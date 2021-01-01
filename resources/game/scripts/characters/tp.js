@@ -1,5 +1,5 @@
 export default class Tp extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, tpLink){
+    constructor(scene, x, y, tpLink, offset){
         super(scene, x, y, 'tpImg');
 
         this.scene.add.existing(this);
@@ -44,7 +44,7 @@ export default class Tp extends Phaser.GameObjects.Sprite{
         this.tpThisFrame = true;
         this.playerRef.canTp = false;
         this.playerRef.x = this.link.x
-        this.playerRef.y = this.link.y;
+        this.playerRef.y = this.link.y + this.link.offset;
     }
 
     checkOverlap(){
