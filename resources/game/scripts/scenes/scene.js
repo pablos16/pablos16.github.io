@@ -74,7 +74,7 @@ export default class Scene extends Phaser.Scene{
             it++;
           }
 
-          this.TP = new TPLINK(this, objeto.x, objeto.y, mapObjects[props.tplink], props.instant);
+          this.TP = new TPLINK(this, objeto.x, objeto.y, mapObjects[props.tplink], props.offset);
           break;
       }
     }

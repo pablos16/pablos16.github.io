@@ -1,5 +1,5 @@
 export default class Tp extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, tpLink){
+    constructor(scene, x, y, tpLink, offset){
         super(scene, x, y, 'tpTransition');
 
         this.scene.add.existing(this);
@@ -26,8 +26,7 @@ export default class Tp extends Phaser.GameObjects.Sprite{
         // console.log("La otra es:")
         // console.log(this.link)
 
-        this.instant = true;
-
+        this.offset = offset;
         this.scene.physics.add.overlap(scene.player,
             this.trigger,
             () => { this.accion(scene); });
@@ -45,7 +44,7 @@ export default class Tp extends Phaser.GameObjects.Sprite{
         this.tpThisFrame = true;
         this.playerRef.canTp = false;
         this.playerRef.x = this.link.x
-        this.playerRef.y = this.link.y
+        this.playerRef.y = this.link.y;
     }
 
     checkOverlap(){
@@ -58,7 +57,7 @@ export default class Tp extends Phaser.GameObjects.Sprite{
     }
 
     accion(scene){
-        if ((!this.instant && this.playerRef.keyDown().interact) || (this.instant && this.playerRef.canTp)){
+        if (this.playerRef.canTp){
             scene.tweens.add({
                 targets: this,
                 duration: 250,
