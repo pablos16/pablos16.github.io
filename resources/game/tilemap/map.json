@@ -241,7 +241,7 @@
                         {
                          "name":"texture",
                          "type":"string",
-                         "value":"wall"
+                         "value":"debug"
                         }],
                  "rotation":0,
                  "type":"5",
@@ -454,9 +454,9 @@
                  "name":"Tp",
                  "properties":[
                         {
-                         "name":"instant",
-                         "type":"bool",
-                         "value":true
+                         "name":"offset",
+                         "type":"int",
+                         "value":20
                         }, 
                         {
                          "name":"tplink",
@@ -476,9 +476,9 @@
                  "name":"Tp",
                  "properties":[
                         {
-                         "name":"instant",
-                         "type":"bool",
-                         "value":true
+                         "name":"offset",
+                         "type":"int",
+                         "value":-15
                         }, 
                         {
                          "name":"tplink",
@@ -494,7 +494,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "x":0,
          "y":0
         }],
