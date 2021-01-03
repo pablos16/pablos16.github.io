@@ -31,6 +31,7 @@ export default class Boot extends Phaser.Scene{
     this.load.tilemapTiledJSON('tileMap', 'resources/game/tilemap/map.json');
     this.load.image('mapTiles', 'resources/game/textures/map/tiles.png');
     this.load.image('mapTilesIndoors', 'resources/game/textures/map/tiles_indoors.png');
+    this.load.image('mapTilesCastle', 'resources/game/textures/map/tiles_castle.png');
 
     //Fondo de dialogo
     this.load.spritesheet('dialogFinal', 'resources/game/textures/gui/dialog/dialogBackground.png', { frameWidth: 900, frameHeight: 300 });
