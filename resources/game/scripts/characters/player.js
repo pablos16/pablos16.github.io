@@ -32,40 +32,37 @@ export default class Player extends Phaser.GameObjects.Sprite {
     })
     this.action = scene.input.keyboard.addKey('E');
 
-
-
-
-    const anims = scene.anims;
-    //ANIMACIONES    
-    anims.create({
-      key: 'left',
-      frames: anims.generateFrameNumbers('player', { start: 4, end: 6 }),
-      frameRate: 20,
-      repeat: -1
-    });
-
-    anims.create({
-      key: 'up',
-      frames: anims.generateFrameNumbers('player', { start: 10, end: 12 }),
-      frameRate: 20,
-      repeat: -1
-    });
-
-    anims.create({
-      key: 'idle',
-      frames: anims.generateFrameNumbers('player', { start: 0, end: 2 }),
-      frameRate: 20,
-      repeat: -1
-    });
-    anims.create({
-      key: 'right',
-      frames: anims.generateFrameNumbers('player', { start: 7, end: 9 }),
-      frameRate: 20,
-      repeat: -1
-    });
   }
 
+create(){
+  //ANIMACIONES    
+  this.anims.create({
+    key: 'left',
+    frames: this.anims.generateFrameNumbers('player', { start: 4, end: 6 }),
+    frameRate: 10,
+    repeat:-1
+  });
 
+  this.anims.create({
+    key: 'up',
+    frames: this.anims.generateFrameNumbers('player', { start: 10, end: 12 }),
+    frameRate: 10,
+    repeat:-1
+  });
+
+  this.anims.create({
+    key: 'idle',
+    frames: this.anims.generateFrameNumbers('player', { start: 0, end: 2 }),
+    frameRate: 10,
+    repeat:-1
+  });
+  this.anims.create({
+    key: 'right',
+    frames: this.anims.generateFrameNumbers('player', { start: 7, end: 9 }),
+    frameRate: 10,
+    repeat:-1
+  });
+}
   keyDown() {
     let playerInput = {}
 
@@ -113,7 +110,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
   }
 
   preUpdate() {
-    this.anims.play('idle', true);
+    this.play('idle',true);
 
     //Al principio de cada preUpdate, el Player se para
     this.stopX()
@@ -124,17 +121,17 @@ export default class Player extends Phaser.GameObjects.Sprite {
       //Movimiento horizontal
       if (this.cursors.left.isDown) {
         this.horizontalMove(-1);
-        this.anims.play('left', true);
+        this.play('left');
       }
       else if (this.cursors.right.isDown) {
         this.horizontalMove(1);
-        this.anims.play('right', true);
+        this.play('right');
       }
 
       //Movimiento vertical        
       if (this.cursors.up.isDown) {
         this.verticalMove(-1);
-        this.anims.play('up', true);
+        this.play('up');
       }
       else if (this.cursors.down.isDown) this.verticalMove(1);
 

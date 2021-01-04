@@ -58,10 +58,6 @@ export default class Boot extends Phaser.Scene{
     this.load.image('bar', 'resources/game/textures/gui/alignmentBar/alignmentBar.png');
     this.load.image('indicator', 'resources/game/textures/gui/alignmentBar/indicator.png');
 
-
-
-
-
     //Musica
 
     //Menu
