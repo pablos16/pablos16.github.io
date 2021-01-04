@@ -56,6 +56,11 @@ export default class Boot extends Phaser.Scene{
     //Barra de alineamiento
     this.load.image('bar', 'resources/game/textures/gui/alignmentBar/alignmentBar.png');
     this.load.image('indicator', 'resources/game/textures/gui/alignmentBar/indicator.png');
+
+    //Musica
+
+    //Menu
+    this.load.audio('backgroundMenu', 'resources/game/sounds/Dark Fantasy Studio- Knight song.wav');
   }
 
   create() { this.scene.start('menu'); }

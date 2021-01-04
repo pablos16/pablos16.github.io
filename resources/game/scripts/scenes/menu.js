@@ -1,15 +1,33 @@
-export default class Menu extends Phaser.Scene{
-  constructor(){
+export default class Menu extends Phaser.Scene {
+  constructor() {
     super({ key: 'menu' });
     this.playButton;
     this.controlsButton;
     this.background;
     this.controlsImage;
     this.canPlay = true;
+    //Configuracion para la musica
+
+    this.music;
+
   }
 
   //Aqui te crea todo lo que necesites al inicio para todo el juego
-  create(){
+  create() {
+
+    const config = {
+      mute: false,
+      volume: 0.2,
+      rate: 1,
+      detune: 0,
+      seek: 0,
+      loop: true,
+      delay: 0
+    };
+    //Añadimos la musica
+    this.music = this.sound.add('backgroundMenu', config);
+
+    this.music.play();
     //Deshabilitar menú contextual
     this.input.mouse.disableContextMenu();
 
@@ -36,13 +54,15 @@ export default class Menu extends Phaser.Scene{
 
 
     //Si pulsas el botton play
-    this.playButton.on('pointerdown', function (){
-      if (this.canPlay)
+    this.playButton.on('pointerdown', function () {
+      if (this.canPlay) {
+        this.music.stop();
         this.scene.start('scene');
+      }
     }, this);
 
     //Si pulsas el botton controls
-    this.controlsButton.on('pointerdown', function (){
+    this.controlsButton.on('pointerdown', function () {
       this.controlsImage.setVisible(true);
 
       this.canPlay = false;
@@ -52,7 +72,7 @@ export default class Menu extends Phaser.Scene{
     }, this);
 
     //Si pulsas el botton de return
-    this.backButton.on('pointerdown', function (){
+    this.backButton.on('pointerdown', function () {
       this.canPlay = true;
       this.controlsImage.setVisible(false);
 
