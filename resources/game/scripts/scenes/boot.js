@@ -22,7 +22,8 @@ export default class Boot extends Phaser.Scene{
     this.load.image('tpImg', 'resources/game/textures/tpTransition.png');
 
     //Jugador
-    this.load.image('player', 'resources/game/textures/policeman.png');
+    //this.load.image('player', 'resources/game/textures/policeman.png');
+    this.load.spritesheet('player', 'resources/game/textures/NPCs/police.png', { frameWidth: 32, frameHeight: 32 });
 
     //NPC
     this.load.image('npc', 'resources/game/textures/npc.png');
@@ -56,6 +57,10 @@ export default class Boot extends Phaser.Scene{
     //Barra de alineamiento
     this.load.image('bar', 'resources/game/textures/gui/alignmentBar/alignmentBar.png');
     this.load.image('indicator', 'resources/game/textures/gui/alignmentBar/indicator.png');
+
+
+
+
 
     //Musica
 
