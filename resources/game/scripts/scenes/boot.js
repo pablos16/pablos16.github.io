@@ -27,43 +27,32 @@ export default class Boot extends Phaser.Scene{
 
     //NPC
     
-    this.load.image('police', 'resources/game/textures/NPCs/police.png');
-    this.load.image('leandro', 'resources/game/textures/NPCs/leandro.png');
-    this.load.image('coronel', 'resources/game/textures/NPCs/coronel.png');
-    this.load.image('dictator', 'resources/game/textures/NPCs/dictador.png');
-    this.load.image('cura', 'resources/game/textures/NPCs/cura.png');
+    this.load.spritesheet('police', 'resources/game/textures/NPCs/police.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('leandro', 'resources/game/textures/NPCs/leandro.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('coronel', 'resources/game/textures/NPCs/coronel.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('dictator', 'resources/game/textures/NPCs/dictador.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('cura', 'resources/game/textures/NPCs/cura.png', { frameWidth: 32, frameHeight: 32 });
 
-    this.load.image('feriante', 'resources/game/textures/NPCs/feriante.png');
-    this.load.image('ferianta', 'resources/game/textures/NPCs/ferianta.png');
-    this.load.image('srtoFeriante', 'resources/game/textures/NPCs/hijoFeriante.png');
+    this.load.spritesheet('feriante', 'resources/game/textures/NPCs/feriante.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('ferianta', 'resources/game/textures/NPCs/ferianta.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('srtoFeriante', 'resources/game/textures/NPCs/hijoFeriante.png', { frameWidth: 32, frameHeight: 32 });
 
-    this.load.image('loco', 'resources/game/textures/NPCs/loco.png');
-    this.load.image('embajador', 'resources/game/textures/NPCs/embajador.png');
-    this.load.image('embajadora', 'resources/game/textures/NPCs/embajadora.png');
-    this.load.image('srtaEmbajadora', 'resources/game/textures/NPCs/srtaEmbajadora.png');
+    this.load.spritesheet('loco', 'resources/game/textures/NPCs/loco.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('embajador', 'resources/game/textures/NPCs/embajador.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('embajadora', 'resources/game/textures/NPCs/embajadora.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('srtaEmbajadora', 'resources/game/textures/NPCs/srtaEmbajadora.png', { frameWidth: 32, frameHeight: 32 });
 
-    this.load.image('carcelero', 'resources/game/textures/NPCs/carcelero.png');
-    this.load.image('lolaMento', 'resources/game/textures/NPCs/lolaMento.png');
-    this.load.image('srtaMento', 'resources/game/textures/NPCs/srtaMento.png');
+    this.load.spritesheet('carcelero', 'resources/game/textures/NPCs/carcelero.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('lolaMento', 'resources/game/textures/NPCs/lolaMento.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('srtaMento', 'resources/game/textures/NPCs/srtaMento.png', { frameWidth: 32, frameHeight: 32 });
 
-    this.load.image('empeñista', 'resources/game/textures/NPCs/empeñista.png');
+    this.load.spritesheet('empeñista', 'resources/game/textures/NPCs/empeñista.png', { frameWidth: 32, frameHeight: 32 });
 
-    this.load.image('paca', 'resources/game/textures/NPCs/paca.png');
-    this.load.image('sona', 'resources/game/textures/NPCs/sona.png');
+    this.load.spritesheet('paca', 'resources/game/textures/NPCs/paca.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('sona', 'resources/game/textures/NPCs/sona.png', { frameWidth: 32, frameHeight: 32 });
 
-    this.load.image('tabernero', 'resources/game/textures/NPCs/tabernero.png');
-    this.load.image('tabernera', 'resources/game/textures/NPCs/tabernera.png');
-
-
-
-
-
-
-
-
-
-
-
+    this.load.spritesheet('tabernero', 'resources/game/textures/NPCs/tabernero.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('tabernera', 'resources/game/textures/NPCs/tabernera.png', { frameWidth: 32, frameHeight: 32 });
 
     //Mapa
     this.load.tilemapTiledJSON('tileMap', 'resources/game/tilemap/map.json');
