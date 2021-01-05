@@ -36,11 +36,12 @@ export default class Scene extends Phaser.Scene{
     this.mapFences = this.map.createStaticLayer('Fences', tileSet);
     this.mapFoundations = this.map.createStaticLayer('Foundations', tileSet);
     this.mapDecorations = this.map.createStaticLayer('Decorations', tileSet);
-    //Mapa - Capas Normales 2
+    //Mapa - Capas Normales 2 - Parte 1
     let tileSetIndoors = this.map.addTilesetImage('tiles_indoors', 'mapTilesIndoors');
     this.bar1 = this.map.createStaticLayer('bar1', tileSetIndoors);
     this.bar2 = this.map.createStaticLayer('bar2', tileSetIndoors);
     this.bar3 = this.map.createStaticLayer('bar3', tileSetIndoors);
+    this.mapCarnivalFoundations = this.map.createStaticLayer('Carnival Foundations', tileSetIndoors);
     //Mapa - Capas Normales 3  - Parte 1
     let tileSetCastle = this.map.addTilesetImage('tiles_castle', 'mapTilesCastle');
     this.mapCastleFoundations = this.map.createStaticLayer('Castle Foundations', tileSetCastle);
@@ -78,6 +79,9 @@ export default class Scene extends Phaser.Scene{
     //Mapa - Capas Normales 3 - Parte 2
     this.mapCastles1 = this.map.createStaticLayer('Castles1', tileSetCastle);
     this.mapCastles2 = this.map.createStaticLayer('Castles2', tileSetCastle);
+    this.mapCastleRooftops = this.map.createStaticLayer('Castle Rooftops', tileSetCastle);
+    //Mapa - Capas Normales 2 - Parte 2
+    this.mapCarnival = this.map.createStaticLayer('Carnival', tileSetIndoors);
     //Mapa - Capas Normales 1 - Parte 2
     this.mapBuildings = this.map.createStaticLayer('Buildings', tileSet);
     this.mapRooftops = this.map.createStaticLayer('Rooftops', tileSet);
