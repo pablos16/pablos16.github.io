@@ -113,55 +113,55 @@
   <object id="33" name="Npc" x="1760" y="1536" width="32" height="32">
    <properties>
     <property name="dialog" value="leandro"/>
-    <property name="sprite" value="npc"/>
+    <property name="sprite" value="leandro"/>
    </properties>
   </object>
   <object id="34" name="Npc" x="1216" y="1600" width="32" height="32">
    <properties>
     <property name="dialog" value="tabernera"/>
-    <property name="sprite" value="npc"/>
+    <property name="sprite" value="tabernera"/>
    </properties>
   </object>
   <object id="35" name="Npc" x="1376" y="832" width="32" height="32">
    <properties>
     <property name="dialog" value="tabernero"/>
-    <property name="sprite" value="npc"/>
+    <property name="sprite" value="tabernero"/>
    </properties>
   </object>
   <object id="36" name="Npc" x="1664" y="1440" width="32" height="32">
    <properties>
     <property name="dialog" value="loco"/>
-    <property name="sprite" value="npc"/>
+    <property name="sprite" value="loco"/>
    </properties>
   </object>
   <object id="37" name="Npc" x="1280" y="1824" width="32" height="32">
    <properties>
     <property name="dialog" value="paca"/>
-    <property name="sprite" value="npc"/>
+    <property name="sprite" value="paca"/>
    </properties>
   </object>
   <object id="38" name="Npc" x="1504" y="1792" width="32" height="32">
    <properties>
     <property name="dialog" value="carcelero"/>
-    <property name="sprite" value="npc"/>
+    <property name="sprite" value="carcelero"/>
    </properties>
   </object>
   <object id="39" name="Npc" x="1632" y="1600" width="32" height="32">
    <properties>
     <property name="dialog" value="embajadora"/>
-    <property name="sprite" value="npc"/>
+    <property name="sprite" value="embajadora"/>
    </properties>
   </object>
   <object id="40" name="Npc" x="992" y="1440" width="32" height="32">
    <properties>
     <property name="dialog" value="srtaMento"/>
-    <property name="sprite" value="npc"/>
+    <property name="sprite" value="srtaMento"/>
    </properties>
   </object>
   <object id="41" name="Npc" x="1120" y="1216" width="32" height="32">
    <properties>
     <property name="dialog" value="srtaEmbajadora"/>
-    <property name="sprite" value="npc"/>
+    <property name="sprite" value="srtaEmbajadora"/>
    </properties>
   </object>
   <object id="42" name="Tp" x="704" y="4288" width="32" height="32">
