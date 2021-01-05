@@ -26,7 +26,44 @@ export default class Boot extends Phaser.Scene{
     this.load.spritesheet('player', 'resources/game/textures/NPCs/police.png', { frameWidth: 32, frameHeight: 32 });
 
     //NPC
-    this.load.image('npc', 'resources/game/textures/npc.png');
+    
+    this.load.image('police', 'resources/game/textures/NPCs/police.png');
+    this.load.image('leandro', 'resources/game/textures/NPCs/leandro.png');
+    this.load.image('coronel', 'resources/game/textures/NPCs/coronel.png');
+    this.load.image('dictator', 'resources/game/textures/NPCs/dictador.png');
+    this.load.image('cura', 'resources/game/textures/NPCs/cura.png');
+
+    this.load.image('feriante', 'resources/game/textures/NPCs/feriante.png');
+    this.load.image('ferianta', 'resources/game/textures/NPCs/ferianta.png');
+    this.load.image('srtoFeriante', 'resources/game/textures/NPCs/hijoFeriante.png');
+
+    this.load.image('loco', 'resources/game/textures/NPCs/loco.png');
+    this.load.image('embajador', 'resources/game/textures/NPCs/embajador.png');
+    this.load.image('embajadora', 'resources/game/textures/NPCs/embajadora.png');
+    this.load.image('srtaEmbajadora', 'resources/game/textures/NPCs/srtaEmbajadora.png');
+
+    this.load.image('carcelero', 'resources/game/textures/NPCs/carcelero.png');
+    this.load.image('lolaMento', 'resources/game/textures/NPCs/lolaMento.png');
+    this.load.image('srtaMento', 'resources/game/textures/NPCs/srtaMento.png');
+
+    this.load.image('empeñista', 'resources/game/textures/NPCs/empeñista.png');
+
+    this.load.image('paca', 'resources/game/textures/NPCs/paca.png');
+    this.load.image('sona', 'resources/game/textures/NPCs/sona.png');
+
+    this.load.image('tabernero', 'resources/game/textures/NPCs/tabernero.png');
+    this.load.image('tabernera', 'resources/game/textures/NPCs/tabernera.png');
+
+
+
+
+
+
+
+
+
+
+
 
     //Mapa
     this.load.tilemapTiledJSON('tileMap', 'resources/game/tilemap/map.json');

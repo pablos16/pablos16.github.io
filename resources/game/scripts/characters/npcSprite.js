@@ -10,7 +10,7 @@ export default class NPCImage extends Phaser.GameObjects.Sprite{
     //this.scene.physics.add.collider(this,scene.player);
 
     //Animaciones    
-    this.anims.create({
+    /*this.anims.create({
       key: 'left',
       frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
       frameRate: 10,
@@ -28,7 +28,7 @@ export default class NPCImage extends Phaser.GameObjects.Sprite{
       frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
       frameRate: 10,
       repeat: -1
-    });
+    });*/
   }
 
   //PreUpdate con las animaciones del sprite
