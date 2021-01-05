@@ -347,7 +347,7 @@
                         {
                          "name":"sprite",
                          "type":"string",
-                         "value":"npc"
+                         "value":"leandro"
                         }],
                  "rotation":0,
                  "type":"",
@@ -369,7 +369,7 @@
                         {
                          "name":"sprite",
                          "type":"string",
-                         "value":"npc"
+                         "value":"tabernera"
                         }],
                  "rotation":0,
                  "type":"",
@@ -391,7 +391,7 @@
                         {
                          "name":"sprite",
                          "type":"string",
-                         "value":"npc"
+                         "value":"tabernero"
                         }],
                  "rotation":0,
                  "type":"",
@@ -413,7 +413,7 @@
                         {
                          "name":"sprite",
                          "type":"string",
-                         "value":"npc"
+                         "value":"loco"
                         }],
                  "rotation":0,
                  "type":"",
@@ -435,7 +435,7 @@
                         {
                          "name":"sprite",
                          "type":"string",
-                         "value":"npc"
+                         "value":"paca"
                         }],
                  "rotation":0,
                  "type":"",
@@ -457,7 +457,7 @@
                         {
                          "name":"sprite",
                          "type":"string",
-                         "value":"npc"
+                         "value":"carcelero"
                         }],
                  "rotation":0,
                  "type":"",
@@ -479,7 +479,7 @@
                         {
                          "name":"sprite",
                          "type":"string",
-                         "value":"npc"
+                         "value":"embajadora"
                         }],
                  "rotation":0,
                  "type":"",
@@ -501,7 +501,7 @@
                         {
                          "name":"sprite",
                          "type":"string",
-                         "value":"npc"
+                         "value":"srtaMento"
                         }],
                  "rotation":0,
                  "type":"",
@@ -523,7 +523,7 @@
                         {
                          "name":"sprite",
                          "type":"string",
-                         "value":"npc"
+                         "value":"srtaEmbajadora"
                         }],
                  "rotation":0,
                  "type":"",
