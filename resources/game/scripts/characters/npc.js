@@ -49,7 +49,6 @@ export default class NPC extends Phaser.GameObjects.Container {
   }
   moveY(top, down) {
 
-
     if (this.body.y > this.initialPosY + top) {
       this.moveDown()
 
@@ -68,18 +67,14 @@ export default class NPC extends Phaser.GameObjects.Container {
     //this.play('walk', true)
   }
   moveLeft() {
-    //Para utilizar menos sprites
-    this.spriteImage.setFlipX(true)
 
     this.body.setVelocityX(-50);
-    //this.play('walk', true)
+    this.spriteImage.play('leftNPC', true)
   }
   moveRight() {
-    //Para utilizar menos sprites
-    this.spriteImage.setFlipX(false)
 
     this.body.setVelocityX(50);
-    //this.play('walk', true)
+    this.spriteImage.play('rightNPC', true)
   }
   stopX() {
     this.body.setVelocityX(0);
@@ -94,6 +89,7 @@ export default class NPC extends Phaser.GameObjects.Container {
     this.stopY()
   }
   preUpdate() {
+
     //Movimiento del npc
     if (!this.isTalking) {
       this.moveX(-50, 50);

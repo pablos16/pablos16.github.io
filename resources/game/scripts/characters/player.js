@@ -32,37 +32,35 @@ export default class Player extends Phaser.GameObjects.Sprite {
     })
     this.action = scene.input.keyboard.addKey('E');
 
+    //ANIMACIONES    
+    scene.anims.create({
+      key: 'left',
+      frames: scene.anims.generateFrameNumbers('player', { start: 4, end: 6 }),
+      frameRate: 10,
+      repeat: -1
+    });
+
+    scene.anims.create({
+      key: 'up',
+      frames: scene.anims.generateFrameNumbers('player', { start: 10, end: 12 }),
+      frameRate: 10,
+      repeat: -1
+    });
+
+    scene.anims.create({
+      key: 'idle',
+      frames: scene.anims.generateFrameNumbers('player', { start: 0, end: 2 }),
+      frameRate: 10,
+      repeat: -1
+    });
+    scene.anims.create({
+      key: 'right',
+      frames: scene.anims.generateFrameNumbers('player', { start: 7, end: 9 }),
+      frameRate: 10,
+      repeat: -1
+    });
   }
 
-create(){
-  //ANIMACIONES    
-  this.anims.create({
-    key: 'left',
-    frames: this.anims.generateFrameNumbers('player', { start: 4, end: 6 }),
-    frameRate: 10,
-    repeat:-1
-  });
-
-  this.anims.create({
-    key: 'up',
-    frames: this.anims.generateFrameNumbers('player', { start: 10, end: 12 }),
-    frameRate: 10,
-    repeat:-1
-  });
-
-  this.anims.create({
-    key: 'idle',
-    frames: this.anims.generateFrameNumbers('player', { start: 0, end: 2 }),
-    frameRate: 10,
-    repeat:-1
-  });
-  this.anims.create({
-    key: 'right',
-    frames: this.anims.generateFrameNumbers('player', { start: 7, end: 9 }),
-    frameRate: 10,
-    repeat:-1
-  });
-}
   keyDown() {
     let playerInput = {}
 
@@ -110,7 +108,8 @@ create(){
   }
 
   preUpdate() {
-    this.play('idle',true);
+
+    this.play('idle', true);
 
     //Al principio de cada preUpdate, el Player se para
     this.stopX()
