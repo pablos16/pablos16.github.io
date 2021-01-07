@@ -73,35 +73,23 @@ const Dialog =
         {
             id: 5,
             name: Names.BestFriend,
+            completed: 0,
             text: ["Un saludo!"],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextIndex: 6
-                },
-            ]
-        },
-        {
-            id: 6,
-            name: Names.Police,
-            text: ["Uy! Se me ha olvidado cambiarme de ropa...tendré que vestirme"],
             state: [
                 {
                     targetState: ["any"],
                     nextState: 1,
                     nextIndex: -1
                 },
-            ],
-            completed:0
+            ]
         },
         {
-            id: 7,
+            id: 6,
             name: Names.BestFriend,
             text: ["Si mañana estas mas libre ven a verme!","Recuerda venir mañana cuando tengas tiempo"],
             state: [
                 {
                     targetState: ["any"],
-                    nextState: 1,
                     nextIndex: -1
                 },
             ]
@@ -115,7 +103,7 @@ const Dialog =
                 },
                 {
                     targetState: [1],
-                    nextIndex: 7
+                    nextIndex: 6
                 }
             ]
         }
