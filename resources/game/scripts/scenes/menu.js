@@ -57,7 +57,9 @@ export default class Menu extends Phaser.Scene {
     this.playButton.on('pointerdown', function () {
       if (this.canPlay) {
         this.music.stop();
-        this.scene.start('scene');
+        this.scene.start('day0', {
+          objectLayerName: 'Objects',
+        });
       }
     }, this);
 
