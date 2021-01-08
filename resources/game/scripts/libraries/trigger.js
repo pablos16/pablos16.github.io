@@ -12,9 +12,9 @@ export default class Trigger extends Phaser.GameObjects.GameObject {
 
         this.hasEntered = false;
 
-        this.onTriggerEnter = () => { console.log("enter"); this.hasEntered = true; data.enter() }
-        this.onTriggerExit = () => { console.log("exit"); data.enter() }
-        this.onTriggerStay = () => { console.log("stay"); data.enter() }
+        this.onTriggerEnter = () => {this.hasEntered = true; data.enter() }
+        this.onTriggerExit = () => { data.exit() }
+        this.onTriggerStay = () => { data.stay() }
     }
 
     checkOverlap(){

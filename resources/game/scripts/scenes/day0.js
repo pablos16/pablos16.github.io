@@ -54,12 +54,19 @@ export default class Scene extends Phaser.Scene {
             switch (objeto.name) {
                 case 'Player': //Personaje
                     this.player = new Player(this, objeto.x, objeto.y, Missions);
-                    this.triggerTest = new Trigger(this, objeto.x, objeto.y + 50, {
+                    this.triggerTest = new Trigger(this, objeto.x, objeto.y + 100, {
                         enter: () => { },
                         exit: () => { },
                         stay: () => { },
-                        xSize: 50,
-                        ySize: 50
+                        xSize: 100,
+                        ySize: 100
+                    })
+                    this.triggerTest = new Trigger(this, objeto.x + 100, objeto.y + 100, {
+                        enter: () => { },
+                        exit: () => { },
+                        stay: () => { },
+                        xSize: 100,
+                        ySize: 100
                     })
                     break;
                 case 'Item': //Objetos en el suelo
@@ -114,6 +121,20 @@ export default class Scene extends Phaser.Scene {
         this.cameras.main.width = CT.gameWidth;
         this.cameras.main.height = CT.gameHeight;
         this.cameras.main.zoom = CT.cameraZoom;
+
+        //Sonidos
+        const config = {
+            mute: false,
+            volume: 0.5,
+            rate: 1,
+            detune: 0,
+            seek: 0,
+            loop: false,
+            delay: 0
+          };
+          //Añadimos la musica
+          this.dialogSound = this.sound.add('dialogSound', config);
+          this.selection = this.sound.add('selection', config);
     }
 
     changeScene() {
