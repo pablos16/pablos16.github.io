@@ -13,7 +13,6 @@ import paca from '../day2/PacaGarte.js'
 import sona from '../day2/sona.js'
 import tabernera from '../day2/tabernera.js'
 import tabernero from '../day2/tabernero.js'
-import srtaEmbajadora from '../day2/srtaEmbajadora.js'
 
 const dialogs =
 {
@@ -32,7 +31,6 @@ const dialogs =
     sona,
     tabernera,
     tabernero,
-    srtaEmbajadora
 }
 
 export default dialogs

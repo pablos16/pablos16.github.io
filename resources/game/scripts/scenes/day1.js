@@ -6,7 +6,7 @@ import Alignment from '../missionSystem/alignment.js';
 import CT from '../../configs/constants.js';
 import Dialog from '../../configs/dialogConfig.js';
 import NPCDialog from '../characters/npcDialog.js';
-import dialogs from '../../dialogs/packedDialogs/dialogs0.js'
+import dialogs from '../../dialogs/packedDialogs/dialogs2.js'
 import Missions from '../../missions/missionsDay0.js';
 import TPLINK from '../characters/tp.js'
 
