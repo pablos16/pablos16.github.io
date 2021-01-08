@@ -12,6 +12,7 @@ export default class Boot extends Phaser.Scene{
 
     //Menu principal
     this.load.image('mainMenu', 'resources/game/textures/gui/menu/menuBackground.png');
+    this.load.image('menuTittle', 'resources/game/textures/gui/menu/menuTittle.png');
     this.load.image('play', 'resources/game/textures/gui/menu/playButton.png');
     this.load.image('controls', 'resources/game/textures/gui/menu/controlsButton.png');
     this.load.image('background', 'resources/game/textures/gui/menu/fondoNegro.png');

@@ -39,6 +39,9 @@ export default class Menu extends Phaser.Scene {
     //Mapa
     this.add.image(640, 400, 'mainMenu');
 
+    this.menuTittle = this.add.image(640, 200, 'menuTittle');
+    this.menuTittle.setScale(0.6);
+
     // this.playButton = new Button({
     //   x: 200,
     //   y: 400,
