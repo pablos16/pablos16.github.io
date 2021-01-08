@@ -228,8 +228,6 @@ export default class NPCDialog extends NPC{
     }
 
     getTogether(scene){
-        console.log("Vamos a juntarnos")
-
         //Uso mi propia clase vector2 porque la de Phaser me da problemas
         let playerPos = new Vector2(scene.player.x, scene.player.y)
         let thisPos = new Vector2(this.x, this.y)

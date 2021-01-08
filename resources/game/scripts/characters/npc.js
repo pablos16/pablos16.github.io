@@ -69,12 +69,12 @@ export default class NPC extends Phaser.GameObjects.Container {
   moveLeft() {
 
     this.body.setVelocityX(-50);
-    this.spriteImage.play('leftNPC', true)
+    //this.spriteImage.play('leftNPC', true)
   }
   moveRight() {
 
     this.body.setVelocityX(50);
-    this.spriteImage.play('rightNPC', true)
+    //this.spriteImage.play('rightNPC', true)
   }
   stopX() {
     this.body.setVelocityX(0);
