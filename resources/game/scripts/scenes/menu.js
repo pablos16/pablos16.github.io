@@ -1,3 +1,5 @@
+import Button from '../libraries/button.js';
+
 export default class Menu extends Phaser.Scene {
   constructor() {
     super({ key: 'menu' });
@@ -36,6 +38,27 @@ export default class Menu extends Phaser.Scene {
 
     //Mapa
     this.add.image(640, 400, 'mainMenu');
+
+    // this.playButton = new Button({
+    //   x: 200,
+    //   y: 400,
+    //   context: this,
+    //   sprite: 'play',
+    //   scale: 5,
+    //   config: {
+    //     context: this.scene,
+    //     music: this.music,
+    //   },
+    //   function: (config) => {
+    //     if (this.canPlay) {
+    //       config.music.stop();
+    //       config.context.start('day0', {
+    //         objectLayerName: 'Objects',
+    //       });
+    //     }
+    //   }
+    // })
+
     this.playButton = this.add.image(200, 400, 'play').setInteractive();
     this.playButton.setScale(5);
     this.controlsButton = this.add.image(200, 525, 'controls').setInteractive();
