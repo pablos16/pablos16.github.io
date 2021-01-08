@@ -86,6 +86,10 @@ export default class Boot extends Phaser.Scene{
     this.load.image('indicator', 'resources/game/textures/gui/alignmentBar/indicator.png');
 
     //Musica
+    this.load.audio('bar', 'resources/game/sounds/bar.mp3');
+    this.load.audio('castle', 'resources/game/sounds/castle.wav');
+
+    //Efectos de sonido
     this.load.audio('dialogSound', 'resources/game/sounds/dialog/blip.wav')
     this.load.audio('selection', 'resources/game/sounds/dialog/selection.wav')
 

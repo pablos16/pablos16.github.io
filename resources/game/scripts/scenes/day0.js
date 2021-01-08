@@ -17,6 +17,19 @@ export default class Scene extends Phaser.Scene {
     }
     //Aqui te crea todo lo que necesites al inicio para todo el juego
     create() {
+        //Sonidos de fondo
+        const background = {
+            mute: false,
+            volume: 0.2,
+            rate: 1,
+            detune: 0,
+            seek: 0,
+            loop: true,
+            delay: 0
+          };
+        this.barSound = this.sound.add('bar', background)
+        this.castle = this.sound.add('castle', background)
+
         //Deshabilitar menú contextual
         this.input.mouse.disableContextMenu();
 
@@ -55,15 +68,15 @@ export default class Scene extends Phaser.Scene {
                 case 'Player': //Personaje
                     this.player = new Player(this, objeto.x, objeto.y, Missions);
                     this.triggerTest = new Trigger(this, objeto.x, objeto.y + 100, {
-                        enter: () => { },
-                        exit: () => { },
+                        enter: () => { this.barSound.play() },
+                        exit: () => { this.barSound.stop() },
                         stay: () => { },
                         xSize: 100,
                         ySize: 100
                     })
                     this.triggerTest = new Trigger(this, objeto.x + 100, objeto.y + 100, {
-                        enter: () => { },
-                        exit: () => { },
+                        enter: () => { this.castle.play()},
+                        exit: () => { this.castle.stop() },
                         stay: () => { },
                         xSize: 100,
                         ySize: 100
