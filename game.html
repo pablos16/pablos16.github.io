@@ -33,6 +33,7 @@
         import Derrota from './resources/game/scripts/scenes/derrota.js'
         import Scene from './resources/game/scripts/scenes/scene.js'
         import Day0 from './resources/game/scripts/scenes/day0.js'
+        import Day1 from './resources/game/scripts/scenes/day1.js'
         import CT from './resources/game/configs/constants.js'
 
         var config = {
@@ -46,7 +47,7 @@
                 autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
             },
             pixelArt: true,
-            scene: [Boot,Menu, Day0, Scene,Derrota],
+            scene: [Boot,Menu, Day0, Day1, Scene,Derrota],
             physics: { default: 'arcade', arcade: { debug: true } }
         };
 

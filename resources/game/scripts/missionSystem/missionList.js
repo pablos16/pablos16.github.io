@@ -66,7 +66,7 @@ export default class Missions extends Phaser.GameObjects.Container {
         this.missionTexts[i].setScrollFactor(0)
         this.missionTexts[i].depth = 100
 
-        
+
         this.completedTexts.push(this.sceneRef.add.bitmapText(
             CT.xMissionText,
             (CT.yMissionText + CT.ySubMissionTextOffset) + i * CT.yMissionOffset,
@@ -115,6 +115,8 @@ export default class Missions extends Phaser.GameObjects.Container {
             this.initialiceText(this.missionList.length - 1)
 
             this.add(this.missionTexts)
+
+            this.loadNextDay();
         }
     }
 
@@ -146,5 +148,9 @@ export default class Missions extends Phaser.GameObjects.Container {
     toggleListInterface() {
 
         if (!this.hidden) this.animateInterface()
+    }
+
+    loadNextDay() {
+       this.sceneRef.changeScene('day1')
     }
 }

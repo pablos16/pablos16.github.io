@@ -108,7 +108,17 @@ export default class Scene extends Phaser.Scene{
     this.cameras.main.zoom = CT.cameraZoom;
 
     console.log("Estamos en el dia 0")
+    console.log(this.align.points)
+    this.align.addReputation(50)
   }
+
+changeScene(sceneName)
+{
+    this.scene.start('day1', {
+        objectLayerName: 'Objects',
+        points: this.align.points
+    });
+}
 
   update(){
     if (Phaser.Input.Keyboard.JustDown(this.fullScreen)){
