@@ -107,9 +107,7 @@ export default class Scene extends Phaser.Scene {
         this.cameras.main.height = CT.gameHeight;
         this.cameras.main.zoom = CT.cameraZoom;
 
-        console.log("Estamos en el dia 1")
         this.align.addReputation(this.startingPoints)
-        console.log(this.align.points)
     }
 
     changeScene() {
