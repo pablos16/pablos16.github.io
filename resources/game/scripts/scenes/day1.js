@@ -112,6 +112,13 @@ export default class Scene extends Phaser.Scene {
         console.log(this.align.points)
     }
 
+    changeScene() {
+        this.scene.start('day2', {
+            objectLayerName: 'Objects',
+            points: this.align.points
+        });
+    }
+
     init(data) {
         this.startingPoints = data.points;
     }

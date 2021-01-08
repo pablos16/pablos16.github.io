@@ -151,6 +151,6 @@ export default class Missions extends Phaser.GameObjects.Container {
     }
 
     loadNextDay() {
-       this.sceneRef.changeScene('day1')
+       this.sceneRef.changeScene()
     }
 }
