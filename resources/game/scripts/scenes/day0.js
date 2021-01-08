@@ -9,6 +9,7 @@ import NPCDialog from '../characters/npcDialog.js';
 import dialogs from '../../dialogs/packedDialogs/dialogs0.js'
 import Missions from '../../missions/missionsDay0.js';
 import TPLINK from '../characters/tp.js'
+import Trigger from '../libraries/trigger.js'
 
 export default class Scene extends Phaser.Scene {
     constructor() {
@@ -53,6 +54,13 @@ export default class Scene extends Phaser.Scene {
             switch (objeto.name) {
                 case 'Player': //Personaje
                     this.player = new Player(this, objeto.x, objeto.y, Missions);
+                    this.triggerTest = new Trigger(this, objeto.x, objeto.y + 50, {
+                        enter: () => { },
+                        exit: () => { },
+                        stay: () => { },
+                        xSize: 50,
+                        ySize: 50
+                    })
                     break;
                 case 'Item': //Objetos en el suelo
                     this.dropped = new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type));
