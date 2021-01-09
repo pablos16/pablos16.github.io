@@ -56,7 +56,11 @@ export default class NPCDialog extends NPC {
 
     checkCallbacks(scene) {
         if ("callback" in this.currentDialog()) {
-            this.currentDialog().callback(this, scene);
+            this.currentDialog().callback(
+                {
+                    npc: this, 
+                    context: scene
+                });
         }
     }
 
