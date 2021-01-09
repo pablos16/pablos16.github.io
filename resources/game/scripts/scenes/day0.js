@@ -68,6 +68,10 @@ export default class Scene extends Phaser.Scene {
             switch (objeto.name) {
                 case 'Player': //Personaje
                     this.player = new Player(this, objeto.x, objeto.y, Missions);
+                    this.transitionImg = this.add.sprite(CT.transitionX, CT.transitionY, 'tpImg')
+                    this.transitionImg.setScrollFactor(0)
+                    this.transitionImg.depth = 200;
+                    this.transitionImg.setAlpha(0)
                     this.triggerTest = new Trigger({
                         x: objeto.x,
                         y: objeto.y + 100,

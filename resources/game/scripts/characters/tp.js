@@ -2,7 +2,7 @@ import Trigger from '../libraries/trigger.js'
 
 export default class Tp extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, tpLink, offset) {
-        super(scene, x, y, 'tpImg');
+        super(scene, x, y);
 
         this.scene.add.existing(this);
         this.visible = true;
@@ -57,7 +57,7 @@ export default class Tp extends Phaser.GameObjects.Sprite {
 
     animateTp(scene) {
         scene.tweens.add({
-            targets: this,
+            targets: scene.transitionImg,
             duration: 250,
             alpha: 1,
             ease: 'Circ',
@@ -66,7 +66,7 @@ export default class Tp extends Phaser.GameObjects.Sprite {
             },
             onComplete: () => {
                 scene.tweens.add({
-                    targets: this,
+                    targets: scene.transitionImg,
                     duration: 1000,
                     alpha: 0,
                     ease: 'Circ',

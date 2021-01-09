@@ -98,7 +98,23 @@ const Dialog =
         },
         {
             id: -1,
-            //CALLBACK DE QUE SE PIRA A SU PUTA CASA
+            callback: (data) =>
+            {
+                data.context.tweens.add({
+                    targets: data.context.transitionImg,
+                    duration: 250,
+                    alpha: 1,
+                    ease: 'Circ',
+                    onComplete: () => {
+                        data.context.tweens.add({
+                            targets: scene.transitionImg,
+                            duration: 1000,
+                            alpha: 0,
+                            ease: 'Circ',
+                        })
+                    }
+                })
+            },
             state: [
                 {
                     targetState: [0],

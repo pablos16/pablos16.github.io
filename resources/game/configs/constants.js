@@ -23,6 +23,9 @@ const CT =
      alignmentBarY: 50,
      alignmentMaxOffset: 85,
      alignmentMaxPoints: 100,
+
+     transitionY: 100,
+     transitionX: 400,
 }
 
 export default CT;
