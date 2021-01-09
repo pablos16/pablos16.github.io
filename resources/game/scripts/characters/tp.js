@@ -1,7 +1,7 @@
 import Trigger from '../libraries/trigger.js'
 
 export default class Tp extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, tpLink, offset, linkId) {
+    constructor(scene, x, y, tpLink, offset) {
         super(scene, x, y, 'tpImg');
 
         this.scene.add.existing(this);
