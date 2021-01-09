@@ -14,6 +14,7 @@ import sona from '../day2/sona.js'
 import tabernera from '../day2/tabernera.js'
 import tabernero from '../day2/tabernero.js'
 
+//Estos nombres son los que hay que poner en tiled
 const dialogs =
 {
     carcelero,
