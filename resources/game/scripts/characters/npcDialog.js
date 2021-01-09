@@ -43,6 +43,10 @@ export default class NPCDialog extends NPC {
         }
     }
 
+    currentDialog() {
+        return this.dialog[this.index !== -1 ? this.index : this.dialog.length-1];
+    }
+
     StartDialog(scene) {
         //this.startTween(scene);
         scene.player.missionList.hideInterface()
@@ -113,6 +117,7 @@ export default class NPCDialog extends NPC {
         this.animateDialog(scene, 50, false)
         utils.setVisiblity([this.description, this.name], false)
         this.setTalking(scene, false)
+        this.checkCallbacks(scene)
     }
 
     chooseOption(scene, input) {
@@ -286,10 +291,6 @@ export default class NPCDialog extends NPC {
         utils.setVisiblity(texts, visibility)
         utils.setStatic(texts)
         utils.setDepth(texts, 100)
-    }
-
-    currentDialog() {
-        return this.dialog[this.index];
     }
 
     setTalking(scene, bool) {

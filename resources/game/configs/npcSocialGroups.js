@@ -16,7 +16,8 @@ const SocialStatePeople=
             Names.MadMan,
             Names.Feriante,
             Names.Ferianta,
-            Names.SrtaFeriante
+            Names.SrtaFeriante,
+            Names.Ladron
         ]
     },
     {
