@@ -61,6 +61,7 @@ export default class Scene extends Phaser.Scene {
         this.mapCastleFoundations = this.map.createStaticLayer('Castle Foundations', tileSetCastle);
         //Mapa - Capa De Objetos
         let mapObjects = this.map.getObjectLayer('Objects').objects;
+        this.tpList = [];
         for (const objeto of mapObjects) {
             const props = {};
             if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
@@ -106,7 +107,8 @@ export default class Scene extends Phaser.Scene {
                         }
                         it++;
                     }
-                    this.TP = new TPLINK(this, objeto.x, objeto.y, mapObjects[props.tplink], props.offset);
+                    this.tp = new TPLINK(this, objeto.x, objeto.y, mapObjects[props.tplink], props.offset);
+                    this.tpList.push(this.tp);
                     break;
             }
         }
