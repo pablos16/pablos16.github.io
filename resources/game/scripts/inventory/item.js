@@ -29,6 +29,7 @@ export default class DroppedItem extends Phaser.GameObjects.Sprite{
     }
 
     preUpdate(){
+        super.preUpdate();
         this.checkPickUp();
     }
 }

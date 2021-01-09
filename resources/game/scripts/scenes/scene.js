@@ -38,9 +38,9 @@ export default class Scene extends Phaser.Scene{
     this.mapDecorations = this.map.createStaticLayer('Decorations', tileSet);
     //Mapa - Capas Normales 2 - Parte 1
     let tileSetIndoors = this.map.addTilesetImage('tiles_indoors', 'mapTilesIndoors');
-    this.bar1 = this.map.createStaticLayer('bar1', tileSetIndoors);
-    this.bar2 = this.map.createStaticLayer('bar2', tileSetIndoors);
-    this.bar3 = this.map.createStaticLayer('bar3', tileSetIndoors);
+    this.mapIndoors1 = this.map.createStaticLayer('Indoors1', tileSetIndoors);
+    this.mapIndoors2 = this.map.createStaticLayer('Indoors2', tileSetIndoors);
+    this.mapIndoors3 = this.map.createStaticLayer('Indoors3', tileSetIndoors);
     this.mapCarnivalFoundations = this.map.createStaticLayer('Carnival Foundations', tileSetIndoors);
     //Mapa - Capas Normales 3  - Parte 1
     let tileSetCastle = this.map.addTilesetImage('tiles_castle', 'mapTilesCastle');
