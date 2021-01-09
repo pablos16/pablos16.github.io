@@ -21,7 +21,7 @@ export default class Alignment extends Phaser.GameObjects.Container {
 
         this.sceneRef = scene
     }
-
+ 
     test() {
         console.log('testing');
         this.addReputation(5);
