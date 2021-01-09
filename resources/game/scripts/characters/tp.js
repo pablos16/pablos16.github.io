@@ -1,7 +1,7 @@
 import Trigger from '../libraries/trigger.js'
 
 export default class Tp extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, tpLink, offset) {
+    constructor(scene, x, y, tpLink, offset, linkId) {
         super(scene, x, y, 'tpImg');
 
         this.scene.add.existing(this);
@@ -12,12 +12,13 @@ export default class Tp extends Phaser.GameObjects.Sprite {
 
         this.offset = offset;
 
-        this.tpThisFrame = false;
-
         this.link = {
             x: tpLink.x,
             y: tpLink.y,
         }
+
+        this.canTp = true;
+        this.pair = this.findTp(scene);
 
         this.internalTP = new Trigger({
             x: this.x,
@@ -25,24 +26,33 @@ export default class Tp extends Phaser.GameObjects.Sprite {
             scene: scene,
             xSize: 50,
             ySize: 50,
-            enter: () => {
-                if (!this.tpThisFrame) this.animateTp(scene);
-            },
-            exit: () => { this.tpThisFrame = false },
+            enter: () => { if (this.canTp) this.animateTp(scene); },
+            exit: () => { this.tpActivated(scene, true); this.cancelPairTp(scene) },
             stay: () => { },
         })
     }
 
 
     tp(scene) {
-        this.playerRef.canTp = false;
+        console.log(this.pair)
         this.playerRef.x = this.link.x
         this.playerRef.y = this.link.y + this.offset;
-        this.tpActivated(scene, true)
+        this.tpActivated(scene, false)
     }
 
     tpActivated(scene, isActivated) {
-        for (const tp of scene.tpList) tp.tpThisFrame = isActivated;
+        for (const tp of scene.tpList) tp.canTp = isActivated;
+    }
+
+    cancelPairTp(scene) {
+        if("pair" in this) this.pair = this.findTp(scene);
+        this.pair.canTp = false;
+    }
+
+    findTp(scene) {
+        for (const tp of scene.tpList) {
+            if (tp.y === this.link.y && tp.x === this.link.x) return tp;
+        }
     }
 
     animateTp(scene) {
