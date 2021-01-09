@@ -22,7 +22,8 @@ const Names =
     SrFeriante: "Hijo Feriante",
     Muro: "Muro",
     Edificio: "Edificio deteriorado",
-    Cura: "Cura"
+    Cura: "Cura",
+    Ladron: "Desconocido"
 }
 
 export default Names;
