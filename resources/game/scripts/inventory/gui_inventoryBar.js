@@ -18,6 +18,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container{
                 this.updateSlot(this.selection);
                 this.selectionTexture.visible = false;
                 this.selection = -1;
+                scene.pickItem.play()
             }
         });
 

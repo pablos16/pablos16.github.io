@@ -21,6 +21,7 @@ export default class DroppedItem extends Phaser.GameObjects.Sprite{
             if (Phaser.Geom.Intersects.RectangleToRectangle(this.sc.player.getBounds(), this.getBounds())){
                 let placeIn = this.sc.player.inventory.addItem(this.id);
                 if (placeIn != -1){
+                    this.sc.pickItem.play()
                     this.destroy();
                     this.sc.inventoryBar.updateSlot(placeIn);
                 }

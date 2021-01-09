@@ -72,26 +72,6 @@ export default class Scene extends Phaser.Scene {
                     this.transitionImg.setScrollFactor(0)
                     this.transitionImg.depth = 200;
                     this.transitionImg.setAlpha(0)
-                    this.triggerTest = new Trigger({
-                        x: objeto.x,
-                        y: objeto.y + 100,
-                        scene: this,
-                        xSize: 100,
-                        ySize: 100,
-                        enter: () => { this.barSound.play() },
-                        exit: () => { this.barSound.stop() },
-                        stay: () => { },
-                    })
-                    this.triggerTest = new Trigger({
-                        x: objeto.x + 100,
-                        y: objeto.y + 100,
-                        scene: this,
-                        xSize: 100,
-                        ySize: 100,
-                        enter: () => { this.castle.play()},
-                        exit: () => { this.castle.stop() },
-                        stay: () => { },
-                    })
                     break;
                 case 'Item': //Objetos en el suelo
                     this.dropped = new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type));
@@ -160,6 +140,7 @@ export default class Scene extends Phaser.Scene {
           //Añadimos la musica
           this.dialogSound = this.sound.add('dialogSound', config);
           this.selection = this.sound.add('selection', config);
+          this.pickItem = this.sound.add('pickup', config);
     }
 
     changeScene() {

@@ -92,6 +92,7 @@ export default class Boot extends Phaser.Scene{
     //Efectos de sonido
     this.load.audio('dialogSound', 'resources/game/sounds/dialog/blip.wav')
     this.load.audio('selection', 'resources/game/sounds/dialog/selection.wav')
+    this.load.audio('pickup', 'resources/game/sounds/inventory/pickup.wav')
 
     //Menu
     this.load.audio('backgroundMenu', 'resources/game/sounds/Dark Fantasy Studio- Knight song.wav');
