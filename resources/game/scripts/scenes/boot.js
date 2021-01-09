@@ -12,6 +12,7 @@ export default class Boot extends Phaser.Scene{
 
     //Menu principal
     this.load.image('mainMenu', 'resources/game/textures/gui/menu/menuBackground.png');
+    this.load.image('menuTittle', 'resources/game/textures/gui/menu/menuTittle.png');
     this.load.image('play', 'resources/game/textures/gui/menu/playButton.png');
     this.load.image('controls', 'resources/game/textures/gui/menu/controlsButton.png');
     this.load.image('background', 'resources/game/textures/gui/menu/fondoNegro.png');
@@ -85,6 +86,12 @@ export default class Boot extends Phaser.Scene{
     this.load.image('indicator', 'resources/game/textures/gui/alignmentBar/indicator.png');
 
     //Musica
+    this.load.audio('bar', 'resources/game/sounds/bar.mp3');
+    this.load.audio('castle', 'resources/game/sounds/castle.wav');
+
+    //Efectos de sonido
+    this.load.audio('dialogSound', 'resources/game/sounds/dialog/blip.wav')
+    this.load.audio('selection', 'resources/game/sounds/dialog/selection.wav')
 
     //Menu
     this.load.audio('backgroundMenu', 'resources/game/sounds/Dark Fantasy Studio- Knight song.wav');

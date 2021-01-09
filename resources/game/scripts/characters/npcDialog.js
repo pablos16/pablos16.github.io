@@ -9,8 +9,8 @@ import Vector2 from '../libraries/vector2.js'
 import AnimatedText from '../libraries/animatedText.js'
 //import vector2 from '../libraries/vector2.js';
 
-export default class NPCDialog extends NPC{
-    constructor(scene, x, y, dialog, npcImage){
+export default class NPCDialog extends NPC {
+    constructor(scene, x, y, dialog, npcImage) {
         super(scene, x, y, npcImage);
         this.isTalking = false;
         this.choosing = false
@@ -28,21 +28,22 @@ export default class NPCDialog extends NPC{
 
     //Metodos principales
 
-    accion(scene){
-        if (!this.choosing && scene.player.keyDown().interact){
+    accion(scene) {
+        if (!this.choosing && scene.player.keyDown().interact) {
+            scene.dialogSound.play();
             if (!this.isTalking) this.StartDialog(scene)
-            else if (this.isTalking){
+            else if (this.isTalking) {
                 if (this.index === -1) this.FinishDialog(scene)
                 else this.ContinueDialog(scene)
             }
         }
-        else if (this.choosing){
+        else if (this.choosing) {
             let input = scene.player.keyDown()
             if (input.any) this.chooseOption(scene, input)
         }
     }
 
-    StartDialog(scene){
+    StartDialog(scene) {
         //this.startTween(scene);
         scene.player.missionList.hideInterface()
         this.animateDialog(scene, 50)
@@ -53,13 +54,13 @@ export default class NPCDialog extends NPC{
         this.ContinueDialog(scene)
     }
 
-    checkCallbacks(scene){
-        if ("callback" in this.currentDialog()){
+    checkCallbacks(scene) {
+        if ("callback" in this.currentDialog()) {
             this.currentDialog().callback(this, scene);
         }
     }
 
-    ContinueDialog(scene){
+    ContinueDialog(scene) {
 
         //console.log("hey " + this.index)
         //console.log(this.currentDialog().state)
@@ -86,7 +87,7 @@ export default class NPCDialog extends NPC{
             this.dialogOptions = []
 
             //Actualizar textos
-            for (let i = 0; i < this.currentDialog().options.length; i++){
+            for (let i = 0; i < this.currentDialog().options.length; i++) {
                 this.dialogOptions.push(scene.add.bitmapText(
                     Dialog.xDialogTextPos + Dialog.xSubDialogSpacing, Dialog.yDialogTextPos + Dialog.subDialogInSpacing + i * Dialog.ySubDialogSpacing,
                     Dialog.dialogFont, this.currentDialog().options[i].text, Dialog.subDialogSize, Dialog.dialogAlign))
@@ -101,8 +102,8 @@ export default class NPCDialog extends NPC{
         }
     }
 
-    FinishDialog(scene){
-        if("timer" in this)this.timer.stopAnimation()
+    FinishDialog(scene) {
+        if ("timer" in this) this.timer.stopAnimation()
         scene.player.missionList.showInterface()
         this.moveRight();
         this.animateDialog(scene, 50, false)
@@ -110,12 +111,15 @@ export default class NPCDialog extends NPC{
         this.setTalking(scene, false)
     }
 
-    chooseOption(scene, input){
+    chooseOption(scene, input) {
         let down = input.down
         let up = input.up
 
         //Actualizar selección y posicion del cursor
-        if (up || down){
+        if (up || down) {
+            //Ejecutar sonido de seleccion
+            scene.selection.play();
+
             //Actualiza internamente el indice
             this.selection = up ? this.selection - 1 : this.selection + 1;
             this.selection = loop(this.selection, this.currentDialog().options.length)
@@ -127,7 +131,10 @@ export default class NPCDialog extends NPC{
                 Dialog.yDialogSelection)
         }
 
-        if (input.interact){
+        if (input.interact) {
+            //Ejecutar sonido
+            scene.dialogSound.play();
+
             this.checkMissionCompleted(scene, this.currentDialog().options[this.selection])
             this.arrow.visible = false
             this.choosing = false
@@ -140,7 +147,7 @@ export default class NPCDialog extends NPC{
 
     //Metoodos auxiliares
 
-    animateDialog(scene, value, start = true){
+    animateDialog(scene, value, start = true) {
         let imgAlpha = 0
         scene.dialogueImage.y = Dialog.yDialogImage
         if (start) {
@@ -160,32 +167,32 @@ export default class NPCDialog extends NPC{
         })
     }
 
-    animateText(scene, target){
+    animateText(scene, target) {
         target.visible = false
-        if("timer" in this)this.timer.stopAnimation()
+        if ("timer" in this) this.timer.stopAnimation()
         this.timer = new AnimatedText(scene, this.description)
     }
 
-    changeDialogImage(SocialName, scene){
+    changeDialogImage(SocialName, scene) {
         scene.dialogueImage.setFrame(SocialName)
     }
 
-    checkSocialGroup(){
+    checkSocialGroup() {
         let groups = SocialStatePeople.length
-        for (let i = 0; i < groups; i++){
-            if (SocialStatePeople[i].peopleIn.includes(this.currentDialog().name)){
+        for (let i = 0; i < groups; i++) {
+            if (SocialStatePeople[i].peopleIn.includes(this.currentDialog().name)) {
                 return SocialStatePeople[i].name
             }
         }
     }
 
-    checkMissionCompleted(scene, context){
+    checkMissionCompleted(scene, context) {
         if ("completed" in context) scene.player.missionList.setCompleted(context.completed)
         if ("points" in context) scene.player.missionList.setPoints(context.points, scene)
 
     }
 
-    updateTexts(){
+    updateTexts() {
         this.initializeIndex()
         this.name.text = this.currentDialog().name
         //console.log(this.index + " " +this.currentDialog().text)    
@@ -195,9 +202,9 @@ export default class NPCDialog extends NPC{
         this.description.update()
     }
 
-    indentText(text){
+    indentText(text) {
         let l = text.length
-        for (let i = Dialog.textLimit; i < l; i += Dialog.textLimit){
+        for (let i = Dialog.textLimit; i < l; i += Dialog.textLimit) {
             let wordEnd = i
             while (wordEnd < l && text[wordEnd] !== " ") { wordEnd++; }
             wordEnd++;
@@ -212,12 +219,12 @@ export default class NPCDialog extends NPC{
         return text;
     }
 
-    indentTexts(texts){
+    indentTexts(texts) {
         for (let i = 0; i < texts.length; i++) this.indentText(texts[i]);
     }
 
-    initializeIndex(scene){
-        if (this.index === -1){
+    initializeIndex(scene) {
+        if (this.index === -1) {
             //Preparar indice para la siguiente vez que se hable
             this.index = this.dialog.length - 1
             this.getTogether(scene)
@@ -227,9 +234,7 @@ export default class NPCDialog extends NPC{
         }
     }
 
-    getTogether(scene){
-        console.log("Vamos a juntarnos")
-
+    getTogether(scene) {
         //Uso mi propia clase vector2 porque la de Phaser me da problemas
         let playerPos = new Vector2(scene.player.x, scene.player.y)
         let thisPos = new Vector2(this.x, this.y)
@@ -245,27 +250,27 @@ export default class NPCDialog extends NPC{
     }
 
 
-    updateIndex(context, i = 0){
+    updateIndex(context, i = 0) {
         context.index = context.currentDialog().state[i].nextIndex;
     }
 
-    updateState(context, i = 0){
-        if ("nextState" in context.currentDialog().state[i]){
+    updateState(context, i = 0) {
+        if ("nextState" in context.currentDialog().state[i]) {
             context.state = context.currentDialog().state[i].nextState;
         }
     }
 
-    updateStateAndIndex(context, i = 0){
+    updateStateAndIndex(context, i = 0) {
         context.updateState(context, i)
         context.updateIndex(context, i)
     }
 
-    iterateStates(doThing){
+    iterateStates(doThing) {
         loop:
-        for (let i = 0; i < this.currentDialog().state.length; i++){
-            for (let j = 0; j < this.currentDialog().state[i].targetState.length; j++){
+        for (let i = 0; i < this.currentDialog().state.length; i++) {
+            for (let j = 0; j < this.currentDialog().state[i].targetState.length; j++) {
                 if (this.currentDialog().state[i].targetState[j] === this.state
-                    || this.currentDialog().state[i].targetState[j] === "any"){
+                    || this.currentDialog().state[i].targetState[j] === "any") {
                     doThing(this, i)
                     break loop;
                 }
@@ -273,17 +278,17 @@ export default class NPCDialog extends NPC{
         }
     }
 
-    initializeText(texts, visibility){
+    initializeText(texts, visibility) {
         utils.setVisiblity(texts, visibility)
         utils.setStatic(texts)
         utils.setDepth(texts, 100)
     }
 
-    currentDialog(){
+    currentDialog() {
         return this.dialog[this.index];
     }
 
-    setTalking(scene, bool){
+    setTalking(scene, bool) {
         scene.player.isTalking = bool;
         this.isTalking = bool
     }

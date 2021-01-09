@@ -1,7 +1,7 @@
 import CT from '../../configs/missionConfig.js';
 
-export default class Missions extends Phaser.GameObjects.Container{
-    constructor(scene, missionList){
+export default class Missions extends Phaser.GameObjects.Container {
+    constructor(scene, missionList) {
         super(scene, CT.missionListX, CT.missionListY);
         this.desplegado = false
         this.scene.add.existing(this)
@@ -24,7 +24,7 @@ export default class Missions extends Phaser.GameObjects.Container{
         this.add(this.completedTexts)
     }
 
-    toggleInterface(){
+    toggleInterface() {
         let sign = this.hidden ? 1 : -1
         this.sceneRef.tweens.add({
             targets: this,
@@ -34,70 +34,97 @@ export default class Missions extends Phaser.GameObjects.Container{
         })
     }
 
-    hideInterface(){
+    hideInterface() {
         this.hidden = true
 
         if (this.desplegado) this.animateInterface(this.toggleInterface(1))
         else this.toggleInterface(1)
     }
 
-    showInterface(){
+    showInterface() {
         this.hidden = false
-        console.log("showing")
+        //console.log("showing")
         this.toggleInterface()
     }
 
-    initialiceTexts(){
+    initialiceTexts() {
         let l = this.missionList.length
-        console.log(this.sceneRef)
-        for (let i = 0; i < l; i++){
-            this.missionTexts.push(this.sceneRef.add.bitmapText(
-                CT.xMissionText,
-                CT.yMissionText + i * CT.yMissionOffset,
-                CT.font,
-                this.missionList[i].text,
-                CT.missionTextSize
-            ))
-
-            this.missionTexts[i].setScrollFactor(0)
-            this.missionTexts[i].depth = 100
-
-            this.completedTexts.push(this.sceneRef.add.bitmapText(
-                CT.xMissionText,
-                (CT.yMissionText + CT.ySubMissionTextOffset) + i * CT.yMissionOffset,
-                CT.subFont,
-                (this.missionList[i].completed + "/" + this.missionList[i].total),
-                CT.subMissionTextSize,
-            ))
-
-            this.completedTexts[i].setScrollFactor(0)
-            this.completedTexts[i].depth = 100
+        for (let i = 0; i < l; i++) {
+            this.initialiceText(i)
         }
     }
 
-    resetCompletedTexts(){
-        let l = this.missionList.length
-        for (let i = 0; i < l; i++){
+    initialiceText(i) {
+        this.missionTexts.push(this.sceneRef.add.bitmapText(
+            CT.xMissionText,
+            CT.yMissionText + i * CT.yMissionOffset,
+            CT.font,
+            this.missionList[i].text,
+            CT.missionTextSize
+        ))
+
+        this.missionTexts[i].setScrollFactor(0)
+        this.missionTexts[i].depth = 100
+
+
+        this.completedTexts.push(this.sceneRef.add.bitmapText(
+            CT.xMissionText,
+            (CT.yMissionText + CT.ySubMissionTextOffset) + i * CT.yMissionOffset,
+            CT.subFont,
+            (this.missionList[i].completed + "/" + this.missionList[i].total),
+            CT.subMissionTextSize,
+        ))
+
+        this.completedTexts[i].setScrollFactor(0)
+        this.completedTexts[i].depth = 100
+    }
+
+    resetCompletedTexts() {
+        let l = this.completedTexts.length
+        for (let i = 0; i < l; i++) {
 
             this.completedTexts[i].text = (this.missionList[i].completed + "/" + this.missionList[i].total)
         }
     }
 
-    missionCompleted(missionIndex){
+    allMissionsCompleted() {
+        let length = this.missionList.length;
+        let index = 0;
+        while (index < length) {
+            if (!this.missionCompleted(index)) return false;
+            index++;
+        }
+        return true;
+
+    }
+
+    missionCompleted(missionIndex) {
         return this.missionList[missionIndex].completed === this.missionList[missionIndex].total
     }
 
-    setCompleted(mission){
+    setCompleted(mission) {
         this.missionList[mission].completed++
         console.log("Completada " + this.missionList[mission].completed + " de " + this.missionList[mission].total)
-        //if(this.missionCompleted(mission)) 
+        if (this.allMissionsCompleted()) {
+            this.missionList.push({
+                text: "Misiones terminadas. Vuelve a casa",
+                completed: 0,
+                total: 1,
+            })
+
+            this.initialiceText(this.missionList.length - 1)
+
+            this.add(this.missionTexts)
+
+            this.loadNextDay();
+        }
     }
 
-    setPoints(points, scene){
+    setPoints(points, scene) {
         scene.align.addReputation(points)
     }
 
-    animateInterface(onComplete){
+    animateInterface(onComplete) {
 
         this.resetCompletedTexts()
 
@@ -110,7 +137,7 @@ export default class Missions extends Phaser.GameObjects.Container{
             duration: 150,
             y: this.y + CT.missionOffsetToggle * signo,
             ease: 'Circ',
-            onComplete: () =>{
+            onComplete: () => {
                 this.desplegado = !this.desplegado
                 this.y = !this.desplegado ? this.orign : this.orign - CT.missionOffsetToggle
                 if (this.hidden) this.toggleInterface()
@@ -118,8 +145,12 @@ export default class Missions extends Phaser.GameObjects.Container{
         })
     }
 
-    toggleListInterface(){
+    toggleListInterface() {
 
         if (!this.hidden) this.animateInterface()
+    }
+
+    loadNextDay() {
+       this.sceneRef.changeScene()
     }
 }

@@ -1,3 +1,5 @@
+import Button from '../libraries/button.js';
+
 export default class Menu extends Phaser.Scene {
   constructor() {
     super({ key: 'menu' });
@@ -36,10 +38,31 @@ export default class Menu extends Phaser.Scene {
 
     //Mapa
     this.add.image(640, 400, 'mainMenu');
-    this.playButton = this.add.image(200, 400, 'play').setInteractive();
-    this.playButton.setScale(5);
-    this.controlsButton = this.add.image(200, 525, 'controls').setInteractive();
-    this.controlsButton.setScale(5);
+
+    this.add.image(640, 150, 'menuTittle');
+
+    // this.playButton = new Button({
+    //   x: 200,
+    //   y: 400,
+    //   context: this,
+    //   sprite: 'play',
+    //   scale: 5,
+    //   config: {
+    //     context: this.scene,
+    //     music: this.music,
+    //   },
+    //   function: (config) => {
+    //     if (this.canPlay) {
+    //       config.music.stop();
+    //       config.context.start('day0', {
+    //         objectLayerName: 'Objects',
+    //       });
+    //     }
+    //   }
+    // })
+
+    this.playButton = this.add.image(180, 420, 'play').setInteractive();
+    this.controlsButton = this.add.image(180, 630, 'controls').setInteractive();
 
     this.background = this.add.image(640, 400, 'background');
     this.backButton = this.add.image(1200, 600, 'back').setInteractive();
@@ -48,7 +71,6 @@ export default class Menu extends Phaser.Scene {
     //TODO eliminar escala y coger una imagen mas grande
     this.background.setScale(3);
     this.background.setVisible(false);
-    this.backButton.setScale(5);
     this.backButton.setVisible(false);
     this.controlsImage.setVisible(false);
 

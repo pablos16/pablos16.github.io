@@ -28,8 +28,4 @@ export default class AnimatedText extends Phaser.GameObjects.BitmapText {
         this.timer.remove();
         this.destroy(true)
     }
-
-    preUpdate() {
-        console.log("Texto")
-    }
 }
