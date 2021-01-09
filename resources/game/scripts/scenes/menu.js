@@ -41,69 +41,57 @@ export default class Menu extends Phaser.Scene {
 
     this.add.image(640, 150, 'menuTittle');
 
-    // this.playButton = new Button({
-    //   x: 200,
-    //   y: 400,
-    //   context: this,
-    //   sprite: 'play',
-    //   scale: 5,
-    //   config: {
-    //     context: this.scene,
-    //     music: this.music,
-    //   },
-    //   function: (config) => {
-    //     if (this.canPlay) {
-    //       config.music.stop();
-    //       config.context.start('day0', {
-    //         objectLayerName: 'Objects',
-    //       });
-    //     }
-    //   }
-    // })
+    this.playButton = new Button({
+      x: 180,
+      y: 420,
+      context: this,
+      sprite: 'play',
+      function: () => {
+        if (this.canPlay) {
+          this.music.stop();
+          this.scene.start('day0', {
+            objectLayerName: 'Objects',
+          });
+        }
+      }
+    })
 
-    this.playButton = this.add.image(180, 420, 'play').setInteractive();
-    this.controlsButton = this.add.image(180, 630, 'controls').setInteractive();
+    this.controlsButton = new Button({
+      x: 180,
+      y: 630,
+      context: this,
+      sprite: 'controls',
+      function: () => {
+        this.controlsImage.setVisible(true);
+
+        this.canPlay = false;
+        this.background.setVisible(true);
+        this.backButton.setVisible(true);
+      }
+    })
 
     this.background = this.add.image(640, 400, 'background');
-    this.backButton = this.add.image(1200, 600, 'back').setInteractive();
+
+    this.backButton = new Button({
+      x: 1200,
+      y: 600,
+      context: this,
+      sprite: 'back',
+      function: () => {
+        this.canPlay = true;
+        this.controlsImage.setVisible(false);
+
+        this.background.setVisible(false);
+        this.backButton.setVisible(false);
+      }
+    })
+
     this.controlsImage = this.add.image(640, 400, 'controlsImage');
 
-    //TODO eliminar escala y coger una imagen mas grande
-    this.background.setScale(3);
+    //this.background.setScale(3);
     this.background.setVisible(false);
     this.backButton.setVisible(false);
     this.controlsImage.setVisible(false);
-
-
-    //Si pulsas el botton play
-    this.playButton.on('pointerdown', function () {
-      if (this.canPlay) {
-        this.music.stop();
-        this.scene.start('day0', {
-          objectLayerName: 'Objects',
-        });
-      }
-    }, this);
-
-    //Si pulsas el botton controls
-    this.controlsButton.on('pointerdown', function () {
-      this.controlsImage.setVisible(true);
-
-      this.canPlay = false;
-      this.background.setVisible(true);
-      this.backButton.setVisible(true);
-
-    }, this);
-
-    //Si pulsas el botton de return
-    this.backButton.on('pointerdown', function () {
-      this.canPlay = true;
-      this.controlsImage.setVisible(false);
-
-      this.background.setVisible(false);
-      this.backButton.setVisible(false);
-
-    }, this);
   }
 
   update() {
