@@ -1,14 +1,14 @@
 export default class Trigger extends Phaser.GameObjects.GameObject {
-    constructor(scene, x, y, data) {
-        super(scene, x, y)
+    constructor(data) {
+        super(data.scene, data.x, data.y)
         this.scene.add.existing(this)
 
-        this.trigger = scene.add.zone(x, y);
+        this.trigger = data.scene.add.zone(data.x, data.y);
         this.trigger.setSize(data.xSize, data.ySize);
-        this.scene.physics.world.enable(this.trigger);
+        data.scene.physics.world.enable(this.trigger);
         this.trigger.body.setAllowGravity(false);
-        this.scene.physics.add.existing(this);
-        this.playerRef = scene.player
+        data.scene.physics.add.existing(this);
+        this.playerRef = data.scene.player
 
         this.hasEntered = false;
 

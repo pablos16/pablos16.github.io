@@ -1,5 +1,7 @@
-export default class Tp extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, tpLink, offset){
+import Trigger from '../libraries/trigger.js'
+
+export default class Tp extends Phaser.GameObjects.Sprite {
+    constructor(scene, x, y, tpLink, offset) {
         super(scene, x, y, 'tpImg');
 
         this.scene.add.existing(this);
@@ -24,32 +26,48 @@ export default class Tp extends Phaser.GameObjects.Sprite{
             y: tpLink.y,
         }
 
-        // console.log(tpLink.offset)
-        // console.log("Mi posicion es " + this.x + " " + this.y)
-        // console.log("La otra es:")
-        // console.log(this.link)
 
-        this.scene.physics.add.overlap(scene.player,
-            this.trigger,
-            () => { this.accion(scene); });
+        this.internalTP = new Trigger({
+            x: this.x,
+            y: this.y,
+            scene: scene,
+            xSize: 50,
+            ySize: 50,
+            enter: () => {
+                if (!this.tpThisFrame) this.tp(scene);
+            },
+            exit: () => { this.tpThisFrame = false },
+            stay: () => { },
+        })
+
+        // this.scene.physics.add.overlap(scene.player,
+        //     this.trigger,
+        //     () => { this.accion(scene); });
     }
 
-    preUpdate(){
-        if (!this.tpThisFrame && !this.playerRef.canTp && !this.checkOverlap()){
+
+
+    tp(scene) {
+        this.tpThisFrame = true;
+        this.playerRef.canTp = false;
+        this.playerRef.x = this.link.x
+        this.playerRef.y = this.link.y + this.offset;
+        this.deactivateEveryTp(scene)
+    }
+
+    deactivateEveryTp(scene) {
+       for(const tp of scene.tpList) tp.tpThisFrame = true;
+    }
+
+    preUpdate() {
+        if (!this.tpThisFrame && !this.playerRef.canTp && !this.checkOverlap()) {
             this.playerRef.canTp = true;
         }
 
         if (this.playerRef.canTp && !this.checkOverlap()) this.tpThisFrame = false
     }
 
-    tp(){
-        this.tpThisFrame = true;
-        this.playerRef.canTp = false;
-        this.playerRef.x = this.link.x
-        this.playerRef.y = this.link.y + this.offset;
-    }
-
-    checkOverlap(){
+    checkOverlap() {
 
         var boundsA = this.trigger.getBounds();
         var boundsB = this.playerRef.getBounds();
@@ -58,23 +76,23 @@ export default class Tp extends Phaser.GameObjects.Sprite{
         return Phaser.Geom.Intersects.RectangleToRectangle(boundsA, boundsB);
     }
 
-    accion(scene){
-        if (this.playerRef.canTp){
+    accion(scene) {
+        if (this.playerRef.canTp) {
             scene.tweens.add({
                 targets: this,
                 duration: 250,
                 alpha: 1,
                 ease: 'Circ',
-                onStart: () =>{
+                onStart: () => {
                     this.playerRef.isTalking = true
                 },
-                onComplete: () =>{
+                onComplete: () => {
                     scene.tweens.add({
                         targets: this,
                         duration: 1000,
                         alpha: 0,
                         ease: 'Circ',
-                        onStart: () =>{
+                        onStart: () => {
                             this.tp(scene)
                             this.playerRef.isTalking = false
                         }

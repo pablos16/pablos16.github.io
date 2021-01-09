@@ -61,25 +61,32 @@ export default class Scene extends Phaser.Scene {
         this.mapCastleFoundations = this.map.createStaticLayer('Castle Foundations', tileSetCastle);
         //Mapa - Capa De Objetos
         let mapObjects = this.map.getObjectLayer('Objects').objects;
+        this.tpList = [];
         for (const objeto of mapObjects) {
             const props = {};
             if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
             switch (objeto.name) {
                 case 'Player': //Personaje
                     this.player = new Player(this, objeto.x, objeto.y, Missions);
-                    this.triggerTest = new Trigger(this, objeto.x, objeto.y + 100, {
+                    this.triggerTest = new Trigger({
+                        x: objeto.x,
+                        y: objeto.y + 100,
+                        scene: this,
+                        xSize: 100,
+                        ySize: 100,
                         enter: () => { this.barSound.play() },
                         exit: () => { this.barSound.stop() },
                         stay: () => { },
-                        xSize: 100,
-                        ySize: 100
                     })
-                    this.triggerTest = new Trigger(this, objeto.x + 100, objeto.y + 100, {
+                    this.triggerTest = new Trigger({
+                        x: objeto.x + 100,
+                        y: objeto.y + 100,
+                        scene: this,
+                        xSize: 100,
+                        ySize: 100,
                         enter: () => { this.castle.play()},
                         exit: () => { this.castle.stop() },
                         stay: () => { },
-                        xSize: 100,
-                        ySize: 100
                     })
                     break;
                 case 'Item': //Objetos en el suelo
@@ -100,7 +107,8 @@ export default class Scene extends Phaser.Scene {
                         }
                         it++;
                     }
-                    this.TP = new TPLINK(this, objeto.x, objeto.y, mapObjects[props.tplink], props.offset);
+                    this.tp = new TPLINK(this, objeto.x, objeto.y, mapObjects[props.tplink], props.offset);
+                    this.tpList.push(this.tp);
                     break;
             }
         }
