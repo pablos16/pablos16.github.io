@@ -67,19 +67,25 @@ export default class Scene extends Phaser.Scene {
             switch (objeto.name) {
                 case 'Player': //Personaje
                     this.player = new Player(this, objeto.x, objeto.y, Missions);
-                    this.triggerTest = new Trigger(this, objeto.x, objeto.y + 100, {
+                    this.triggerTest = new Trigger({
+                        x: objeto.x,
+                        y: objeto.y + 100,
+                        scene: this,
+                        xSize: 100,
+                        ySize: 100,
                         enter: () => { this.barSound.play() },
                         exit: () => { this.barSound.stop() },
                         stay: () => { },
-                        xSize: 100,
-                        ySize: 100
                     })
-                    this.triggerTest = new Trigger(this, objeto.x + 100, objeto.y + 100, {
+                    this.triggerTest = new Trigger({
+                        x: objeto.x + 100,
+                        y: objeto.y + 100,
+                        scene: this,
+                        xSize: 100,
+                        ySize: 100,
                         enter: () => { this.castle.play()},
                         exit: () => { this.castle.stop() },
                         stay: () => { },
-                        xSize: 100,
-                        ySize: 100
                     })
                     break;
                 case 'Item': //Objetos en el suelo
