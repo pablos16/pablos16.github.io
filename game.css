@@ -19,6 +19,7 @@ table{
   font-size: 20pt;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
 button{
   color: white;
   background-color: darksalmon;
@@ -29,125 +30,60 @@ button{
 }
 body{
   background-size: cover;
+  margin: 0px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*REVISAR TODO*/
-
-
-
-#session {
-  top:0;
-  padding-top:0;
-  position:relative;
-  margin:0;
-}
-
-
 
 header{
-  overflow: hidden;
-  margin:auto;
-  width:100%;
+  /*Fijamos la barra*/
+    position:fixed;
   
-  height:80px; /*Anchura de la barra*/
-
-  position:fixed; /*Para que la barra se quede fija*/
-  /*eliminar esto de abajo seguramente*/
-  z-index:101; /*Para que la barra se quede fija*/
-  background: #6d5902;  
-  border-bottom: 10px solid #574a00; /*Línea de debajo del menú, si no queréis borrad esta línea*/
+    overflow: hidden;
+    margin:auto;
+    width:100%;
+    /*Anchura*/
+    height:40px; 
   
-}
-
-
-
-/*no quitar este*/
-body{
-  margin: 0px;
-  background-color: rgb(177, 143, 105);
-  font-weight: 500;
-}
-nav > li{
-  float: left;
-}
-nav  li:hover{
-  transform: scale(1.05);
-}
-
-nav{
-  margin:0 auto;
-  width:1000px; /*Ancho del menú dentro de la barra, variaremos este valor hasta conseguir el que buscamos*/
-}
-
-
-nav ul{
-  margin:0;
-  padding: 0;
-  list-style: none ;
-}
-nav li{
+    /*Color de fondo*/
+    background: #6d5902; 
+    /*Linea de abajo*/
+    border-bottom: 5px solid #574a00; 
+    
+  }
   
-  display: inline-block;
+  nav{
+    /*Ajustamos el margen para que este centrado*/
+    margin:0 auto;
+    /*Ancho del menú dentro de la barra*/
+    width:1000px; 
+  }
+
+  nav li{  
+    margin-left: 80px;
+    padding-top: 7px;
   
-  margin-left: 70px;
+    display: inline-block;
+  }  
 
-  padding-top: 20px;
-  /* padding: 20px 20px ; */
-
-  position: relative ;
-}
+/*Para cambiar la letra dentro del header*/
 nav a{
-  color:#2b2b2b;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 125%;                              
-}
-nav a:hover{  
-  color:#133d7a;
+  font-family: Arial, Helvetica, sans-serif, Geneva, Tahoma, sans-serif;
+
+  color:#000000;
+  font-size: 150%;                              
 }
 
+/*Para cambiar el color cuando pones el raton encima*/
+  nav a:hover{  
+    color:#b1b850;
+  }
 
+  nav ul{
+    margin:0;
+    padding: 0;
+    list-style: none ;
+  }
 
-nav li::before{
-  content:'';
-  display: block;
-  height: 150%;
-  width: 0%;
-  /* background-color: rgb(191, 206, 58); */
-  background: linear-gradient(180deg, #9b6707  , #a0850f,  #a0850f);
-  position: absolute;
-  top:90%;  
-  transition: all ease-in-out 150ms;
-}
-
- nav li:hover::before{
-width: 100%;
-
-} 
-.container{
-  width: 80%;
-  margin: 0 auto;
-  
-}
-
-
-
+/*Para modificar los links
 #links{
-    padding: 1em;
-    background-color: rgba(12, 12, 12, 0.836);
 
-}
+}*/
