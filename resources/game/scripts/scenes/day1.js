@@ -12,7 +12,7 @@ import TPLINK from '../characters/tp.js'
 
 export default class Scene extends Phaser.Scene {
     constructor() {
-        super({ key: 'day1' });
+        super({ key: 'day1a' });
     }
     //Aqui te crea todo lo que necesites al inicio para todo el juego
     create() {

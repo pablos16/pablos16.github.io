@@ -13,13 +13,29 @@ import TPLINK from '../characters/tp.js'
 export default class Scene extends Phaser.Scene {
     init(data) {
         this.objectLayerName = data.objectLayerName;
+        this.nextLevel = data.nextLevel;
+        this.points = data.points
     }
 
-    constructor() {
-        super({ key: 'dayTest' });
+    constructor(name) {
+        super({ key: name });
     }
     //Aqui te crea todo lo que necesites al inicio para todo el juego
     create() {
+        console.log("Estamos en el día " + (this.nextLevel-1))
+        console.log("Puntos: "+this.points)
+        //Sonidos de fondo
+        const background = {
+            mute: false,
+            volume: 0.2,
+            rate: 1,
+            detune: 0,
+            seek: 0,
+            loop: true,
+            delay: 0
+        };
+        this.barSound = this.sound.add('bar', background)
+        this.castle = this.sound.add('castle', background)
         //Deshabilitar menú contextual
         this.input.mouse.disableContextMenu();
 
@@ -51,12 +67,17 @@ export default class Scene extends Phaser.Scene {
         this.mapCastleFoundations = this.map.createStaticLayer('Castle Foundations', tileSetCastle);
         //Mapa - Capa De Objetos
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
+        this.tpList = [];
         for (const objeto of mapObjects) {
             const props = {};
             if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
             switch (objeto.name) {
                 case 'Player': //Personaje
                     this.player = new Player(this, objeto.x, objeto.y, Missions);
+                    this.transitionImg = this.add.sprite(CT.transitionX, CT.transitionY, 'tpImg')
+                    this.transitionImg.setScrollFactor(0)
+                    this.transitionImg.depth = 200;
+                    this.transitionImg.setAlpha(0)
                     break;
                 case 'Item': //Objetos en el suelo
                     this.dropped = new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type));
@@ -110,6 +131,30 @@ export default class Scene extends Phaser.Scene {
         this.cameras.main.width = CT.gameWidth;
         this.cameras.main.height = CT.gameHeight;
         this.cameras.main.zoom = CT.cameraZoom;
+
+        //Sonidos
+        const config = {
+            mute: false,
+            volume: 0.5,
+            rate: 1,
+            detune: 0,
+            seek: 0,
+            loop: false,
+            delay: 0
+        };
+        //Añadimos la musica
+        this.dialogSound = this.sound.add('dialogSound', config);
+        this.selection = this.sound.add('selection', config);
+        this.pickItem = this.sound.add('pickup', config);
+        this.align.addReputation(this.points)
+    }
+
+    changeScene() {
+        this.scene.start("day"+this.nextLevel, {
+            objectLayerName: 'Objects',
+            points: this.align.points,
+            nextLevel: this.nextLevel + 1
+        });
     }
 
     update() {

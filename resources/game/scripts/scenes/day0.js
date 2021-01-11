@@ -13,7 +13,7 @@ import Trigger from '../libraries/trigger.js'
 
 export default class Scene extends Phaser.Scene {
     constructor() {
-        super({ key: 'day0' });
+        super({ key: 'day0a' });
     }
     //Aqui te crea todo lo que necesites al inicio para todo el juego
     create() {

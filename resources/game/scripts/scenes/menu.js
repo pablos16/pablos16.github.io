@@ -43,7 +43,7 @@ export default class Menu extends Phaser.Scene {
 
     this.playButton = new Button({
       x: 180,
-      y: 420,
+      y: 420,   
       context: this,
       sprite: 'play',
       function: () => {
@@ -51,6 +51,8 @@ export default class Menu extends Phaser.Scene {
           this.music.stop();
           this.scene.start('day0', {
             objectLayerName: 'Objects',
+            points: 0,
+            nextLevel: 1
           });
         }
       }
