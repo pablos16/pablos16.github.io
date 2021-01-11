@@ -18,7 +18,7 @@ export default class Tp extends Phaser.GameObjects.Sprite {
         }
 
         this.canTp = true;
-        this.pair = this.findTp(scene);
+        this.pair = {};
 
         this.internalTP = new Trigger({
             x: this.x,
@@ -34,7 +34,7 @@ export default class Tp extends Phaser.GameObjects.Sprite {
 
 
     tp(scene) {
-        console.log(this.pair)
+        //console.log(this.pair)
         this.playerRef.x = this.link.x
         this.playerRef.y = this.link.y + this.offset;
         this.tpActivated(scene, false)
