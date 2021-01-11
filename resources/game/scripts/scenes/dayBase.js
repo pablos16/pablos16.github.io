@@ -6,23 +6,23 @@ import Alignment from '../missionSystem/alignment.js';
 import CT from '../../configs/constants.js';
 import Dialog from '../../configs/dialogConfig.js';
 import NPCDialog from '../characters/npcDialog.js';
-import dialogs from '../../dialogs/packedDialogs/dialogs0.js'
-import Missions from '../../missions/missionsDay0.js';
 import TPLINK from '../characters/tp.js'
 
 export default class Scene extends Phaser.Scene {
     init(data) {
-        this.objectLayerName = data.objectLayerName;
-        this.nextLevel = data.nextLevel;
         this.points = data.points
     }
 
-    constructor(name) {
-        super({ key: name });
+    constructor(config) {
+        super({ key: config.key });
+        this.dialogs = config.dialog;
+        this.missions = config.missions;
+        this.objectLayerName = config.objectLayerName;
+        this.nextLevel = config.nextLevel;
     }
     //Aqui te crea todo lo que necesites al inicio para todo el juego
     create() {
-        console.log("Estamos en el día " + (this.nextLevel-1))
+        console.log("Proximo dia " + this.nextLevel)
         console.log("Puntos: "+this.points)
         //Sonidos de fondo
         const background = {
@@ -73,7 +73,7 @@ export default class Scene extends Phaser.Scene {
             if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
             switch (objeto.name) {
                 case 'Player': //Personaje
-                    this.player = new Player(this, objeto.x, objeto.y, Missions);
+                    this.player = new Player(this, objeto.x, objeto.y, this.missions);
                     this.transitionImg = this.add.sprite(CT.transitionX, CT.transitionY, 'tpImg')
                     this.transitionImg.setScrollFactor(0)
                     this.transitionImg.depth = 200;
@@ -86,7 +86,7 @@ export default class Scene extends Phaser.Scene {
                     this.obtacle = new Obstacle(this, objeto.x, objeto.y, props.texture, parseInt(objeto.type));
                     break;
                 case 'Npc': //NPC
-                    this.NPC = new NPCDialog(this, objeto.x, objeto.y, dialogs[props.dialog], props.sprite);
+                    this.NPC = new NPCDialog(this, objeto.x, objeto.y, this.dialogs[props.dialog], props.sprite);
                     break;
                 case 'Tp':
                     let it = 0;
@@ -98,6 +98,7 @@ export default class Scene extends Phaser.Scene {
                         it++;
                     }
                     this.TP = new TPLINK(this, objeto.x, objeto.y, mapObjects[props.tplink], props.offset);
+                    this.tpList.push(this.TP);
                     break;
             }
         }
@@ -150,10 +151,8 @@ export default class Scene extends Phaser.Scene {
     }
 
     changeScene() {
-        this.scene.start("day"+this.nextLevel, {
-            objectLayerName: 'Objects',
+        this.scene.start(this.nextLevel, {
             points: this.align.points,
-            nextLevel: this.nextLevel + 1
         });
     }
 

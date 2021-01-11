@@ -50,9 +50,7 @@ export default class Menu extends Phaser.Scene {
         if (this.canPlay) {
           this.music.stop();
           this.scene.start('day0', {
-            objectLayerName: 'Objects',
             points: 0,
-            nextLevel: 1
           });
         }
       }
