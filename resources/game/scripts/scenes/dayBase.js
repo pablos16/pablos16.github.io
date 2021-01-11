@@ -23,7 +23,7 @@ export default class Scene extends Phaser.Scene {
     //Aqui te crea todo lo que necesites al inicio para todo el juego
     create() {
         console.log("Proximo dia " + this.nextLevel)
-        console.log("Puntos: "+this.points)
+        console.log("Puntos: " + this.points)
         //Sonidos de fondo
         const background = {
             mute: false,
@@ -77,7 +77,6 @@ export default class Scene extends Phaser.Scene {
                     this.transitionImg = this.add.sprite(CT.transitionX, CT.transitionY, 'tpImg')
                     this.transitionImg.setScrollFactor(0)
                     this.transitionImg.depth = 200;
-                    this.transitionImg.setAlpha(0)
                     break;
                 case 'Item': //Objetos en el suelo
                     this.dropped = new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type));
@@ -148,17 +147,47 @@ export default class Scene extends Phaser.Scene {
         this.selection = this.sound.add('selection', config);
         this.pickItem = this.sound.add('pickup', config);
         this.align.addReputation(this.points)
+        this.fadeOut()
     }
 
     changeScene() {
-        this.scene.start(this.nextLevel, {
-            points: this.align.points,
-        });
+        this.fadeIn()
+        this.loadScene(CT.fadeInTime)
     }
 
     update() {
         if (Phaser.Input.Keyboard.JustDown(this.fullScreen)) {
             this.scale.toggleFullscreen()
         }
+    }
+
+    loadScene(delay) {
+
+        this.time.addEvent({
+            callback: () => {
+                this.scene.start(this.nextLevel, {
+                    points: this.align.points,
+                });
+            },
+            delay: delay
+        })
+    }
+
+    fadeIn() {
+        this.tweens.add({
+            targets: this.transitionImg,
+            duration: CT.fadeInTime,
+            alpha: 1,
+            ease: 'Circ',
+        })
+    }
+
+    fadeOut() {
+        this.tweens.add({
+            targets: this.transitionImg,
+            duration: CT.fadeOutTime,
+            alpha: 0,
+            ease: 'Circ',
+        })
     }
 }
