@@ -48,7 +48,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     });
     scene.anims.create({
       key: 'idle',
-      frames: scene.anims.generateFrameNumbers('player', { start: 1, end: 1 }),
+      frames: scene.anims.generateFrameNumbers('player',{ start: 1, end: 1 }),
       frameRate: 7,
       repeat: -1
     });
@@ -135,16 +135,16 @@ export default class Player extends Phaser.GameObjects.Sprite {
     if (this.dirX === 0) {
       //Si esta quieto
       if (this.dirY === 0)
-        this.anims.play('idle', true);
+        this.play('idle', true);
       else if (this.dirY < 0) //arriba
-        this.anims.play('up', true);
+        this.play('up', true);
       else //abajo
-        this.anims.play('down', true);
+        this.play('down', true);
     }
     else if (this.dirX < 0) //izquierda
-      this.anims.play('left', true);
+      this.play('left', true);
     else //derecha
-      this.anims.play('right', true);
+      this.play('right', true);
 
   }
   preUpdate(t, d) {

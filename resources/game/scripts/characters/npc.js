@@ -60,21 +60,15 @@ export default class NPC extends Phaser.GameObjects.Container {
 
   moveUp() {
     this.body.setVelocityY(-50);
-    //this.play('walk', true)
   }
   moveDown() {
     this.body.setVelocityY(50);
-    //this.play('walk', true)
   }
   moveLeft() {
-
     this.body.setVelocityX(-50);
-    //this.spriteImage.play('leftNPC', true)
   }
   moveRight() {
-
     this.body.setVelocityX(50);
-    //this.spriteImage.play('rightNPC', true)
   }
   stopX() {
     this.body.setVelocityX(0);
@@ -83,17 +77,42 @@ export default class NPC extends Phaser.GameObjects.Container {
     this.body.setVelocityY(0);
   }
 
-  stop()
-  {
+  stop() {
     this.stopX()
     this.stopY()
   }
+
+
+
+  checkAnims() {
+    if (this.dirX === 0) {
+      //Si esta quieto
+      if (this.dirY === 0)
+        this.spriteImage.play('idleNPC_' + this.spriteImage.frame.texture.key, true);
+      else if (this.dirY < 0) //arriba
+        this.spriteImage.play('upNPC_' + this.spriteImage.frame.texture.key, true);
+      else //abajo
+        this.spriteImage.play('downNPC_' + this.spriteImage.frame.texture.key, true);
+    }
+    else if (this.dirX < 0) //izquierda
+      this.spriteImage.play('leftNPC_' + this.spriteImage.frame.texture.key, true);
+    else //derecha
+      this.spriteImage.play('rightNPC_' + this.spriteImage.frame.texture.key, true);
+
+  }
+
+
   preUpdate() {
 
     //Movimiento del npc
     if (!this.isTalking) {
       this.moveX(-50, 50);
     }
+
+
+    this.checkAnims();
+
+
   }
 
 }

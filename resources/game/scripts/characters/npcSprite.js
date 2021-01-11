@@ -9,34 +9,61 @@ export default class NPCImage extends Phaser.GameObjects.Sprite {
 
     //this.scene.physics.add.collider(this,scene.player);
 
-    
-    //Animaciones    
-    /*scene.anims.create({
-      key: 'leftNPC',
-      frames: scene.anims.generateFrameNumbers(imageName, { start: 0, end: 3 }),
-      frameRate: 10,
+    //ANIMACIONES    
+    scene.anims.create({
+      key: 'leftNPC_' + imageName,
+      frames: scene.anims.generateFrameNumbers(imageName, { start: 3, end: 5 }),
+      frameRate: 7,
       repeat: -1
     });
 
     scene.anims.create({
-      key: 'turnNPC',
-      frames: [{ key: imageName, frame: 4 }],
-      frameRate: 20,
+      key: 'upNPC_' + imageName,
+      frames: scene.anims.generateFrameNumbers(imageName, { start: 9, end: 11 }),
+      frameRate: 7,
+      repeat: -1
+    });
+    scene.anims.create({
+      key: 'idleNPC_' + imageName,
+      frames: scene.anims.generateFrameNumbers(imageName, { start: 1, end: 1 }),
+      frameRate: 7,
       repeat: -1
     });
 
     scene.anims.create({
-      key: 'rightNPC',
-      frames: scene.anims.generateFrameNumbers(imageName, { start: 5, end: 8 }),
-      frameRate: 10,
+      key: 'downNPC_' + imageName,
+      frames: scene.anims.generateFrameNumbers(imageName, { start: 0, end: 2 }),
+      frameRate: 7,
       repeat: -1
-    });*/
+    });
+    scene.anims.create({
+      key: 'rightNPC_' + imageName,
+      frames: scene.anims.generateFrameNumbers(imageName, { start: 6, end: 8 }),
+      frameRate: 7,
+      repeat: -1
+    });
   }
 
-  preUpdate() {
-    //No estoy seguro
-    super.preUpdate();
+  
+  checkAnims() {
+    if (this.dirX === 0) {
+      //Si esta quieto
+      if (this.dirY === 0)
+        this.anims.play('idle', true);
+      else if (this.dirY < 0) //arriba
+        this.anims.play('up', true);
+      else //abajo
+        this.anims.play('down', true);
+    }
+    else if (this.dirX < 0) //izquierda
+      this.anims.play('left', true);
+    else //derecha
+      this.anims.play('right', true);
+
   }
-  //PreUpdate con las animaciones del sprite
-  //Las animaciones creo que van en la constructora
+
+  preUpdate(t, d) {
+    //Llamamos al super para las animaciones
+    super.preUpdate(t, d);
+  }
 }
