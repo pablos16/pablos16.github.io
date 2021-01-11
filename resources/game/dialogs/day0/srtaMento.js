@@ -40,7 +40,7 @@ const Dialog =
         },
         {
             id: 2,
-            name: Names.Carcelero,
+            name: Names.SrtaMento,
             text: ["¡ERES UN CASCARRABIAS!"],
             state: [
                 {
@@ -53,7 +53,7 @@ const Dialog =
         },
         {
             id: 3,
-            name: Names.Carcelero,
+            name: Names.SrtaMento,
             text: ["A ver que dia me dejas tu ropa","Con tu ropa me pido ser la policia y tu el ladron","..."],
             state: [
                 {
@@ -64,7 +64,7 @@ const Dialog =
         },
         {
             id: 4,
-            name: Names.Carcelero,
+            name: Names.SrtaMento,
             text: ["Eres un rancio!","viejo!","Solo queria jugar un rato"],
             state: [
                 {
