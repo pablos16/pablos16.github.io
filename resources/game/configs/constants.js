@@ -26,6 +26,9 @@ const CT =
 
      transitionY: 100,
      transitionX: 400,
+
+     fadeInTime: 250,
+     fadeOutTime: 250,
 }
 
 export default CT;
