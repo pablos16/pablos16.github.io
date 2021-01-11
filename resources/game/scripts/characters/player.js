@@ -11,10 +11,12 @@ export default class Player extends Phaser.GameObjects.Sprite {
     //this.body.setCollideWorldBounds();
     this.speed = 300;
 
+    //Movimiento
+    this.dirX;
+    this.dirY;
+
     this.isTalking = false;
 
-    //Texto de prueba para comprobar la velocidad del player
-    this.label = this.scene.add.text(10, 10);
 
     //Inventario
     this.inventory = new Inventory();
@@ -33,28 +35,34 @@ export default class Player extends Phaser.GameObjects.Sprite {
     //ANIMACIONES    
     scene.anims.create({
       key: 'left',
-      frames: scene.anims.generateFrameNumbers('player', { start: 4, end: 6 }),
-      frameRate: 10,
+      frames: scene.anims.generateFrameNumbers('player', { start: 3, end: 5 }),
+      frameRate: 7,
       repeat: -1
     });
 
     scene.anims.create({
       key: 'up',
-      frames: scene.anims.generateFrameNumbers('player', { start: 10, end: 12 }),
-      frameRate: 10,
+      frames: scene.anims.generateFrameNumbers('player', { start: 9, end: 11 }),
+      frameRate: 7,
+      repeat: -1
+    });
+    scene.anims.create({
+      key: 'idle',
+      frames: scene.anims.generateFrameNumbers('player', { start: 1, end: 1 }),
+      frameRate: 7,
       repeat: -1
     });
 
     scene.anims.create({
-      key: 'idle',
+      key: 'down',
       frames: scene.anims.generateFrameNumbers('player', { start: 0, end: 2 }),
-      frameRate: 10,
+      frameRate: 7,
       repeat: -1
     });
     scene.anims.create({
       key: 'right',
-      frames: scene.anims.generateFrameNumbers('player', { start: 7, end: 9 }),
-      frameRate: 10,
+      frames: scene.anims.generateFrameNumbers('player', { start: 6, end: 8 }),
+      frameRate: 7,
       repeat: -1
     });
   }
@@ -78,12 +86,30 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   calculateVelocity() {
 
-    let object = { x: this.body.velocity.x, y: this.body.velocity.y }
+
+    this.dirY = 0;
+    this.dirX = 0;
+
+    if (this.cursors.up.isDown) { //arriba
+      this.dirY = -1;
+    }
+    if (this.cursors.down.isDown) { //abajo
+      this.dirY = 1;
+    }
+    if (this.cursors.left.isDown) { //izquierda
+      this.dirX = -1;
+    }
+    if (this.cursors.right.isDown) { //derecha
+      this.dirX = 1;
+    }
+
+    let object = { x: this.dirX, y: this.dirY }
 
     normalizeVector(object);
 
     this.body.setVelocityX(object.x * this.speed);
     this.body.setVelocityY(object.y * this.speed);
+
   }
 
   verticalMove(dir) {
@@ -98,44 +124,43 @@ export default class Player extends Phaser.GameObjects.Sprite {
   }
 
   stopX() {
-    this.body.setVelocityX(0);
+    this.dirX = this.body.setVelocityX(0);
   }
 
   stopY() {
-    this.body.setVelocityY(0);
+    this.dirY = this.body.setVelocityY(0);
   }
 
-  preUpdate() {
+  checkAnims() {
+    if (this.dirX === 0) {
+      //Si esta quieto
+      if (this.dirY === 0)
+        this.anims.play('idle', true);
+      else if (this.dirY < 0) //arriba
+        this.anims.play('up', true);
+      else //abajo
+        this.anims.play('down', true);
+    }
+    else if (this.dirX < 0) //izquierda
+      this.anims.play('left', true);
+    else //derecha
+      this.anims.play('right', true);
 
-    this.play('idle', true);
+  }
+  preUpdate(t, d) {
+    super.preUpdate(t, d);
 
     //Al principio de cada preUpdate, el Player se para
     this.stopX()
     this.stopY()
 
+
     if (!this.isTalking) {
-
-      //Movimiento horizontal
-      if (this.cursors.left.isDown) {
-        this.horizontalMove(-1);
-        this.play('left');
-      }
-      else if (this.cursors.right.isDown) {
-        this.horizontalMove(1);
-        this.play('right');
-      }
-
-      //Movimiento vertical        
-      if (this.cursors.up.isDown) {
-        this.verticalMove(-1);
-        this.play('up');
-      }
-      else if (this.cursors.down.isDown) this.verticalMove(1);
 
       this.calculateVelocity()
 
-      //Escribe en pantalla el vector
-      this.label.text = this.body.velocity.x + '   ' + this.body.velocity.y;
+      this.checkAnims();
+
     }
   }
 }
