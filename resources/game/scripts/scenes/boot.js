@@ -88,6 +88,7 @@ export default class Boot extends Phaser.Scene{
     //Musica
     this.load.audio('bar', 'resources/game/sounds/bar.mp3');
     this.load.audio('castle', 'resources/game/sounds/castle.wav');
+    this.load.audio('bosqueMina', 'resources/game/sounds/bosqueMina.wav');
 
     //Efectos de sonido
     this.load.audio('dialogSound', 'resources/game/sounds/dialog/blip.wav')
@@ -95,7 +96,7 @@ export default class Boot extends Phaser.Scene{
     this.load.audio('pickup', 'resources/game/sounds/inventory/pickup.wav')
 
     //Menu
-    this.load.audio('backgroundMenu', 'resources/game/sounds/Dark Fantasy Studio- Knight song.wav');
+    this.load.audio('backgroundMenu', 'resources/game/sounds/backgroundMenu.wav');
   }
 
   create() { this.scene.start('menu'); }
