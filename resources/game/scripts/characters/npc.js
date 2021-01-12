@@ -71,7 +71,6 @@ export default class NPC extends Phaser.GameObjects.Container {
       this.stop();
       this.theScene.time.addEvent({
         callback: () => {
-          console.log("callback")
           this.changinPath = false;
           this.nextPath();
         },
@@ -84,7 +83,6 @@ export default class NPC extends Phaser.GameObjects.Container {
   nextPath() {
     this.currentPath++;
     if (this.currentPath >= this.path.length) this.currentPath = 0
-    console.log("Ha cambiado a " + this.currentPath)
   }
 
   pathReached() {
@@ -172,7 +170,7 @@ export default class NPC extends Phaser.GameObjects.Container {
     //   this.moveX(-50, 50);
     // }
 
-    this.makePath()
+    if(!this.isTalking)this.makePath()
     this.checkAnims();
   }
 

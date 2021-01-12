@@ -16,7 +16,7 @@ export default class Missions extends Phaser.GameObjects.Container {
         this.orign = this.y
         this.missionTexts = []
         this.completedTexts = []
-        this.initialiceTexts()
+        //this.initialiceTexts()
         this.hidden = false;
 
         this.add(this.img)

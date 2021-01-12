@@ -99,15 +99,15 @@ const Dialog =
         {
             id: -1,
             callback: (data) => {
-                data.context.tweens.add({
-                    targets: data.context.transitionImg,
+                data.scene.tweens.add({
+                    targets: data.scene.transitionImg,
                     duration: 500,
                     alpha: 1,
                     ease: 'Circ',
                     onComplete: () => {
                         data.npc.destroy(true)
-                        data.context.tweens.add({
-                            targets: data.context.transitionImg,
+                        data.scene.tweens.add({
+                            targets: data.scene.transitionImg,
                             duration: 1500,
                             alpha: 0,
                             ease: 'Circ',

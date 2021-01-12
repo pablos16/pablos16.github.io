@@ -51,21 +51,21 @@ const Dialog =
             name: Names.Dictator,
             text: ["¿Todo claro?"],
             options:
-            [
-                {
-                    text: "Emm...¿Puedes volver a repetir?",
-                    nextIndex: 5,
-                },
-                {
-                    text: "Entendido",
-                    nextIndex: 6,
-                }
-            ],
+                [
+                    {
+                        text: "Emm...¿Puedes volver a repetir?",
+                        nextIndex: 5,
+                    },
+                    {
+                        text: "Entendido",
+                        nextIndex: 6,
+                    }
+                ],
         },
         {
             id: 5,
             name: Names.Dictator,
-            text: ["Veo que no eres un policia de muchas luces","Hoy no estás muy espabilado por lo que veo"],
+            text: ["Veo que no eres un policia de muchas luces", "Hoy no estás muy espabilado por lo que veo"],
             state: [
                 {
                     targetState: ["any"],
@@ -76,11 +76,16 @@ const Dialog =
         {
             id: 6,
             name: Names.Dictator,
+            callback: (data) => {
+                data.scene.player.missionList.initialiceTexts();
+                data.scene.player.missionList.add(data.scene.player.missionList.missionTexts)
+                data.scene.player.missionList.add(data.scene.player.missionList.completedTexts)
+            },
             text: ["Perfecto. Pues ve y conoce a la gente del pueblo. No te sorprendas, aquí la gente se comporta muy extraño. Mucha suerte"],
             state: [
                 {
                     targetState: ["any"],
-                    nextState:1,
+                    nextState: 1,
                     nextIndex: -1
                 },
             ]
@@ -88,7 +93,7 @@ const Dialog =
         {
             id: 7,
             name: Names.Dictator,
-            text: ["Cuando acabes de hablar con todos puedes irte a tu casa a descansar","Si hablan mal de mi me lo dices eh","Espero que no me falles"],
+            text: ["Cuando acabes de hablar con todos puedes irte a tu casa a descansar", "Si hablan mal de mi me lo dices eh", "Espero que no me falles"],
             state: [
                 {
                     targetState: ["any"],
