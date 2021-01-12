@@ -4,22 +4,28 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.Tabernero,
-            text: ["..."],
+            name: Names.Dictator,
+            text: ["Muy buenas novato, aquí te dejo las misiones que tienes que hacer hoy. Espero que no me defraudes"],
             state: [
                 {
                     targetState: ["any"],
                     nextIndex: 1
-                }
+                },
             ]
         },
         {
             id: 1,
             name: Names.Police,
-            text: ["(¿Ya va borracho a estas horas del dia?)"],
-            state: [
+            text: ["(Vamos a empezar el primer dia oficial con alegria)"],
+            options:
+            [
                 {
-                    targetState: ["any"],
+                    text: "A su merced",
+                    nextState: 1,
+                    nextIndex: -1
+                },
+                {
+                    text: "¡Por el reino!",
                     nextState: 1,
                     nextIndex: -1
                 }
@@ -27,16 +33,13 @@ const Dialog =
         },
         {
             id: 2,
-            name: Names.Tabernero,
-            text:
-                [
-                    "...", "*Burp*"
-                ],
+            name: Names.Dictator,
+            text: ["Cuando acabes todas las misiones puedes irte a casa, lo que hagas el resto del dia me da igual","Deja de perder el tiempo y ponte a trabajar"],
             state: [
                 {
                     targetState: ["any"],
                     nextIndex: -1
-                }
+                },
             ]
         },
         {

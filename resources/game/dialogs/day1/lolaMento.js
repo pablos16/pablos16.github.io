@@ -16,7 +16,7 @@ const Dialog =
         {
             id: 1,
             name: Names.Police,
-            text: ["Buenas Lola, solo vengo a hablar...que tal os llevais con Relith?"],
+            text: ["Buenas Lola, solo vengo a hablar...¿Qué tal os llevais con Relith?"],
             state: [
                 {
                     targetState: ["any"],
@@ -27,7 +27,7 @@ const Dialog =
         {
             id: 2,
             name: Names.Lola,
-            text: ["A ver cielo, pues se lleva, que no es poco,tiene cosas buenas como la buena gestion y el proteccionismo, pero ya no se sí reir o llorar. Al inicio mejor...pero es que llega un punto..."],
+            text: ["A ver cielo, pues se lleva, que no es poco, tiene cosas buenas como la buena gestion y el proteccionismo, pero ya no se sí reir o llorar. Al inicio mejor...pero es que llega un punto..."],
             state: [
                 {
                     targetState: ["any"],
@@ -38,7 +38,7 @@ const Dialog =
         {
             id: 3,
             name: Names.Lola,
-            text: ["Estoy HARTA de sus normas de mierda.Nadie puede circular por la noche pero él sí.Nadie puede decir una critica constructiva o se va a la carcel."],
+            text: ["Estoy HARTA de sus normas nefastas. Nadie puede circular por la noche pero él sí.Nadie puede decir una critica constructiva o se va a la carcel."],
             state: [
                 {
                     targetState: ["any"],

@@ -4,39 +4,36 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.Tabernero,
-            text: ["..."],
+            name: Names.Sona,
+            text: ["¿Eres un policia?"],
             state: [
                 {
                     targetState: ["any"],
                     nextIndex: 1
-                }
+                },
             ]
         },
         {
             id: 1,
-            name: Names.Police,
-            text: ["(¿Ya va borracho a estas horas del dia?)"],
+            name: Names.Sona,
+            text: ["ME ENCANTAN LOS POLICIAS"],
             state: [
                 {
                     targetState: ["any"],
                     nextState: 1,
                     nextIndex: -1
-                }
+                },
             ],
         },
         {
             id: 2,
-            name: Names.Tabernero,
-            text:
-                [
-                    "...", "*Burp*"
-                ],
+            name: Names.Sona,
+            text: ["Pium Pium","Manos arriba!"],
             state: [
                 {
                     targetState: ["any"],
                     nextIndex: -1
-                }
+                },
             ]
         },
         {
