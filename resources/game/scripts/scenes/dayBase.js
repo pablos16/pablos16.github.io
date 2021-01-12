@@ -94,7 +94,6 @@ export default class Scene extends Phaser.Scene {
 
                     })
 
-                    new NPCDialog(this, objeto.x - 75, objeto.y - 75, this.dialogs.tabernero, 'tabernero')
                     break;
                 case 'Item': //Objetos en el suelo
                     this.dropped = new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type));
@@ -114,7 +113,7 @@ export default class Scene extends Phaser.Scene {
                         }
                         it++;
                     }
-                    this.TP = new TPLINK(this, objeto.x, objeto.y, mapObjects[props.tplink], props.offset);
+                    this.TP = new TPLINK(this, objeto.x, objeto.y, mapObjects[props.tplink], props.offset, objeto.width, objeto.height);
                     this.tpList.push(this.TP);
                     break;
                 case 'Music':
