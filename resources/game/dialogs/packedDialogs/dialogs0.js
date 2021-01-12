@@ -7,6 +7,7 @@ import carcelero from '../day0/carcelero.js'
 import srtaMento from '../day0/srtaMento.js'
 import embajadora from '../day0/Embajadora.js'
 import srtaEmbajadora from '../day0/srtaEmbajadora.js'
+import coronel from '../day0/coronel.js'
 
 //Estos nombres son los que hay que poner en tiled
 const dialogs = 
@@ -19,7 +20,8 @@ const dialogs =
     carcelero,
     srtaMento,
     embajadora,
-    srtaEmbajadora
+    srtaEmbajadora,
+    coronel
 }
 
 export default dialogs
