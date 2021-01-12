@@ -1,13 +1,14 @@
 import tabernera from '../day0/tabernera.js'
 import tabernero from '../day0/tabernero.js'
 import leandro from '../day0/leandroGado.js'
-import paca from '../day0/PacaGarte.js'
+import paca from '../day0/pacaGarte.js'
 import loco from '../day0/loco.js'
 import carcelero from '../day0/carcelero.js'
 import srtaMento from '../day0/srtaMento.js'
-import embajadora from '../day0/Embajadora.js'
+import embajadora from '../day0/embajadora.js'
 import srtaEmbajadora from '../day0/srtaEmbajadora.js'
 import coronel from '../day0/coronel.js'
+import dictador from '../day0/dictador.js'
 
 //Estos nombres son los que hay que poner en tiled
 const dialogs = 
@@ -21,7 +22,8 @@ const dialogs =
     srtaMento,
     embajadora,
     srtaEmbajadora,
-    coronel
+    coronel,
+    dictador
 }
 
 export default dialogs
