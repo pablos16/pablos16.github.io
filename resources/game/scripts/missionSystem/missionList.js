@@ -17,6 +17,7 @@ export default class Missions extends Phaser.GameObjects.Container {
         this.missionTexts = []
         this.completedTexts = []
         //this.initialiceTexts()
+        this.addText("Sal fuera", false)
         this.hidden = false;
 
         this.add(this.img)
@@ -50,16 +51,29 @@ export default class Missions extends Phaser.GameObjects.Container {
     initialiceTexts() {
         let l = this.missionList.length
         for (let i = 0; i < l; i++) {
-            this.initialiceText(i)
+            this.addText(this.missionList[i].text, true)
         }
     }
 
-    initialiceText(i) {
+    deleteAt(index) {
+        this.missionTexts[index].destroy(true)
+        this.completedTexts[index].destroy(true)
+        this.missionTexts.splice(index, 1)
+        this.completedTexts.splice(index, 1)
+    }
+
+    deleteAll()
+    {
+        while(this.missionTexts.length !== 0) this.deleteAt(0)
+    }
+
+    addText(text, hasNum) {
+        let i = this.missionTexts.length;
         this.missionTexts.push(this.sceneRef.add.bitmapText(
             CT.xMissionText,
             CT.yMissionText + i * CT.yMissionOffset,
             CT.font,
-            this.missionList[i].text,
+            text,
             CT.missionTextSize
         ))
 
@@ -71,7 +85,7 @@ export default class Missions extends Phaser.GameObjects.Container {
             CT.xMissionText,
             (CT.yMissionText + CT.ySubMissionTextOffset) + i * CT.yMissionOffset,
             CT.subFont,
-            (this.missionList[i].completed + "/" + this.missionList[i].total),
+            hasNum ? (this.missionList[i].completed + "/" + this.missionList[i].total) : ' ',
             CT.subMissionTextSize,
         ))
 
@@ -83,6 +97,7 @@ export default class Missions extends Phaser.GameObjects.Container {
         let l = this.completedTexts.length
         for (let i = 0; i < l; i++) {
 
+            if (this.completedTexts[i].text === ' ') continue;
             this.completedTexts[i].text = (this.missionList[i].completed + "/" + this.missionList[i].total)
         }
     }
@@ -112,7 +127,7 @@ export default class Missions extends Phaser.GameObjects.Container {
                 total: 1,
             })
 
-            this.initialiceText(this.missionList.length - 1)
+            this.addText(this.missionList.length - 1)
 
             this.add(this.missionTexts)
 
@@ -151,6 +166,6 @@ export default class Missions extends Phaser.GameObjects.Container {
     }
 
     loadNextDay() {
-       this.sceneRef.changeScene()
+        this.sceneRef.changeScene()
     }
 }
