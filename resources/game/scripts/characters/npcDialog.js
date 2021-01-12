@@ -63,7 +63,7 @@ export default class NPCDialog extends NPC {
             this.currentDialog().callback(
                 {
                     npc: this, 
-                    context: scene
+                    scene: scene
                 });
         }
     }
