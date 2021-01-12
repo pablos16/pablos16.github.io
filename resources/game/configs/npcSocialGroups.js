@@ -37,7 +37,8 @@ const SocialStatePeople=
         name: SocialStateName.Dictador,
         peopleIn:
         [
-           Names.Dictator
+           Names.Dictator,
+           Names.Coronel
         ]
     },
     {

@@ -1,6 +1,5 @@
 import NPCImage from './npcSprite.js';
 import PathNode from '../libraries/pathNode.js'
-import { loop } from "../libraries/mathFunc.js";
 
 export default class NPC extends Phaser.GameObjects.Container {
   constructor(scene, x, y, npcImage) {
@@ -9,7 +8,6 @@ export default class NPC extends Phaser.GameObjects.Container {
 
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
-    //this.body.setCollideWorldBounds();
 
     //Trigger del container
     this.trigger = scene.add.zone(0, 0);
@@ -56,6 +54,9 @@ export default class NPC extends Phaser.GameObjects.Container {
       () => {
         this.accion(scene);
       });
+
+    this.dirX;
+    this.dirY;
   }
 
   makePath() {
@@ -101,11 +102,9 @@ export default class NPC extends Phaser.GameObjects.Container {
 
     if (this.body.position.x >= this.initialPosX + right) {
       this.moveLeft();
-      this.spriteImage.setFlipX(true);
     }
     else if (this.body.position.x <= this.initialPosX + left) {
       this.moveRight()
-      this.spriteImage.setFlipX(false);
     }
   }
   moveY(top, down) {
@@ -120,21 +119,27 @@ export default class NPC extends Phaser.GameObjects.Container {
   }
 
   moveUp() {
+    this.dirY = -1;
     this.body.setVelocityY(-50);
   }
   moveDown() {
-    this.body.setVelocityY(50);
+    this.dirY = 1;
+    this.dirY = this.body.setVelocityY(50);
   }
   moveLeft() {
+    this.dirX = -1;
     this.body.setVelocityX(-50);
   }
   moveRight() {
+    this.dirX = 1;
     this.body.setVelocityX(50);
   }
   stopX() {
+    this.dirX = 0;
     this.body.setVelocityX(0);
   }
   stopY() {
+    this.dirY = 0;
     this.body.setVelocityY(0);
   }
 
@@ -142,8 +147,6 @@ export default class NPC extends Phaser.GameObjects.Container {
     this.stopX()
     this.stopY()
   }
-
-
 
   checkAnims() {
     if (this.dirX === 0) {
@@ -162,7 +165,6 @@ export default class NPC extends Phaser.GameObjects.Container {
 
   }
 
-
   preUpdate() {
 
     //Movimiento del npc
@@ -172,8 +174,6 @@ export default class NPC extends Phaser.GameObjects.Container {
 
     this.makePath()
     this.checkAnims();
-
-
   }
 
 }
