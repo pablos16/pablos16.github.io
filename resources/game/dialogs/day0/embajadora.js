@@ -31,23 +31,22 @@ const Dialog =
             options:
             [
                 {
-                    text: "Emm...claro claro",
+                    text: "Emm...claro claro.",
                     nextIndex: 3,
                     completed:0,
                     points: 5
                 },
                 {
-                    text: "Bueno...estaremos en contacto",
+                    text: "Bueno...estaremos en contacto.",
                     nextIndex: 3,
                     completed:0,
                     points: 0
                 },
                 {
-                    text: "Por supuesto, no lo dudes!",
+                    text: "¡Por supuesto, no lo dudes!",
                     nextIndex: 3,
                     completed:0,
                     points:-10
-                    
                 }
             ],
         },

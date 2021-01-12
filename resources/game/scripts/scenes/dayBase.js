@@ -7,6 +7,7 @@ import CT from '../../configs/constants.js';
 import Dialog from '../../configs/dialogConfig.js';
 import NPCDialog from '../characters/npcDialog.js';
 import TPLINK from '../characters/tp.js'
+import Trigger from '../libraries/trigger.js'
 
 export default class Scene extends Phaser.Scene {
     init(data) {
@@ -77,6 +78,24 @@ export default class Scene extends Phaser.Scene {
                     this.transitionImg = this.add.sprite(CT.transitionX, CT.transitionY, 'tpImg')
                     this.transitionImg.setScrollFactor(0)
                     this.transitionImg.depth = 200;
+                    new Trigger({
+                        x: objeto.x,
+                        y: objeto.y,
+                        scene: this,
+                        xSize: 100,
+                        ySize: 100,
+                        enter: () => {
+                            if(this.player.missionList.allMissionsCompleted())
+                            {
+                                this.changeScene()
+                            }
+                        },
+                        exit: () => {},
+                        stay: () => {},
+
+                    })
+
+                    new NPCDialog(this, objeto.x - 75, objeto.y - 75, this.dialogs.tabernero, 'tabernero')
                     break;
                 case 'Item': //Objetos en el suelo
                     this.dropped = new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type));

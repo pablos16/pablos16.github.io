@@ -20,8 +20,8 @@ export default class Missions extends Phaser.GameObjects.Container {
         this.hidden = false;
 
         this.add(this.img)
-        this.add(this.missionTexts)
-        this.add(this.completedTexts)
+        this.removeFromThis()
+        this.reAdd()
     }
 
     toggleInterface() {
@@ -78,6 +78,7 @@ export default class Missions extends Phaser.GameObjects.Container {
     }
 
     addText(text, hasNum) {
+        this.removeFromThis()
         let i = this.missionTexts.length;
         this.missionTexts.push(this.sceneRef.add.bitmapText(
             CT.xMissionText,
@@ -101,6 +102,8 @@ export default class Missions extends Phaser.GameObjects.Container {
 
         this.completedTexts[i].setScrollFactor(0)
         this.completedTexts[i].depth = 100
+
+        this.reAdd()
     }
 
     resetCompletedTexts() {
@@ -131,18 +134,29 @@ export default class Missions extends Phaser.GameObjects.Container {
         this.missionList[mission].completed++
         console.log("Completada " + this.missionList[mission].completed + " de " + this.missionList[mission].total)
         if (this.allMissionsCompleted()) {
-            this.missionList.push({
-                text: "Misiones terminadas. Vuelve a casa",
-                completed: 0,
-                total: 1,
-            })
+            if (this.missionList.length >= 5) this.deleteFirst()
+            this.addText("Misiones terminadas. Vuelve a casa", false)
 
-            this.addText(this.missionList.length - 1)
-
-            this.add(this.missionTexts)
-
-            this.loadNextDay();
+            //this.loadNextDay();
         }
+    }
+
+    deleteFirst() {
+        this.deleteAt(0)
+        this.resetHeightText()
+    }
+
+    resetHeightText() {
+        let i = 0;
+        this.missionTexts.forEach(element => {
+            element.y = CT.yMissionText + i * CT.yMissionOffset
+            i++;
+        });
+        i = 0;
+        this.completedTexts.forEach(element => {
+            element.y = (CT.yMissionText + CT.ySubMissionTextOffset) + i * CT.yMissionOffset
+            i++;
+        });
     }
 
     setPoints(points, scene) {
