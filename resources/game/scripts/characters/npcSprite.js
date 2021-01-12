@@ -47,22 +47,6 @@ export default class NPCImage extends Phaser.GameObjects.Sprite {
   }
 
   
-  checkAnims() {
-    if (this.dirX === 0) {
-      //Si esta quieto
-      if (this.dirY === 0)
-        this.anims.play('idle', true);
-      else if (this.dirY < 0) //arriba
-        this.anims.play('up', true);
-      else //abajo
-        this.anims.play('down', true);
-    }
-    else if (this.dirX < 0) //izquierda
-      this.anims.play('left', true);
-    else //derecha
-      this.anims.play('right', true);
-
-  }
 
   preUpdate(t, d) {
     //Llamamos al super para las animaciones

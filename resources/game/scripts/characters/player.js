@@ -112,17 +112,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   }
 
-  verticalMove(dir) {
-    this.body.setVelocityY(dir);
-    //this.play('walk', true)
-  }
-
-  horizontalMove(dir) {
-    //this.setFlipX(dir === -1)
-    this.body.setVelocityX(dir);
-    //this.play('walk', true)
-  }
-
   stopX() {
     this.dirX = this.body.setVelocityX(0);
   }
