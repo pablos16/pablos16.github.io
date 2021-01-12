@@ -89,7 +89,7 @@ export default class Boot extends Phaser.Scene{
     this.load.audio('bar', 'resources/game/sounds/bar.mp3');
     this.load.audio('castle', 'resources/game/sounds/castle.wav');
     this.load.audio('pueblo', 'resources/game/sounds/pueblo.wav');
-    this.load.audio('bosqueMina', 'resources/game/sounds/bosqueMina.wav');
+    this.load.audio('casa', 'resources/game/sounds/casa.wav');
 
     //Efectos de sonido
     this.load.audio('dialogSound', 'resources/game/sounds/dialog/blip.wav')
