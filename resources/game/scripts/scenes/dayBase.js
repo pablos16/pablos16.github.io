@@ -35,8 +35,8 @@ export default class Scene extends Phaser.Scene {
             loop: true,
             delay: 0
         };
-        this.barSound = this.sound.add('bar', background)
-        this.castle = this.sound.add('castle', background)
+        //this.barSound = this.sound.add('bar', background)
+        //this.castle = this.sound.add('castle', background)
         //Deshabilitar menú contextual
         this.input.mouse.disableContextMenu();
 
@@ -85,13 +85,12 @@ export default class Scene extends Phaser.Scene {
                         xSize: 100,
                         ySize: 100,
                         enter: () => {
-                            if(this.player.missionList.allMissionsCompleted())
-                            {
+                            if (this.player.missionList.allMissionsCompleted()) {
                                 this.changeScene()
                             }
                         },
-                        exit: () => {},
-                        stay: () => {},
+                        exit: () => { },
+                        stay: () => { },
 
                     })
 
@@ -117,6 +116,20 @@ export default class Scene extends Phaser.Scene {
                     }
                     this.TP = new TPLINK(this, objeto.x, objeto.y, mapObjects[props.tplink], props.offset);
                     this.tpList.push(this.TP);
+                    break;
+                case 'Music':
+                    this[props.music] = this.sound.add(props.music, background)
+
+                    new Trigger({
+                        x: objeto.x,
+                        y: objeto.y,
+                        scene: this,
+                        xSize: objeto.width,
+                        ySize: objeto.height,
+                        enter: () => { this[props.music].play() },
+                        exit: () => { this[props.music].stop() },
+                        stay: () => { },
+                    })
                     break;
             }
         }
