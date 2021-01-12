@@ -5,7 +5,7 @@ const Dialog =
         {
             id: 0,
             name: Names.Tabernera,
-            text: ["Tú debes de ser el nuevo policía que ha venido a sustituir al antiguo. Espero que no te pase lo mismo que a él JAJAJA Mejor no preguntes. Quieres una birra? Son 2 pavos"],
+            text: ["Tú debes de ser el nuevo policía que ha venido a sustituir al antiguo. Supongo que estarás haciendo el protocolo de hablar con todos como siempre. ¿Quieres una birra? Son 2 pavos"],
             state: [
                 {
                     targetState: ["any"],
@@ -20,17 +20,17 @@ const Dialog =
             options:
             [
                 {
-                    text: "¿2 pavos? No gracias",
+                    text: "¿2 pavos? No gracias.",
                     nextIndex: 2,
                     points:-20
                 },
                 {
-                    text: "Si me lo sirves tú, encantado",
+                    text: "Si me lo sirves tú, encantado.",
                     nextIndex: 3,
                     points:15
                 },
                 {
-                    text: "Venga Vale",
+                    text: "Venga Vale.",
                     nextIndex: 4,
                     points:5
                 }
@@ -39,7 +39,7 @@ const Dialog =
         {
             id: 2,
             name: Names.Tabernera,
-            text: ["Madre mía, has tenido un mal día?Como seas así en el pueblo vas a durar 3 días contados...mucha suerte canalla, la vas a necesitar"],
+            text: ["Madre mía, has tenido un mal día?Como seas así en el pueblo vas a durar 3 días contados...mucha suerte canalla, la vas a necesitar."],
             state: [
                 {
                     targetState: ["any"],
@@ -52,7 +52,19 @@ const Dialog =
         {
             id: 3,
             name: Names.Tabernera,
-            text: ["Uhh, que lanzado. Me gusta tu iniciativa, pero estoy casado con el borracho que tienes ahí en frente cielo.Aquí tienes tu cerveza. Mucha suerte en este sitio."],
+            text: ["Uhh, que lanzado. Me gusta tu iniciativa, pero estoy casado con el borracho que tienes ahí en frente cielo. Aquí tienes tu cerveza. Mucha suerte en este sitio."],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextIndex: 6
+                },
+            ],
+
+        },
+        {
+            id: 6,
+            name: Names.Tabernera,
+            text: ["Espero que no te pase lo mismo que le ocurrio al otro policia...se te ve buen chaval."],
             state: [
                 {
                     targetState: ["any"],
@@ -66,7 +78,7 @@ const Dialog =
         {
             id: 4,
             name: Names.Tabernera,
-            text: ["Aqui tienes cielo, mucha suerte por aquí, la vas a necesitar"],
+            text: ["Aqui tienes cielo, mucha suerte por aquí, la vas a necesitar."],
             state: [
                 {
                     targetState: ["any"],
@@ -79,7 +91,7 @@ const Dialog =
         {
             id: 5,
             name: Names.Tabernera,
-            text: ["Estoy ocupado cielo, ¿Podrías volver luego?"],
+            text: ["Estoy ocupado cielo, ¿Podrías volver luego?","Aprovecha y conoce a todos que aqui todos somos muy agradables."],
             state: [
                 {
                     targetState:["any"],

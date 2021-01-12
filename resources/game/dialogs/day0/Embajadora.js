@@ -5,7 +5,18 @@ const Dialog =
         {
             id: 0,
             name: Names.Embajadora,
-            text: ["Uy! Tu eres el nuevo Policía no? Recuerda que estoy de tu parte eh,mi marido apoya lealmente al dictador, y espero que tú tambien a nosotros."],
+            text: ["Uy! ¿Tú eres el nuevo Policía no? Recuerda que estoy de tu parte eh,mi marido apoya lealmente al dictador, y espero que tú tambien a nosotros."],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextIndex: 1
+                },
+            ]
+        },
+        {
+            id: 0,
+            name: Names.Embajadora,
+            text: ["Yo soy la embajadora del pueblo. Mi marido tiene una tienda de empeños justo aquí, así que ya sabes a donde ir si necesitas algo."],
             state: [
                 {
                     targetState: ["any"],

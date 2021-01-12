@@ -5,7 +5,7 @@ const Dialog =
         {
             id: 0,
             name: Names.Paca,
-            text: ["No te molestes en hablarme, ya se quién eres y no quiero más problemas.Haz el favor de dejarme en paz."],
+            text: ["No te molestes en hablarme, ya se quién eres y no quiero más problemas. Haz el favor de dejarme en paz."],
             state: [
                 {
                     targetState: ["any"],

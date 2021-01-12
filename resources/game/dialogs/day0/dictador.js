@@ -5,7 +5,7 @@ const Dialog =
         {
             id: 0,
             name: Names.Dictator,
-            text: ["Buenos días nuevo. Me llamo Reltih, y como ya prometiste debes obedecerme y dar todo por tu dictador."],
+            text: ["Buenos días nuevo. Me llamo Reltih, y como ya prometiste espero que des el máximo en ayudarme a que la dictadura siga en pie."],
             state: [
                 {
                     targetState: ["any"],
@@ -38,7 +38,7 @@ const Dialog =
         {
             id: 3,
             name: Names.Dictator,
-            text: ["Una vez acabes las misiones puedes irte a casa a descansar. Ya te daré al dia siguiente las nuevas misiones"],
+            text: ["Una vez acabes las misiones puedes irte a casa a descansar. Ya te daré al dia siguiente las nuevas misiones."],
             state: [
                 {
                     targetState: ["any"],
@@ -65,7 +65,7 @@ const Dialog =
         {
             id: 5,
             name: Names.Dictator,
-            text: ["Veo que no eres un policia de muchas luces","Hoy no estás muy espabilado por lo que veo"],
+            text: ["Veo que no eres un policia de muchas luces.","Hoy no estás muy espabilado por lo que veo."],
             state: [
                 {
                     targetState: ["any"],
@@ -76,7 +76,7 @@ const Dialog =
         {
             id: 6,
             name: Names.Dictator,
-            text: ["Perfecto. Pues ve y conoce a la gente del pueblo. No te sorprendas, aquí la gente se comporta muy extraño. Mucha suerte"],
+            text: ["Perfecto. Pues ve y conoce a la gente del pueblo. No te sorprendas, aquí la gente se comporta muy extraño. Mucha suerte."],
             state: [
                 {
                     targetState: ["any"],
@@ -88,7 +88,7 @@ const Dialog =
         {
             id: 7,
             name: Names.Dictator,
-            text: ["Cuando acabes de hablar con todos puedes irte a tu casa a descansar","Si hablan mal de mi me lo dices eh","Espero que no me falles"],
+            text: ["Cuando acabes de hablar con todos puedes irte a tu casa a descansar.","Si hablan mal de mi me lo dices eh.","Espero que no me falles."],
             state: [
                 {
                     targetState: ["any"],
