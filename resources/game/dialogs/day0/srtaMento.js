@@ -5,7 +5,7 @@ const Dialog =
         {
             id: 0,
             name: Names.SrtaMento,
-            text: ["Oh! Que traje más guay llevas puesto. Me lo dejas?"],
+            text: ["¡Oh! Que traje más guay llevas puesto. ¿Me lo dejas?"],
             options:
             [
                 {
@@ -19,16 +19,16 @@ const Dialog =
                     points:10
                 },
                 {
-                    text: "ehm...No",
+                    text: "ehm...No.",
                     nextIndex: 2,
-                    points:-5
+                    points:-10
                 }
             ],
         },
         {
             id: 1,
             name: Names.SrtaMento,
-            text: ["Bueno...pues vale"],
+            text: ["Bueno...pues vale."],
             state: [
                 {
                     targetState: ["any"],
@@ -54,7 +54,7 @@ const Dialog =
         {
             id: 3,
             name: Names.SrtaMento,
-            text: ["A ver que dia me dejas tu ropa","Con tu ropa me pido ser la policia y tu el ladron","..."],
+            text: ["A ver que dia me dejas tu ropa.","Con tu ropa me pido ser la policia y tu el ladron.","..."],
             state: [
                 {
                     targetState: ["any"],
@@ -65,7 +65,7 @@ const Dialog =
         {
             id: 4,
             name: Names.SrtaMento,
-            text: ["Eres un rancio!","viejo!","Solo queria jugar un rato"],
+            text: ["Eres un rancio!","¡Viejo!","Solo queria jugar un rato."],
             state: [
                 {
                     targetState: ["any"],

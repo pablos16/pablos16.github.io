@@ -4,32 +4,51 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.SrtaEmbajadora,
-            text: ["Ya se quien eres, te he visto llegar al pueblo antes. Soy la hija de los embajadores del pueblo."],
+            name: Names.MadMan,
+            text: ["¡Cuá,cuá!"],
             state: [
                 {
                     targetState: ["any"],
                     nextIndex: 1
                 },
-            ],
+            ]
         },
         {
             id: 1,
-            name: Names.SrtaEmbajadora,
-            text: ["A ver si al menos me entretienes alguna tarde y me cuentas algo cuando no tengas mucho trabajo, que ultimamente no pasa nada nuevo por aquí"],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextState: 1,
-                    nextIndex: -1
-                },
-            ],
+            name: Names.Police,
+            text: ["Otra vez con lo mismo..."],
+            options:
+                [
+                    {
+                        text: "Pegar",
+                        nextState:1,
+                        nextIndex: 3,
+                    },
+                    {
+                        text: "Dejarle",
+                        nextState:1,
+                        nextIndex: -1,
+                    },
+                ],
             completed:0
         },
         {
             id: 2,
-            name: Names.SrtaEmbajadora,
-            text: ["¿Algún cotilleo?","Ojalá suceda algo interesante","Si pasa algo ya sabes, avisame que me aburro"],
+            name: Names.MadMan,
+            text: ["¡Cuá,cuá,cuá!","¡Cuá!","¡Cuaaaa!"],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextIndex: -1
+                },
+            ]
+        },
+        {
+            //TODO
+            //CallBack de ostiazo
+            id: 3,
+            name: Names.MadMan,
+            text: ["¡Cuá,cuá,cuÁÁÁÁÁ!"],
             state: [
                 {
                     targetState: ["any"],

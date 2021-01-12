@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="resources/web/images/favicon.png" type="image/png"/>
+    <link rel="shortcut icon" href="resources/web/images/favicon.png" type="image/png" />
     <meta name="viewport" content="width=device-width, initial-scale=2.0">
     <link rel="stylesheet" href="game.css">
     <script src="./resources/game/scripts/phaser/phaser.min.js"></script>
@@ -15,17 +15,18 @@
 
     <h1><u>Regime Police</u></h1>
 
-    <hr/>
+    <hr />
 
-    <br/>
+    <br />
 
     <center>
         <form action="index.html">
             <button>Volver a la página principal</button>
         </form>
     </center>
-
-    <br/>
+    <div align="center"> 
+        <img src="resources/web/images/controls.png" />
+    </div>
 
     <script type="module">
         import Boot from './resources/game/scripts/scenes/boot.js'
@@ -41,7 +42,7 @@
         var config = {
             type: Phaser.AUTO,
 
-            width:  CT.gameWidth,
+            width: CT.gameWidth,
             height: CT.gameHeight,
             scale: {
                 mode: Phaser.Scale.FIT,
@@ -49,13 +50,16 @@
                 autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
             },
             pixelArt: true,
-            scene: [Boot,Menu, Day0F, Day1F, Day0, Day1, Scene,Derrota],
+            scene: [Boot, Menu, Day0F, Day1F, Day0, Day1, Scene, Derrota],
             physics: { default: 'arcade', arcade: { debug: true } }
         };
 
         new Phaser.Game(config);
 
     </script>
+
+
+
 
 </body>
 

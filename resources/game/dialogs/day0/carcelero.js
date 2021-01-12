@@ -29,7 +29,7 @@ const Dialog =
         {
             id: 2,
             name: Names.Carcelero,
-            text: ["ya te dire mañana lo que hay que hacer, no seas impaciente","no me apetece hablar"],
+            text: ["Ya te dire mañana lo que hay que hacer, no seas impaciente.","No me apetece hablar."],
             state: [
                 {
                     targetState: ["any"],

@@ -4,40 +4,26 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.Tabernero,
-            text: ["..."],
+            name: Names.Ferianta,
+            text: ["Bla bla bla. Ya sabemos quien eres, no hace falta presentaciones."],
             state: [
                 {
                     targetState: ["any"],
                     nextIndex: 1
-                }
+                },
             ]
         },
         {
             id: 1,
-            name: Names.Police,
-            text: ["(¿Ya va borracho a estas horas del dia?)"],
+            name: Names.Ferianta,
+            text: ["Cuando Reltih te haya dado los carteles que necesitamos dáselos a mi marido. Siempre solemos estar por aquí."],
             state: [
                 {
                     targetState: ["any"],
-                    nextState: 1,
+                    nextState:1,
                     nextIndex: -1
-                }
+                },
             ],
-        },
-        {
-            id: 2,
-            name: Names.Tabernero,
-            text:
-                [
-                    "...", "*Burp*"
-                ],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextIndex: -1
-                }
-            ]
         },
         {
             id: -1,
@@ -48,7 +34,7 @@ const Dialog =
                 },
                 {
                     targetState: [1],
-                    nextIndex: 2
+                    nextIndex: 1
                 }
             ]
         }

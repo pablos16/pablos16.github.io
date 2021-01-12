@@ -4,19 +4,19 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.SrtaEmbajadora,
-            text: ["Ya se quien eres, te he visto llegar al pueblo antes. Soy la hija de los embajadores del pueblo."],
+            name: Names.Sona,
+            text: ["¿Eres un policia?"],
             state: [
                 {
                     targetState: ["any"],
                     nextIndex: 1
                 },
-            ],
+            ]
         },
         {
             id: 1,
-            name: Names.SrtaEmbajadora,
-            text: ["A ver si al menos me entretienes alguna tarde y me cuentas algo cuando no tengas mucho trabajo, que ultimamente no pasa nada nuevo por aquí"],
+            name: Names.Sona,
+            text: ["ME ENCANTAN LOS POLICIAS"],
             state: [
                 {
                     targetState: ["any"],
@@ -24,12 +24,11 @@ const Dialog =
                     nextIndex: -1
                 },
             ],
-            completed:0
         },
         {
             id: 2,
-            name: Names.SrtaEmbajadora,
-            text: ["¿Algún cotilleo?","Ojalá suceda algo interesante","Si pasa algo ya sabes, avisame que me aburro"],
+            name: Names.Sona,
+            text: ["Pium Pium","Manos arriba!"],
             state: [
                 {
                     targetState: ["any"],

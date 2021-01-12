@@ -4,32 +4,37 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.SrtaEmbajadora,
-            text: ["Ya se quien eres, te he visto llegar al pueblo antes. Soy la hija de los embajadores del pueblo."],
+            name: Names.Dictator,
+            text: ["Muy buenas novato, aquí te dejo las misiones que tienes que hacer hoy. Espero que no me defraudes"],
             state: [
                 {
                     targetState: ["any"],
                     nextIndex: 1
                 },
-            ],
+            ]
         },
         {
             id: 1,
-            name: Names.SrtaEmbajadora,
-            text: ["A ver si al menos me entretienes alguna tarde y me cuentas algo cuando no tengas mucho trabajo, que ultimamente no pasa nada nuevo por aquí"],
-            state: [
+            name: Names.Police,
+            text: ["(Vamos a empezar el primer dia oficial con alegria)"],
+            options:
+            [
                 {
-                    targetState: ["any"],
+                    text: "A su merced",
                     nextState: 1,
                     nextIndex: -1
                 },
+                {
+                    text: "¡Por el reino!",
+                    nextState: 1,
+                    nextIndex: -1
+                }
             ],
-            completed:0
         },
         {
             id: 2,
-            name: Names.SrtaEmbajadora,
-            text: ["¿Algún cotilleo?","Ojalá suceda algo interesante","Si pasa algo ya sabes, avisame que me aburro"],
+            name: Names.Dictator,
+            text: ["Cuando acabes todas las misiones puedes irte a casa, lo que hagas el resto del dia me da igual","Deja de perder el tiempo y ponte a trabajar"],
             state: [
                 {
                     targetState: ["any"],

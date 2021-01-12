@@ -4,40 +4,26 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.Tabernero,
-            text: ["..."],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextIndex: 1
-                }
-            ]
-        },
-        {
-            id: 1,
-            name: Names.Police,
-            text: ["(¿Ya va borracho a estas horas del dia?)"],
+            name: Names.Carcelero,
+            text: ["No te preocupes, ya estoy yo vigilando la carcel. A ver si consigues traer al ladrón que anda suelto"],
             state: [
                 {
                     targetState: ["any"],
                     nextState: 1,
                     nextIndex: -1
-                }
-            ],
+                },
+            ]
         },
         {
-            id: 2,
-            name: Names.Tabernero,
-            text:
-                [
-                    "...", "*Burp*"
-                ],
+            id: 1,
+            name: Names.Carcelero,
+            text: ["...","No me molestes","Estoy concentrado","Déjame y ponte a trabajar"],
             state: [
                 {
                     targetState: ["any"],
                     nextIndex: -1
-                }
-            ]
+                },
+            ],
         },
         {
             id: -1,
@@ -48,7 +34,7 @@ const Dialog =
                 },
                 {
                     targetState: [1],
-                    nextIndex: 2
+                    nextIndex: 1
                 }
             ]
         }
