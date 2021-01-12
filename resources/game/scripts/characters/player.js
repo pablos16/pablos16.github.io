@@ -143,7 +143,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
     this.stopX()
     this.stopY()
 
-
     if (!this.isTalking) {
 
       this.calculateVelocity()

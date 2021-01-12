@@ -75,10 +75,12 @@ export default class NPC extends Phaser.GameObjects.Container {
     this.body.setVelocityX(50);
   }
   stopX() {
-    this.dirX = this.body.setVelocityX(0);
+    this.dirX = 0;
+    this.body.setVelocityX(0);
   }
   stopY() {
-    this.dirY = this.body.setVelocityY(0);
+    this.dirY = 0;
+    this.body.setVelocityY(0);
   }
 
   stop() {
