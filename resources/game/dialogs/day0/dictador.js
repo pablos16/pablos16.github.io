@@ -77,9 +77,10 @@ const Dialog =
             id: 6,
             name: Names.Dictator,
             callback: (data) => {
+                data.scene.player.missionList.removeFromThis()
+                data.scene.player.missionList.deleteAll()
                 data.scene.player.missionList.initialiceTexts();
-                data.scene.player.missionList.add(data.scene.player.missionList.missionTexts)
-                data.scene.player.missionList.add(data.scene.player.missionList.completedTexts)
+                data.scene.player.missionList.reAdd()
             },
             text: ["Perfecto. Pues ve y conoce a la gente del pueblo. No te sorprendas, aquí la gente se comporta muy extraño. Mucha suerte."],
             state: [

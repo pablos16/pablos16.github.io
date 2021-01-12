@@ -34,6 +34,16 @@ export default class Missions extends Phaser.GameObjects.Container {
         })
     }
 
+    removeFromThis() {
+        this.remove(this.missionTexts)
+        this.remove(this.completedTexts)
+    }
+
+    reAdd() {
+        this.add(this.missionTexts)
+        this.add(this.completedTexts)
+    }
+
     hideInterface() {
         this.hidden = true
 
@@ -48,6 +58,7 @@ export default class Missions extends Phaser.GameObjects.Container {
     }
 
     initialiceTexts() {
+        console.log(this.missionTexts)
         this.deleteAll()
         let l = this.missionList.length
         for (let i = 0; i < l; i++) {
@@ -62,9 +73,8 @@ export default class Missions extends Phaser.GameObjects.Container {
         this.completedTexts.splice(index, 1)
     }
 
-    deleteAll()
-    {
-        while(this.missionTexts.length !== 0) this.deleteAt(0)
+    deleteAll() {
+        while (this.missionTexts.length !== 0) this.deleteAt(0)
     }
 
     addText(text, hasNum) {
@@ -143,7 +153,6 @@ export default class Missions extends Phaser.GameObjects.Container {
 
         this.resetCompletedTexts()
 
-        console.log("Animating")
         this.y = !this.desplegado ? this.orign : this.orign - CT.missionOffsetToggle
 
         let signo = this.desplegado ? 1 : -1

@@ -6,10 +6,9 @@ const Dialog =
             id: 0,
             name: Names.Coronel,
             callback: (data) => {
-                data.scene.player.missionList.deleteAll()
+                data.scene.player.missionList.removeFromThis()
                 data.scene.player.missionList.addText("Ve a hablar con el dictador", false)
-                data.scene.player.missionList.add(data.scene.player.missionList.missionTexts)
-                data.scene.player.missionList.add(data.scene.player.missionList.completedTexts)
+                data.scene.player.missionList.reAdd()
             },
             text: ["Supongo que tú serás el nuevo Policia. Ven cuanto antes al castillo. Está justo aquí encima de tu casa. El dictador te está esperando para darte tus misiones"],
             state: [
