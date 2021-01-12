@@ -77,7 +77,6 @@ const Dialog =
             id: 6,
             name: Names.Dictator,
             callback: (data) => {
-                data.scene.player.missionList.deleteAll()
                 data.scene.player.missionList.initialiceTexts();
                 data.scene.player.missionList.add(data.scene.player.missionList.missionTexts)
                 data.scene.player.missionList.add(data.scene.player.missionList.completedTexts)

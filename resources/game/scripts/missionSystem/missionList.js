@@ -16,7 +16,6 @@ export default class Missions extends Phaser.GameObjects.Container {
         this.orign = this.y
         this.missionTexts = []
         this.completedTexts = []
-        //this.initialiceTexts()
         this.addText("Sal fuera", false)
         this.hidden = false;
 
@@ -49,6 +48,7 @@ export default class Missions extends Phaser.GameObjects.Container {
     }
 
     initialiceTexts() {
+        this.deleteAll()
         let l = this.missionList.length
         for (let i = 0; i < l; i++) {
             this.addText(this.missionList[i].text, true)
