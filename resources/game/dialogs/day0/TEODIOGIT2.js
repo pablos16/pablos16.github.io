@@ -47,7 +47,6 @@ const Dialog =
                     nextIndex: 3,
                     completed:0,
                     points:-10
-                    
                 }
             ],
         },
