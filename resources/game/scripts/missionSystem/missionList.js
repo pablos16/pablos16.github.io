@@ -134,17 +134,11 @@ export default class Missions extends Phaser.GameObjects.Container {
         this.missionList[mission].completed++
         console.log("Completada " + this.missionList[mission].completed + " de " + this.missionList[mission].total)
         if (this.allMissionsCompleted()) {
-            this.missionList.push({
-                text: "Misiones terminadas. Vuelve a casa",
-                completed: 0,
-                total: 1,
-            })
+            let l = this.missionList.length
+            if(l >= 5) this.deleteAt(l-1)
+            this.addText("Misiones terminadas. Vuelve a casa", false)
 
-            this.addText(this.missionList.length - 1)
-
-            this.add(this.missionTexts)
-
-            this.loadNextDay();
+            //this.loadNextDay();
         }
     }
 
