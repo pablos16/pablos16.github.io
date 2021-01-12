@@ -20,8 +20,8 @@ export default class Missions extends Phaser.GameObjects.Container {
         this.hidden = false;
 
         this.add(this.img)
-        this.add(this.missionTexts)
-        this.add(this.completedTexts)
+        this.removeFromThis()
+        this.reAdd()
     }
 
     toggleInterface() {
@@ -78,6 +78,7 @@ export default class Missions extends Phaser.GameObjects.Container {
     }
 
     addText(text, hasNum) {
+        this.removeFromThis()
         let i = this.missionTexts.length;
         this.missionTexts.push(this.sceneRef.add.bitmapText(
             CT.xMissionText,
@@ -101,6 +102,8 @@ export default class Missions extends Phaser.GameObjects.Container {
 
         this.completedTexts[i].setScrollFactor(0)
         this.completedTexts[i].depth = 100
+
+        this.reAdd()
     }
 
     resetCompletedTexts() {
