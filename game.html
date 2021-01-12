@@ -28,35 +28,6 @@
         <img src="resources/web/images/controls.png" />
     </div>
 
-    <script type="module">
-        import Boot from './resources/game/scripts/scenes/boot.js'
-        import Menu from './resources/game/scripts/scenes/menu.js'
-        import Derrota from './resources/game/scripts/scenes/derrota.js'
-        import Scene from './resources/game/scripts/scenes/scene.js'
-        import Day0 from './resources/game/scripts/scenes/day0.js'
-        import Day1 from './resources/game/scripts/scenes/day1.js'
-        import Day0F from './resources/game/scripts/scenes/day0f.js'
-        import Day1F from './resources/game/scripts/scenes/day1f.js'
-        import CT from './resources/game/configs/constants.js'
-
-        var config = {
-            type: Phaser.AUTO,
-
-            width: CT.gameWidth,
-            height: CT.gameHeight,
-            scale: {
-                mode: Phaser.Scale.FIT,
-                //TODO CORREGIR EL TAMAÑO DE LA CAMARA
-                autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
-            },
-            pixelArt: true,
-            scene: [Boot, Menu, Day0F, Day1F, Day0, Day1, Scene, Derrota],
-            physics: { default: 'arcade', arcade: { debug: true } }
-        };
-
-        new Phaser.Game(config);
-
-    </script>
 
 
 
