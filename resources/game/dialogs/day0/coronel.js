@@ -1,4 +1,5 @@
 import Names from '../../configs/npcNames.js'
+import PathInsertor from '../../scripts/libraries/pathList.js';
 
 const Dialog =
     [
@@ -27,7 +28,7 @@ const Dialog =
                     nextIndex: -1
                 },
             ],
-            completed:0,
+            completed: 0,
         },
         {
             id: 2,
@@ -36,7 +37,7 @@ const Dialog =
             state: [
                 {
                     targetState: ["any"],
-                    nextState:1,
+                    nextState: 1,
                     nextIndex: -1
                 },
             ]
@@ -44,17 +45,27 @@ const Dialog =
         {
             id: 3,
             name: Names.Coronel,
-            text: ["Te estoy vigilando","No pienses que porque seas nuevo te voy a ayudar","El dictador te está esperando"],
+            text: ["Te estoy vigilando", "No pienses que porque seas nuevo te voy a ayudar", "El dictador te está esperando"],
             state: [
                 {
                     targetState: ["any"],
-                    nextState:1,
+                    nextState: 1,
                     nextIndex: -1
                 },
             ]
         },
         {
             id: -1,
+            callback: (data) => {
+                data.scene.player.isTalking = true;
+                data.arguments.npc.dialog.destroy();
+                data.arguments.npc.irse = new PathInsertor({
+                    body: data.arguments.npc.body,
+                    scene: data.arguments.npc.theScene,
+                    context: data.arguments.npc,
+                    path: 'coronel',
+                })
+            },
             state: [
                 {
                     targetState: [0],

@@ -22,7 +22,10 @@ export default class PathInsertor {
             sceneRef: this.scene,
             body: this.body,
             loop: data.loop,
-            onFinish: (pathFollower) => { data.onFinish() }
+            onFinish: (pathFollower) => { data.onFinish({
+                scene: this.scene,
+                context: this.context,
+            }) }
         })
     }
 
