@@ -18,7 +18,10 @@ export default class NPCDialog extends NPC {
                 this.path.stop();
                 this.getTogether(scene);
             },
-            onFinish: () => { this.path.setMove(true) },
+            onFinish: () => { 
+                this.path.setMove(true)
+                this.path.setVelocity()
+             },
         });
         this.add(this.dialog.trigger.trigger)
     }
