@@ -7,6 +7,7 @@ export default class Path
     {
         this.x = data.x;
         this.y = data.y;
+        this.speed = data.speed;
         this.delay = data.delay;
     }
 }

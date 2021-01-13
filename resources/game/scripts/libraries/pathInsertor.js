@@ -47,6 +47,7 @@ export default class PathInsertor {
             paths.push(new PathNode({
                 x: this.body.position.x + xTotal,
                 y: this.body.position.y + yTotal,
+                speed: path[i].speed,
                 delay: path[i].delay,
             }))
         }
