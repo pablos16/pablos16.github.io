@@ -8,6 +8,7 @@ import Dialog from '../../configs/dialogConfig.js';
 import NPCDialog from '../characters/npcDialog.js';
 import TPLINK from '../characters/tp.js'
 import Trigger from '../libraries/trigger.js'
+import Dialoguer from '../libraries/dialoguer.js'
 
 export default class Scene extends Phaser.Scene {
     init(data) {
@@ -69,6 +70,7 @@ export default class Scene extends Phaser.Scene {
         //Mapa - Capa De Objetos
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
         this.tpList = [];
+        this.currentPlaying = {};
         for (const objeto of mapObjects) {
             const props = {};
             if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
@@ -86,13 +88,30 @@ export default class Scene extends Phaser.Scene {
                         ySize: 100,
                         enter: () => {
                             if (this.player.missionList.allMissionsCompleted()) {
-                                this.changeScene()
+                                new Dialoguer({
+                                    x: objeto.x,
+                                    y: objeto.y,
+                                    xSize: 100,
+                                    ySize: 100,
+                                    scene: this,
+                                    dialog: this.dialogs.player,
+                                    isForced: true,
+                                    onStart: () => { 
+                                        this.tweens.add({
+                                            targets: this.player,
+                                            duration: 250,
+                                            y: this.player.y - 15,
+                                            x: this.player.x + 15,
+                                        })
+                                    },
+                                    onFinish: () => { this.currentPlaying.stop() },
+                                });
                             }
                         },
                         exit: () => { },
                         stay: () => { },
-
                     })
+                    new NPCDialog(this, objeto.x - 200, objeto.y + 50, this.dialogs['tabernero'], 'tabernero');
 
                     break;
                 case 'Item': //Objetos en el suelo
@@ -125,8 +144,11 @@ export default class Scene extends Phaser.Scene {
                         scene: this,
                         xSize: objeto.width,
                         ySize: objeto.height,
-                        enter: () => { this[props.music].play() },
-                        exit: () => { this[props.music].stop() },
+                        enter: () => { 
+                            this[props.music].play() 
+                            this.currentPlaying = this[props.music];
+                        },
+                        exit: () => { this[props.music].stop(); },
                         stay: () => { },
                     })
                     break;
