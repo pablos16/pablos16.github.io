@@ -5,6 +5,13 @@ import * as utils from '../libraries/phaserUtilities.js'
 import SocialStatePeople from '../../configs/npcSocialGroups.js'
 import AnimatedText from '../libraries/animatedText.js'
 import Trigger from '../libraries/trigger.js'
+/**
+ * @param {Phaser.Scene} scene ref to current scene
+ * @param {Dialog} dialog dialog object to read
+ * @param {function} onStart function called when the dialog is triggered
+ * @param {function} onExit function called when the dialog is finished
+ * @param {bool} isForced controls wheter the player starts the dialog or is auto
+ */
 export default class Dialoguer
 {
     constructor(data)
