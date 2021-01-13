@@ -20,7 +20,7 @@ export default class PathInsertor {
 
     default(ctx)
     {
-        new PathFollower({
+       ctx.context.path = new PathFollower({
             path: [
                 new PathNode({
                     x: ctx.body.position.x,

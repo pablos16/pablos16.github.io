@@ -14,11 +14,11 @@ export default class NPCDialog extends NPC {
             isForced: false,
             callbackArguments: {npc: this},
             onStart: () => {
-                this.pathFollower.setMove(false)
-                this.pathFollower.stop();
+                this.path.setMove(false)
+                this.path.stop();
                 this.getTogether(scene);
             },
-            onFinish: () => { this.pathFollower.setMove(true) },
+            onFinish: () => { this.path.setMove(true) },
         });
         this.add(this.dialog.trigger.trigger)
     }
