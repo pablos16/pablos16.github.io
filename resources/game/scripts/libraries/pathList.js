@@ -40,7 +40,8 @@ export default class PathInsertor {
             ],
             sceneRef: ctx.scene,
             body: ctx.body,
-            onFinish: (context) => { context.currentPath = 0 }
+            loop: true,
+            onFinish: (pathFollower) => {  }
         })
     }
 }
