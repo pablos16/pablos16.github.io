@@ -120,7 +120,7 @@ export default class Scene extends Phaser.Scene {
                     this.obtacle = new Obstacle(this, objeto.x, objeto.y, props.texture, parseInt(objeto.type));
                     break;
                 case 'Npc': //NPC
-                    this.NPC = new NPCDialog(this, objeto.x, objeto.y, this.dialogs[props.dialog], props.sprite, 'test');
+                    this.NPC = new NPCDialog(this, objeto.x, objeto.y, this.dialogs[props.dialog], props.sprite, props.path);
                     break;
                 case 'Tp':
                     let it = 0;
