@@ -17,7 +17,10 @@ const SocialStatePeople=
             Names.Feriante,
             Names.Ferianta,
             Names.SrtaFeriante,
-            Names.Ladron
+            Names.Ladron,
+            Names.Agricultor,
+            Names.Agronomo,
+            Names.Afilador
         ]
     },
     {

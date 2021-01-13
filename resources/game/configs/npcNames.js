@@ -23,7 +23,10 @@ const Names =
     Muro: "Muro",
     Edificio: "Edificio deteriorado",
     Cura: "Cura",
-    Ladron: "Desconocido"
+    Ladron: "Desconocido",
+    Agronomo: "Agrónomo",
+    Afilador:"Afilador",
+    Agricultor:"Agricultor"
 }
 
 export default Names;
