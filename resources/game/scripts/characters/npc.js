@@ -6,7 +6,6 @@ export default class NPC extends Phaser.GameObjects.Container {
   constructor(scene, x, y, npcImage) {
     super(scene, x, y);
 
-
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
 
@@ -65,70 +64,17 @@ export default class NPC extends Phaser.GameObjects.Container {
     this.dirY;
   }
 
-
-
-  moveX(left, right) {
-    //TODO quitar velocidad, con el container no tendria que estar
-
-    if (this.body.position.x >= this.initialPosX + right) {
-      this.moveLeft();
-    }
-    else if (this.body.position.x <= this.initialPosX + left) {
-      this.moveRight()
-    }
-  }
-  moveY(top, down) {
-
-    if (this.body.y > this.initialPosY + top) {
-      this.moveDown()
-
-    }
-    else if (this.body.y < this.initialPosY + down) {
-      this.moveUp();
-    }
-  }
-
-  moveUp() {
-    this.dirY = -1;
-    this.body.setVelocityY(-50);
-  }
-  moveDown() {
-    this.dirY = 1;
-    this.dirY = this.body.setVelocityY(50);
-  }
-  moveLeft() {
-    this.dirX = -1;
-    this.body.setVelocityX(-50);
-  }
-  moveRight() {
-    this.dirX = 1;
-    this.body.setVelocityX(50);
-  }
-  stopX() {
-    this.dirX = 0;
-    this.body.setVelocityX(0);
-  }
-  stopY() {
-    this.dirY = 0;
-    this.body.setVelocityY(0);
-  }
-
-  stop() {
-    this.stopX()
-    this.stopY()
-  }
-
   checkAnims() {
-    if (this.dirX === 0) {
+    if (this.body.newVelocity.x === 0) {
       //Si esta quieto
-      if (this.dirY === 0)
+      if (this.body.newVelocity.y === 0)
         this.spriteImage.play('idleNPC_' + this.spriteImage.frame.texture.key, true);
-      else if (this.dirY < 0) //arriba
+      else if (this.body.newVelocity.y < 0) //arriba
         this.spriteImage.play('upNPC_' + this.spriteImage.frame.texture.key, true);
       else //abajo
         this.spriteImage.play('downNPC_' + this.spriteImage.frame.texture.key, true);
     }
-    else if (this.dirX < 0) //izquierda
+    else if (this.body.newVelocity.x < 0) //izquierda
       this.spriteImage.play('leftNPC_' + this.spriteImage.frame.texture.key, true);
     else //derecha
       this.spriteImage.play('rightNPC_' + this.spriteImage.frame.texture.key, true);
@@ -136,12 +82,6 @@ export default class NPC extends Phaser.GameObjects.Container {
   }
 
   preUpdate() {
-
-    //Movimiento del npc
-    // if (!this.isTalking) {
-    //   this.moveX(-50, 50);
-    // }
-
     this.checkAnims();
   }
 
