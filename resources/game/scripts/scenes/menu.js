@@ -19,7 +19,7 @@ export default class Menu extends Phaser.Scene {
 
     const config = {
       mute: false,
-      volume: 0.2,
+      volume: 0.08,
       rate: 1,
       detune: 0,
       seek: 0,
