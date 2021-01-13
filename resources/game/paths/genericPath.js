@@ -30,8 +30,8 @@ const Paths = [
             {
                 x: 0,
                 y: 0,
-                speed: 50,
-                delay: 150,
+                speed: 0,
+                delay: 0,
             },
         ],
         loop: false,
@@ -47,12 +47,12 @@ const Paths = [
             },
             {
                 x: 0,
-                y: 50,
+                y: 100,
                 speed: 75,
                 delay: 150,
             },
             {
-                x: 250,
+                x: 300,
                 y: 0,
                 speed: 75,
                 delay: 250,
