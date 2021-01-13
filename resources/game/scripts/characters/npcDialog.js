@@ -53,7 +53,7 @@ export default class NPCDialog extends NPC {
         this.animateDialog(scene, 50)
         this.setTalking(scene, true)
         this.pathFollower.setMove(false) 
-        this.stop();
+        this.pathFollower.stop();
         utils.setVisiblity([this.description, this.name, scene.dialogueImage], true)
         this.initializeIndex(scene)
         this.ContinueDialog(scene)
@@ -114,7 +114,6 @@ export default class NPCDialog extends NPC {
     FinishDialog(scene) {
         if ("timer" in this) this.timer.stopAnimation()
         scene.player.missionList.showInterface()
-        this.moveRight();
         this.animateDialog(scene, 50, false)
         utils.setVisiblity([this.description, this.name], false)
         this.setTalking(scene, false)

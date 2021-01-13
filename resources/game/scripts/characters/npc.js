@@ -1,6 +1,7 @@
 import NPCImage from './npcSprite.js';
 import PathNode from '../libraries/pathNode.js'
 import PathFollower from '../libraries/pathFollower.js'
+import Trigger from '../libraries/trigger.js'
 
 export default class NPC extends Phaser.GameObjects.Container {
   constructor(scene, x, y, npcImage) {
@@ -9,12 +10,18 @@ export default class NPC extends Phaser.GameObjects.Container {
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
 
-    //Trigger del container
-    this.trigger = scene.add.zone(0, 0);
-    this.trigger.setSize(100, 100);
-    this.scene.physics.world.enable(this.trigger);
-    this.trigger.body.setAllowGravity(false);
-    this.trigger.body.moves = false;
+    this.theScene = scene;
+
+    this.trigger = new Trigger({
+      x: 0,
+      y: 0,
+      scene: scene,
+      xSize: 100,
+      ySize: 100,
+      enter: () => { },
+      stay: () => { this.accion(scene) },
+      exit: () => { },
+    })
 
     //Sprite del container
     this.spriteImage = new NPCImage(scene, 0, 0, npcImage);
@@ -41,24 +48,14 @@ export default class NPC extends Phaser.GameObjects.Container {
       ],
       sceneRef: scene,
       body: this.body,
-      onFinish: (context) => {context.currentPath = 0}
+      onFinish: (context) => { context.currentPath = 0 }
     })
 
-    this.theScene = scene;
-
-    this.add(this.trigger);
+    this.add(this.trigger.trigger);
     this.add(this.spriteImage);
     //Variables
     this.initialPosX = x;
     this.initialPosY = y;
-
-    //this.moveRight();
-
-    this.scene.physics.add.overlap(scene.player,
-      this.trigger,
-      () => {
-        this.accion(scene);
-      });
 
     this.dirX;
     this.dirY;
