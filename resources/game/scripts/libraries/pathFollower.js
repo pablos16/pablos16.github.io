@@ -10,6 +10,8 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
         this.changinPath = false;
         this.onFinish = data.onFinish;
         this.loop = data.loop;
+        this.velocity = {x: 0, y: 0}
+        this.setVelocity()
     }
 
     preUpdate() {
@@ -21,35 +23,54 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
     }
 
     makePath() {
-        if (!this.pathReached() && !this.changinPath) {
-            if (this.body.x < this.getPath().x) this.moveRight();
-            else if (this.body.x > this.getPath().x) this.moveLeft();
-            if (this.body.y < this.getPath().y) this.moveDown();
-            else if (this.body.y > this.getPath().y) this.moveUp();
-        }
-        else if (!this.changinPath) {
+        if (!(!this.pathReached() && !this.changinPath) && !this.changinPath) {
             this.changinPath = true;
             this.stop();
             this.scene.time.addEvent({
                 callback: () => {
                     this.changinPath = false;
                     this.nextPath();
+                    this.setVelocity()
                 },
                 delay: this.getPath().delay
             })
         }
+    }
 
+    setVelocity() {
+        this.velocity = this.calculateVelocity();
+        this.body.setVelocityY(this.velocity.y)
+        this.body.setVelocityX(this.velocity.x)
+    }
+
+    calculateVelocity() {
+        let tupla = { x: this.getPath().speed, y: this.getPath().speed };
+        let diferencia = {
+            x: this.body.x - this.getPath().x,
+            y: this.body.y - this.getPath().y,
+        }
+
+        let divisor = 0;
+        if (Math.abs(diferencia.x) < Math.abs(diferencia.y)) divisor = diferencia.y
+        else divisor = diferencia.x
+
+
+        diferencia.x /= divisor
+        diferencia.y /= divisor
+
+        tupla.y *= diferencia.y;
+        tupla.x *= diferencia.x;
+        return tupla;
     }
 
     nextPath() {
         this.currentPath++;
-        if (this.currentPath >= this.path.length)
-        {
+        if (this.currentPath >= this.path.length) {
             this.onFinish(this);
-            if(this.loop) this.currentPath = 0;
+            if (this.loop) this.currentPath = 0;
             else this.destroy(true)
-        } 
-        
+        }
+
     }
 
     pathReached() {
