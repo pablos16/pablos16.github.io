@@ -70,6 +70,37 @@ const Paths = [
             data.context.destroy(true)
             data.scene.player.isTalking = false;
         },
+    },
+    {
+        name: 'square',
+        path: [
+            {
+                x: 0,
+                y: 0,
+                speed: 75,
+                delay: 0,
+            },
+            {
+                x: 0,
+                y: 120,
+                speed: 75,
+                delay: 0,
+            },
+            {
+                x: -120,
+                y: 0,
+                speed: 75,
+                delay: 0,
+            },
+            {
+                x: 0,
+                y: -120,
+                speed: 75,
+                delay: 0,
+            },
+        ],
+        loop: true,
+        onFinish: (data) => {  },
     }
 ]
 
