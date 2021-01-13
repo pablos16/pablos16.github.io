@@ -4,8 +4,8 @@ import Dialog from '../../configs/dialogConfig.js';
 import Vector2 from '../libraries/vector2.js'
 
 export default class NPCDialog extends NPC {
-    constructor(scene, x, y, dialog, npcImage) {
-        super(scene, x, y, npcImage);
+    constructor(scene, x, y, dialog, npcImage, pathName) {
+        super(scene, x, y, npcImage, pathName);
         this.dialog = new Dialoguer({
             scene: scene,
             dialog: dialog,

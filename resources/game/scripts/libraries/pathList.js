@@ -1,41 +1,19 @@
 import PathFollower from '../libraries/pathFollower.js'
 import PathNode from '../libraries/pathNode.js'
+import Paths from '../../paths/genericPath.js'
 
 export default class PathInsertor {
     constructor(data) {
 
         this.body = data.body;
         this.scene = data.scene
-        this.index = 0;
         this.context = data.context;
-        this.pathName = data.pathName;
-
-        this.test = {
-            path: [
-                {
-                    x: 0,
-                    y: 0,
-                    delay: 150,
-                },
-                {
-                    x: 100,
-                    y: 0,
-                    delay: 150,
-                },
-                {
-                    x: -50,
-                    y: 100,
-                    delay: 150,
-                },
-            ],
-            onFinish: () => { },
-        }
-
+        this.path = data.path;
         this.inserPath()
     }
 
     inserPath() {
-        this.move(this.test)
+        this.move(this.path)
     }
 
     move(data) {
