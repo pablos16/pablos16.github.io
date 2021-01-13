@@ -21,7 +21,7 @@ export default class PathInsertor {
             path: this.generatePathFromObject(data.path),
             sceneRef: this.scene,
             body: this.body,
-            loop: true,
+            loop: data.loop,
             onFinish: (pathFollower) => { data.onFinish() }
         })
     }

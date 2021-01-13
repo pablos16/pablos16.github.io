@@ -18,6 +18,7 @@ const Paths = [
                 delay: 150,
             },
         ],
+        loop: false,
         onFinish: () => { },
     }
 ]
