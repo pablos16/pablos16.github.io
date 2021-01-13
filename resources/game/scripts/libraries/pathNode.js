@@ -1,3 +1,6 @@
+/**
+ * Simple object that has a vector2 an a delay, used for making characters Paths
+ */
 export default class Path
 {
     constructor(data)

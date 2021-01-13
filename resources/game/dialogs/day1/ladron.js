@@ -107,7 +107,7 @@ const Dialog =
                     alpha: 1,
                     ease: 'Circ',
                     onComplete: () => {
-                        data.npc.destroy(true)
+                        data.arguments.npc.destroy(true)
                         data.scene.tweens.add({
                             targets: data.scene.transitionImg,
                             duration: 1500,

@@ -7,6 +7,7 @@ import loco from '../day1/loco.js'
 import lolaMento from '../day1/lolaMento.js'
 import tabernera from '../day1/tabernera.js'
 import tabernero from '../day1/tabernero.js'
+import player from '../day1/player.js'
 
 //Estos nombres son los que hay que poner en tiled
 const dialogs =
@@ -20,6 +21,7 @@ const dialogs =
     lolaMento,
     tabernera,
     tabernero,
+    player,
 }
 
 export default dialogs

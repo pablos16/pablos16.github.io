@@ -1,7 +1,7 @@
 import Trigger from '../libraries/trigger.js'
 
 export default class Tp extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, tpLink, offset) {
+    constructor(scene, x, y, tpLink, offset, xTam, yTam) {
         super(scene, x, y);
 
         this.scene.add.existing(this);
@@ -24,8 +24,8 @@ export default class Tp extends Phaser.GameObjects.Sprite {
             x: this.x,
             y: this.y,
             scene: scene,
-            xSize: 50,
-            ySize: 50,
+            xSize: xTam,
+            ySize: yTam,
             enter: () => { if (this.canTp) this.animateTp(scene); },
             exit: () => { this.tpActivated(scene, true); this.cancelPairTp(scene) },
             stay: () => { },

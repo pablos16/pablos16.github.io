@@ -1,4 +1,36 @@
-export default class Trigger extends Phaser.GameObjects.GameObject {
+
+// TEMPLATE 
+// let trigger = new Trigger({
+//    x: object.x,
+//    y: object.y,
+//    scene: this,
+//    xSize: 50,
+//    ySize: 50,
+//    enter: () => {},
+//    exit: () => {},
+//    stay: () => {},
+// })
+/**
+ * Create a trigger that respond to collisions with player
+ * (it must exist a player in a phaser scene)
+ * @param  {object} data data needed for constructing de class
+ * 
+ *  /// PARAMS NEEDED TO PASS AS AN OBJECT WHEN CREATING ///
+ * 
+ * @param  {number} x    x position of the object in the scene
+ * @param  {number} y    y position of the object in the scene
+ * @param  {Phaser.Scene} scene referecne to the Phaser scene
+ * @param  {number} xSize x size of the trigger bounds
+ * @param  {number} ySize y size of the trigger bounds
+ * @param  {function} enter function called when the player enters the trigger first time
+ * @param  {function} stay function called when the player stays in the trigger
+ * after the first time
+ * @param  {function} exit funtion called when the player leaves the trigger
+ * 
+ * FUNCTIONS HAS NO PARAMS, THEY AREN'T NEEDED THO 
+ * 
+ */
+ export default class Trigger extends Phaser.GameObjects.GameObject {
     constructor(data) {
         super(data.scene, data.x, data.y)
         this.scene.add.existing(this)
@@ -12,12 +44,12 @@ export default class Trigger extends Phaser.GameObjects.GameObject {
 
         this.hasEntered = false;
 
-        this.onTriggerEnter = () => {this.hasEntered = true; data.enter() }
+        this.onTriggerEnter = () => { this.hasEntered = true; data.enter() }
         this.onTriggerExit = () => { data.exit() }
         this.onTriggerStay = () => { data.stay() }
     }
 
-    checkOverlap(){
+    checkOverlap() {
 
         var boundsA = this.trigger.getBounds();
         var boundsB = this.playerRef.getBounds();
@@ -27,13 +59,11 @@ export default class Trigger extends Phaser.GameObjects.GameObject {
 
     preUpdate() {
 
-        if(this.checkOverlap())
-        {
-            if(!this.hasEntered) this.onTriggerEnter();
+        if (this.checkOverlap()) {
+            if (!this.hasEntered) this.onTriggerEnter();
             else this.onTriggerStay();
         }
-        else if(this.hasEntered) 
-        {
+        else if (this.hasEntered) {
             this.onTriggerExit()
             this.hasEntered = false;
         }
