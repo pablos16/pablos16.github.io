@@ -11,6 +11,7 @@ import Trigger from '../libraries/trigger.js'
  * @param {function} onStart function called when the dialog is triggered
  * @param {function} onExit function called when the dialog is finished
  * @param {bool} isForced controls wheter the player starts the dialog or is auto
+ * @param {object} arguments objeto que se pasa como parametro en los callbacks
  */
 export default class Dialoguer
 {
@@ -32,6 +33,7 @@ export default class Dialoguer
         this.onStart = data.onStart;
         this.onFinish = data.onFinish;
         this.isForced = data.isForced
+        this.arguments = data.callbackArguments;
 
         this.trigger = new Trigger({
             x: data.x,
@@ -80,7 +82,7 @@ export default class Dialoguer
         if ("callback" in this.currentDialog()) {
             this.currentDialog().callback(
                 {
-                    npc: this, 
+                    arguments: this.arguments, 
                     scene: scene
                 });
         }

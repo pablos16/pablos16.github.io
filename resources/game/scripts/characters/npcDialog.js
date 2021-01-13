@@ -12,6 +12,7 @@ export default class NPCDialog extends NPC {
             x: 0,
             y: 0,
             isForced: false,
+            callbackArguments: {npc: this},
             onStart: () => {
                 this.pathFollower.setMove(false)
                 this.pathFollower.stop();
