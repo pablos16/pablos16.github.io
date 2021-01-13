@@ -10,6 +10,7 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
         this.changinPath = false;
         this.onFinish = data.onFinish;
         this.loop = data.loop;
+        this.velocity = { x: 0, y: 0 }
     }
 
     preUpdate() {
@@ -21,35 +22,53 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
     }
 
     makePath() {
-        if (!this.pathReached() && !this.changinPath) {
-            if (this.body.x < this.getPath().x) this.moveRight();
-            else if (this.body.x > this.getPath().x) this.moveLeft();
-            if (this.body.y < this.getPath().y) this.moveDown();
-            else if (this.body.y > this.getPath().y) this.moveUp();
-        }
-        else if (!this.changinPath) {
+        if (!(!this.pathReached() && !this.changinPath) && !this.changinPath) {
             this.changinPath = true;
             this.stop();
             this.scene.time.addEvent({
                 callback: () => {
                     this.changinPath = false;
                     this.nextPath();
+                    this.setVelocity()
                 },
                 delay: this.getPath().delay
             })
         }
+    }
 
+    setVelocity() {
+        this.velocity = this.calculateVelocity();
+        this.body.setVelocityY(this.velocity.y)
+        this.body.setVelocityX(this.velocity.x)
+    }
+
+    calculateVelocity() {
+        let speed = { x: this.getPath().speed, y: this.getPath().speed };
+        let distancia = {
+            x: this.getPath().x - this.body.x,
+            y: this.getPath().y - this.body.y,
+        }
+
+        let divisor = 0;
+        if (Math.abs(distancia.x) < Math.abs(distancia.y)) divisor =  Math.abs(distancia.y)
+        else divisor = Math.abs(distancia.x)
+
+        distancia.x /= divisor
+        distancia.y /= divisor
+
+        speed.y *= distancia.y;
+        speed.x *= distancia.x;
+        return speed;
     }
 
     nextPath() {
         this.currentPath++;
-        if (this.currentPath >= this.path.length)
-        {
+        if (this.currentPath >= this.path.length) {
             this.onFinish(this);
-            if(this.loop) this.currentPath = 0;
+            if (this.loop) this.currentPath = 0;
             else this.destroy(true)
-        } 
-        
+        }
+
     }
 
     pathReached() {
