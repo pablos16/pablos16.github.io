@@ -111,8 +111,7 @@ export default class Scene extends Phaser.Scene {
                         exit: () => { },
                         stay: () => { },
                     })
-                    new NPCDialog(this, objeto.x - 200, objeto.y + 50, this.dialogs['tabernero'], 'tabernero');
-
+                    //new NPCDialog(this, objeto.x - 200, objeto.y + 50, this.dialogs['tabernero'], 'tabernero');
                     break;
                 case 'Item': //Objetos en el suelo
                     this.dropped = new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type));
