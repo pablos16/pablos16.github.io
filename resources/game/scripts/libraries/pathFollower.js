@@ -66,19 +66,15 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
     }
 
     nextPath() {
-        this.currentPath++;
-        if (this.currentPath >= this.path.length) {
+        if (this.currentPath === this.path.length-1) {
+            this.currentPath = 0;
             this.onFinish(this);
-            if (this.loop) {
-                this.currentPath = 0;
-                return true;
-            }
-            else {
-                this.destroy(true)
-                return false;
-            }
+            return this.loop;
         }
-        else return true;
+        else {
+            this.currentPath++;
+            return true;
+        }
 
     }
 
