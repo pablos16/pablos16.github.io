@@ -17,11 +17,24 @@ const Paths = [
             {
                 x: -50,
                 y: 100,
-                speed: 5,
+                speed: 50,
                 delay: 150,
             },
         ],
         loop: true,
+        onFinish: (data) => { },
+    },
+    {
+        name: 'quieto',
+        path: [
+            {
+                x: 0,
+                y: 0,
+                speed: 50,
+                delay: 150,
+            },
+        ],
+        loop: false,
         onFinish: (data) => { },
     },
     {
@@ -40,9 +53,9 @@ const Paths = [
                 delay: 150,
             },
             {
-                x: 350,
+                x: 250,
                 y: 0,
-                speed: 100,
+                speed: 75,
                 delay: 250,
             },
             {

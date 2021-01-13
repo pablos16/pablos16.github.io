@@ -28,8 +28,7 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
             this.scene.time.addEvent({
                 callback: () => {
                     this.changinPath = false;
-                    this.nextPath();
-                    this.setVelocity()
+                    if (this.nextPath()) this.setVelocity()
                 },
                 delay: this.getPath().delay
             })
@@ -43,19 +42,24 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
     }
 
     calculateVelocity() {
+        //Obtener velocidad del path
         let speed = { x: this.getPath().speed, y: this.getPath().speed };
+
+        //Calcular distancia del path al objeto
         let distancia = {
             x: this.getPath().x - this.body.x,
             y: this.getPath().y - this.body.y,
         }
 
+        //Normalizar la distancia
         let divisor = 0;
-        if (Math.abs(distancia.x) < Math.abs(distancia.y)) divisor =  Math.abs(distancia.y)
+        if (Math.abs(distancia.x) < Math.abs(distancia.y)) divisor = Math.abs(distancia.y)
         else divisor = Math.abs(distancia.x)
 
         distancia.x /= divisor
         distancia.y /= divisor
 
+        //Asignar la velocidad
         speed.y *= distancia.y;
         speed.x *= distancia.x;
         return speed;
@@ -65,9 +69,16 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
         this.currentPath++;
         if (this.currentPath >= this.path.length) {
             this.onFinish(this);
-            if (this.loop) this.currentPath = 0;
-            else this.destroy(true)
+            if (this.loop) {
+                this.currentPath = 0;
+                return true;
+            }
+            else {
+                this.destroy(true)
+                return false;
+            }
         }
+        else return true;
 
     }
 
