@@ -34,11 +34,11 @@ export default class Dialoguer
         this.isForced = "data.isForced" in this ? data.isForced : false;
 
         this.trigger = new Trigger({
-            x: 0,
-            y: 0,
+            x: "data.x" in this ? data.x : 0,
+            y: "data.y" in this ? data.y : 0,
             scene: data.scene,
-            xSize: 100,
-            ySize: 100,
+            xSize: "data.xSize" in this ? data.xSize : 100,
+            ySize: "data.ySize" in this ? data.ySize : 100,
             enter: () => { },
             stay: () => { this.talk(data.scene) },
             exit: () => { },
