@@ -8,6 +8,7 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
         this.body = data.body;
         this.condition = data.condition;
         this.changinPath = false;
+        this.onFinish = data.onFinish;
     }
 
     preUpdate() {
@@ -41,7 +42,7 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
 
     nextPath() {
         this.currentPath++;
-        if (this.currentPath >= this.path.length) this.currentPath = 0
+        if (this.currentPath >= this.path.length) this.onFinish(this);
     }
 
     pathReached() {
