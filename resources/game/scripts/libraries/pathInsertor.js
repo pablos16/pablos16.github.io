@@ -1,5 +1,5 @@
-import PathFollower from '../libraries/pathFollower.js'
-import PathNode from '../libraries/pathNode.js'
+import PathFollower from './pathFollower.js'
+import PathNode from './pathNode.js'
 import Paths from '../../paths/genericPath.js'
 
 export default class PathInsertor {
@@ -22,7 +22,10 @@ export default class PathInsertor {
             sceneRef: this.scene,
             body: this.body,
             loop: data.loop,
-            onFinish: (pathFollower) => { data.onFinish() }
+            onFinish: (pathFollower) => { data.onFinish({
+                scene: this.scene,
+                context: this.context,
+            }) }
         })
     }
 
@@ -44,6 +47,7 @@ export default class PathInsertor {
             paths.push(new PathNode({
                 x: this.body.position.x + xTotal,
                 y: this.body.position.y + yTotal,
+                speed: path[i].speed,
                 delay: path[i].delay,
             }))
         }

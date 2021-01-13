@@ -13,10 +13,8 @@ import Trigger from '../libraries/trigger.js'
  * @param {bool} isForced controls wheter the player starts the dialog or is auto
  * @param {object} arguments objeto que se pasa como parametro en los callbacks
  */
-export default class Dialoguer
-{
-    constructor(data)
-    {
+export default class Dialoguer {
+    constructor(data) {
         this.scene = data.scene;
         this.dialog = data.dialog
         this.isTalking = false;
@@ -44,7 +42,11 @@ export default class Dialoguer
             enter: () => { },
             stay: () => { this.talk(data.scene) },
             exit: () => { },
-          })
+        })
+    }
+
+    destroy() {
+        this.trigger.destroy(true)
     }
 
     talk(scene) {
@@ -64,7 +66,7 @@ export default class Dialoguer
     }
 
     currentDialog() {
-        return this.dialog[this.index !== -1 ? this.index : this.dialog.length-1];
+        return this.dialog[this.index !== -1 ? this.index : this.dialog.length - 1];
     }
 
     StartDialog(scene) {
@@ -82,7 +84,7 @@ export default class Dialoguer
         if ("callback" in this.currentDialog()) {
             this.currentDialog().callback(
                 {
-                    arguments: this.arguments, 
+                    arguments: this.arguments,
                     scene: scene
                 });
         }
