@@ -22,17 +22,22 @@ export default class PathInsertor {
             sceneRef: this.scene,
             body: this.body,
             loop: data.loop,
-            onFinish: (pathFollower) => { data.onFinish({
-                scene: this.scene,
-                context: this.context,
-            }) }
+            onFinish: (pathFollower) => {
+                if ('onFinish' in data) {
+                    data.onFinish({
+                        scene: this.scene,
+                        context: this.context,
+                    })
+                }
+               
+            }
         })
     }
 
     //Asumimos que siempre va a existir un path a encontrar
     searchPath(path) {
         for (let i = 0; i < Paths.length; i++) {
-            if(Paths[i].name === path) return Paths[i]
+            if (Paths[i].name === path) return Paths[i]
         }
     }
 

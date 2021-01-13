@@ -35,7 +35,6 @@ const Paths = [
             },
         ],
         loop: false,
-        onFinish: (data) => { },
     },
     {
         name: 'coronel',
@@ -100,7 +99,6 @@ const Paths = [
             },
         ],
         loop: true,
-        onFinish: (data) => {  },
     }
 ]
 
