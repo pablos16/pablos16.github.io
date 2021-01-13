@@ -26,7 +26,7 @@ const Dialog =
         },
         {
             id: 2,
-            name: Names.Police,
+            name: Names.Dictator,
             text: ["Me han llegado dos formatos de carteles feriales para los feriantes del pueblo. Se encuentran en el sur de la ciudad, necesito que vayas a darles los mejores carteles."],
             state: [
                 {
@@ -37,7 +37,7 @@ const Dialog =
         },
         {
             id: 3,
-            name: Names.Police,
+            name: Names.Dictator,
             text: ["Por otra parte no se si hablaste con la mujer del carcelero, pero me está resultando un tanto sospechosa. Necesito que vayas e investigues sobre si está conspirando contra mi"],
             state: [
                 {
@@ -48,7 +48,7 @@ const Dialog =
         },
         {
             id: 4,
-            name: Names.Police,
+            name: Names.Dictator,
             text: ["También me han comunicado que hay un ladrón suelto por el pueblo. Tiene un gorro rojo. Encuentrale y arrestale. La ultima vez se le vio por el oeste del pueblo"],
             state: [
                 {
@@ -59,7 +59,7 @@ const Dialog =
         },
         {
             id: 5,
-            name: Names.Police,
+            name: Names.Dictator,
             text: ["Por la zona de los pobres hay una aglomeración de gente que necesito que disipes. Esos pobres revolucionarios no se van a salir con la suya"],
             state: [
                 {
@@ -70,7 +70,7 @@ const Dialog =
         },
         {
             id: 6,
-            name: Names.Police,
+            name: Names.Dictator,
             text: ["Cuando acabes esas misiones puedes ir a hablar con el loco del pueblo. No ha dicho más que Cuá desde que llegué aquí y no entiendo que le sucede."],
             state: [
                 {
@@ -114,7 +114,7 @@ const Dialog =
                 {
                     targetState: ["any"],
                     nextState:1,
-                    nextIndex: 1
+                    nextIndex: -1
                 },
             ]
         },
