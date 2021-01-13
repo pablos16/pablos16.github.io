@@ -1,5 +1,6 @@
 import NPCImage from './npcSprite.js';
 import PathNode from '../libraries/pathNode.js'
+import PathFollower from '../libraries/pathFollower.js'
 
 export default class NPC extends Phaser.GameObjects.Container {
   constructor(scene, x, y, npcImage) {
@@ -19,27 +20,34 @@ export default class NPC extends Phaser.GameObjects.Container {
     //Sprite del container
     this.spriteImage = new NPCImage(scene, 0, 0, npcImage);
 
-    this.path = [];
-    this.currentPath = 0;
-    this.changinPath = false;
-    this.path.push(new PathNode({
-      x: this.body.position.x,
-      y: this.body.position.y,
-      delay: 3500,
-    }))
-    this.path.push(new PathNode({
-      x: this.body.position.x + 100,
-      y: this.body.position.y,
-      delay: 1500,
-    }))
-    this.path.push(new PathNode({
-      x: this.body.position.x + 50,
-      y: this.body.position.y + 100,
-      delay: 400,
-    }))
+    this.isTalking = false
+
+    this.pathFollower = new PathFollower({
+      path: [
+        new PathNode({
+          x: this.body.position.x,
+          y: this.body.position.y,
+          delay: 3500,
+        }),
+        new PathNode({
+          x: this.body.position.x + 100,
+          y: this.body.position.y,
+          delay: 1500,
+        }),
+        new PathNode({
+          x: this.body.position.x + 50,
+          y: this.body.position.y + 100,
+          delay: 400,
+        })
+      ],
+      sceneRef: scene,
+      body: this.body,
+      xBody: this.body.position.x,
+      xBody: this.body.position.y,
+      condition: !this.isTalking
+    })
 
     this.theScene = scene;
-    this.makePath();
 
     this.add(this.trigger);
     this.add(this.spriteImage);
@@ -59,41 +67,7 @@ export default class NPC extends Phaser.GameObjects.Container {
     this.dirY;
   }
 
-  makePath() {
-    if (!this.pathReached() && !this.changinPath) {
-      if (this.x < this.getPath().x) this.moveRight();
-      else if (this.x > this.getPath().x) this.moveLeft();
-      if (this.y < this.getPath().y) this.moveDown();
-      else if (this.y > this.getPath().y) this.moveUp();
-    }
-    else if (!this.changinPath) {
-      this.changinPath = true;
-      this.stop();
-      this.theScene.time.addEvent({
-        callback: () => {
-          this.changinPath = false;
-          this.nextPath();
-        },
-        delay: this.getPath().delay
-      })
-    }
 
-  }
-
-  nextPath() {
-    this.currentPath++;
-    if (this.currentPath >= this.path.length) this.currentPath = 0
-  }
-
-  pathReached() {
-    let first = Math.abs(this.body.position.x - this.getPath().x) <= 1;
-    let second = Math.abs(this.body.position.y - this.getPath().y) <= 1;
-    return first && second;
-  }
-
-  getPath() {
-    return this.path[this.currentPath];
-  }
 
   moveX(left, right) {
     //TODO quitar velocidad, con el container no tendria que estar
@@ -170,7 +144,6 @@ export default class NPC extends Phaser.GameObjects.Container {
     //   this.moveX(-50, 50);
     // }
 
-    if(!this.isTalking)this.makePath()
     this.checkAnims();
   }
 
