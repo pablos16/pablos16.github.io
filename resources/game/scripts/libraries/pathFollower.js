@@ -10,8 +10,7 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
         this.changinPath = false;
         this.onFinish = data.onFinish;
         this.loop = data.loop;
-        this.velocity = {x: 0, y: 0}
-        this.setVelocity()
+        this.velocity = { x: 0, y: 0 }
     }
 
     preUpdate() {
@@ -44,23 +43,22 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
     }
 
     calculateVelocity() {
-        let tupla = { x: this.getPath().speed, y: this.getPath().speed };
-        let diferencia = {
-            x: this.body.x - this.getPath().x,
-            y: this.body.y - this.getPath().y,
+        let speed = { x: this.getPath().speed, y: this.getPath().speed };
+        let distancia = {
+            x: this.getPath().x - this.body.x,
+            y: this.getPath().y - this.body.y,
         }
 
         let divisor = 0;
-        if (Math.abs(diferencia.x) < Math.abs(diferencia.y)) divisor = diferencia.y
-        else divisor = diferencia.x
+        if (Math.abs(distancia.x) < Math.abs(distancia.y)) divisor =  Math.abs(distancia.y)
+        else divisor = Math.abs(distancia.x)
 
+        distancia.x /= divisor
+        distancia.y /= divisor
 
-        diferencia.x /= divisor
-        diferencia.y /= divisor
-
-        tupla.y *= diferencia.y;
-        tupla.x *= diferencia.x;
-        return tupla;
+        speed.y *= distancia.y;
+        speed.x *= distancia.x;
+        return speed;
     }
 
     nextPath() {
