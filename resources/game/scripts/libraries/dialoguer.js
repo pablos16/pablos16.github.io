@@ -24,6 +24,7 @@ export default class Dialoguer
         this.initializeText([this.name, this.description, this.arrow], false)
         this.onStart = data.onStart;
         this.onFinish = data.onFinish;
+        this.isForced = "data.isForced" in this ? data.isForced : false;
 
         this.trigger = new Trigger({
             x: 0,
@@ -38,8 +39,9 @@ export default class Dialoguer
     }
 
     talk(scene) {
-        if (!this.choosing && scene.player.keyDown().interact) {
+        if (!this.choosing && (scene.player.keyDown().interact || this.isForced)) {
             scene.dialogSound.play();
+            this.isForced = false;
             if (!this.isTalking) this.StartDialog(scene)
             else if (this.isTalking) {
                 if (this.index === -1) this.FinishDialog(scene)
