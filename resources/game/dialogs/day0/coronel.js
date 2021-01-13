@@ -1,5 +1,5 @@
 import Names from '../../configs/npcNames.js'
-import PathInsertor from '../../scripts/libraries/pathList.js';
+import PathInsertor from '../../scripts/libraries/pathInsertor.js';
 
 const Dialog =
     [

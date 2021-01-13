@@ -40,7 +40,7 @@ const Paths = [
                 delay: 350,
             },
         ],
-        loop: true,
+        loop: false,
         onFinish: (data) => {
             data.context.destroy(true)
             data.scene.player.isTalking = false;

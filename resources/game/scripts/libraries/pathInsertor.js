@@ -1,5 +1,5 @@
-import PathFollower from '../libraries/pathFollower.js'
-import PathNode from '../libraries/pathNode.js'
+import PathFollower from './pathFollower.js'
+import PathNode from './pathNode.js'
 import Paths from '../../paths/genericPath.js'
 
 export default class PathInsertor {

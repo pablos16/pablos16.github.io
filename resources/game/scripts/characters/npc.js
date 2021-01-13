@@ -2,7 +2,7 @@ import NPCImage from './npcSprite.js';
 import PathNode from '../libraries/pathNode.js'
 import PathFollower from '../libraries/pathFollower.js'
 import Trigger from '../libraries/trigger.js'
-import PathInsertor from '../libraries/pathList.js';
+import PathInsertor from '../libraries/pathInsertor.js';
 
 export default class NPC extends Phaser.GameObjects.Container {
   constructor(scene, x, y, npcImage, pathName) {
