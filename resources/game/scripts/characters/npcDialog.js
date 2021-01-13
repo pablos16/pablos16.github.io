@@ -6,7 +6,7 @@ import Vector2 from '../libraries/vector2.js'
 export default class NPCDialog extends NPC {
     constructor(scene, x, y, dialog, npcImage) {
         super(scene, x, y, npcImage);
-        this.theDialog = new Dialoguer({
+        this.dialog = new Dialoguer({
             scene: scene,
             dialog: dialog,
             onStart: () => {
@@ -16,12 +16,9 @@ export default class NPCDialog extends NPC {
             },
             onFinish: () => { this.pathFollower.setMove(true) },
         });
+        this.add(this.dialog.trigger.trigger)
     }
 
-    accion(scene) {
-        this.theDialog.talk(scene)
-    }
-    
     getTogether(scene) {
         //Uso mi propia clase vector2 porque la de Phaser me da problemas
         let playerPos = new Vector2(scene.player.x, scene.player.y)

@@ -12,17 +12,6 @@ export default class NPC extends Phaser.GameObjects.Container {
 
     this.theScene = scene;
 
-    this.trigger = new Trigger({
-      x: 0,
-      y: 0,
-      scene: scene,
-      xSize: 100,
-      ySize: 100,
-      enter: () => { },
-      stay: () => { this.accion(scene) },
-      exit: () => { },
-    })
-
     //Sprite del container
     this.spriteImage = new NPCImage(scene, 0, 0, npcImage);
 
@@ -51,7 +40,6 @@ export default class NPC extends Phaser.GameObjects.Container {
       onFinish: (context) => { context.currentPath = 0 }
     })
 
-    this.add(this.trigger.trigger);
     this.add(this.spriteImage);
     //Variables
     this.initialPosX = x;

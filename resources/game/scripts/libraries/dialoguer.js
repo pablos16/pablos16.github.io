@@ -4,6 +4,7 @@ import { getRandomInt } from "../libraries/mathFunc.js";
 import * as utils from '../libraries/phaserUtilities.js'
 import SocialStatePeople from '../../configs/npcSocialGroups.js'
 import AnimatedText from '../libraries/animatedText.js'
+import Trigger from '../libraries/trigger.js'
 export default class Dialoguer
 {
     constructor(data)
@@ -23,6 +24,17 @@ export default class Dialoguer
         this.initializeText([this.name, this.description, this.arrow], false)
         this.onStart = data.onStart;
         this.onFinish = data.onFinish;
+
+        this.trigger = new Trigger({
+            x: 0,
+            y: 0,
+            scene: data.scene,
+            xSize: 100,
+            ySize: 100,
+            enter: () => { },
+            stay: () => { this.talk(data.scene) },
+            exit: () => { },
+          })
     }
 
     talk(scene) {
