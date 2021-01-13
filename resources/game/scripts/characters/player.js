@@ -8,21 +8,24 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
-    //this.body.setCollideWorldBounds();
+
     this.speed = 300;
 
     //Movimiento
     this.dirX;
     this.dirY;
 
+    //Variable para comprobar si está hablando
     this.isTalking = false;
 
 
     //Inventario
     this.inventory = new Inventory();
 
+    //Misiones que tiene que hacer
     this.missionList = new Missions(scene, missionList)
 
+    //Input para el movimiento
     const { LEFT, RIGHT, UP, DOWN, W, A, S, D } = Phaser.Input.Keyboard.KeyCodes;
     this.cursors = scene.input.keyboard.addKeys({
       left: A,
@@ -48,7 +51,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     });
     scene.anims.create({
       key: 'idle',
-      frames: scene.anims.generateFrameNumbers('player',{ start: 1, end: 1 }),
+      frames: scene.anims.generateFrameNumbers('player', { start: 1, end: 1 }),
       frameRate: 7,
       repeat: -1
     });
@@ -86,20 +89,22 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   calculateVelocity() {
 
-
     this.dirY = 0;
     this.dirX = 0;
-
-    if (this.cursors.up.isDown) { //arriba
+    //Arriba
+    if (this.cursors.up.isDown) {
       this.dirY = -1;
     }
-    if (this.cursors.down.isDown) { //abajo
+    //Abajo
+    if (this.cursors.down.isDown) {
       this.dirY = 1;
     }
-    if (this.cursors.left.isDown) { //izquierda
+    //Izquierda
+    if (this.cursors.left.isDown) {
       this.dirX = -1;
     }
-    if (this.cursors.right.isDown) { //derecha
+    //Derecha
+    if (this.cursors.right.isDown) {
       this.dirX = 1;
     }
 
@@ -121,32 +126,41 @@ export default class Player extends Phaser.GameObjects.Sprite {
   }
 
   checkAnims() {
+
     if (this.dirX === 0) {
       //Si esta quieto
       if (this.dirY === 0)
         this.play('idle', true);
-      else if (this.dirY < 0) //arriba
+      //Arriba
+      else if (this.dirY < 0)
         this.play('up', true);
-      else //abajo
+      //Abajo
+      else
         this.play('down', true);
     }
-    else if (this.dirX < 0) //izquierda
+    //Izquierda
+    else if (this.dirX < 0)
       this.play('left', true);
-    else //derecha
+    //Derecha
+    else
       this.play('right', true);
 
   }
   preUpdate(t, d) {
+    //Llamamos al super para las animaciones
     super.preUpdate(t, d);
 
     //Al principio de cada preUpdate, el Player se para
     this.stopX()
     this.stopY()
 
+    //Si no esta hablando...
     if (!this.isTalking) {
 
+      //Calculas la velocidad
       this.calculateVelocity()
 
+      //Y realizas la animacion
       this.checkAnims();
 
     }

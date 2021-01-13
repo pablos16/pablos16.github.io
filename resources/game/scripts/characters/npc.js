@@ -11,12 +11,13 @@ export default class NPC extends Phaser.GameObjects.Container {
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
 
+    //Guardamos la escena
     this.theScene = scene;
 
     //Sprite del container
     this.spriteImage = new NPCImage(scene, 0, 0, npcImage);
 
-    this.isTalking = false
+    this.isTalking = false;
 
     this.pathFollower = new PathInsertor({
       body: this.body,
@@ -26,6 +27,7 @@ export default class NPC extends Phaser.GameObjects.Container {
     })
 
     this.add(this.spriteImage);
+
     //Variables
     this.initialPosX = x;
     this.initialPosY = y;

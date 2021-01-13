@@ -23,12 +23,9 @@ export default class Boot extends Phaser.Scene{
     this.load.image('tpImg', 'resources/game/textures/tpTransition.png');
 
     //Jugador
-    //this.load.image('player', 'resources/game/textures/policeman.png');
     this.load.spritesheet('player', 'resources/game/textures/NPCs/police.png', { frameWidth: 32, frameHeight: 32 });
 
-    //NPC
-    
-    this.load.spritesheet('police', 'resources/game/textures/NPCs/police.png', { frameWidth: 32, frameHeight: 32 });
+    //NPCs
     this.load.spritesheet('leandro', 'resources/game/textures/NPCs/leandro.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('coronel', 'resources/game/textures/NPCs/coronel.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('dictador', 'resources/game/textures/NPCs/dictador.png', { frameWidth: 32, frameHeight: 32 });
@@ -85,7 +82,12 @@ export default class Boot extends Phaser.Scene{
     this.load.image('bar', 'resources/game/textures/gui/alignmentBar/alignmentBar.png');
     this.load.image('indicator', 'resources/game/textures/gui/alignmentBar/indicator.png');
 
-    //Musica
+    //MUSICA
+
+    //Menu
+    this.load.audio('backgroundMenu', 'resources/game/sounds/backgroundMenu.wav');
+
+    //Juego
     this.load.audio('bar', 'resources/game/sounds/bar.mp3');
     this.load.audio('castle', 'resources/game/sounds/castle.wav');
     this.load.audio('pueblo', 'resources/game/sounds/pueblo.wav');
@@ -96,8 +98,7 @@ export default class Boot extends Phaser.Scene{
     this.load.audio('selection', 'resources/game/sounds/dialog/selection.wav')
     this.load.audio('pickup', 'resources/game/sounds/inventory/pickup.wav')
 
-    //Menu
-    this.load.audio('backgroundMenu', 'resources/game/sounds/backgroundMenu.wav');
+    
   }
 
   create() { this.scene.start('menu'); }

@@ -84,8 +84,19 @@ const Dialog =
         {
             id: 6,
             name: Names.BestFriend,
+            text: ["¡Perfecto! Si me buscas estaré por el sur del pueblo, no tengo tanto dinero como para vivir en el norte."],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextIndex: 7
+                },
+            ]
+        },
+        {
+            id: 7,
+            name: Names.BestFriend,
             completed: 0,
-            text: ["¡Perfecto! Si me buscas estaré por el sur del pueblo, no tengo tanto dinero como para vivir en el norte. Un saludo."],
+            text: ["El resto de gente que buscas estará en la taberna del pueblo. Esta aquí a mano derecha, la taberna llena de barriles. Yo me voy, Un saludo."],
             state: [
                 {
                     targetState: ["any"],
@@ -95,7 +106,7 @@ const Dialog =
             ]
         },
         {
-            id: 7,
+            id: 8,
             name: Names.BestFriend,
             text: ["Si mañana estas mas libre ven a verme!","Recuerda venir mañana cuando tengas tiempo"],
             state: [
@@ -114,7 +125,7 @@ const Dialog =
                 },
                 {
                     targetState: [1],
-                    nextIndex: 7
+                    nextIndex: 8
                 }
             ]
         }

@@ -1,9 +1,9 @@
 import Dialog from '../../configs/dialogConfig.js'
 
 /**
- * Class that creates a text and animate it character by character
- * @param {Phaser.Scene} scene Phaser scene where the text is constructed
- * @param {string} text text to construct
+ * Clase que crea un texto y lo anima caracter por caracter
+ * @param {Phaser.Scene} scene Escena de phaser donde se construye el texto
+ * @param {string} text Texto para construir
  */
 export default class AnimatedText extends Phaser.GameObjects.BitmapText {
     constructor(scene, text) {

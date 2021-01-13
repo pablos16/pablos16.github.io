@@ -1,12 +1,11 @@
-//TODO Container con sprite y trigger 
-//TODO Esto no hereda de sprite, hereda de container
+//Sprite de los NPCs
 export default class NPCImage extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, imageName) {
     super(scene, x, y, imageName);
 
+    //Fisicas
     this.scene.add.existing(this);
     this.scene.physics.add.existing(this);
-
     this.scene.physics.add.collider(this,scene.player);
     this.body.setImmovable();
 
@@ -45,8 +44,6 @@ export default class NPCImage extends Phaser.GameObjects.Sprite {
       repeat: -1
     });
   }
-
-  
 
   preUpdate(t, d) {
     //Llamamos al super para las animaciones

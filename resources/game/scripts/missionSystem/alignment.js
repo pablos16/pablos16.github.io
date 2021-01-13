@@ -3,12 +3,14 @@ export default class Alignment extends Phaser.GameObjects.Container {
     constructor(scene, x, y, points) {
         super(scene, x, y);
 
-        this.texture = scene.add.image(x, y, 'bar');//.setScrollFactor(0);
+        this.texture = scene.add.image(x, y, 'bar');
 
 
         scene.add.existing(this);
+        //Fijamos la barra
         this.setScrollFactor(0);
 
+        //Puntos que tiene el player
         this.points = points;
 
         this.indicatorTexture = scene.add.image(x, y, 'indicator');
@@ -19,7 +21,7 @@ export default class Alignment extends Phaser.GameObjects.Container {
         this.texture.setInteractive();
         this.texture.on('pointerdown', pointer => { this.test() })
 
-        this.sceneRef = scene
+        this.sceneRef = scene;
     }
  
     test() {
