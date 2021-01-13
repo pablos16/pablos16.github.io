@@ -2,6 +2,7 @@ import NPCImage from './npcSprite.js';
 import PathNode from '../libraries/pathNode.js'
 import PathFollower from '../libraries/pathFollower.js'
 import Trigger from '../libraries/trigger.js'
+import PathInsertor from '../libraries/pathList.js';
 
 export default class NPC extends Phaser.GameObjects.Container {
   constructor(scene, x, y, npcImage) {
@@ -17,27 +18,11 @@ export default class NPC extends Phaser.GameObjects.Container {
 
     this.isTalking = false
 
-    this.pathFollower = new PathFollower({
-      path: [
-        new PathNode({
-          x: this.body.position.x,
-          y: this.body.position.y,
-          delay: 3500,
-        }),
-        new PathNode({
-          x: this.body.position.x + 100,
-          y: this.body.position.y,
-          delay: 1500,
-        }),
-        new PathNode({
-          x: this.body.position.x + 50,
-          y: this.body.position.y + 100,
-          delay: 400,
-        })
-      ],
-      sceneRef: scene,
+    this.pathFollower = new PathInsertor({
       body: this.body,
-      onFinish: (context) => { context.currentPath = 0 }
+      scene: this.theScene,
+      context: this,
+      pathName: 'default',
     })
 
     this.add(this.spriteImage);
