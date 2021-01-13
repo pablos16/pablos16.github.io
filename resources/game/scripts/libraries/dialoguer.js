@@ -31,11 +31,11 @@ export default class Dialoguer
         this.initializeText([this.name, this.description, this.arrow], false)
         this.onStart = data.onStart;
         this.onFinish = data.onFinish;
-        this.isForced = "data.isForced" in this ? data.isForced : false;
+        this.isForced = data.isForced
 
         this.trigger = new Trigger({
-            x: "data.x" in this ? data.x : 0,
-            y: "data.y" in this ? data.y : 0,
+            x: data.x,
+            y: data.y,
             scene: data.scene,
             xSize: "data.xSize" in this ? data.xSize : 100,
             ySize: "data.ySize" in this ? data.ySize : 100,

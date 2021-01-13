@@ -9,6 +9,9 @@ export default class NPCDialog extends NPC {
         this.dialog = new Dialoguer({
             scene: scene,
             dialog: dialog,
+            x: 0,
+            y: 0,
+            isForced: false,
             onStart: () => {
                 this.pathFollower.setMove(false)
                 this.pathFollower.stop();
