@@ -3,7 +3,6 @@ import PathNode from '../libraries/pathNode.js'
 import PathFollower from '../libraries/pathFollower.js'
 import Trigger from '../libraries/trigger.js'
 import PathInsertor from '../libraries/pathList.js';
-import Paths from '../../paths/genericPath.js'
 
 export default class NPC extends Phaser.GameObjects.Container {
   constructor(scene, x, y, npcImage, pathName) {
@@ -24,7 +23,7 @@ export default class NPC extends Phaser.GameObjects.Container {
       body: this.body,
       scene: this.theScene,
       context: this,
-      path: Paths[0],
+      path: pathName,
     })
 
     this.add(this.spriteImage);

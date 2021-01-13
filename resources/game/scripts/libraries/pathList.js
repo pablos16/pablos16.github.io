@@ -8,7 +8,7 @@ export default class PathInsertor {
         this.body = data.body;
         this.scene = data.scene
         this.context = data.context;
-        this.path = data.path;
+        this.path = this.searchPath(data.path);
         this.inserPath()
     }
 
@@ -24,6 +24,13 @@ export default class PathInsertor {
             loop: data.loop,
             onFinish: (pathFollower) => { data.onFinish() }
         })
+    }
+
+    //Asumimos que siempre va a existir un path a encontrar
+    searchPath(path) {
+        for (let i = 0; i < Paths.length; i++) {
+            if(Paths[i].name === path) return Paths[i]
+        }
     }
 
     generatePathFromObject(path) {
