@@ -42,9 +42,6 @@ export default class NPC extends Phaser.GameObjects.Container {
       ],
       sceneRef: scene,
       body: this.body,
-      xBody: this.body.position.x,
-      xBody: this.body.position.y,
-      condition: !this.isTalking,
       onFinish: (context) => {context.currentPath = 0}
     })
 

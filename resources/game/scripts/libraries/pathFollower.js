@@ -6,7 +6,7 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
         this.path = data.path;
         this.currentPath = 0;
         this.body = data.body;
-        this.condition = data.condition;
+        this.condition = true;
         this.changinPath = false;
         this.onFinish = data.onFinish;
     }
