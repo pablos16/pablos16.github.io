@@ -5,7 +5,7 @@ const Dialog =
         {
             id: 0,
             name: Names.Agricultor,
-            text: ["Espero no verte pisando lo que he sembrado","..."],
+            text: ["Espero no verte pisando lo que he sembrado.","..."],
             state: [
                 {
                     targetState: ["any"],

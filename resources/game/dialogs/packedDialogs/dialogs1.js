@@ -11,6 +11,7 @@ import player from '../day1/player.js'
 import npc1 from '../day1/npc1.js'
 import npc2 from '../day1/npc2.js'
 import npc3 from '../day1/npc3.js'
+import ladron from '../day1/ladron.js'
 
 
 //Estos nombres son los que hay que poner en tiled
@@ -28,7 +29,8 @@ const dialogs =
     player,
     npc1,
     npc2,
-    npc3
+    npc3,
+    ladron
 }
 
 export default dialogs
