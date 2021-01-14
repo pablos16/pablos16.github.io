@@ -20,14 +20,6 @@ table{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-button{
-  color: white;
-  background-color: darksalmon;
-  text-align: center;
-  font-size: 40px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  padding: 10px 20px;
-}
 body{
   background-size: cover;
   margin: 0px;
