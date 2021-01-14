@@ -3,7 +3,6 @@ import Names from '../../configs/npcNames.js'
 const Dialog =
     [
         {
-            //REHACER PARA EL DIA2
             id: 0,
             name: Names.Tabernero,
             text: ["..."],
