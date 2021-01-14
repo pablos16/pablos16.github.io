@@ -52,6 +52,12 @@ export default class Boot extends Phaser.Scene{
     this.load.spritesheet('tabernero', 'resources/game/textures/NPCs/tabernero.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('tabernera', 'resources/game/textures/NPCs/tabernera.png', { frameWidth: 32, frameHeight: 32 });
 
+    //NPCs decorativos
+    this.load.spritesheet('npc1', 'resources/game/textures/NPCs/npc1.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('npc2', 'resources/game/textures/NPCs/npc2.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('npc3', 'resources/game/textures/NPCs/npc3.png', { frameWidth: 32, frameHeight: 32 });
+
+
     //Mapa
     this.load.tilemapTiledJSON('tileMap', 'resources/game/tilemap/map.json');
     this.load.image('mapTiles', 'resources/game/textures/map/tiles.png');
