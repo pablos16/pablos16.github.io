@@ -50,13 +50,6 @@ const SocialStatePeople=
         [
             Names.Police
         ]
-    },
-    {
-        name: SocialStateName.Objetos,
-        peopleIn:
-        [
-            Names.Muro
-        ]
     }
 ]
 

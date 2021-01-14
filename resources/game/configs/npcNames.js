@@ -20,8 +20,6 @@ const Names =
     Feriante: "(El) Feriante",
     Ferianta: "(La) Feriante",
     SrFeriante: "Hijo Feriante",
-    Muro: "Muro",
-    Edificio: "Edificio deteriorado",
     Cura: "Cura",
     Ladron: "Desconocido",
     Agronomo: "Agrónomo",
