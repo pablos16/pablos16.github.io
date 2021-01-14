@@ -51,7 +51,7 @@ const Paths = [
                 delay: 150,
             },
             {
-                x: 300,
+                x: 320,
                 y: 0,
                 speed: 75,
                 delay: 250,
