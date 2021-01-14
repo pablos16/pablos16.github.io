@@ -22,7 +22,6 @@ const Paths = [
             },
         ],
         loop: true,
-        onFinish: (data) => { },
     },
     {
         name: 'quieto',
