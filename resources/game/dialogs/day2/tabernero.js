@@ -5,7 +5,7 @@ const Dialog =
         {
             id: 0,
             name: Names.Tabernero,
-            text: ["..."],
+            text: ["Cuidadito con mi mujer *Burp*, que soy un borracho pero leal. *Burp*"],
             state: [
                 {
                     targetState: ["any"],
@@ -16,7 +16,7 @@ const Dialog =
         {
             id: 1,
             name: Names.Police,
-            text: ["(¿Ya va borracho a estas horas del dia?)"],
+            text: ["(Lo mismo de siempre)"],
             state: [
                 {
                     targetState: ["any"],
