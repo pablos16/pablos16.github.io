@@ -96,7 +96,7 @@ export default class Scene extends Phaser.Scene {
                                     scene: this,
                                     dialog: this.dialogs.player,
                                     isForced: true,
-                                    onStart: () => { 
+                                    onStart: () => {
                                         this.tweens.add({
                                             targets: this.player,
                                             duration: 250,
@@ -143,8 +143,8 @@ export default class Scene extends Phaser.Scene {
                         scene: this,
                         xSize: objeto.width,
                         ySize: objeto.height,
-                        enter: () => { 
-                            this[props.music].play() 
+                        enter: () => {
+                            this[props.music].play()
                             this.currentPlaying = this[props.music];
                         },
                         exit: () => { this[props.music].stop(); },
@@ -202,9 +202,9 @@ export default class Scene extends Phaser.Scene {
         this.fadeOut()
     }
 
-    changeScene() {
+    changeScene(sceneName = this.nextLevel) {
         this.fadeIn()
-        this.loadScene(CT.fadeInTime)
+        this.loadScene(sceneName)
     }
 
     update() {
@@ -213,11 +213,11 @@ export default class Scene extends Phaser.Scene {
         }
     }
 
-    loadScene(delay) {
+    loadScene(sceneName, delay = CT.fadeInTime) {
 
         this.time.addEvent({
             callback: () => {
-                this.scene.start(this.nextLevel, {
+                this.scene.start(sceneName, {
                     points: this.align.points,
                 });
             },

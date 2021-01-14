@@ -33,7 +33,7 @@ export default class PathInsertor {
             sceneRef: this.scene,
             body: this.body,
             loop: data.loop,
-            onFinish: () => {
+            onFinish: () => { //This method is located in the path object file
                 if ('onFinish' in data) {
                     data.onFinish({
                         scene: this.scene,

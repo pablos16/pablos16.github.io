@@ -33,7 +33,7 @@ export default class Alignment extends Phaser.GameObjects.Container {
         this.points += amount
         if (Math.abs(this.points) >= CT.alignmentMaxPoints) {
             //Cargas la escena
-            this.scene.start('lose',{points:100});
+            this.sceneRef.loadScene();
         }
         this.updatePosition(amount)
     }
