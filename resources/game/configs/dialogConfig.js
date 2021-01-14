@@ -20,7 +20,7 @@ const CT =
      subDialogSize: 25,
      dialogAlign: 0,
      dialogSpeed: 10,
-     characterOffset: 40,
+     characterOffset: 60,
 
      textLimit: 50,
 }
