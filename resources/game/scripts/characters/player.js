@@ -89,26 +89,26 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
   calculateVelocity() {
 
-    this.dirY = 0;
-    this.dirX = 0;
+    let dirY = 0;
+    let dirX = 0;
     //Arriba
     if (this.cursors.up.isDown) {
-      this.dirY = -1;
+      dirY = -1;
     }
     //Abajo
     if (this.cursors.down.isDown) {
-      this.dirY = 1;
+      dirY = 1;
     }
     //Izquierda
     if (this.cursors.left.isDown) {
-      this.dirX = -1;
+      dirX = -1;
     }
     //Derecha
     if (this.cursors.right.isDown) {
-      this.dirX = 1;
+      dirX = 1;
     }
 
-    let object = { x: this.dirX, y: this.dirY }
+    let object = { x: dirX, y: dirY }
 
     normalizeVector(object);
 
@@ -118,28 +118,28 @@ export default class Player extends Phaser.GameObjects.Sprite {
   }
 
   stopX() {
-    this.dirX = this.body.setVelocityX(0);
+    this.body.setVelocityX(0);
   }
 
   stopY() {
-    this.dirY = this.body.setVelocityY(0);
+    this.body.setVelocityY(0);
   }
 
   checkAnims() {
 
-    if (this.dirX === 0) {
+    if (this.body.newVelocity.x === 0) {
       //Si esta quieto
-      if (this.dirY === 0)
+      if (this.body.newVelocity.y === 0)
         this.play('idle', true);
       //Arriba
-      else if (this.dirY < 0)
+      else if (this.body.newVelocity.y < 0)
         this.play('up', true);
       //Abajo
       else
         this.play('down', true);
     }
     //Izquierda
-    else if (this.dirX < 0)
+    else if (this.body.newVelocity.x < 0)
       this.play('left', true);
     //Derecha
     else
