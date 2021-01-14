@@ -37,12 +37,14 @@ export default class NPCDialog extends NPC {
 
         let charOffset = Dialog.characterOffset;
         if (offset !== undefined) charOffset = offset
+        console.log(offset)
+        console.log(offset !== undefined)
         if (offset === 0) return;
         scene.tweens.add({
             targets: scene.player,
             duration: 250,
-            y: this.y + offset * Math.sign(Offset.y),
-            x: this.x + offset * Math.sign(Offset.x),
+            y: this.y + charOffset * Math.sign(Offset.y),
+            x: this.x + charOffset * Math.sign(Offset.x),
         })
     }
 }
