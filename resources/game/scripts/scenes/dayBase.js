@@ -126,6 +126,8 @@ export default class Scene extends Phaser.Scene {
                     this.dropped = new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type));
                     break;
                 case 'Obstacle': //Obstáculo (entidad en la que se usa un objeto)
+                    function eefsd() {console.log('namibia')};
+                    function eefsd2() {console.log('zimbawe')};
                     this.obtacle = new Obstacle(this, objeto.x, objeto.y, props.texture, parseInt(objeto.type));
                     break;
                 case 'Npc': //NPC
