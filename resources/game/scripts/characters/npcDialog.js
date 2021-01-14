@@ -4,19 +4,21 @@ import Dialog from '../../configs/dialogConfig.js';
 import Vector2 from '../libraries/vector2.js'
 
 export default class NPCDialog extends NPC {
-    constructor(scene, x, y, dialog, npcImage, pathName) {
-        super(scene, x, y, npcImage, pathName);
+    constructor(data) {
+        super(data.scene, data.x, data.y, data.sprite, data.pathName);
         this.dialog = new Dialoguer({
-            scene: scene,
-            dialog: dialog,
+            scene: data.scene,
+            dialog: data.dialog,
             x: 0,
             y: 0,
+            xSize: data.xTriggerSize,
+            ySize: data.yTriggerSize,
             isForced: false,
             callbackArguments: {npc: this},
             onStart: () => {
                 this.path.setMove(false)
                 this.path.stop();
-                this.getTogether(scene);
+                this.getTogether(data.scene);
             },
             onFinish: () => { 
                 this.path.setMove(true)

@@ -111,7 +111,16 @@ export default class Scene extends Phaser.Scene {
                         exit: () => { },
                         stay: () => { },
                     })
-                    //new NPCDialog(this, objeto.x - 200, objeto.y + 50, this.dialogs['tabernero'], 'tabernero', 'quieto');
+                    // new NPCDialog({
+                    //     scene: this,
+                    //     x: objeto.x - 100,
+                    //     y: objeto.y,
+                    //     dialog: this.dialogs['tabernero'],
+                    //     sprite: 'tabernero',
+                    //     pathName: 'quieto',
+                    //     xTriggerSize: props.lol,
+                    //     yTriggerSize: props.sl
+                    // });
                     break;
                 case 'Item': //Objetos en el suelo
                     this.dropped = new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type));
@@ -120,7 +129,16 @@ export default class Scene extends Phaser.Scene {
                     this.obtacle = new Obstacle(this, objeto.x, objeto.y, props.texture, parseInt(objeto.type));
                     break;
                 case 'Npc': //NPC
-                    this.NPC = new NPCDialog(this, objeto.x, objeto.y, this.dialogs[props.dialog], props.sprite, props.path);
+                    if(props.dialog === 'coronel')this.NPC = new NPCDialog({
+                        scene: this,
+                        x: objeto.x,
+                        y: objeto.y,
+                        dialog: this.dialogs[props.dialog],
+                        sprite: props.sprite,
+                        pathName: props.path,
+                        xTriggerSize: props.xTriggerSize,
+                        yTriggerSize: props.yTriggerSize,
+                    });
                     break;
                 case 'Tp':
                     let it = 0;
