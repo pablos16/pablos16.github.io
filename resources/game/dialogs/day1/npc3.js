@@ -5,7 +5,7 @@ const Dialog =
         {
             id: 0,
             name: Names.Agronomo,
-            text: ["Muy buenas señor","Hola","Buenas"],
+            text: ["Muy buenas señor.","Hola.","¡Buenas!"],
             state: [
                 {
                     targetState: ["any"],
