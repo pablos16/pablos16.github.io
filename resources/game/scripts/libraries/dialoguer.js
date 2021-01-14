@@ -33,9 +33,9 @@ export default class Dialoguer {
         this.isForced = data.isForced
         this.arguments = data.callbackArguments;
 
-        console.log(data.xSize + ' : ' +data.ySize)
-        console.log(data.xSize === undefined)
-        console.log(data.ySize === undefined)
+        //console.log(data.xSize + ' : ' +data.ySize)
+        //console.log(data.xSize === undefined)
+        //console.log(data.ySize === undefined)
         this.trigger = new Trigger({
             x: data.x,
             y: data.y,

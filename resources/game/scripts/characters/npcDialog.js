@@ -14,32 +14,37 @@ export default class NPCDialog extends NPC {
             xSize: data.xTriggerSize,
             ySize: data.yTriggerSize,
             isForced: false,
-            callbackArguments: {npc: this},
+            callbackArguments: { npc: this },
             onStart: () => {
                 this.path.setMove(false)
                 this.path.stop();
-                this.getTogether(data.scene);
+                this.getTogether(data.scene, data.offset);
             },
-            onFinish: () => { 
+            onFinish: () => {
                 this.path.setMove(true)
                 this.path.setVelocity()
-             },
+            },
         });
         this.add(this.dialog.trigger.trigger)
     }
 
-    getTogether(scene) {
+    getTogether(scene, offset) {
         //Uso mi propia clase vector2 porque la de Phaser me da problemas
         let playerPos = new Vector2(scene.player.x, scene.player.y)
         let thisPos = new Vector2(this.x, this.y)
 
         let Offset = playerPos.substract(thisPos);
 
+        let charOffset = Dialog.characterOffset;
+        if (offset !== undefined) charOffset = offset
+        console.log(offset)
+        console.log(offset !== undefined)
+        if (offset === 0) return;
         scene.tweens.add({
             targets: scene.player,
             duration: 250,
-            y: this.y + Dialog.characterOffset * Math.sign(Offset.y),
-            x: this.x + Dialog.characterOffset * Math.sign(Offset.x),
+            y: this.y + charOffset * Math.sign(Offset.y),
+            x: this.x + charOffset * Math.sign(Offset.x),
         })
     }
 }

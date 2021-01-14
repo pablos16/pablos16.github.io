@@ -138,6 +138,7 @@ export default class Scene extends Phaser.Scene {
                         pathName: props.path,
                         xTriggerSize: props.xTriggerSize,
                         yTriggerSize: props.yTriggerSize,
+                        offset: props.offset,
                     });
                     break;
                 case 'Tp':
