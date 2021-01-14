@@ -36,10 +36,8 @@ export default class NPCDialog extends NPC {
         let Offset = playerPos.substract(thisPos);
 
         let charOffset = Dialog.characterOffset;
-        if (offset !== undefined) charOffset = offset
-        console.log(offset)
-        console.log(offset !== undefined)
-        if (offset === 0) return;
+        if (typeof offset !== 'undefined') charOffset = offset
+        if (charOffset === 0) return;
         scene.tweens.add({
             targets: scene.player,
             duration: 250,
