@@ -2,6 +2,17 @@ import PathFollower from './pathFollower.js'
 import PathNode from './pathNode.js'
 import Paths from '../../paths/genericPath.js'
 
+/**
+ * Class that insert a path from a js object in other object
+ * @param {Object} data needed for constructing the class
+ * 
+ * // PARAMS NEEDED TO PASS AS AN OBJECT WHEN CREATING ///
+ * 
+ * @param {Phaser.GameObject} context where to insert the pathFollower
+ * @param {Phaser.Scene} scene scene wheere the gameObject is located
+ * @param {string} path pathName to be converted to inset
+ * @param {PathInsertor.Body} body body of the Phaser.GameObject
+ */
 export default class PathInsertor {
     constructor(data) {
 
@@ -22,7 +33,7 @@ export default class PathInsertor {
             sceneRef: this.scene,
             body: this.body,
             loop: data.loop,
-            onFinish: (pathFollower) => {
+            onFinish: () => {
                 if ('onFinish' in data) {
                     data.onFinish({
                         scene: this.scene,
