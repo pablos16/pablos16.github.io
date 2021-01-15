@@ -11,14 +11,14 @@ const Paths = [
             {
                 x: 100,
                 y: 0,
-                speed: 200,
-                delay: 150,
+                speed: 75,
+                delay: 250,
             },
             {
                 x: -50,
                 y: 100,
                 speed: 50,
-                delay: 150,
+                delay: 375,
             },
         ],
         loop: true,
@@ -96,6 +96,79 @@ const Paths = [
                 speed: 75,
                 delay: 0,
             },
+        ],
+        loop: true,
+    },
+    
+    {
+        name: 'horizontal',
+        path: [
+            {
+                x: 0,
+                y: 1,
+                speed: 75,
+                delay:1500,
+            },
+            {
+                x: 120,
+                y: 1,
+                speed: 100,
+                delay: 2500,
+            },
+            {
+                x: -120,
+                y: 1,
+                speed: 75,
+                delay: 0,
+            }
+        ],
+        loop: true,
+    },
+    {
+        name: 'vertical',
+        path: [
+            {
+                x: 0,
+                y: 1,
+                speed: 75,
+                delay:3500,
+            },
+            {
+                x: 0,
+                y: 120,
+                speed: 75,
+                delay: 1500,
+            },
+            {
+                x: 0,
+                y: -120,
+                speed: 75,
+                delay: 0,
+            }
+        ],
+        loop: true,
+    },
+    {
+        name: 'afilador',
+        path: [
+            {
+                x: 0,
+                y: 1,
+                speed: 100,
+                delay:3500,
+            },
+            {
+                x: -1300,
+                y: 1,
+                speed: 100,
+                delay: 1500,
+            },
+            {
+                x: 1300,
+                y: 1,
+                speed: 100,
+                delay: 0,
+            }
         ],
         loop: true,
     }
