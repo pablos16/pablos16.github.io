@@ -17,7 +17,6 @@ export default class ItemImage extends Phaser.GameObjects.Image {
         }
 
         setItemData(id) {
-                if (id >= itemData.length) return itemData[0]
-                return itemData[id];
+                return (id >= itemData.length || id < 0) ? itemData[0] : itemData[id];
         }
 }
