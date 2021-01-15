@@ -1,3 +1,4 @@
+import Vector2 from './vector2.js'
 /**
  * Class that has a serie of path and makes a body move to then, it can be looped
  * @param {Object} data needed for constructing the class
@@ -54,29 +55,14 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
     }
 
     calculateVelocity() {
+        //Calcular direccion
+        let direction = Vector2.direction(this.getPath(), this.body)
+        
         //Obtener velocidad del path
         let speed = { x: this.getPath().speed, y: this.getPath().speed };
 
-        //Calcular distancia del path al objeto
-        let direction = {
-            x: this.getPath().x - this.body.x,
-            y: this.getPath().y - this.body.y,
-        }
-
-        if(direction.x === 0 & direction.y === 0) return direction;
-
-        //Normalizar la distancia
-        let divisor = 0;
-        if (Math.abs(direction.x) < Math.abs(direction.y)) divisor = Math.abs(direction.y)
-        else divisor = Math.abs(direction.x)
-
-        direction.x /= divisor
-        direction.y /= divisor
-
-        //Asignar la velocidad
-        speed.y *= direction.y;
-        speed.x *= direction.x;
-        return speed;
+        //Multiplicar la velocidad por la direcion
+        return Vector2.multiply(speed, direction);
     }
 
     nextPath() {
