@@ -99,27 +99,21 @@ const Paths = [
         ],
         loop: true,
     },
-    
+
     {
         name: 'horizontal',
         path: [
             {
                 x: 0,
-                y: 1,
+                y: 0,
                 speed: 75,
-                delay:1500,
+                delay: 1500,
             },
             {
                 x: 120,
-                y: 1,
+                y: 0,
                 speed: 100,
                 delay: 2500,
-            },
-            {
-                x: -120,
-                y: 1,
-                speed: 75,
-                delay: 0,
             }
         ],
         loop: true,
@@ -129,9 +123,9 @@ const Paths = [
         path: [
             {
                 x: 0,
-                y: 1,
+                y: 0,
                 speed: 75,
-                delay:3500,
+                delay: 3500,
             },
             {
                 x: 0,
@@ -139,12 +133,6 @@ const Paths = [
                 speed: 75,
                 delay: 1500,
             },
-            {
-                x: 0,
-                y: -120,
-                speed: 75,
-                delay: 0,
-            }
         ],
         loop: true,
     },
@@ -153,21 +141,15 @@ const Paths = [
         path: [
             {
                 x: 0,
-                y: 1,
+                y: 0,
                 speed: 100,
-                delay:3500,
+                delay: 3500,
             },
             {
                 x: -1300,
-                y: 1,
+                y: 0,
                 speed: 100,
                 delay: 1500,
-            },
-            {
-                x: 1300,
-                y: 1,
-                speed: 100,
-                delay: 0,
             }
         ],
         loop: true,

@@ -56,12 +56,14 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
     calculateVelocity() {
         //Obtener velocidad del path
         let speed = { x: this.getPath().speed, y: this.getPath().speed };
-        if(speed.x === 0) return speed
+
         //Calcular distancia del path al objeto
         let direction = {
             x: this.getPath().x - this.body.x,
             y: this.getPath().y - this.body.y,
         }
+
+        if(direction.x === 0 & direction.y === 0) return direction;
 
         //Normalizar la distancia
         let divisor = 0;
