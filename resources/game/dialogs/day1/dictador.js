@@ -112,7 +112,6 @@ const Dialog =
             callback: (data) => {
                 data.scene.player.missionList.deleteAll()
                 data.scene.player.missionList.initialiceTexts();
-                data.scene.player.missionList.deleteAt(1)
             },
             text: ["Así me gusta. ¡Ahora sal ahí y ve a por todas!"],
             state: [
