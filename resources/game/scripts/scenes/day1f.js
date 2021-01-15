@@ -27,5 +27,7 @@ export default class Day0F extends BaseDay {
                 this.addMision.destroy()
             }
         })
+
+        this.hitSound = this.sound.add('hit', config);
     }
 }
