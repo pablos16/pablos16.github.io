@@ -13,10 +13,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     this.talkingAnimation = 'idle';
 
-    //Movimiento
-    this.dirX;
-    this.dirY;
-
     //Variable para comprobar si está hablando
     this.isTalking = false;
 

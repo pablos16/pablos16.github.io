@@ -34,6 +34,5 @@ export default class Derrota extends Phaser.Scene {
     if (Phaser.Input.Keyboard.JustDown(this.fullScreen)) {
       this.scale.toggleFullscreen()
     }
-    //console.log(this.puntos)
   }
 }
