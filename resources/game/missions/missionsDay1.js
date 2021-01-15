@@ -6,9 +6,9 @@ const Misions =
             total: 3
         },
         {
-            text: "Mision prueba 2",
+            text: "Ve a hablar con el dictador",
             completed: 0,
-            total: 4
+            total: 1
         }
     ]
 

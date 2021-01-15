@@ -30,7 +30,7 @@
  * FUNCTIONS HAS NO PARAMS, THEY AREN'T NEEDED THO 
  * 
  */
- export default class Trigger extends Phaser.GameObjects.GameObject {
+export default class Trigger extends Phaser.GameObjects.GameObject {
     constructor(data) {
         super(data.scene, data.x, data.y)
         this.scene.add.existing(this)
@@ -44,9 +44,16 @@
 
         this.hasEntered = false;
 
-        this.onTriggerEnter = () => { this.hasEntered = true; data.enter() }
-        this.onTriggerExit = () => { data.exit() }
-        this.onTriggerStay = () => { data.stay() }
+        this.onTriggerEnter = () => {
+            this.hasEntered = true;
+            if ('enter' in data) data.enter()
+        }
+        this.onTriggerExit = () => { if ('exit' in data) data.exit() }
+        this.onTriggerStay = () => { if ('stay' in data) data.stay() }
+    }
+
+    destroy() {
+        this.trigger.destroy(true)
     }
 
     checkOverlap() {
