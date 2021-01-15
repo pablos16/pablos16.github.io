@@ -1,6 +1,6 @@
 const Names =
 {
-    Police: "Player",
+    Police: "Policía",
     Dictator: "Relith",
     Coronel: "Coronel",
     BestFriend: "Leandro",

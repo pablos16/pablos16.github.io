@@ -186,7 +186,6 @@ export default class Player extends Phaser.GameObjects.Sprite {
   }
 
   setTalkingAnimation(direction){
-    console.log(direction)
     if     (direction.x < 0 && Math.abs(direction.y) < Math.abs(direction.x)) this.talkingAnimation = 'idleRight'
     else if(direction.x > 0 && Math.abs(direction.y) < Math.abs(direction.x)) this.talkingAnimation = 'idleLeft'
     else if(direction.y < 0 && Math.abs(direction.x) < Math.abs(direction.y)) this.talkingAnimation = 'idle'
