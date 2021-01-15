@@ -32,8 +32,6 @@ export default class NPC extends Phaser.GameObjects.Container {
     this.initialPosX = x;
     this.initialPosY = y;
 
-    this.dirX;
-    this.dirY;
   }
 
   checkAnims() {
