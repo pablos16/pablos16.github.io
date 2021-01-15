@@ -109,6 +109,10 @@ const Dialog =
         {
             id: 9,
             name: Names.Dictator,
+            callback: (data) => {
+                data.scene.player.missionList.deleteAll()
+                data.scene.player.missionList.initialiceTexts();
+            },
             text: ["Así me gusta. ¡Ahora sal ahí y ve a por todas!"],
             state: [
                 {
