@@ -12,6 +12,7 @@ import npc1 from '../day1/npc1.js'
 import npc2 from '../day1/npc2.js'
 import npc3 from '../day1/npc3.js'
 import ladron from '../day1/ladron.js'
+import leandro from '../day1/leandroGado.js'
 
 
 //Estos nombres son los que hay que poner en tiled
@@ -30,7 +31,8 @@ const dialogs =
     npc1,
     npc2,
     npc3,
-    ladron
+    ladron,
+    leandro
 }
 
 export default dialogs
