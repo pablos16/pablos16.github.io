@@ -6,7 +6,7 @@ export default class Obstacle extends Phaser.GameObjects.Image{
         this.requires = requirement;
         if (altRequirement !== undefined) this.requiresAlt = altRequirement;
 
-        if (functS == undefined){
+        if (typeof functS === 'undefined'){
             this.success = function(){
                 console.log('recibido');
                 this.destroy(this);
@@ -16,7 +16,7 @@ export default class Obstacle extends Phaser.GameObjects.Image{
             this.success = functS;
         }
 
-        if (functF == undefined){
+        if (typeof functF === 'undefined'){
             this.failure = function(){
                 console.log('quiero ' + this.requires + '; alt: ' + this.requiresAlt);
             };
@@ -25,7 +25,7 @@ export default class Obstacle extends Phaser.GameObjects.Image{
             this.failure = functF;
         }
 
-        if (altFunctS == undefined){
+        if (typeof altFunctS === 'undefined'){
             this.successAlt = this.success;
         }
         else{
