@@ -9,6 +9,7 @@ import paca from '../day2/PacaGarte.js'
 import sona from '../day2/sona.js'
 import tabernera from '../day2/tabernera.js'
 import tabernero from '../day2/tabernero.js'
+import loco from '../day2/loco.js'
 
 
 import npc1 from '../day1/npc1.js'
@@ -31,7 +32,8 @@ const dialogs =
     tabernero,
     npc1,
     npc2,
-    npc3
+    npc3,
+    loco
 }
 
 export default dialogs

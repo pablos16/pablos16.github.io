@@ -16,36 +16,36 @@ const Dialog =
         {
             id: 1,
             name: Names.Police,
-            text: ["..."],
+            text: ["Otra vez con lo mismo..."],
             options:
                 [
                     {
                         text: "Pegar",
-                        nextState: 1,
-                        nextIndex: 2,
+                        nextState:1,
+                        nextIndex: 3,
                     },
                     {
                         text: "Dejarle",
-                        nextState: 1,
+                        nextState:1,
                         nextIndex: -1,
                     },
                 ],
-            completed: 0
+            completed:0
         },
         {
-
-            //CallBack de ostiazo
             id: 2,
             name: Names.MadMan,
-            text: ["¡Cuá,cuá,cuá!", "¡Cuá!", "¡Cuaaaa!","¡Cuá cuá!"],
+            text: ["¡Cuá,cuá,cuá!","¡Cuá!","¡Cuaaaa!"],
             state: [
                 {
                     targetState: ["any"],
-                    nextIndex: 1
+                    nextIndex: -1
                 },
             ]
         },
         {
+            //TODO
+            //CallBack de ostiazo
             id: 3,
             name: Names.MadMan,
             text: ["¡Cuá,cuá,cuÁÁÁÁÁ!"],
@@ -65,7 +65,7 @@ const Dialog =
                 },
                 {
                     targetState: [1],
-                    nextIndex: 3
+                    nextIndex: 2
                 }
             ]
         }
