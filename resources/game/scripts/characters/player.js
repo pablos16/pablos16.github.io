@@ -11,13 +11,14 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     this.speed = 300;
 
+    this.talkingAnimation = 'idle';
+
     //Movimiento
     this.dirX;
     this.dirY;
 
     //Variable para comprobar si está hablando
     this.isTalking = false;
-
 
     //Inventario
     this.inventory = new Inventory();
@@ -42,12 +43,22 @@ export default class Player extends Phaser.GameObjects.Sprite {
       frameRate: 7,
       repeat: -1
     });
+    scene.anims.create({
+      key: 'idleLeft',
+      frames: scene.anims.generateFrameNumbers('player', { start: 3, end: 3 }),
+      repeat: 0
+    });
 
     scene.anims.create({
       key: 'up',
       frames: scene.anims.generateFrameNumbers('player', { start: 9, end: 11 }),
       frameRate: 7,
       repeat: -1
+    });
+    scene.anims.create({
+      key: 'idleUp',
+      frames: scene.anims.generateFrameNumbers('player', { start: 9, end: 9 }),
+      repeat: 0
     });
     scene.anims.create({
       key: 'idle',
@@ -67,6 +78,11 @@ export default class Player extends Phaser.GameObjects.Sprite {
       frames: scene.anims.generateFrameNumbers('player', { start: 6, end: 8 }),
       frameRate: 7,
       repeat: -1
+    });
+    scene.anims.create({
+      key: 'idleRight',
+      frames: scene.anims.generateFrameNumbers('player', { start: 6, end: 6 }),
+      repeat: 0
     });
   }
 
@@ -165,7 +181,15 @@ export default class Player extends Phaser.GameObjects.Sprite {
 
     }
     else
-    //Para que no haga animaciones mientras hablas con alguien
-      this.play('idle', true);
+      //Para que no haga animaciones mientras hablas con alguien
+      this.play(this.talkingAnimation, true);
+  }
+
+  setTalkingAnimation(direction){
+    console.log(direction)
+    if     (direction.x < 0 && Math.abs(direction.y) < Math.abs(direction.x)) this.talkingAnimation = 'idleRight'
+    else if(direction.x > 0 && Math.abs(direction.y) < Math.abs(direction.x)) this.talkingAnimation = 'idleLeft'
+    else if(direction.y < 0 && Math.abs(direction.x) < Math.abs(direction.y)) this.talkingAnimation = 'idle'
+    else if(direction.y > 0 && Math.abs(direction.x) < Math.abs(direction.y)) this.talkingAnimation = 'idleUp'
   }
 }

@@ -38,6 +38,8 @@ export default class NPCDialog extends NPC {
         //Calcular distancia
         let direction = Vector2.direction(playerPos, thisPos)
 
+        scene.player.setTalkingAnimation(direction);
+
         //Si no hay ningún offset en este NPC, se usar el offset por defecto
         let charOffset = Dialog.characterOffset;
         if (typeof offset !== 'undefined') charOffset = offset
