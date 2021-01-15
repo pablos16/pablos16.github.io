@@ -26,18 +26,7 @@ export default class Scene extends Phaser.Scene {
     create() {
         console.log("Proximo dia " + this.nextLevel)
         console.log("Puntos: " + this.points)
-        //Sonidos de fondo
-        const background = {
-            mute: false,
-            volume: 0.2,
-            rate: 1,
-            detune: 0,
-            seek: 0,
-            loop: true,
-            delay: 0
-        };
-        //this.barSound = this.sound.add('bar', background)
-        //this.castle = this.sound.add('castle', background)
+
         //Deshabilitar menú contextual
         this.input.mouse.disableContextMenu();
 
@@ -108,8 +97,6 @@ export default class Scene extends Phaser.Scene {
                                 });
                             }
                         },
-                        exit: () => { },
-                        stay: () => { },
                     })
                     // new NPCDialog({
                     //     scene: this,
@@ -154,7 +141,7 @@ export default class Scene extends Phaser.Scene {
                     this.tpList.push(this.TP);
                     break;
                 case 'Music':
-                    this[props.music] = this.sound.add(props.music, background)
+                    this[props.music] = this.sound.add(props.music, CT.backgroundMusic)
 
                     new Trigger({
                         x: objeto.x,
@@ -203,20 +190,10 @@ export default class Scene extends Phaser.Scene {
         this.cameras.main.height = CT.gameHeight;
         this.cameras.main.zoom = CT.cameraZoom;
 
-        //Sonidos
-        const config = {
-            mute: false,
-            volume: 0.5,
-            rate: 1,
-            detune: 0,
-            seek: 0,
-            loop: false,
-            delay: 0
-        };
         //Añadimos la musica
-        this.dialogSound = this.sound.add('dialogSound', config);
-        this.selection = this.sound.add('selection', config);
-        this.pickItem = this.sound.add('pickup', config);
+        this.dialogSound = this.sound.add('dialogSound', CT.effectSounds);
+        this.selection = this.sound.add('selection', CT.effectSounds);
+        this.pickItem = this.sound.add('pickup', CT.effectSounds);
         this.align.addReputation(this.points)
         this.fadeOut()
     }

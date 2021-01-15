@@ -35,9 +35,12 @@ const Dialog =
         {
 
             //CallBack de ostiazo
+            callback: (data) => {
+                data.scene.hitSound.play();
+            },
             id: 2,
             name: Names.MadMan,
-            text: ["¡Cuá,cuá,cuá!", "¡Cuá!", "¡Cuaaaa!","¡Cuá cuá!"],
+            text: ["¡Cuá,cuá,cuá!", "¡Cuá!", "¡Cuaaaa!", "¡Cuá cuá!"],
             state: [
                 {
                     targetState: ["any"],

@@ -2,6 +2,7 @@ import BaseDay from './dayBase.js'
 import dialogs from '../../dialogs/packedDialogs/dialogs1.js'
 import Missions from '../../missions/missionsDay1.js';
 import Trigger from '../libraries/trigger.js';
+import CT from '../../configs/constants.js';
 
 export default class Day0F extends BaseDay {
     constructor() {
@@ -28,6 +29,6 @@ export default class Day0F extends BaseDay {
             }
         })
 
-        this.hitSound = this.sound.add('hit', config);
+        this.hitSound = this.sound.add('hit', CT.effectSounds);
     }
 }

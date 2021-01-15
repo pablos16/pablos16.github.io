@@ -29,6 +29,26 @@ const CT =
 
      fadeInTime: 250,
      fadeOutTime: 250,
+
+     backgroundMusic: {
+          mute: false,
+          volume: 0.2,
+          rate: 1,
+          detune: 0,
+          seek: 0,
+          loop: true,
+          delay: 0
+      },
+
+      effectSounds: {
+          mute: false,
+          volume: 0.5,
+          rate: 1,
+          detune: 0,
+          seek: 0,
+          loop: false,
+          delay: 0
+      }
 }
 
 export default CT;
