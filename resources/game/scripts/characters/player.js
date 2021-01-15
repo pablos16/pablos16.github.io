@@ -57,7 +57,7 @@ export default class Player extends Phaser.GameObjects.Sprite {
     });
     scene.anims.create({
       key: 'idleUp',
-      frames: scene.anims.generateFrameNumbers('player', { start: 9, end: 9 }),
+      frames: scene.anims.generateFrameNumbers('player', { start: 10, end: 10 }),
       repeat: 0
     });
     scene.anims.create({
