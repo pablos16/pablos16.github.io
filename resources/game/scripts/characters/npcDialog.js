@@ -30,23 +30,20 @@ export default class NPCDialog extends NPC {
 
     getTogether(scene, offset) {
         //Uso mi propia clase vector2 porque la de Phaser me da problemas
+
+        //Calcular vectores
         let playerPos = new Vector2(scene.player.x, scene.player.y)
         let thisPos = new Vector2(this.x, this.y)
 
-        let direction = playerPos.substract(thisPos);
+        //Calcular distancia
+        let direction = Vector2.direction(playerPos, thisPos)
 
-        let divisor = 0;
-        if (Math.abs(direction.x) < Math.abs(direction.y)) divisor = Math.abs(direction.y)
-        else divisor = Math.abs(direction.x)
-
-        direction.x /= divisor
-        direction.y /= divisor
-        
-
+        //Si no hay ningún offset en este NPC, se usar el offset por defecto
         let charOffset = Dialog.characterOffset;
         if (typeof offset !== 'undefined') charOffset = offset
         if (charOffset === 0) return;
-        console.log(charOffset)
+
+        //Mover al jugador al punto correspondiente con la info calculada
         scene.tweens.add({
             targets: scene.player,
             duration: 250,

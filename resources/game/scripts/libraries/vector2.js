@@ -9,16 +9,20 @@ export default class Vector2 {
         this.y = y
     }
 
-    substract(vector2) {
-        let aux = {
-            x: this.x,
-            y: this.y
+    static substract(v1, v2) {
+        return {
+            x: v1.x - v2.x,
+            y: v1.x - v2.x
         }
-        aux.x -= vector2.x
-        aux.y -= vector2.y
-
-        return aux
     }
+
+    static add(v1, v2) {
+        return {
+            x: v1.x + v2.x,
+            y: v1.x + v2.x
+        }
+    }
+
 
     static zero() {
         return { x: 0, y: 0 }
