@@ -41,7 +41,7 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
             this.scene.time.addEvent({
                 callback: () => {
                     this.changinPath = false;
-                    if (this.nextPath()) this.setVelocity()
+                    if (this.nextPath() && this.condition) this.setVelocity()
                 },
                 delay: this.getPath().delay
             })
@@ -57,7 +57,7 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
     calculateVelocity() {
         //Calcular direccion
         let direction = Vector2.direction(this.getPath(), this.body)
-        
+
         //Obtener velocidad del path
         let speed = { x: this.getPath().speed, y: this.getPath().speed };
 
