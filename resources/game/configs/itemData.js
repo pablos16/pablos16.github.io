@@ -1,0 +1,85 @@
+const itemData = [
+    //Nada
+    {
+        // 0
+        name: '-',
+        desc: '-',
+    },
+    //Objetos referentes a misiones
+    {   // 1
+        name: 'Dinamita',
+        desc: 'Estos explosivos son más potentes de lo que parece...',
+    },
+    {   // 2
+        name: 'Alfombra barata',
+        desc: 'Luce con pelusillas. Parece desgastada, pero servirá.',
+    },
+    {   // 3
+        name: 'Alfombra persa',
+        desc: 'Preciada alfombra con muchos estampados. Su calidad es notable, aunque cuesta más de lo que debería...',
+    },
+    {   // 4
+        name: 'Cojín persa',
+        desc: 'Mullido, cómodo y colorido. ¿Quién se resistiría a adquirirlo a tan buen precio?',
+    },
+    {   // 5
+        name: 'Carteles feriales',
+        desc: 'Informan de la llegada de la feria a la ciudad.',
+    },
+    {   // 6
+        name: 'Carteles cuestionables',
+        desc: 'Pancartas similares a las propagandísticas del régimen. Hay algo raro en ellas.',
+    },
+    {   // 7
+        name: 'Carteles de "Se Busca"',
+        desc: 'El retrato es idéntico al del fugitivo.',
+    },
+    {   // 8
+        name: 'Cepillo y jabón',
+        desc: 'Si cubres con esto una pintada, quizá no se note el dibujo.',
+    },
+    {   // 9
+        nam: 'Tinte',
+        desc: 'Si cubres con esto una pintada, quizá no se note el dibujo.',
+    },
+    {   // 10
+        name: 'Cerillas y aceite',
+        desc: 'Permiten prender fuego a prácticamente todo.',
+    },
+    {   // 11
+        name: 'Bolsa de dinero',
+        desc: 'Gran bolsa llena de dinero.',
+    },
+    {   // 12
+        name: 'Monedas',
+        desc: 'Unas pocas monedas.',
+    },
+    {
+        // 13
+        name: 'Carta',
+        desc: 'Es de mala educación abrirla si no es para ti. ¿Qué pondrá dentro?',
+    },
+    //Miscelaneos
+    {   // 14
+        name: 'Diario de Paca',
+        desc: 'Contiene toda la dura vida de Paca.',
+    },
+    {   // 15
+        name: 'Fotografía de Leandro Gado',
+        desc: 'Se le ve muy feliz. ¿Quién es su amigo? No le has visto en toda la ciudad.',
+    },
+    {   // 16
+        name: 'Oso de peluche de Sona',
+        desc: 'Te lo ha dado con todo su corazón. Tiene un gran valor sentimental para ella.',
+    },
+    {   // 17
+        name: 'Reliquia extraña',
+        desc: 'Supuestamente otorga "vitalidad", aunque no notas nada.',
+    },
+    {   // 18
+        name: 'Anillo',
+        desc: 'El nombre "Lola" está grabado dentro de él. ¿Por qué lo habrá tirado?',
+    },
+]
+
+export default itemData;
