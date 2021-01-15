@@ -62,20 +62,6 @@ const Dialog =
 
         },
         {
-            id: 6,
-            name: Names.Tabernera,
-            text: ["Espero que no te pase lo mismo que le ocurrio al otro policia...se te ve buen chaval."],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextState: 1,
-                    nextIndex: -1
-                },
-            ],
-            completed:0
-
-        },
-        {
             id: 4,
             name: Names.Tabernera,
             text: ["Aqui tienes cielo, mucha suerte por aquí, la vas a necesitar."],
@@ -98,6 +84,20 @@ const Dialog =
                     nextIndex: -1
                 },
             ]
+        },
+        {
+            id: 6,
+            name: Names.Tabernera,
+            text: ["Espero que no te pase lo mismo que le ocurrio al otro policia...se te ve buen chaval."],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextState: 1,
+                    nextIndex: -1
+                },
+            ],
+            completed:0
+
         },
         {
             id: -1,

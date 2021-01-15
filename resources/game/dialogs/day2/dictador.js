@@ -22,12 +22,14 @@ const Dialog =
                 {
                     text: "A su merced",
                     nextState: 1,
-                    nextIndex: -1
+                    nextIndex: -1,
+                    completed:0
                 },
                 {
                     text: "¡Por el reino!",
                     nextState: 1,
-                    nextIndex: -1
+                    nextIndex: -1,
+                    completed:0
                 }
             ],
         },

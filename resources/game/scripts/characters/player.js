@@ -164,5 +164,8 @@ export default class Player extends Phaser.GameObjects.Sprite {
       this.checkAnims();
 
     }
+    else
+    //Para que no haga animaciones mientras hablas con alguien
+      this.play('idle', true);
   }
 }
