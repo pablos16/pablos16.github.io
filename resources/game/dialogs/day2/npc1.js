@@ -16,7 +16,7 @@ const Dialog =
         {
             id: 1,
             name: Names.Afilador,
-            text: ["¡EL AFINADOOOOR!"],
+            text: ["¡EL AFILADOOOOR!"],
             state: [
                 {
                     targetState: ["any"],
