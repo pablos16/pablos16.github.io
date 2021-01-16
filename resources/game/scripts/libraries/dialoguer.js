@@ -5,6 +5,7 @@ import * as utils from '../libraries/phaserUtilities.js'
 import SocialStatePeople from '../../configs/npcSocialGroups.js'
 import AnimatedText from '../libraries/animatedText.js'
 import Trigger from '../libraries/trigger.js'
+import itemNames from '../../configs/itemNames.js';
 /**
  * @param {Phaser.Scene} scene ref to current scene
  * @param {Dialog} dialog dialog object to read
@@ -80,9 +81,9 @@ export default class Dialoguer {
         this.ContinueDialog(scene)
     }
 
-    checkCallbacks(scene) {
-        if ("callback" in this.currentDialog()) {
-            this.currentDialog().callback(
+    checkCallbacks(scene, context = this.currentDialog()) {
+        if ("callback" in context) {
+            context.callback(
                 {
                     arguments: this.arguments,
                     scene: scene
@@ -90,10 +91,30 @@ export default class Dialoguer {
         }
     }
 
+    checkItem(scene, context = this.currentDialog()) {
+        if (!('required' in context)) return;
+        let hasItem = true;
+        for (let i = 0; i < context.required.item.length; i++) {
+            hasItem &&= this.containtItems(scene, context.required.item[i])
+            if (!hasItem && context.required.item.mustHaveAll) return;
+        }
+        if (hasItem) {
+            this.index = context.required.hasItemIndex;
+        }
+
+    }
+
+    containtItems(scene, itemName) {
+        return scene.player.inventory.contains(itemName)
+    }
+
     ContinueDialog(scene) {
 
         //console.log("hey " + this.index)
         //console.log(this.currentDialog().state)
+
+        //Comprobar item
+        this.checkItem(scene)
 
         //Actualizar textos
         this.updateTexts()
@@ -165,7 +186,7 @@ export default class Dialoguer {
         if (input.interact) {
             //Ejecutar sonido
             scene.dialogSound.play();
-
+            this.checkCallbacks(scene, this.currentDialog().options[this.selection])
             this.checkMissionCompleted(scene, this.currentDialog().options[this.selection])
             this.arrow.visible = false
             this.choosing = false
