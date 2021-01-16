@@ -57,6 +57,7 @@ export default class Scene extends Phaser.Scene {
         let tileSetCastle = this.map.addTilesetImage('tiles_castle', 'mapTilesCastle');
         this.mapCastleFoundations = this.map.createStaticLayer('Castle Foundations', tileSetCastle);
         //Mapa - Capa De Objetos
+        console.log(this.map);
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
         this.tpList = [];
         this.currentPlaying = {};
