@@ -10,6 +10,8 @@ import srtaEmbajadora from '../day0/srtaEmbajadora.js'
 import coronel from '../day0/coronel.js'
 import dictador from '../day0/dictador.js'
 import player from '../day0/player.js'
+import npc3 from '../day0/npc3.js'
+
 import test from '../day0/test.js'
 
 //Estos nombres son los que hay que poner en tiled
@@ -27,7 +29,8 @@ const dialogs =
     coronel,
     dictador,
     player,
-    test,
+    npc3,
+    test
 }
 
 export default dialogs

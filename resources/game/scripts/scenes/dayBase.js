@@ -63,9 +63,9 @@ export default class Scene extends Phaser.Scene {
         for (const objeto of mapObjects) {
             const props = {};
             if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
-            //Poner bien el punto de origen
-            //objeto.x += objeto.width / 2;
-            //objeto.y += objeto.height / 2;
+            //Con esto ponemos bien el punto de origen
+            objeto.x += objeto.width / 2;
+            objeto.y += objeto.height / 2;
             switch (objeto.name) {
                 case 'Player': //Personaje
                     this.player = new Player(this, objeto.x, objeto.y, this.missions);
