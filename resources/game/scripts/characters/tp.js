@@ -1,21 +1,18 @@
 import Trigger from '../libraries/trigger.js'
 
 export default class Tp extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, tpLink, offset, xTam, yTam) {
-        super(scene, x, y);
+    constructor(config) {
+        super(config.scene, config.transform.x, config.transform.y);
 
-        this.scene.add.existing(this);
+        config.scene.add.existing(this);
         this.visible = true;
         this.alpha = 0
-        this.playerRef = scene.player
+        this.playerRef = config.scene.player
         this.depth = 200;
 
-        this.offset = offset;
-
-        this.link = {
-            x: tpLink.x,
-            y: tpLink.y,
-        }
+        this.offset = config.offset;
+        this.id = config.transform.id
+        this.linkId = config.link;
 
         this.canTp = true;
         this.pair = {};
@@ -23,11 +20,11 @@ export default class Tp extends Phaser.GameObjects.Sprite {
         this.internalTP = new Trigger({
             x: this.x,
             y: this.y,
-            scene: scene,
-            xSize: xTam,
-            ySize: yTam,
-            enter: () => { if (this.canTp) this.animateTp(scene); },
-            exit: () => { this.tpActivated(scene, true); this.cancelPairTp(scene) },
+            scene: config.scene,
+            xSize: config.transform.width,
+            ySize: config.transform.height,
+            enter: () => { if (this.canTp) this.animateTp(config.scene); },
+            exit: () => { this.tpActivated(config.scene, true); this.cancelPairTp(config.scene) },
             stay: () => { },
         })
     }
@@ -35,8 +32,9 @@ export default class Tp extends Phaser.GameObjects.Sprite {
 
     tp(scene) {
         //console.log(this.pair)
-        this.playerRef.x = this.link.x
-        this.playerRef.y = this.link.y + this.offset;
+        if ('pair' in this) this.pair = this.searchPair(scene)
+        this.playerRef.x = this.pair.x
+        this.playerRef.y = this.pair.y + this.offset;
         this.tpActivated(scene, false)
     }
 
@@ -45,13 +43,13 @@ export default class Tp extends Phaser.GameObjects.Sprite {
     }
 
     cancelPairTp(scene) {
-        if("pair" in this) this.pair = this.findTp(scene);
+        if ("pair" in this) this.pair = this.searchPair(scene);
         this.pair.canTp = false;
     }
 
-    findTp(scene) {
+    searchPair(scene) {
         for (const tp of scene.tpList) {
-            if (tp.y === this.link.y && tp.x === this.link.x) return tp;
+            if (tp.id === this.linkId) return tp;
         }
     }
 
