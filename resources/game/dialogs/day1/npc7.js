@@ -4,19 +4,20 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.Afilador,
-            text: ["¡TINONIIIII TINONIIII!"],
+            name: Names.Agricultor,
+            text: ["Cada vez somos más ancianos y nadie quiere tener hijos en un sitio como este"],
             state: [
                 {
                     targetState: ["any"],
-                    nextIndex: 1
+                    nextState:1,
+                    nextIndex: -1
                 },
             ]
         },
         {
             id: 1,
-            name: Names.Afilador,
-            text: ["¡EL AFILADOOOOR!"],
+            name: Names.Pueblerino,
+            text: ["¿A quién le daré mis tierras?","No sé ni por qué sigo sembrando..."],
             state: [
                 {
                     targetState: ["any"],
@@ -30,6 +31,10 @@ const Dialog =
                 {
                     targetState: [0],
                     nextIndex: 0
+                },
+                {
+                    targetState: [1],
+                    nextIndex: 1
                 }
             ]
         }

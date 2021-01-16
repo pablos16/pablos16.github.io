@@ -4,19 +4,8 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.Afilador,
-            text: ["¡TINONIIIII TINONIIII!"],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextIndex: 1
-                },
-            ]
-        },
-        {
-            id: 1,
-            name: Names.Afilador,
-            text: ["¡EL AFILADOOOOR!"],
+            name: Names.Homeless,
+            text: ["Por gente como tú me quede en trabajo y vivo en la calle","¿Se puede saber por qué apoyas a un dictador?","No se como puedes dormir con la conciencia tranquila"],
             state: [
                 {
                     targetState: ["any"],

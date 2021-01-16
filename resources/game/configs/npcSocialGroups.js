@@ -20,7 +20,10 @@ const SocialStatePeople=
             Names.Ladron,
             Names.Agricultor,
             Names.Agronomo,
-            Names.Afilador
+            Names.Afilador,
+            Names.Pueblerina,
+            Names.Pueblerino,
+            Names.Homeless
         ]
     },
     {

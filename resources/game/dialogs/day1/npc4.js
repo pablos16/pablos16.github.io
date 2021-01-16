@@ -4,19 +4,8 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.Afilador,
-            text: ["¡TINONIIIII TINONIIII!"],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextIndex: 1
-                },
-            ]
-        },
-        {
-            id: 1,
-            name: Names.Afilador,
-            text: ["¡EL AFILADOOOOR!"],
+            name: Names.Pueblerina,
+            text: ["¿Se nota que llevo peluca?"],
             state: [
                 {
                     targetState: ["any"],

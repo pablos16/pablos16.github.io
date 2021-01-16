@@ -4,19 +4,8 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.Afilador,
-            text: ["¡TINONIIIII TINONIIII!"],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextIndex: 1
-                },
-            ]
-        },
-        {
-            id: 1,
-            name: Names.Afilador,
-            text: ["¡EL AFILADOOOOR!"],
+            name: Names.Pueblerino,
+            text: ["Puedes soltar cualquier objeto si no lo quieres pulsando el objeto y la flecha que tienes en la esquina inferior izquierda"],
             state: [
                 {
                     targetState: ["any"],

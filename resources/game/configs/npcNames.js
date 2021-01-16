@@ -24,7 +24,11 @@ const Names =
     Ladron: "Desconocido",
     Agronomo: "Agrónomo",
     Afilador:"Afilador",
-    Agricultor:"Agricultor"
+    Agricultor:"Agricultor",
+    Pueblerino:"Pueblerino",
+    Pueblerina:"Pueblerina",
+    Homeless:"Sin Hogar"
+
 }
 
 export default Names;
