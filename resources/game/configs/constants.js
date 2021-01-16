@@ -48,6 +48,16 @@ const CT =
           seek: 0,
           loop: false,
           delay: 0
+      },
+
+      menuMusicConfig: {
+        mute: false,
+        volume: 0.08,
+        rate: 1,
+        detune: 0,
+        seek: 0,
+        loop: true,
+        delay: 0
       }
 }
 

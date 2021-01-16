@@ -12,12 +12,20 @@ export default class Boot extends Phaser.Scene{
 
     //Menu principal
     this.load.image('mainMenu', 'resources/game/textures/gui/menu/menuBackground.png');
-    this.load.image('menuTittle', 'resources/game/textures/gui/menu/menuTittle.png');
+    this.load.image('menuTitle', 'resources/game/textures/gui/menu/menuTitle.png');
     this.load.image('play', 'resources/game/textures/gui/menu/playButton.png');
     this.load.image('controls', 'resources/game/textures/gui/menu/controlsButton.png');
     this.load.image('background', 'resources/game/textures/gui/menu/fondoNegro.png');
     this.load.image('back', 'resources/game/textures/gui/menu/returnButton.png');
     this.load.image('controlsImage', 'resources/game/textures/gui/menu/controls.png');
+
+    //Menú fin
+    this.load.image('loseRegime','resources/game/textures/gui/menu/end/loseRegime.png');
+    this.load.image('loseVillage','resources/game/textures/gui/menu/end/loseVillage.png');
+    this.load.image('winRegime','resources/game/textures/gui/menu/end/winRegime.png');
+    this.load.image('winVillage','resources/game/textures/gui/menu/end/winVillage.png');
+    this.load.image('loseTitle','resources/game/textures/gui/menu/end/loseTitle.png');
+    this.load.image('winTitle','resources/game/textures/gui/menu/end/winTitle.png');
 
     //Pantalla en negro al teletransportar
     this.load.image('tpImg', 'resources/game/textures/tpTransition.png');
@@ -99,14 +107,14 @@ export default class Boot extends Phaser.Scene{
     this.load.audio('castle', 'resources/game/sounds/castle.wav');
     this.load.audio('pueblo', 'resources/game/sounds/pueblo.wav');
     this.load.audio('casa', 'resources/game/sounds/casa.wav');
+    this.load.audio('victory', 'resources/game/sounds/victory.wav');
+    this.load.audio('defeat', 'resources/game/sounds/defeat.wav');
 
     //Efectos de sonido
     this.load.audio('dialogSound', 'resources/game/sounds/dialog/blip.wav')
     this.load.audio('selection', 'resources/game/sounds/dialog/selection.wav')
     this.load.audio('pickup', 'resources/game/sounds/inventory/pickup.wav')
     this.load.audio('hit', 'resources/game/sounds/events/hit.wav')
-
-    
   }
 
   create() { this.scene.start('menu'); }

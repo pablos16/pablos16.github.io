@@ -63,6 +63,9 @@ export default class Scene extends Phaser.Scene {
         for (const objeto of mapObjects) {
             const props = {};
             if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
+            //Poner bien el punto de origen
+            //objeto.x += objeto.width / 2;
+            //objeto.y += objeto.height / 2;
             switch (objeto.name) {
                 case 'Player': //Personaje
                     this.player = new Player(this, objeto.x, objeto.y, this.missions);
@@ -102,7 +105,7 @@ export default class Scene extends Phaser.Scene {
                     //     scene: this,
                     //     x: objeto.x - 100,
                     //     y: objeto.y,
-                    //     dialog: this.dialogs['tabernero'],
+                    //     dialog: this.dialogs['test'],
                     //     sprite: 'tabernero',
                     //     pathName: 'quieto',
                     //     xTriggerSize: props.lol,
@@ -129,16 +132,13 @@ export default class Scene extends Phaser.Scene {
                     });
                     break;
                 case 'Tp':
-                    let it = 0;
-                    loop: for (const tpstatus of mapObjects) {
-                        if (props.tplink === tpstatus.id) {
-                            props.tplink = it;
-                            break loop;
-                        }
-                        it++;
-                    }
-                    this.TP = new TPLINK(this, objeto.x, objeto.y, mapObjects[props.tplink], props.offset, objeto.width, objeto.height);
-                    this.tpList.push(this.TP);
+                    this.tpList.push(new TPLINK(
+                        {
+                            scene: this, 
+                            transform: objeto, 
+                            link: props.tplink, //Id del otro tp
+                            offset: props.offset
+                        }));
                     break;
                 case 'Music':
                     this[props.music] = this.sound.add(props.music, CT.backgroundMusic)
