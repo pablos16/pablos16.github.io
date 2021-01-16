@@ -11,6 +11,7 @@ const Dialog = [
             mustHaveAll: false,
             hasItemIndex: 1,
         },
+        points: -120,
         text: ["No vuelvas hasta traerme la tela persa"],
         state: [
             {

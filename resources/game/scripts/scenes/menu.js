@@ -1,3 +1,4 @@
+import CT from '../../configs/constants.js';
 import Button from '../libraries/button.js';
 
 export default class Menu extends Phaser.Scene {
@@ -17,17 +18,7 @@ export default class Menu extends Phaser.Scene {
   //Aqui te crea todo lo que necesites al inicio para todo el juego
   create() {
 
-    const config = {
-      mute: false,
-      volume: 0.08,
-      rate: 1,
-      detune: 0,
-      seek: 0,
-      loop: true,
-      delay: 0
-    };
-    //Añadimos la musica
-    this.music = this.sound.add('backgroundMenu', config);
+    this.music = this.sound.add('backgroundMenu', CT.menuMusicConfig);
 
     this.music.play();
     //Deshabilitar menú contextual
