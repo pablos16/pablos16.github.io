@@ -27,6 +27,8 @@ const Names =
     Agricultor:"Agricultor",
     Pueblerino:"Pueblerino",
     Pueblerina:"Pueblerina",
+    PueblerinoRico:"Pueblerino Rico",
+    PueblerinaRica:"Pueblerina Rica",
     Homeless:"Sin Hogar"
 
 }

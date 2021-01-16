@@ -35,8 +35,9 @@ const SocialStatePeople=
             Names.SrtaMento,
             Names.Embajador,
             Names.Embajadora,
-            Names.SrtaEmbajadora
-
+            Names.SrtaEmbajadora,
+            Names.PueblerinaRica,
+            Names.PueblerinoRico,
         ]
     },
     {

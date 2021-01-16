@@ -4,7 +4,7 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.Pueblerino,
+            name: Names.PueblerinoRico,
             text: ["¿Sabías que hay un loco en el pueblo al que puedes pegarle siempre que quieras? Nunca se queja. No sabemos que le pasa"],
             state: [
                 {
@@ -15,7 +15,7 @@ const Dialog =
         },
         {
             id: 1,
-            name: Names.Pueblerino,
+            name: Names.PueblerinoRico,
             text: ["Suele estar a la izquierda del castillo, dando vueltas a un arbol constantemente"],
             state: [
                 {
