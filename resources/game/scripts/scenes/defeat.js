@@ -34,7 +34,7 @@ export default class Defeat extends Phaser.Scene {
       des = 'La autoridad ha descubierto tus vínculos con los rebeldes y has sido condenado.';
     }
     this.add.image(640, 400, img);
-    this.add.bitmapText(640, 350, CT.textFont, des, CT.textextSize, CT.textAlign);
+    this.add.bitmapText(0, 350, CT.textFont, des, CT.textextSize, CT.textAlign);
 
     //Botón
     this.returnButton = new Button({
