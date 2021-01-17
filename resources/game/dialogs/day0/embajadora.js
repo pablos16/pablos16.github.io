@@ -31,7 +31,7 @@ const Dialog =
             //Te da el dinero
             callback: (data) => { event.AddItem(data, item.Monedas); },
             name: Names.Embajadora,
-            text: ["De hecho,¿Podrías ir tú a comprármelo, y así conoces al empeñista? Necesito un tinte para el pelo. Aquí tienes el dinero"],
+            text: ["De hecho,¿Podrías ir tú a comprármelo, y así conoces al empeñista? Necesito cepillo y jabón para mi hija. Aquí tienes el dinero"],
             state: [
                 {
                     targetState: ["any"],
@@ -40,7 +40,7 @@ const Dialog =
             ]
         },
         {
-            
+
             id: 3,
             name: Names.Embajadora,
             text: ["Cuando tengas el tinte tráemelo. Yo me quedaré por aqui"],
@@ -70,9 +70,9 @@ const Dialog =
         },
         {
             id: 5,
-            required:{
-                item:[item.Tinte],
-                hasItemIndex:6
+            required: {
+                item: [item.CepilloYJabon],
+                hasItemIndex: 6
             },
             name: Names.Embajadora,
             text: ["Vaya, pero si todavia no lo has comprado. La tienda de empeños está justo aquí. Vuelve cuando lo tengas."],
@@ -85,6 +85,7 @@ const Dialog =
         },
         {
             id: 6,
+            callback: (data) => { event.RemoveItem(data, item.CepilloYJabon); },
             name: Names.Embajadora,
             text: ["¡Muchas gracias! Si me buscas otro dia estaré cerca de la embajada. Es la casa a la izquierda del castillo."],
             state: [

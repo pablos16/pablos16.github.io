@@ -36,7 +36,7 @@ const itemData = [
     },
     {   // 8
         name: 'Cepillo y jabón',
-        desc: 'Si cubres con esto una pintada, quizá no se note el dibujo.',
+        desc: 'Cepillo de muy buena calidad. El jabón es importado.',
     },
     {   // 9
         nam: 'Tinte',

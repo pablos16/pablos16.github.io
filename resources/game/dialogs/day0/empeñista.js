@@ -75,7 +75,7 @@ const Dialog =
             //Te da el tinte y se lleva las monedas
             callback: (data) => {
                 event.RemoveItem(data, item.Monedas);
-                event.AddItem(data, item.Tinte);
+                event.AddItem(data, item.CepilloYJabon);
             },
 
             name: Names.Empeñista,
@@ -86,7 +86,8 @@ const Dialog =
                     nextState: 2,
                     nextIndex: -1
                 },
-            ]
+            ],
+            completed:0
         },
         {
             id: 6,
