@@ -4,8 +4,8 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.Lola,
-            text: ["Saludos! Yo soy Lola, la mujer del carcelero. Ya me ha hablado un poco de tí. ¿A qué se debe la visita?"],
+            name: Names.OldMan,
+            text: ["Uy! ¿Qué te trae por aquí? ¿Podemos hacer algo por ti?"],
             state: [
                 {
                     targetState: ["any"],
@@ -15,12 +15,10 @@ const Dialog =
         },
         {
             id: 1,
-            name: Names.Police,
-            text: ["(¿Vas a detenerla?)"],
+            name: Names.OldMan,
+            text: ["(¿Quieres entregar la carta a la embajadora?)"],
             options:
                 [
-                    //TODO COMO COJONES ORGANIZO ESTO SI VA A HABER AL PARECER 12131 EVENTOS ME CAGO EN TODO QUE ESTRES
-                    
                     {
                         text: "Claro",
                         nextIndex: 2,
@@ -35,7 +33,7 @@ const Dialog =
         },
         {
             id: 2,
-            name: Names.Police,
+            name: Names.OldMan,
             text: ["Tome, esta es una carta del dictador que iba dirigida a <Paca>, pero creo que a usted le será más útil"],
             state: [
                 {
@@ -46,7 +44,7 @@ const Dialog =
         },
         {
             id: 3,
-            name: Names.Police,
+            name: Names.OldMan,
             text: ["Mm,no gracias. Solo estaba de paso, que tenga un buen dia"],
             state: [
                 {
@@ -58,7 +56,7 @@ const Dialog =
         },
         {
             id: 4,
-            name: Names.Embajadora,
+            name: Names.OldMan,
             text: ["Mm esto me será bastante util, gracias por apoyar al dictador. Te debo una. Ten un buen dia"],
             state: [
                 {
@@ -70,7 +68,7 @@ const Dialog =
         },
         {
             id: 5,
-            name: Names.Embajadora,
+            name: Names.OldMan,
             text: ["Gracias por la carta y el favor, me gusta ver tu apoyo hacia nuestro lado", "Gracias por el favor"],
             state: [
                 {
@@ -81,7 +79,7 @@ const Dialog =
         },
         {
             id: 6,
-            name: Names.Embajadora,
+            name: Names.OldMan,
             text: ["Seguro que estás muy ocupado trabajando, mucha suerte","Pasa un buen dia tu tambien"],
             state: [
                 {

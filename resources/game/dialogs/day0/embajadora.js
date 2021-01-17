@@ -16,7 +16,7 @@ const Dialog =
         {
             id: 1,
             name: Names.Embajadora,
-            text: ["Yo soy la embajadora del pueblo. Mi marido tiene una tienda de empeños justo aquí, así que ya sabes a donde ir a comprar objetos si el dictador necesita algo."],
+            text: ["Yo soy la embajadora del pueblo. Me iba a la tienda de empeños de aquí a comprar unas cosas,que aquí hay de todo, así que ya sabes a donde ir a comprar objetos si el dictador necesita algo."],
             state: [
                 {
                     targetState: ["any"],
