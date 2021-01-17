@@ -94,6 +94,7 @@ export default class Dialoguer {
 
     checkItem(scene, context = this.currentDialog()) {
         if (!('required' in context)) return;
+        if(!('mustHaveAll' in context)) context.mustHaveAll = false;
         let hasItem = true;
         for (let i = 0; i < context.required.item.length; i++) {
             hasItem &&= this.containtItems(scene, context.required.item[i])
@@ -189,11 +190,16 @@ export default class Dialoguer {
         if (input.interact) {
             //Ejecutar sonido
             scene.dialogSound.play();
-            this.checkCallbacks(scene, this.currentDialog().options[this.selection])
-            this.checkMissionCompleted(scene, this.currentDialog().options[this.selection])
+            let selection = this.currentDialog().options[this.selection]
+            this.checkCallbacks(scene, selection)
+            this.checkMissionCompleted(scene, selection)
             this.arrow.visible = false
             this.choosing = false
-            this.index = this.currentDialog().options[this.selection].nextIndex
+            
+            if(selection.nextState) this.state = selection.nextState;
+            this.index = selection.nextIndex
+
+
             utils.setVisiblity(this.dialogOptions, false)
             if (this.index === -1) this.FinishDialog(scene)
             else this.ContinueDialog(scene)
