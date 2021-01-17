@@ -97,7 +97,6 @@ export default class Scene extends Phaser.Scene {
                                             x: this.player.x + 15,
                                         })
                                     },
-                                    onFinish: () => { this.currentPlaying.stop() },
                                 });
                             }
                         },
@@ -203,11 +202,14 @@ export default class Scene extends Phaser.Scene {
         this.cameras.main.zoom = CT.cameraZoom;
 
         //Añadimos la musica
-        this.dialogSound = this.sound.add('dialogSound', CT.effectSounds);
-        this.selection = this.sound.add('selection', CT.effectSounds);
-        this.pickItem = this.sound.add('pickup', CT.effectSounds);
-        this.slider = this.sound.add('slider', CT.effectSounds)
-        this.sliderEnd = this.sound.add('sliderEnd', CT.effectSounds)
+        this.soundList = [];
+        this.soundList.push(this.dialogSound = this.sound.add('dialogSound', CT.effectSounds));
+        this.soundList.push(this.selection = this.sound.add('selection', CT.effectSounds));
+        this.soundList.push(this.pickItem = this.sound.add('pickup', CT.effectSounds));
+        this.soundList.push(this.slider = this.sound.add('slider', CT.effectSounds))
+        this.soundList.push(this.sliderEnd = this.sound.add('sliderEnd', CT.effectSounds))
+        
+        //Asignar puntos de la barra
         this.align.addReputation(this.points)
         this.fadeOut()
 
@@ -217,6 +219,7 @@ export default class Scene extends Phaser.Scene {
 
     changeScene(sceneName = this.nextLevel) {
         this.fadeIn()
+        this.currentPlaying.stop()
         this.loadScene(sceneName)
     }
 

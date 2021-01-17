@@ -31,7 +31,6 @@ export default class Slider extends Phaser.GameObjects.Sprite {
     }
 
     onDragStart(pointer) {
-        console.log(this.x)
         this.dragOrigin = {
             x: pointer.x - this.x,
             y: pointer.x - this.y
