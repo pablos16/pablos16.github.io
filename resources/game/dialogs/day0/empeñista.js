@@ -11,7 +11,7 @@ const Dialog =
                 hasItemIndex: 1
             },
             name: Names.Empeñista,
-            text: ["El empeñsta, si soy. Todos me conocen así. Cuando tengas algo que adquirir, ya sabes a donde ir"],
+            text: ["El empeñista, si soy. Todos me conocen así. Cuando tengas algo que adquirir, ya sabes a donde ir"],
             state: [
                 {
                     targetState: ["any"],

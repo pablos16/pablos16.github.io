@@ -73,12 +73,14 @@ const Dialog =
                     {
                         text: "Permitir la protesta.",
                         nextIndex: 6,
-                        points: 40
+                        points: 40,
+                        completed:3
                     },
                     {
                         text: "No permitir la protesta y multar a todos.",
                         nextIndex: 7,
-                        points: -40
+                        points: -40,
+                        completed:3
                     },
                 ],
         },

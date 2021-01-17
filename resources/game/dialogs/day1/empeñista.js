@@ -135,6 +135,7 @@ const Dialog =
                     nextIndex: -1
                 },
             ],
+            completed:4
         },
         {
             id: 10,
@@ -152,6 +153,7 @@ const Dialog =
                     nextIndex: -1
                 },
             ],
+            completed:4
         },
         {
             id: 11,
@@ -165,7 +167,6 @@ const Dialog =
                     nextIndex: -1
                 },
             ],
-            completed:0
         },
         {
             id: -1,

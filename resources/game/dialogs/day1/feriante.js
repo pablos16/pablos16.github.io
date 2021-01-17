@@ -1,4 +1,6 @@
 import Names from '../../configs/npcNames.js'
+import event from '../../scripts/libraries/eventCallbacks.js'
+import item from '../../configs/itemNames.js'
 
 const Dialog =
     [
@@ -31,6 +33,7 @@ const Dialog =
             state: [
                 {
                     targetState: ["any"],
+                    nextState:1,
                     nextIndex: 3
                 },
             ]
@@ -38,7 +41,7 @@ const Dialog =
         {
             id: 3,
             name: Names.Feriante,
-            text: ["Supongo que Reltih te habrá dado ya los carteles. ¿Los tienes?"],
+            text: ["¿Tienes los carteles que tenia Reltih?"],
             options:
                 [
                     {
@@ -65,26 +68,67 @@ const Dialog =
             ]
         },
         {
-            //TODO
-            //CALLBACK QUE COMPRUEBA 
             id: 5,
+            //Comprueba si tienes en el inventario los dos carteles
+            required: {
+                item: [item.CartelesFeriales,item.CartelesCuestionables],
+                mustHaveAll:true,
+                hasItemIndex: 6
+            },
             name: Names.Feriante,
-            text: [""],
+            text: ["No me mientas si no tienes las cosas hombre. Cuando las tengas vuelve."],
             state: [
                 {
                     targetState: ["any"],
-                    nextIndex: 6
+                    nextIndex: -1
                 },
             ]
         },
         {
             id: 6,
             name: Names.Feriante,
-            text: [""],
+            text: ["Perfecto. Pues entrégamelos"],
+            options:
+            [
+                {
+                    text: "Entregar carteles cuestionables",
+                    nextIndex: 7,
+                    points:-30
+                },
+                {
+                    text: "Entregar carteles feriales",
+                    nextIndex: 7,
+                    points:30
+                }
+            ],
+        },
+        {
+            id: 7,
+            //Borra los dos carteles
+            callback: (data) => {
+                event.RemoveItem(data, item.CartelesFeriales);
+                event.RemoveItem(data, item.CartelesCuestionables);
+            },
+
+            name: Names.Feriante,
+            text: ["Muchas gracias muchacho, nos vemos por ahí"],
             state: [
                 {
                     targetState: ["any"],
-                    nextIndex: 7
+                    nextState:2,
+                    nextIndex: -1
+                },
+            ],
+            completed:0
+        },
+        {
+            id: 7,
+            name: Names.Feriante,
+            text: ["Déjame trabajar ahora hombre, ya verás la actuación cuando lo promocione."],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextIndex: -1
                 },
             ]
         },
@@ -101,7 +145,7 @@ const Dialog =
                 },
                 {
                     targetState: [2],
-                    nextIndex: 10
+                    nextIndex: 8
                 }
             ]
         }

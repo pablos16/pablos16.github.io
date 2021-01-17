@@ -16,11 +16,11 @@ const itemData = [
     },
     {   // 3
         name: 'Alfombra persa',
-        desc: 'Preciada alfombra con muchos estampados. Su calidad es notable, aunque cuesta más de lo que debería...',
+        desc: 'Preciada alfombra con muchos estampados. Su calidad es notable',
     },
     {   // 4
         name: 'Cojín persa',
-        desc: 'Mullido, cómodo y colorido. ¿Quién se resistiría a adquirirlo a tan buen precio?',
+        desc: 'Mullido, cómodo y colorido',
     },
     {   // 5
         name: 'Carteles feriales',
@@ -28,7 +28,7 @@ const itemData = [
     },
     {   // 6
         name: 'Carteles cuestionables',
-        desc: 'Pancartas similares a las propagandísticas del régimen. Hay algo raro en ellas.',
+        desc: 'Parecidas a las feriales pero desgastadas y descoloridas',
     },
     {   // 7
         name: 'Carteles de "Se Busca"',
