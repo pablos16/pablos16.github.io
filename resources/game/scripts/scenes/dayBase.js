@@ -61,6 +61,7 @@ export default class Scene extends Phaser.Scene {
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
         this.tpList = [];
         this.musicList = [];
+        this.currentPlaying = {};
         for (const objeto of mapObjects) {
             const props = {};
             if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
@@ -141,7 +142,10 @@ export default class Scene extends Phaser.Scene {
                         scene: this,
                         xSize: objeto.width,
                         ySize: objeto.height,
-                        enter: () => { this[props.music].play() },
+                        enter: () => {
+                            this.currentPlaying = this[props.music]
+                            this[props.music].play()
+                        },
                         exit: () => { this[props.music].stop(); },
                         stay: () => { },
                     })
