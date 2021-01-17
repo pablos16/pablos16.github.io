@@ -72,8 +72,6 @@ export default class Dialoguer {
     }
 
     StartDialog(scene) {
-        //this.startTween(scene);
-        scene.player.missionList.hideInterface()
         this.animateDialog(scene, 50)
         this.setTalking(scene, true)
         this.onStart();
@@ -159,7 +157,6 @@ export default class Dialoguer {
 
     FinishDialog(scene) {
         if ("timer" in this) this.timer.stopAnimation()
-        scene.player.missionList.showInterface()
         this.animateDialog(scene, 50, false)
         utils.setVisiblity([this.description, this.name], false)
         this.setTalking(scene, false)

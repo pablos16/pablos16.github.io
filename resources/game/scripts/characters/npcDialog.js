@@ -16,6 +16,7 @@ export default class NPCDialog extends NPC {
             isForced: false,
             callbackArguments: { npc: this },
             onStart: () => {
+                data.scene.player.missionList.hideInterface()
                 this.path.setMove(false)
                 this.path.stop();
                 this.getTogether(data.scene, data.offset);
@@ -25,6 +26,7 @@ export default class NPCDialog extends NPC {
                 }
             },
             onFinish: () => {
+                data.scene.player.missionList.showInterface()
                 this.path.setMove(true)
                 this.path.setVelocity()
                 data.scene.pause.animation.locked = false;
