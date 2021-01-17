@@ -128,6 +128,8 @@ export default class Boot extends Phaser.Scene{
     this.load.audio('selection', 'resources/game/sounds/dialog/selection.wav')
     this.load.audio('pickup', 'resources/game/sounds/inventory/pickup.wav')
     this.load.audio('hit', 'resources/game/sounds/events/hit.wav')
+    this.load.audio('slider', 'resources/game/sounds/pause/slider.wav')
+    this.load.audio('sliderEnd', 'resources/game/sounds/pause/sliderEnd.wav')
   }
 
   create() { this.scene.start('menu'); }

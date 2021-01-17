@@ -13,9 +13,13 @@ export default class Slider extends Phaser.GameObjects.Sprite {
         this.dragOrigin;
         this.maxValue = data.maxValue;
 
+        this.slider = data.context.slider;
+        this.sliderEnd = data.context.sliderEnd;
+
         //Barra visual del slider
         this.bar = scene.add.image(data.x, data.y, 'sliderBar');
         this.bar.setScrollFactor(0)
+        this.endThisFrame = true;
 
         this.buttonOffset = 120;
         this.correctionOffset = -10;
@@ -36,16 +40,24 @@ export default class Slider extends Phaser.GameObjects.Sprite {
 
 
     onDrag(pointer) {
-        if(pointer.x - this.dragOrigin.x + this.buttonOffset < 0 ||
-            pointer.x - this.dragOrigin.x > (this.buttonOffset+this.correctionOffset)) return;
+        if (pointer.x - this.dragOrigin.x + this.buttonOffset < 0 ||
+            pointer.x - this.dragOrigin.x > (this.buttonOffset + this.correctionOffset)) {
+            if (!this.endThisFrame) this.sliderEnd.play()
+            this.endThisFrame = true;
+            return;
+        }
+
         this.x = pointer.x - this.dragOrigin.x
-        for (const music of this.target) 
-            music[this.attribute] = this.localUnitToTargetUnit(this.x+this.buttonOffset)
+        if (Math.floor(this.x) % 10 === 0) {
+            this.slider.play();
+            this.endThisFrame = false;
+        }
+        for (const music of this.target)
+            music[this.attribute] = this.localUnitToTargetUnit(this.x + this.buttonOffset)
 
     }
 
-    localUnitToTargetUnit(value)
-    {
-        return ((this.maxValue * value) / (this.buttonOffset-this.correctionOffset))
+    localUnitToTargetUnit(value) {
+        return ((this.maxValue * value) / (this.buttonOffset - this.correctionOffset))
     }
 } 

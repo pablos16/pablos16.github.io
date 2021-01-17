@@ -206,6 +206,8 @@ export default class Scene extends Phaser.Scene {
         this.dialogSound = this.sound.add('dialogSound', CT.effectSounds);
         this.selection = this.sound.add('selection', CT.effectSounds);
         this.pickItem = this.sound.add('pickup', CT.effectSounds);
+        this.slider = this.sound.add('slider', CT.effectSounds)
+        this.sliderEnd = this.sound.add('sliderEnd', CT.effectSounds)
         this.align.addReputation(this.points)
         this.fadeOut()
 
