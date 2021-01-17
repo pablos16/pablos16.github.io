@@ -29,7 +29,7 @@ export default class SliderButton extends Phaser.GameObjects.Container {
 
         this.indicator = new Slider({
             context: scene,
-            x: 0,
+            x: -70,
             y: 75,
             maxValue: data.maxValue,
             target: data.target,

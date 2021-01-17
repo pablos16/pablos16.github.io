@@ -21,9 +21,9 @@ export default class Slider extends Phaser.GameObjects.Sprite {
         this.bar.setScrollFactor(0)
         this.endThisFrame = true;
 
-        this.buttonOffset = 120;
-        this.correctionOffset = -10;
-        this.x -= this.buttonOffset + this.target[0][this.attribute]
+        this.buttonOffset = 60 - this.x;
+        this.correctionOffset = -145;
+        this.x -= this.buttonOffset + this.target[0][this.attribute] + this.x
 
         this.on('drag', pointer => { this.onDrag(pointer) }, scene);
         this.on('dragstart', pointer => { this.onDragStart(pointer) }, scene);

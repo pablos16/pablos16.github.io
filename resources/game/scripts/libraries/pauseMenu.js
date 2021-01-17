@@ -4,7 +4,7 @@ import SliderButton from "./buttonWithSlider.js";
 export default class PauseMenu{
     constructor(scene)
     {
-        this.x = 900;
+        this.x = 1200;
         this.y = 300;
 
         this.menu = new Button({
