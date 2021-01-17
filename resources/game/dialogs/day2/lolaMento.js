@@ -5,7 +5,7 @@ const Dialog =
         {
             id: 0,
             name: Names.Lola,
-            text: ["Saludos! Yo soy Lola, la mujer del carcelero. Ya me ha hablado un poco de tí. ¿A qué se debe la visita?"],
+            text: ["Muy buenas señor Policía, ¿Qué le trae por aquí?"],
             state: [
                 {
                     targetState: ["any"],
@@ -16,27 +16,24 @@ const Dialog =
         {
             id: 1,
             name: Names.Police,
-            text: ["(¿Vas a detenerla?)"],
+            text: ["(¿Soy discreto o voy al grano?)"],
             options:
                 [
-                    //TODO COMO COJONES ORGANIZO ESTO SI VA A HABER AL PARECER 12131 EVENTOS ME CAGO EN TODO QUE ESTRES
                     
                     {
-                        text: "Claro",
+                        text: "Vengo a detenerte por apoyar a la revolución a escondidas",
                         nextIndex: 2,
-                        points: -10
                     },
                     {
-                        text: "Mm...mejor me la quedo yo",
+                        text: "Creo que sabes de sobra a qué he venido...",
                         nextIndex: 3,
-                        points: 20
                     },
                 ],
         },
         {
             id: 2,
-            name: Names.Police,
-            text: ["Tome, esta es una carta del dictador que iba dirigida a <Paca>, pero creo que a usted le será más útil"],
+            name: Names.Lola,
+            text: ["No sé de que me hablas...mi marido apoya al dictador y tengo una familia y una hija..."],
             state: [
                 {
                     targetState: ["any"],
@@ -47,31 +44,67 @@ const Dialog =
         {
             id: 3,
             name: Names.Police,
-            text: ["Mm,no gracias. Solo estaba de paso, que tenga un buen dia"],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextState: 1,
-                    nextIndex: -1
-                },
-            ]
+            text: ["(¿Se piensa que somos tontos?)"],
+            options:
+                [
+                    
+                    {
+                        text: "Detener",
+                        nextIndex: 4,
+                    },
+                    {
+                        text: "Detener",
+                        nextIndex: 4,
+                    },
+                ],
         },
         {
             id: 4,
-            name: Names.Embajadora,
-            text: ["Mm esto me será bastante util, gracias por apoyar al dictador. Te debo una. Ten un buen dia"],
+            name: Names.Lola,
+            text: ["VALE SI SOY CULPABLE. Yo incité la manifestación de ayer, pero por favor no me detengas haré lo que sea"],
             state: [
                 {
                     targetState: ["any"],
-                    nextState: 2,
-                    nextIndex: -1
+                    nextIndex: 5
                 },
             ]
         },
         {
             id: 5,
-            name: Names.Embajadora,
-            text: ["Gracias por la carta y el favor, me gusta ver tu apoyo hacia nuestro lado", "Gracias por el favor"],
+            name: Names.Lola,
+            text: ["Te daré dos bolsas de oro y mi anillo de casada si hace falta"],
+            options:
+                [
+                    
+                    {
+                        text: "Aceptar soborno y dejarla libre",
+                        nextIndex: 6,
+                        points: 40
+                    },
+                    {
+                        text: "Detener igualmente",
+                        nextIndex: 8,
+                        points: -40
+                    },
+                ],
+        },
+        {
+            id: 6,
+            //CALLBACK DE DARME BOLSAS DE ORO Y ANILLO DE CASADA
+            name: Names.Lola,
+            text: ["¡TOMA TODO! Muchas gracias. Si sigues así mañana el dictador no te mandará ninguna orden. ¡Sigue apoyándonos!"],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextState:1,
+                    nextIndex: -1
+                },
+            ]
+        },
+        {
+            id: 7,
+            name: Names.Lola,
+            text: ["Continúa así y mañana será un gran día.W"],
             state: [
                 {
                     targetState: ["any"],
@@ -80,9 +113,33 @@ const Dialog =
             ]
         },
         {
-            id: 6,
-            name: Names.Embajadora,
-            text: ["Seguro que estás muy ocupado trabajando, mucha suerte","Pasa un buen dia tu tambien"],
+            id: 8,
+            name: Names.Lola,
+            text: ["ESTÁBAMOS A PUNTO DE ASESINAR AL DICTADOR. Pero tú sigue así, que igual el que muere es otro..."],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextState:1,
+                    nextIndex: -1
+                },
+            ]
+        },
+        {
+            id: 9,
+            name: Names.Lola,
+            text: ["Continúa así y mañana el que no despierta eres tú..."],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextIndex: -1
+                },
+            ]
+        },
+        {
+            id: 9,
+            //CALLBACK DE desaparicion
+            name: Names.Police,
+            text: ["¿A DONDE HA IDO?,¿CÓMO LO HA HECHO? Voy a acabar las tareas y mañana será un nuevo día..."],
             state: [
                 {
                     targetState: ["any"],
@@ -99,7 +156,7 @@ const Dialog =
                 },
                 {
                     targetState: [1],
-                    nextIndex: 6
+                    nextIndex: 7
                 },
                 {
                     targetState: [2],
