@@ -124,33 +124,37 @@ La música evoca un ambiente rural que sumerge al jugador en el mundo del juego 
 
 **Escenarios:**
 
--Rojo: Casa del protagonista: Todos los días empiezan y acaban en su interior. Es el lugar donde ocurre el cambio de nivel.
+-(Rojo) Casa del protagonista: Todos los días empiezan y acaban en su interior. Es el lugar donde ocurre el cambio de nivel.
 
--Naranja: Casa de Leandro: Casa en la que vive el amigo del protagonista. El jugador puede acceder dentro de ella.
+-(Naranja) Casa de Leandro: Casa en la que vive el amigo del protagonista. El jugador puede acceder dentro de ella.
 
--Amarillo: Castillo de la ciudad: Fortaleza donde reside el tirano y sus más importantes secuaces. Dentro de él se asignan las misiones del día al jugador.
+-(Amarillo) Castillo de la ciudad: Fortaleza donde reside el tirano y sus más importantes secuaces. Dentro de él se asignan las misiones del día al jugador.
 
--Verde claro: Taberna: Concurrido bar en la zona pobre de la ciudad. Lugar de trabajo y residencia de la familia Ramírez. El jugador tiene la posibilidad de entrar en este edificio.
+-(Verde claro) Taberna: Concurrido bar en la zona pobre de la ciudad. Lugar de trabajo y residencia de la familia Ramírez. El jugador tiene la posibilidad de entrar en este edificio.
 
--Verde: Embajada: Edificio emblemático situado cerca del castillo. Lugar de trabajo y residencia de la familia López. Se puede acceder al interior.
+-(Verde) Embajada: Edificio emblemático situado cerca del castillo. Lugar de trabajo y residencia de la familia López. Se puede acceder al interior.
 
--Azul cian: Tienda: Negocio del empeñista donde las familias más pudientes acostumbran a comprar exóticos artículos. Es posible entrar en ella.
+-(Azul cian) Tienda: Negocio del empeñista donde las familias más pudientes acostumbran a comprar exóticos artículos. Es posible entrar en ella.
 
--Azul: Carpas feriales: Cuando la feria llega, suele ser el lugar más activo de la capital al ser el centro del entretenimiento y la sede central del contrabando.
+-(Azul) Carpas feriales: Cuando la feria llega, suele ser el lugar más activo de la capital al ser el centro del entretenimiento y la sede central del contrabando.
 
--Azul oscuro: Barrio rico: amplio ensanche de grandes residencias y cuidados caminos cercano a la costa. En este sitio el jugador puede acceder al interior de la casa de la familia Mento.
+-(Azul oscuro) Barrio rico: amplio ensanche de grandes residencias y cuidados caminos cercano a la costa. En este sitio el jugador puede acceder al interior de la casa de la familia Mento.
 
--Morado: Barrios pobres: Conglomerado de austeras y deterioradas casas al sureste de la ciudad. Conforma la mayoría de viviendas del lugar.
+-(Morado) Barrios pobres: Conglomerado de austeras y deterioradas casas al sureste de la ciudad. Conforma la mayoría de viviendas del lugar.
 
--Rosa: Iglesia: Lugar de culto para los ciudadanos y de trabajo para el cura.
+-(Rosa) Iglesia: Lugar de culto para los ciudadanos y de trabajo para el cura.
 
--Magenta: Fortín: Antigua construcción utilizada a modo de cárcel por el régimen dictatorial.
+-(Magenta) Fortín: Antigua construcción utilizada a modo de cárcel por el régimen dictatorial.
 
--Blanco Parque: Antes era propiedad privada de la familia Garte, pero tras la muerte de su marido Paca Garte decidió convertirlo en un espacio público. Es posible entrar en la casa de Paca.
+-(Blanco) Parque: Antes era propiedad privada de la familia Garte, pero tras la muerte de su marido Paca Garte decidió convertirlo en un espacio público. Es posible entrar en la casa de Paca.
 
--Gris: Bosque y acantilado: Área umbría al este de la capital donde reside el anciano solitario. Los rebeldes se suelen esconder en ella debido a la alta densidad arbórea.
+-(Gris) Bosque y acantilado: Área umbría al este de la capital donde reside el anciano solitario. Los rebeldes se suelen esconder en ella debido a la alta densidad arbórea.
 
--Marron: Pantano: Región húmeda situada al sur donde se encuentra la mina de la ciudad, actualmente en desuso y convertida en una base improvisada de la rebelión.
+-(Marrón) Pantano: Región húmeda situada al sur donde se encuentra la mina de la ciudad, actualmente en desuso y convertida en una base improvisada de la rebelión.
+
+![EmvJnIPKmFc0qlh-Hfnq64g-918YFxD0PqiR9TQpx3rE1uynHxCzEhkiLex0A80VBkla7AKfoQeJdMZyPYw9bAw6_nnoRpwuoPdd2](https://user-images.githubusercontent.com/62879607/104857291-9d1d6000-5917-11eb-8435-918341b981f6.png)
+
+*Esquema de ubicaciones*
 
 **Personajes:**
 
@@ -238,7 +242,7 @@ Mujer del feriante. Es en realidad una contrabandista de armas que usa la feria 
 
 - **Hijo Feriante (16 años):**
 
-Analfabeto poco agraciado que intenta "ligar"siempre con las chicas en la feria.
+Analfabeto poco agraciado que intenta "ligar" siempre con las chicas en la feria.
 
 Relaciones Sociales:
 
@@ -356,69 +360,79 @@ Se llevan mal con los López.
 
 Se llevan muy mal con el Empeñista.
 
+En el juego aparecen también algunos personajes adicionales no tan relevantes con el fin de mejorar la ambientación. El jugador interactúa de una forma más limitada con ellos.
+
 **Historia:**
 
-"Tras el rechazo hacia el nuevo presidente por parte la mayor parte de la población del país dos lustros atrás, un militar dio el golpe de estado que llevaba preparando durante años. Ha pasado tanto tiempo desde el comienzo de una dictadura que propaga el caos y siembra el miedo en todo aquel que piense de forma diferente que con los años se ha ido formando un movimiento revolucionario que espera el momento oportuno para alzarse y derrocar al tirano. Tras el último asesinato en la capital de un agente del régimen por parte de miembros de la revolución, un nuevo policía llega a la ciudad y se pone al mando del dictador. Sus decisiones serán cruciales, ya que definirán el curso de la historia y determinarán si la revolución prevalece o fracasa"
+"Tras el rechazo hacia el nuevo presidente por parte la mayor parte de la población del país dos lustros atrás, un militar dio el golpe de estado que llevaba preparando durante años. Ha pasado tanto tiempo desde el comienzo de una dictadura que propaga el caos y siembra el miedo en todo aquel que piense de forma diferente que con los años se ha ido formando un movimiento revolucionario que espera el momento oportuno para alzarse y derrocar al tirano. Tras el último asesinato en la capital de un agente del régimen por parte de miembros de la revolución, un nuevo policía llega a la ciudad y se pone al mando del dictador. Sus decisiones serán cruciales, ya que definirán el curso de la historia y determinarán si la revolución prevalece o fracasa."
 
 **Misiones:**
 
-- Logística y recados:
+1. Entregar carteles feriales a los feriantes. Alternativa: entregar carteles incorrectos.
 
-1. Entregar mensaje a <residente>. Alternativa: entregar el mensaje a la persona equivocada. [Misión importante]
-2. Colocar carteles feriales en <zona>. Alternativa: colocar carteles incorrectos.
-3. Adquirir <producto> en una tienda. Alternativa: comprar otro objeto.
+2. Adquirir una alfombra persa en una tienda. Alternativa: comprar otro objeto.
 
-- Mantenimiento e imagen:
+3. Recoger la opinión de Lola Mento sobre la situación del país. Alternativa: anotar sólo los comentarios positivos.
 
-1. Borrar pintadas callejeras en <zona>. Alternativa: utilizar el equipamiento erróneo y estropear aún más la calle.
-2. Encontrar e informar sobre edificios o monumentos deteriorados. Alternativa: hablar con la feriante acerca del defecto.
-3. Recoger la opinión popular acerca de <asunto>. Alternativa: anota sólo los comentarios positivos.
-4. Dispersar aglomeraciones. Alternativa: permitirlas por el momento. [Misión importante]
+4. Dispersar aglomeraciones. Alternativa: permitirlas por el momento.
 
-- Investigación y crimen:
+5. Arrestar a la viuda que rechazó tener una cita con el presidente. Alternativa: dejarla en paz tras descubrir su historia.
 
-1. Arrestar al supuesto cabecilla de la revolución (Leandro Gado). Alternativa: ayuda a escapar al sujeto. [Misión importante]
-2. Arrestar a la viuda que rechazó tener una cita con el presidente (que tiene una hija). Alternativa: ayuda a escapar al sujeto.
-3. Encontrar y detener al individuo de <prenda> <color>. Alternativa: detener a la persona incorrecta.
-4. Encontrar y detener a <individuo>. Alternativa: ayudar al individuo a fugarse.
-5. Descubrir el paradero de <residente>. Alternativa: alegar que se ha descubierto la fuga del individuo hacia el bosque.
-6. Cobrar por completo la deuda de <residente>. Alternativa: cobrar solo una parte debido a la pobreza del individuo.
-7. Escoltar a los nuevos detenidos hacia la cárcel. Alternativa: no escoltar correctamente y permitir que un prisionero escape. [Misión importante]
-8. Colocar carteles de "Se busca". Alternativa: colocar carteles incorrectos.
-9. Destruir la entrada de la mina donde se refugia un grupo revolucionario. Alternativa: encender un fuego que haga que el humo saque a todos los revolucionarios del escondite y huyan. [Misión importante]
-10. Interrogar al Loco. Alternativa: pegarle una paliza.
+6. Encontrar y detener al individuo del pañuelo rojo. Alternativa: no arrestarlo.
 
-- Tutorial:
+7. Encontrar y detener a Lola Mento. Alternativa: ayudarla a fugarse.
 
-1. Familiarizarse con el entorno y los lugareños. [Sin alternativa] [Sin ponderación]
+8. Descubrir el paradero de la feriante. Alternativa: alegar que se ha descubierto su fuga hacia el bosque.
+
+9. Cobrar por completo la deuda de los feriantes. Alternativa: cobrar solo una parte debido a su pobreza.
+
+10. Destruir la entrada de la mina donde se refugia un grupo revolucionario. Alternativa: encender un fuego para que el humo haga huir a los revolucionarios del escondite.
+
+11. Familiarizarse con el entorno y los lugareños.
 
 **Objetos:**
 
-Hay objetos con los que se puede interactuar. Unos son necesarios para completar las tareas del policía, mientras que otros aportan valor estético y/o modelan aspectos de los personajes de la trama. El jugador puede recoger, usar y dejar objetos.
+Hay objetos con los que se puede interactuar. Unos son necesarios para completar las tareas del policía, mientras que otros aportan valor estético y modelan aspectos de los personajes de la trama. El jugador puede recoger, usar y dejar objetos.
 
-*Objetos referentes a las misiones:*
+Objetos referentes a las misiones:
 
 - Dinamita: Estos explosivos son más potentes de lo que parece...
-- Alfombra barata: Luce con pelusillas, parece desgastada, pero servirá.
-- Alfombra persa: Preciada alfombra con muchos estampados. Su calidad es apreciable, aunque cuesta más de lo que debería…
+
+- Alfombra barata: Luce con pelusillas. Parece desgastada, pero servirá.
+
+- Alfombra persa: Preciada alfombra con muchos estampados. Su calidad es notable, aunque cuesta más de lo que debería...
+
 - Cojín persa: Mullido, cómodo y colorido. ¿Quién se resistiría a adquirirlo a tan buen precio?
-- Carteles de "Se Busca": El retrato es idéntico al de la persona buscada.
-- Carteles feriales: Informan acerca de la feria de la ciudad tras su llegada.
+
+- Carteles de “Se Busca”: El retrato es idéntico al del fugitivo.
+
+- Carteles feriales: Informan de la llegada de la feria a la ciudad.
+
 - Carteles cuestionables: Pancartas similares a las propagandísticas del régimen. Hay algo raro en ellas.
-- Cepillo y Jabón: Funcionan a la perfección para quitar las pintadas.
-- Spray de graffiti: Si pintas todo por encima, no se notará el dibujo.
-- Cerilla y gasolina: Prende fuego a prácticamente todo.
+
+- Cepillo y jabón: Funcionan a la perfección para quitar pintadas.
+
+- Tinte: Si cubres con esto una pintada, quizá no se note el dibujo.
+
+- Cerillas y aceite: Permiten prender fuego a prácticamente todo.
+
 - Bolsa de dinero: Gran bolsa llena de dinero.
+
 - Monedas: Unas pocas monedas.
-- Carta: Es de mala educación abrirla si no es para tí. ¿Qué pondrá dentro?
 
-*Objetos de investigación:*
+- Carta: Es de mala educación abrirla si no es para ti. ¿Qué pondrá dentro?
 
-- Diario de Paca: contiene toda la dura vida de Paca desde antes de conocerla
-- Fotografía de Leandro Gado y alguien más: se le ve muy feliz al lado de su amigo, pero no le has visto en toda la ciudad. ¿Quién es?
-- Oso de peluche de Sona: te lo ha dado con todo su corazón. Tiene un gran valor sentimental para ella.
-- Reliquia extraña: supuestamente da vitalidad. Hm, yo no noto nada.
-- Anillo con grabado: pone Lola dentro del anillo. ¿Por qué lo ha tirado?
+Objetos misceláneos:
+
+- Diario de Paca: Contiene toda la dura vida de Paca.
+
+- Fotografía de Leandro Gado: Se le ve muy feliz. ¿Quién es su amigo? No le has visto en toda la ciudad.
+
+- Oso de peluche de Sona: Te lo ha dado con todo su corazón. Tiene un gran valor sentimental para ella.
+
+- Reliquia extraña: Supuestamente otorga “vitalidad”, aunque no notas nada.
+
+- Anillo: El nombre “Lola” está grabado dentro de él. ¿Por qué lo habrá tirado?
 
 # Referencias
 
@@ -427,44 +441,3 @@ Hay objetos con los que se puede interactuar. Unos son necesarios para completar
 [Reigns](https://store.steampowered.com/app/474750/Reigns/)
 
 [Papers, Please](https://store.steampowered.com/app/239030/Papers_Please/)
-
-
-# Anexo: Misiones Diarias
-
-Día 0:
-18
-
-Día 1:
-07
-03
-06
-17
-10 -> ladrón
-
-Día 2:
-01
-02
-05
-11 -> mujer del Carcelero
-12 -> viuda
-
-Día 3:
-14
-04
-13
-12
-03
-
-Día 4:
-16
-09
-15
-06 -> moral de los soldados
-07
-
-Día 5:
-08
-10
-01
-05 -> posiciones / sitios para colocar minas ?
-04 -> cárcel
