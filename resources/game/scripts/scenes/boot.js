@@ -65,6 +65,12 @@ export default class Boot extends Phaser.Scene{
     this.load.spritesheet('npc1', 'resources/game/textures/NPCs/npc1.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('npc2', 'resources/game/textures/NPCs/npc2.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('npc3', 'resources/game/textures/NPCs/npc3.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('npc4', 'resources/game/textures/NPCs/npc4.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('npc5', 'resources/game/textures/NPCs/npc5.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('npc6', 'resources/game/textures/NPCs/npc6.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('npc7', 'resources/game/textures/NPCs/npc7.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('npc8', 'resources/game/textures/NPCs/npc8.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('npc9', 'resources/game/textures/NPCs/npc9.png', { frameWidth: 32, frameHeight: 32 });
 
 
     //Mapa

@@ -131,15 +131,6 @@ export default class Scene extends Phaser.Scene {
                         offset: props.offset,
                     });
                     break;
-                case 'Tp':
-                    this.tpList.push(new TPLINK(
-                        {
-                            scene: this, 
-                            transform: objeto, 
-                            link: props.tplink, //Id del otro tp
-                            offset: props.offset
-                        }));
-                    break;
                 case 'Music':
                     this[props.music] = this.sound.add(props.music, CT.backgroundMusic)
 
@@ -159,6 +150,28 @@ export default class Scene extends Phaser.Scene {
                     break;
             }
         }
+
+        //Tp - Capa de Teletransportadores
+        let TPs = this.map.getObjectLayer('Tp').objects;
+
+
+        for (const tp of TPs) {
+            tp.x += tp.width / 2;
+            tp.y += tp.height / 2;
+
+            const props = {};
+            if (tp.properties) { for (const { name, value } of tp.properties) { props[name] = value; } }
+
+            this.tpList.push(new TPLINK(
+                {
+                    scene: this,
+                    transform: tp,
+                    link: props.tplink, //Id del otro tp
+                    offset: props.offset
+                }));
+        }
+        
+
         //Mapa - Capas Normales 3 - Parte 2
         this.mapCastles1 = this.map.createStaticLayer('Castles1', tileSetCastle);
         this.mapCastles2 = this.map.createStaticLayer('Castles2', tileSetCastle);

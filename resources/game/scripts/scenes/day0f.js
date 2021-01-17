@@ -8,7 +8,7 @@ export default class Day0F extends BaseDay {
             key: 'day0',
             dialog: dialogs,
             missions: Missions,
-            objectLayerName: 'Objects',
+            objectLayerName: 'Dia0',
             nextLevel: 'day1',
         })
     }

@@ -4,7 +4,7 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.Pueblerina,
+            name: Names.PueblerinaRica,
             text: ["¿Se nota que llevo peluca?"],
             state: [
                 {
