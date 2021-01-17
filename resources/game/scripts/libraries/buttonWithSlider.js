@@ -1,4 +1,3 @@
-import Button from "./button.js";
 import Slider from "./slider.js";
 
 /**
@@ -8,8 +7,10 @@ import Slider from "./slider.js";
  * /// PARAMS NEEDED TO PASS AS AN OBJECT WHEN CREATING ///
  * 
  * @param {Phaser.Scene} context reference to the Phase scene
- * @param  {number} x    x position of the object in the scene
- * @param  {number} y    y position of the object in the scene
+ * @param  {number} x    x position of the button in the scene
+ * @param  {number} y    y position of the button in the scene
+ * @param  {number} sliderX  relative x position of the slider respect the button
+ * @param  {number} sliderY  relative y position of the slider respect the button
  * @param {string} sprite sprite name for the button to load
  * @param {function} function function to call when the button is clicked
  */
@@ -22,15 +23,10 @@ export default class SliderButton extends Phaser.GameObjects.Container {
 
         this.button = scene.add.image(0, 0, data.sprite);
 
-        // let tempMatrix = new Phaser.GameObjects.Components.TransformMatrix();
-        // let tempParentMatrix = new Phaser.GameObjects.Components.TransformMatrix();
-        // this.button.getWorldTransformMatrix(tempMatrix, tempParentMatrix);
-        // let d = tempMatrix.decomposeMatrix();
-
         this.indicator = new Slider({
             context: scene,
-            x: 0,
-            y: 75,
+            x: data.sliderX,
+            y: data.sliderY,
             maxValue: data.maxValue,
             target: data.target,
             attribute: data.attribute,

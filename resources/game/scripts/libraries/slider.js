@@ -5,7 +5,6 @@ export default class Slider extends Phaser.GameObjects.Sprite {
         scene.add.existing(this)
         scene.physics.add.existing(this);
         this.body.allowGravity = false;
-        //this.setInteractive();
         this.setInteractive({ draggable: true, dropZone: true });
         this.setScrollFactor(0)
         this.target = data.target;
@@ -21,9 +20,9 @@ export default class Slider extends Phaser.GameObjects.Sprite {
         this.bar.setScrollFactor(0)
         this.endThisFrame = true;
 
-        this.buttonOffset = 120;
-        this.correctionOffset = -10;
-        this.x -= this.buttonOffset + this.target[0][this.attribute]
+        this.buttonOffset = 60 - this.x;
+        this.correctionOffset = -145;
+        this.x -= this.buttonOffset + this.target[0][this.attribute] + this.x
 
         this.on('drag', pointer => { this.onDrag(pointer) }, scene);
         this.on('dragstart', pointer => { this.onDragStart(pointer) }, scene);
@@ -36,7 +35,6 @@ export default class Slider extends Phaser.GameObjects.Sprite {
             y: pointer.x - this.y
         }
     }
-
 
     onDrag(pointer) {
         if (pointer.x - this.dragOrigin.x + this.buttonOffset < 0 ||
