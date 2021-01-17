@@ -69,8 +69,8 @@ const itemData = [
         desc: 'Se le ve muy feliz. ¿Quién es su amigo? No le has visto en toda la ciudad.',
     },
     {   // 16
-        name: 'Oso de peluche de Sona',
-        desc: 'Te lo ha dado con todo su corazón. Tiene un gran valor sentimental para ella.',
+        name: 'Muñeco Budú',
+        desc: 'Para nada podria matar a ti y a toda tu familia mientras duermes.',
     },
     {   // 17
         name: 'Reliquia extraña',
