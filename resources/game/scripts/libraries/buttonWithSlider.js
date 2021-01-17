@@ -31,6 +31,9 @@ export default class SliderButton extends Phaser.GameObjects.Container {
             context: scene,
             x: 0,
             y: 75,
+            maxValue: data.maxValue,
+            target: data.target,
+            attribute: data.attribute,
             sprite: 'indicatorVolume'
         })
 

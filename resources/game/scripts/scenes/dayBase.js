@@ -60,7 +60,7 @@ export default class Scene extends Phaser.Scene {
         //Mapa - Capa De Objetos
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
         this.tpList = [];
-        this.currentPlaying = {};
+        this.musicList = [];
         for (const objeto of mapObjects) {
             const props = {};
             if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
@@ -134,6 +134,7 @@ export default class Scene extends Phaser.Scene {
                     break;
                 case 'Music':
                     this[props.music] = this.sound.add(props.music, CT.backgroundMusic)
+                    this.musicList.push(this[props.music])
 
                     new Trigger({
                         x: objeto.x,
@@ -141,10 +142,7 @@ export default class Scene extends Phaser.Scene {
                         scene: this,
                         xSize: objeto.width,
                         ySize: objeto.height,
-                        enter: () => {
-                            this[props.music].play()
-                            this.currentPlaying = this[props.music];
-                        },
+                        enter: () => { this[props.music].play() },
                         exit: () => { this[props.music].stop(); },
                         stay: () => { },
                     })
@@ -171,7 +169,7 @@ export default class Scene extends Phaser.Scene {
                     offset: props.offset
                 }));
         }
-        
+
 
         //Mapa - Capas Normales 3 - Parte 2
         this.mapCastles1 = this.map.createStaticLayer('Castles1', tileSetCastle);

@@ -8,25 +8,44 @@ export default class Slider extends Phaser.GameObjects.Sprite {
         //this.setInteractive();
         this.setInteractive({ draggable: true, dropZone: true });
         this.setScrollFactor(0)
-
+        this.target = data.target;
+        this.attribute = data.attribute
         this.dragOrigin;
+        this.maxValue = data.maxValue;
 
         //Barra visual del slider
         this.bar = scene.add.image(data.x, data.y, 'sliderBar');
         this.bar.setScrollFactor(0)
 
+        this.buttonOffset = 120;
+        this.correctionOffset = -10;
+        this.x -= this.buttonOffset + this.target[0].volume
+
         this.on('drag', pointer => { this.onDrag(pointer) }, scene);
         this.on('dragstart', pointer => { this.onDragStart(pointer) }, scene);
+
     }
 
-    onDragStart(pointer)
-    {
-        this.dragOrigin = {x:pointer.worldX - this.x, 
-            y:pointer.worldY - this.y}
+    onDragStart(pointer) {
+        console.log(this.x)
+        this.dragOrigin = {
+            x: pointer.worldX - this.x,
+            y: pointer.worldY - this.y
+        }
     }
 
 
     onDrag(pointer) {
+        if(pointer.worldX - this.dragOrigin.x + this.buttonOffset < 0 ||
+            pointer.worldX - this.dragOrigin.x > (this.buttonOffset+this.correctionOffset)) return;
         this.x = pointer.worldX - this.dragOrigin.x
+        for (const music of this.target) 
+            music.setVolume(this.localUnitToTargetUnit(this.x+this.buttonOffset))
+
+    }
+
+    localUnitToTargetUnit(value)
+    {
+        return ((this.maxValue * value) / (this.buttonOffset-this.correctionOffset))
     }
 } 
