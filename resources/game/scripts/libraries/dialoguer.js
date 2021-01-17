@@ -33,6 +33,7 @@ export default class Dialoguer {
         this.onFinish = data.onFinish;
         this.isForced = data.isForced
         this.arguments = data.callbackArguments;
+        this.dialogSttoped = false;
 
         this.trigger = new Trigger({
             x: data.x,
@@ -110,8 +111,10 @@ export default class Dialoguer {
 
     ContinueDialog(scene) {
 
-        //console.log("hey " + this.index)
-        //console.log(this.currentDialog().state)
+        //Aunque le des a interactuar el dialogo no avanza 
+        //Si el creador por alguna razon decide qeu no debe, ya sea
+        //Para esperar a un evento o algo
+        if (this.dialogSttoped) return;
 
         //Comprobar item
         this.checkItem(scene)
