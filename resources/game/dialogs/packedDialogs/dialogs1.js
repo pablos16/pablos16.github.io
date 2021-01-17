@@ -20,6 +20,7 @@ import npc9 from '../day1/npc9.js'
 import ladron from '../day1/ladron.js'
 import leandro from '../day1/leandroGado.js'
 import paca from '../day1/pacaGarte.js'
+import empeñista from '../day1/empeñista.js'
 
 
 //Estos nombres son los que hay que poner en tiled
@@ -46,7 +47,8 @@ const dialogs =
     npc6,
     npc7,
     npc8,
-    npc9
+    npc9,
+    empeñista
     
 }
 

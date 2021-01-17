@@ -63,14 +63,14 @@ const Dialog =
                         text: "Arrestarle",
                         nextIndex: 5,
                         points: -20,
-                        completed:1
+                        completed:2
 
                     },
                     {
                         text: "Dejarle libre aún sabiendo que es culpable",
                         nextIndex: 6,
                         points: 20,
-                        completed:1
+                        completed:2
 
                     },
                 ],

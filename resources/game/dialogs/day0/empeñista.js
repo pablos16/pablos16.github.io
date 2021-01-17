@@ -6,19 +6,23 @@ const Dialog =
     [
         {
             id: 0,
+            required: {
+                item: [item.Monedas],
+                hasItemIndex: 1
+            },
             name: Names.Empeñista,
-            text: ["El empeñista, si soy. Todos me conocen así"],
+            text: ["El empeñista, si soy. Todos me conocen así. Cuando tengas algo que adquirir, ya sabes a donde ir"],
             state: [
                 {
                     targetState: ["any"],
-                    nextIndex: 1
+                    nextIndex: -1
                 },
             ]
         },
         {
             id: 1,
             name: Names.Empeñista,
-            text: ["Tengo todo tipo de cosas que te puedes imaginar. ¿Que necesitas?"],
+            text: ["El empeñista, si soy. Todos me conocen así"],
             state: [
                 {
                     targetState: ["any"],
@@ -29,23 +33,34 @@ const Dialog =
         {
             id: 2,
             name: Names.Empeñista,
-            text: ["¿Un tinte para la embajadora? ¡Se cuales le gustan! Pero tienes dinero para pagarlo, ¿no? La embajadora es muy exquisita con sus tintes"],
+            text: ["Tengo todo tipo de cosas que te puedes imaginar. ¿Que necesitas?"],
             state: [
                 {
                     targetState: ["any"],
                     nextIndex: 3
                 },
-            ],
+            ]
         },
         {
             id: 3,
+            name: Names.Empeñista,
+            text: ["¿Un tinte para la embajadora? ¡Se cuales le gustan! Pero tienes dinero para pagarlo, ¿no? La embajadora es muy exquisita con sus tintes"],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextIndex: 4
+                },
+            ],
+        },
+        {
+            id: 4,
             name: Names.Empeñista,
             text: ["¿Tienes el dinero para los tintes?"],
             options:
                 [
                     {
                         text: "¡Si!",
-                        nextIndex: 4,
+                        nextIndex: 5,
                     },
                     {
                         text: "No",
@@ -55,10 +70,10 @@ const Dialog =
                 ],
         },
         {
-            id: 4,
+            id: 5,
             required: {
                 item: [item.Monedas],
-                hasItemIndex: 5
+                hasItemIndex: 6
             },
             name: Names.Empeñista,
             text: ["Mm,no gracias. Sin dinero no te puedo dar nada. O me traes las monedas o no hay tinte"],
@@ -71,7 +86,7 @@ const Dialog =
             ]
         },
         {
-            id: 5,
+            id: 6,
             //Te da el tinte y se lleva las monedas
             callback: (data) => {
                 event.RemoveItem(data, item.Monedas);
@@ -90,7 +105,7 @@ const Dialog =
             completed:0
         },
         {
-            id: 6,
+            id: 7,
             name: Names.Empeñista,
             text: ["¡Vuelve siempre que necesites algo!", "Ya sabes que tengo todo lo que necesites tu o el dictador"],
             state: [
@@ -110,11 +125,11 @@ const Dialog =
                 },
                 {
                     targetState: [1],
-                    nextIndex: 3
+                    nextIndex: 4
                 },
                 {
                     targetState: [2],
-                    nextIndex: 6
+                    nextIndex: 7
                 }
             ]
         }

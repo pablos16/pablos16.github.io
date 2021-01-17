@@ -77,12 +77,12 @@ const Dialog =
                     {
                         text: "Anotar solo comentarios positivos",
                         nextIndex: 7,
-                        points: 25
+                        points: 35
                     },
                     {
                         text: "¡TODO! Hago lo que sea por Reltih, trabajo para él",
                         nextIndex: 8,
-                        points: -25
+                        points: -35
                     },
                 ],
         },
