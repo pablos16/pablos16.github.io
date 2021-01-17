@@ -232,7 +232,7 @@ export default class Scene extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(this.fullScreen)) {
             this.scale.toggleFullscreen()
         }
-        if(Phaser.Input.Keyboard.JustDown(this.menu)) this.pause.ToggleMenu(this);
+        if(Phaser.Input.Keyboard.JustDown(this.menu)) this.pause.animation.Toggle();
     }
 
     loadScene(sceneName, delay = CT.fadeInTime) {
