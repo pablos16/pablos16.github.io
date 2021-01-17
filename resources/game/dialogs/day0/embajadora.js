@@ -1,4 +1,6 @@
 import Names from '../../configs/npcNames.js'
+import event from '../../scripts/libraries/eventCallbacks.js'
+import item from '../../configs/itemNames.js'
 
 const Dialog =
     [
@@ -26,8 +28,10 @@ const Dialog =
         },
         {
             id: 2,
-            name: Names.Police,
-            text: ["(A la izquierda tienes el inventario. Puedes recoger objetos con la 'E' además de interaccionar con ellos con el ratón)"],
+            //Te da el dinero
+            callback: (data) => { event.AddItem(data, item.Monedas); },
+            name: Names.Embajadora,
+            text: ["De hecho,¿Podrías ir tú a comprármelo, y así conoces al empeñista? Necesito un tinte para el pelo. Aquí tienes el dinero"],
             state: [
                 {
                     targetState: ["any"],
@@ -36,58 +40,65 @@ const Dialog =
             ]
         },
         {
+            
             id: 3,
             name: Names.Embajadora,
-            text: ["Recuerda que estoy de tu parte eh,mi marido apoya lealmente al dictador, y espero que tú tambien a nosotros."],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextIndex: 4
-                },
-            ]
-        },
-        {
-            id: 4,
-            name: Names.Police,
-            text: ["(Que interesada,pero en el fondo me conviene)"],
-            options:
-            [
-                {
-                    text: "Emm...claro claro.",
-                    nextIndex: 5,
-                    completed:0,
-                    points: 5
-                },
-                {
-                    text: "Bueno...estaremos en contacto.",
-                    nextIndex: 5,
-                    completed:0,
-                    points: 0
-                },
-                {
-                    text: "¡Por supuesto, no lo dudes!",
-                    nextIndex: 5,
-                    completed:0,
-                    points:-10
-                }
-            ],
-        },
-        {
-            id: 5,
-            name: Names.Embajadora,
-            text: ["Por fin viene un policia decente a la ciudad, me gusta tu iniciativa"],
+            text: ["Cuando tengas el tinte tráemelo. Yo me quedaré por aqui"],
             state: [
                 {
                     targetState: ["any"],
                     nextState: 1,
                     nextIndex: -1
                 },
-            ],
+            ]
+        },
+        {
+            id: 4,
+            name: Names.Embajadora,
+            text: ["¿Ya compraste mi tinte?"],
+            options:
+                [
+                    {
+                        text: "¡Si!,Aqui tienes",
+                        nextIndex: 5,
+                    },
+                    {
+                        text: "Todavía no",
+                        nextIndex: 3,
+                    }
+                ],
+        },
+        {
+            id: 5,
+            required:{
+                item:[item.Tinte],
+                hasItemIndex:6
+            },
+            name: Names.Embajadora,
+            text: ["Vaya, pero si todavia no lo has comprado. La tienda de empeños está justo aquí. Vuelve cuando lo tengas."],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextIndex: -1
+                },
+            ]
         },
         {
             id: 6,
             name: Names.Embajadora,
-            text: ["Cualquier cosa ya sabes","Aquí me tienes para todo","Recuerda que estoy de tu parte"],
+            text: ["¡Muchas gracias! Si me buscas otro dia estaré cerca de la embajada. Es la casa a la izquierda del castillo."],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextState: 2,
+                    nextIndex: -1
+                },
+            ],
+        },
+        {
+            id: 7,
+            name: Names.Embajadora,
+            text: ["Cualquier cosa ya sabes", "Aquí me tienes para todo", "Recuerda que estoy de tu parte"],
             state: [
                 {
                     targetState: ["any"],
@@ -104,7 +115,11 @@ const Dialog =
                 },
                 {
                     targetState: [1],
-                    nextIndex: 6
+                    nextIndex: 4
+                },
+                {
+                    targetState: [2],
+                    nextIndex: 7
                 }
             ]
         }

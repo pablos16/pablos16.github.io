@@ -11,6 +11,7 @@ import coronel from '../day0/coronel.js'
 import dictador from '../day0/dictador.js'
 import player from '../day0/player.js'
 import npc3 from '../day0/npc3.js'
+import empeñista from '../day0/empeñista.js'
 
 import test from '../day0/test.js'
 
@@ -30,6 +31,7 @@ const dialogs =
     dictador,
     player,
     npc3,
+    empeñista,
     test
 }
 

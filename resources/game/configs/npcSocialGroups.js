@@ -38,7 +38,8 @@ const SocialStatePeople=
             Names.SrtaEmbajadora,
             Names.PueblerinaRica,
             Names.PueblerinoRico,
-            Names.Cura
+            Names.Cura,
+            Names.Empeñista
         ]
     },
     {
