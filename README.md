@@ -11,44 +11,7 @@ Organización y seguimiento -> https://www.pivotaltracker.com/n/projects/2470816
 
 # **Regime Police**
 
-Versión del 28/11/2020
-
-# Tabla de contenido
-
-## **Resumen**
-
-## **Descripción**
-
-## **Interfaz**
-
-  
-### Controles
-  
-### GUI
-
-## **Jugabilidad**
-
-  
-### Mecánicas
-  
-### Dinámica
-  
-### Estética
-
-## **Contenido**
-
-  
-### Escenarios
-  
-### Personajes
-  
-### Historia
-  
-### Misiones
-  
-### Objetos
-
-## **Referencias**
+Versión del 17/1/2021
 
 **Autores:**
 
@@ -62,14 +25,19 @@ Pablo Sánchez Cuadrado
 
 # Resumen
 
-| **Género** : Aventura **Subgénero** : Aventura Gráfica con vista TopDown | **Modos** : Un jugador |
-| --- | --- |
-| **Público** : Usuarios mayores de 10 años | **Plataformas** : Navegadores web |
-| **Objetivo:** Tomar el papel de un policía en la capital de un país gobernado dictatorialmente por un tirano, obedeciendo las directrices de los superiores y al mismo tiempo tratando de no convertirse en objetivo de la revolución contra el régimen que en ciernes tendrá lugar. |
+**Género:** RPG Narrativo.
+
+**Modos:** Un jugador.
+
+**Público:** Usuarios mayores de 14 años.
+
+**Plataformas:** Navegadores web.
+
+**Objetivo:** Tomar el papel de un policía en la capital de un país gobernado dictatorialmente por un tirano, obedeciendo las directrices de los superiores y al mismo tiempo tratando de no convertirse en objetivo de la revolución contra el régimen que en ciernes tendrá lugar.
 
 # Descripción
 
-Regime Police cuenta la historia de un policía de un régimen dictatorial a quien le ha sido encomendada la misión de frenar la ola revolucionaria que supuestamente va a armarse en 5 días en contra del Dictador. Para ello, tendrá que investigar a los supuestos cabecillas y buscar información para poder arrestarlos y preservar el régimen.
+Regime Police cuenta la historia de un policía de un régimen dictatorial a quien le ha sido encomendada la misión de frenar la ola revolucionaria que supuestamente va a armarse en pocos días en contra del Dictador. Para ello, tendrá que investigar a los supuestos cabecillas y buscar información para poder arrestarlos y preservar el régimen.
 
 El policía puede ir escogiendo a lo largo de la historia a qué bando apoyar verdaderamente intentando no llamar mucho la atención para evitar ser asesinado por el bando contrario.
 
@@ -79,9 +47,11 @@ El policía puede ir escogiendo a lo largo de la historia a qué bando apoyar ve
 
 Se juega con teclado y ratón:
 
-- **W, A, S, D**      ---> movimiento; opción de diálogo superior/inferior
-- **E**               ---> interactuar; seleccionar diálogo; recoger
-- **Click Izquierdo** ---> manejar inventario; desplegar/plegar misiones
+- **W, A, S, D**  → movimiento; opción de diálogo superior/inferior
+- **E** → interactuar; seleccionar diálogo; recoger
+- **Click Izquierdo** → manejar inventario; desplegar/plegar misiones
+- **F** →	alternar pantalla completa
+- **M** →	abrir/cerrar menú emergente
 
 **GUI:**
 
@@ -91,21 +61,23 @@ Aparece al iniciar el juego e incluye su nombre, así como un botón que permite
 
 Interfaz de juego:
 
-Inventario: Está visible siempre en la esquina inferior izquierda. Permite al jugador gestionar los objetos que porta, y leer la información de los mismos.
+- Inventario: Aparece en el borde izquierdo de la pantalla. Permite al jugador ver los objetos recogidos, así como tirarlos, usarlos, intercambiarlos de posición y leer información acerca de los mismos.
 
-Barra de alineamiento: Barra vertical visible en la esquina superior derecha con una línea vertical que fluctúa de arriba a abajo.
+- Barra de alineamiento: Barra vertical visible en la esquina superior derecha que posee un indicador horizontal que fluctúa de arriba a abajo. Indica la afinidad del jugador a cada uno de los bandos
 
-Notas: Hoja de papel presente en la esquina inferior derecha que muestra la interfaz de misiones.
+- Lista de misiones: Cuaderno de notas situado en la esquina inferior derecha que muestra los títulos de las misiones del día y su nivel de compleción actual.
 
-Interfaz de misiones:
+- Interfaz de diálogo: Cuando el jugador interactúa con un personaje, se muestra en esta interfaz localizada en la parte inferior de la pantalla la conversación y las opciones a escoger.
 
-Lista de misiones: Se abre un pergamino a la derecha de la interfaz y muestra información de las misiones del día.
+- Menú emergente: Aparece en el borde derecho de la pantalla. Permite al jugador controlar el volumen de la música y de los efectos de sonido y regresar al menú principal.
 
-Mapa: Aparece en la derecha de la interfaz con una leyenda para orientar al jugador debajo de la lista de misiones.
+Menú de derrota:
 
-Interfaz de diálogo:
+Aparece al perder la partida. Muestra una escena con el desenlace desafortunado del policía y un botón que devuelve al jugador al menú principal. La escena posee dos variantes según cual sea el bando afín.
 
-La conversación y las opciones a escoger aparecen en la parte inferior de la pantalla.
+Menú de victoria:
+
+Aparece al ganar la partida. Muestra una escena con un final victorioso para el jugador y un botón que devuelve al jugador al menú principal. La escena posee dos variantes según cual sea el bando afín.
 
 # Jugabilidad
 
@@ -113,82 +85,72 @@ La conversación y las opciones a escoger aparecen en la parte inferior de la pa
 
 - **Días:**
 
-La partida se divide en 5 días que transcurren en la trama del juego. Cada día el jugador tiene asignadas 5 misiones que debe completar para terminar su turno y pasar al siguiente día. Tras transcurrir 5 días, el juego finaliza. Existe un "día 0" a modo de tutorial, que muestra la llegada del policía a la ciudad.
+La partida se divide en tantos niveles como días transcurren en la trama del juego. Cada día se le asignan al jugador 5 misiones que debe completar para terminar su turno y pasar al siguiente día. Tras transcurrir todos los días, el juego finaliza. El primer día es un tutorial que muestra la llegada del policía a la ciudad y ayuda al usuario a familiarizarse con el entorno.
 
 - **Barra de alineamiento:**
 
-Esta barra representa la reputación del policía hacia los demás. En un extremo de la barra se sitúan los ciudadanos, y en el otro los superiores y el dictador. La barra contiene un icono que se desplaza hacia uno u otro lado en función del bando al que se tiene mayor afinidad. Por ello, apoyar a un bando implica necesariamente alejarse del otro. El icono se desplaza tras finalizar cada misión dependiendo de la forma en la que se ha completado. Si el indicador de la barra alcanza el final de su recorrido por cualquiera de los dos lados el jugador pierde la partida.
+Esta barra representa la reputación del policía hacia los demás. En un extremo de la barra se sitúan los ciudadanos, y en el otro los superiores y el dictador. La barra contiene un icono que se desplaza hacia uno u otro lado en función del bando al que se tiene mayor afinidad. Por ello, apoyar a un bando implica necesariamente alejarse del otro. Si el indicador de la barra alcanza el final de su recorrido por cualquiera de los dos lados el jugador pierde la partida.
 
 - **Misiones:**
 
-Las misiones son las tareas que le son encomendadas al policía. Es necesario completar todas las misiones de un día para pasar al siguiente. Se pueden completar de dos formas: obedeciendo incondicionalmente o conspirando e incumpliendo las "máximas" de su oficio. Dependiendo del modo en el que se complete, una misión hará avanzar el indicador de la barra de alineamiento al lado que corresponda. Según su ponderación, distinguimos dos grupos: normales e importantes. Las misiones importantes desplazarán el icono una mayor cantidad de unidades. Algunas misiones afectan a la historia. Las misiones correspondientes a cada día (siempre un total de 5), son preconfiguradas para siempre ser las mismas.
+Las misiones son las tareas que le son encomendadas al policía y se dividen en una serie de pasos. Cuando se completan todos los pasos de una misión, esta se da por terminada. Es necesario completar todas las misiones de un día para pasar al siguiente. Esto puede hacerse de dos formas: obedeciendo al régimen o conspirando contra él. Dependiendo del modo en el que se obre para realizar cada paso de una misión, el indicador de la barra de alineamiento avanzará hacia el lado que corresponda. Las misiones correspondientes a cada día (siempre un total de 5), son preconfiguradas para siempre ser las mismas.
 
 - **Interacción con personajes y objetos:**
 
-El jugador puede acercarse a los ciudadanos para conversar con ellos, accediendo a una interfaz de diálogo donde podrá elegir qué decir. Esto le permite investigar y obtener la información que algunas misiones precisan.
-
-Algunos objetos pueden ser examinados, recogidos y/o usados por el jugador. Como en el caso anterior, aportarán potenciales pruebas y desbloquearán nuevas opciones de diálogo con ciudadanos.
+El jugador puede acercarse a los ciudadanos para conversar con ellos, accediendo a una interfaz de diálogo donde podrá (en ocasiones) elegir qué decir. Esto le permite investigar y obtener/suministrar la información que algunas misiones precisan. La interacción con un personaje también puede afectar al alineamiento en algunos casos.
+Existen objetos que pueden ser recogidos, examinados, usados y tirados por el jugador. Estos aportarán valor estético y desbloquearán nuevas opciones de diálogo con ciudadanos para poder progresar en la trama. Los personajes pueden dar algunos objetos al jugador, así como recoger otros.
 
 **Dinámica:**
 
-En una partida típica, cada día el jugador sale de su casa, recibe sus tareas en el castillo y se dirige a la ciudad a completarlas. Para cada tarea, contempla las opciones a su alcance y juzga el modo en el que intentará completarlas. Posteriormente comienza a explorar los alrededores para cumplirlas, recabando información de lugareños y objetos encontrados.
+En una partida típica, cada día el jugador sale de su casa, recibe sus tareas en el castillo y va por la ciudad tratando de completarlas. Para cada misión, piensa sobre la manera en la que desea realizar cada uno de sus pasos o trata de averiguar cuáles son las alternativas con el fin de definir su camino y evitar alinearse claramente con los extremos régimen-pueblo. También explora los alrededores, encuentra objetos e interroga a otros personajes para recibir más información. Tras finalizar sus labores, el jugador se dirige a la casa del protagonista para empezar un nuevo día.
 
 El tiempo estimado para completar un día se considera entre 10 y 15 minutos.
 
-El juego se considera ganado si el jugador completa 5 días en el puesto sin favorecer claramente a ninguno de los bandos, y se pierde cuando la barra de alineamiento se posiciona en uno de los dos extremos.
+El juego se considera ganado si el jugador completa todos los días en el puesto hasta que tiene lugar el levantamiento sin favorecer claramente a ninguno de los bandos, y se pierde cuando la barra de alineamiento se posiciona en uno de los dos extremos antes de que estalle la revolución.
 
-Al ganar se muestra al jugador una secuencia que refleja lo que acontece tras el quinto día. La secuencia varía dependiendo del extremo al que más se acerque la barra de alineamiento al final del juego. Además, aparecerá un mensaje diferente en cada final.
+Al ganar se muestra al jugador el menú de victoria, que refleja lo que acontece tras el último día. La escena varía dependiendo del extremo al que más se acerque la barra de alineamiento al final del juego. Además, aparecerá un mensaje diferente en cada variante.
 
-Al perder se muestra al jugador otra secuencia, que explica cómo el protagonista no consigue cumplir su cometido.
+Al perder se muestra al jugador el menú de derrota, que explica cómo el protagonista no consigue cumplir su cometido. Existen dos variantes de la escena (con mensajes diferentes) dependiendo del extremo al que se haya llegado.
 
 **Estética:**
 
-Se juega en perspectiva TopDown.
+El juego está ambientado en la capital de un país bajo un régimen autoritario y se inspira en la obra literaria titulada “Tirano Banderas”, que fue escrita por Ramón María del Valle-Inclán.
 
-Las texturas son pixeladas y minimalistas.
+El empleo de texturas de baja resolución ha permitido ambientar tanto el entorno de juego como sus elementos de un modo minimalista, otorgando mayor versatilidad al moldearlo y haciendo que, junto con la perspectiva “TopDown”, el jugador no pierda tiempo en los detalles y no tenga problemas al navegar por él.
+
+La música evoca un ambiente rural que sumerge al jugador en el mundo del juego y los efectos de sonido “retro” acompañan al estilo visual del juego.
 
 # Contenido
 
 **Escenarios:**
 
-![mapa](https://user-images.githubusercontent.com/62748720/100088342-441dd800-2e50-11eb-8f21-2f5eff042412.png)
+-Rojo: Casa del protagonista: Todos los días empiezan y acaban en su interior. Es el lugar donde ocurre el cambio de nivel.
 
- 
-![#cc0000](https://via.placeholder.com/15/CC0000/000000?text=+)**Casa del protagonista**
+-Naranja: Casa de Leandro: Casa en la que vive el amigo del protagonista. El jugador puede acceder dentro de ella.
 
-![#1155cc](https://via.placeholder.com/15/1155cc/000000?text=+)**Castillo de la ciudad, donde reside el tirano y sus más importantes secuaces**
+-Amarillo: Castillo de la ciudad: Fortaleza donde reside el tirano y sus más importantes secuaces. Dentro de él se asignan las misiones del día al jugador.
 
-![#f1c232](https://via.placeholder.com/15/f1c232/000000?text=+) **Cárcel**
+-Verde claro: Taberna: Concurrido bar en la zona pobre de la ciudad. Lugar de trabajo y residencia de la familia Ramírez. El jugador tiene la posibilidad de entrar en este edificio.
 
- ![#30ff85](https://via.placeholder.com/15/30ff85/000000?text=+)**Comisaría**
+-Verde: Embajada: Edificio emblemático situado cerca del castillo. Lugar de trabajo y residencia de la familia López. Se puede acceder al interior.
 
- ![#EB4281](https://via.placeholder.com/15/EB4281/000000?text=+)**Taberna**
+-Azul cian: Tienda: Negocio del empeñista donde las familias más pudientes acostumbran a comprar exóticos artículos. Es posible entrar en ella.
 
- ![#9900FF](https://via.placeholder.com/15/9900FF/000000?text=+)**Iglesia**
+-Azul: Carpas feriales: Cuando la feria llega, suele ser el lugar más activo de la capital al ser el centro del entretenimiento y la sede central del contrabando.
 
- ![#38761D](https://via.placeholder.com/15/38761D/000000?text=+)**Embajada**
+-Azul oscuro: Barrio rico: amplio ensanche de grandes residencias y cuidados caminos cercano a la costa. En este sitio el jugador puede acceder al interior de la casa de la familia Mento.
 
- ![#00FF00](https://via.placeholder.com/15/00FF00/000000?text=+)**Barrio rico**
+-Morado: Barrios pobres: Conglomerado de austeras y deterioradas casas al sureste de la ciudad. Conforma la mayoría de viviendas del lugar.
 
- ![#FFFF00](https://via.placeholder.com/15/FFFF00/000000?text=+)**Barrios pobres**
+-Rosa: Iglesia: Lugar de culto para los ciudadanos y de trabajo para el cura.
 
-![#FF0000](https://via.placeholder.com/15/FF0000/000000?text=+)**Barrios muy pobres**
+-Magenta: Fortín: Antigua construcción utilizada a modo de cárcel por el régimen dictatorial.
 
- ![#E06666](https://via.placeholder.com/15/E06666/000000?text=+)**Parque**
+-Blanco Parque: Antes era propiedad privada de la familia Garte, pero tras la muerte de su marido Paca Garte decidió convertirlo en un espacio público. Es posible entrar en la casa de Paca.
 
- ![#741B47](https://via.placeholder.com/15/741B47/000000?text=+)**Tienda**
+-Gris: Bosque y acantilado: Área umbría al este de la capital donde reside el anciano solitario. Los rebeldes se suelen esconder en ella debido a la alta densidad arbórea.
 
- ![#6D9EEB](https://via.placeholder.com/15/6D9EEB/000000?text=+)**Carpa ferial**
-
- ![#6A3600](https://via.placeholder.com/15/6A3600/000000?text=+)**Bosque**
-
- ![#E69138](https://via.placeholder.com/15/E69138/000000?text=+)**Acantilado**
-
- ![#45818E](https://via.placeholder.com/15/45818E/000000?text=+)**Pantano**
-
-Es posible entrar parcial o totalmente en todos los lugares cerrados salvo la mayor parte de edificios comunes.
-
-Existe para cada vivienda una diferenciación en la calidad arquitectónica relativa a la distancia entre el edificio y el castillo del dictador.
+-Marron: Pantano: Región húmeda situada al sur donde se encuentra la mina de la ciudad, actualmente en desuso y convertida en una base improvisada de la rebelión.
 
 **Personajes:**
 
@@ -196,15 +158,15 @@ Existe para cada vivienda una diferenciación en la calidad arquitectónica rela
 
 - **Policía del Régimen:**
 
-Protagonista de la trama y zcontrolado por el jugador. Ha sido destinado a un nuevo puesto en la capital como reemplazo de un anterior oficial que ha sido asesinado.
+Protagonista de la trama y controlado por el jugador. Ha sido destinado a un nuevo puesto en la capital como reemplazo de un anterior oficial que ha sido asesinado.
 
 - **Dictador Reltih Floda:**
 
-Rudo, narcisista y vanidoso tirano que gobierna el país. No tiene intenciones ocultas, simplemente le encanta gobernar a su modo la región, ser halagado y admirar sus propios méritos. Su castillo está repleto de imágenes suyas.
+Rudo, narcisista y vanidoso tirano que gobierna el país. No tiene intenciones ocultas, simplemente le encanta gobernar a su modo la región, ser halagado y admirar sus propios méritos.
 
 - **Coronel:**
 
-Uno de los mejores amigos del dictador. Ha sido, por obra del tirano, "elegido" para llevar la comisaría y liderar a los policías del régimen. Planea esperar al mejor momento para asesinar al dictador y apoderarse del país. Además, trata de entorpecer la labor del protagonista aprovechando toda ocasión posible para incriminarlo y destinarlo a la cárcel.
+Uno de los mejores amigos del dictador. Ha sido “elegido” por el tirano para llevar la comisaría y liderar a los policías del régimen. Planea esperar al mejor momento para asesinar al dictador y apoderarse del país. No se fía de nadie, y menos del nuevo policía.
 
 - **Leandro Gado:**
 
@@ -212,11 +174,11 @@ Particular individuo con mayores preocupaciones sobre el país que la mayor part
 
 - **Tabernera Ramírez:**
 
-Mujer jovial, civilizada y extrovertida. Es el centro de los rumores de la ciudad y conoce los datos más secretos acerca de sus habitantes. Tiene una personalidad muy fuerte pero mantiene sus formas. Se compadece de la familia Garte, con quienes se lleva muy bien por haberla ayudado mucho en malos momentos. Es la "jefa" en la taberna.
+Mujer jovial, civilizada y extrovertida. Es el centro de los rumores de la ciudad y conoce los datos más secretos acerca de sus habitantes. Tiene una personalidad muy fuerte pero mantiene sus formas. Se compadece de la familia Garte, con quienes se lleva muy bien por haberla ayudado mucho en malos momentos.
 
 - **Tabernero Ramírez:**
 
-Alcohólico que acostumbra a empeorar las situaciones cada vez que habla. Su mujer le trata de controlar rigurosamente.
+Alcohólico que acostumbra a empeorar las situaciones cada vez que habla. En la taberna, no trabaja tanto como su mujer, quien le trata de controlar rigurosamente.
 
 - **Paca Garte:**
 
