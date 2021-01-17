@@ -28,7 +28,9 @@ export default class Slider extends Phaser.GameObjects.Sprite {
         //Pendiente de descablear el 60 y el -145 (que no sé respecto que son relativos para parametrizarlo)
         this.buttonOffset = 60 - this.x;
         this.correctionOffset = -145;
-        this.x -= this.buttonOffset + this.target[0][this.attribute] + this.x
+        //this.x -= this.buttonOffset + this.targetUnitToLocalUnit(this.target[0].config[this.attribute]) + this.x
+        //this.x -= this.buttonOffset + this.x
+        this.x = this.targetUnitToLocalUnit(this.target[0].config[this.attribute])
 
         this.on('drag', pointer => { this.onDrag(pointer) }, scene);
         this.on('dragstart', pointer => { this.onDragStart(pointer) }, scene);
@@ -62,5 +64,12 @@ export default class Slider extends Phaser.GameObjects.Sprite {
 
     localUnitToTargetUnit(value) {
         return ((this.maxValue * value) / (this.buttonOffset - this.correctionOffset))
+    }
+
+    //Manually lerps de position between endValue and startValue
+    targetUnitToLocalUnit(value) {
+        let endValue = this.buttonOffset + this.correctionOffset // 1
+        let startValue = -this.buttonOffset // 0
+        return (startValue + (endValue - startValue) * value)
     }
 } 

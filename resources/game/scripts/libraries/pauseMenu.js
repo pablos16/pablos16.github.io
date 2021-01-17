@@ -44,8 +44,6 @@ export default class PauseMenu extends Phaser.GameObjects.Container {
         this.add(this.musicSlider)
         this.add(this.effectsSlider)
         this.setScrollFactor(0)
-
-        this.ToggleMenu(scene)
     }
 
     ToggleMenu(scene) {
