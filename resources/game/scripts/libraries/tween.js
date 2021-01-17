@@ -11,7 +11,6 @@ export default class Tweener {
         this.duration = data.duration;
         this.attribs = data.attribs;
         this.ease = data.ease;
-        this.tweenData = this.CreateTweenData(data)
 
         //Tween status
         this.locked = data.locked;
