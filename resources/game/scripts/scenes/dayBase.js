@@ -9,6 +9,7 @@ import NPCDialog from '../characters/npcDialog.js';
 import TPLINK from '../characters/tp.js'
 import Trigger from '../libraries/trigger.js'
 import Dialoguer from '../libraries/dialoguer.js'
+import PauseMenu from '../libraries/pauseMenu.js';
 
 export default class Scene extends Phaser.Scene {
     init(data) {
@@ -209,6 +210,9 @@ export default class Scene extends Phaser.Scene {
         this.pickItem = this.sound.add('pickup', CT.effectSounds);
         this.align.addReputation(this.points)
         this.fadeOut()
+
+        //Crear menú de pausa
+        this.pause = new PauseMenu(this);
     }
 
     changeScene(sceneName = this.nextLevel) {
