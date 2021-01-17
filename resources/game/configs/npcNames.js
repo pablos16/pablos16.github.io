@@ -3,7 +3,7 @@ const Names =
     Police: "Policía",
     Dictator: "Relith",
     Coronel: "Coronel",
-    BestFriend: "Leandro",
+    BestFriend: "Leandro Gado",
     Tabernera: "Tabernera",
     Tabernero: "Tabernero",
     Paca: "Paca Garte",

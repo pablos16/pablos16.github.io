@@ -46,7 +46,8 @@ const Dialog =
                     targetState: ["any"],
                     nextIndex: -1
                 },
-            ]
+            ],
+            completed:0,
         },
         {
             id: -1,

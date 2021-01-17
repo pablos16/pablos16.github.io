@@ -87,10 +87,10 @@ const Dialog =
                     nextIndex: 7
                 },
             ],
-            completed:0,
         },
         {
             id: 7,
+            name: Names.Dictator,
             text: ["Hoy no habrá mucha gente fuera porque es un día...digamos,de luto...no necesitas saber más. Mucha suerte."],
             state: [
                 {

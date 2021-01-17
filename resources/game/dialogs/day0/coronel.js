@@ -57,6 +57,7 @@ const Dialog =
         {
             id: -1,
             callback: (data) => {
+                data.arguments.npc.dialog.dialogSttoped = true;
                 data.scene.player.isTalking = true;
                 data.arguments.npc.dialog.destroy();
                 data.arguments.npc.irse = new PathInsertor({
