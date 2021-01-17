@@ -4,12 +4,12 @@ import SliderButton from "./buttonWithSlider.js";
 
 export default class PauseMenu extends Phaser.GameObjects.Container {
     constructor(scene) {
-        super(scene, menu.x, menu.y)
+        super(scene, menu.hiddenX, menu.y)
         scene.add.existing(this);
-        this.hidden = false;
+        this.hidden = true;
 
         this.menu = new Button({
-            x: this.x,
+            x: 0,
             y: this.y,
             context: scene,
             sprite: 'menuTira',
@@ -18,7 +18,7 @@ export default class PauseMenu extends Phaser.GameObjects.Container {
 
         this.musicSlider = new SliderButton({
             context: scene,
-            x: this.x,
+            x: 0,
             y: this.y + 100,
             sliderX: menu.sliderX,
             sliderY: menu.sliderY,
@@ -30,7 +30,7 @@ export default class PauseMenu extends Phaser.GameObjects.Container {
 
         this.effectsSlider = new SliderButton({
             context: scene,
-            x: this.x,
+            x: 0,
             y: this.y + 250,
             sliderX: menu.sliderX,
             sliderY: menu.sliderY,
