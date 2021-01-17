@@ -19,10 +19,16 @@ export default class NPCDialog extends NPC {
                 this.path.setMove(false)
                 this.path.stop();
                 this.getTogether(data.scene, data.offset);
+                let menu = data.scene.pause;
+                if (!menu.locked) {
+                    menu.ToggleMenu(data.scene)
+                    menu.locked = true;
+                }
             },
             onFinish: () => {
                 this.path.setMove(true)
                 this.path.setVelocity()
+                data.scene.pause.locked = false;
             },
         });
         this.add(this.dialog.trigger.trigger)

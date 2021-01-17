@@ -7,7 +7,7 @@ export default class PauseMenu extends Phaser.GameObjects.Container {
         super(scene, menu.hiddenX, menu.y)
         scene.add.existing(this);
         this.hidden = true;
-
+        this.locked = false;
         this.menu = new Button({
             x: 0,
             y: this.y,
@@ -47,6 +47,7 @@ export default class PauseMenu extends Phaser.GameObjects.Container {
     }
 
     ToggleMenu(scene) {
+        if(this.locked) return;
         this.stopAnimation();
         this.animation = scene.tweens.add({
             targets: this,
