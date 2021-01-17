@@ -74,13 +74,13 @@ const Dialog =
                         text: "Permitir la protesta.",
                         nextIndex: 6,
                         points: 40,
-                        completed:3
+                        completed: 3
                     },
                     {
                         text: "No permitir la protesta y multar a todos.",
                         nextIndex: 7,
                         points: -40,
-                        completed:3
+                        completed: 3
                     },
                 ],
         },
@@ -91,12 +91,13 @@ const Dialog =
             state: [
                 {
                     targetState: ["any"],
-                    nextState:1,
+                    nextState: 1,
                     nextIndex: -1
                 },
             ],
         },
         {
+            //CALLBACK DE DESAPARISION
             id: 7,
             name: Names.Paca,
             text: ["Si aspiras a ser fiel a una persona que te va a dejar tirado en cuanto igual la persona detestable eres tú. Vigila donde duermes..."],
@@ -106,7 +107,6 @@ const Dialog =
                     nextIndex: -1
                 },
             ],
-            //CALLBACK DE DESAPARISION
         },
         {
             id: 8,
