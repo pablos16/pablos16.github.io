@@ -33,6 +33,7 @@ export default class Scene extends Phaser.Scene {
 
         //Tecla de pantalla completa
         this.fullScreen = this.input.keyboard.addKey('F');
+        this.menu = this.input.keyboard.addKey('M');
 
         //Mapa
         this.map = this.make.tilemap({
@@ -231,6 +232,7 @@ export default class Scene extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(this.fullScreen)) {
             this.scale.toggleFullscreen()
         }
+        if(Phaser.Input.Keyboard.JustDown(this.menu)) this.pause.ToggleMenu(this);
     }
 
     loadScene(sceneName, delay = CT.fadeInTime) {

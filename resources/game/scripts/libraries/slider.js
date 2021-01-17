@@ -1,6 +1,7 @@
 export default class Slider extends Phaser.GameObjects.Sprite {
     constructor(data) {
         super(data.context, data.x, data.y, data.sprite)
+        //Inicializar atribugos básicos
         let scene = data.context;
         scene.add.existing(this)
         scene.physics.add.existing(this);
@@ -12,14 +13,19 @@ export default class Slider extends Phaser.GameObjects.Sprite {
         this.dragOrigin;
         this.maxValue = data.maxValue;
 
+        //  Sonidos slider
         this.slider = data.context.slider;
         this.sliderEnd = data.context.sliderEnd;
 
         //Barra visual del slider
         this.bar = scene.add.image(data.x, data.y, 'sliderBar');
         this.bar.setScrollFactor(0)
+
+        //Controlar cuando ha llegado al final solo en un frame para el sonido
         this.endThisFrame = true;
 
+        //Posicionar botón según valor del atributo y limitar su movimiento
+        //Pendiente de descablear el 60 y el -145 (que no sé respecto que son relativos para parametrizarlo)
         this.buttonOffset = 60 - this.x;
         this.correctionOffset = -145;
         this.x -= this.buttonOffset + this.target[0][this.attribute] + this.x

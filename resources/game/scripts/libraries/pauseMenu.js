@@ -6,8 +6,7 @@ export default class PauseMenu extends Phaser.GameObjects.Container {
     constructor(scene) {
         super(scene, menu.x, menu.y)
         scene.add.existing(this);
-        this.x = menu.x;
-        this.y = menu.y;
+        this.hidden = false;
 
         this.menu = new Button({
             x: this.x,
@@ -45,5 +44,25 @@ export default class PauseMenu extends Phaser.GameObjects.Container {
         this.add(this.musicSlider)
         this.add(this.effectsSlider)
         this.setScrollFactor(0)
+
+        this.ToggleMenu(scene)
+    }
+
+    ToggleMenu(scene) {
+        this.stopAnimation();
+        this.animation = scene.tweens.add({
+            targets: this,
+            duration: menu.animationDuration,
+            x: this.hidden ? menu.x : menu.hiddenX,
+            ease: 'Circ',
+            onComplete: () => { this.hidden = !this.hidden }
+        })
+    }
+
+    stopAnimation() {
+        if (this.animation && this.animation.isPlaying()) {
+            this.animation.stop();
+            this.hidden = !this.hidden;
+        }
     }
 }
