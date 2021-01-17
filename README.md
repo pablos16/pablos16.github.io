@@ -124,33 +124,33 @@ La música evoca un ambiente rural que sumerge al jugador en el mundo del juego 
 
 **Escenarios:**
 
-- Casa del protagonista: Todos los días empiezan y acaban en su interior. Es el lugar donde ocurre el cambio de nivel.
+-Rojo: Casa del protagonista: Todos los días empiezan y acaban en su interior. Es el lugar donde ocurre el cambio de nivel.
 
-- Casa de Leandro: Casa en la que vive el amigo del protagonista. El jugador puede acceder dentro de ella.
+-Naranja: Casa de Leandro: Casa en la que vive el amigo del protagonista. El jugador puede acceder dentro de ella.
 
-- Castillo de la ciudad: Fortaleza donde reside el tirano y sus más importantes secuaces. Dentro de él se asignan las misiones del día al jugador.
+-Amarillo: Castillo de la ciudad: Fortaleza donde reside el tirano y sus más importantes secuaces. Dentro de él se asignan las misiones del día al jugador.
 
-- Taberna: Concurrido bar en la zona pobre de la ciudad. Lugar de trabajo y residencia de la familia Ramírez. El jugador tiene la posibilidad de entrar en este edificio.
+-Verde claro: Taberna: Concurrido bar en la zona pobre de la ciudad. Lugar de trabajo y residencia de la familia Ramírez. El jugador tiene la posibilidad de entrar en este edificio.
 
-- Embajada: Edificio emblemático situado cerca del castillo. Lugar de trabajo y residencia de la familia López. Se puede acceder al interior.
+-Verde: Embajada: Edificio emblemático situado cerca del castillo. Lugar de trabajo y residencia de la familia López. Se puede acceder al interior.
 
-- Tienda: Negocio del empeñista donde las familias más pudientes acostumbran a comprar exóticos artículos. Es posible entrar en ella.
+-Azul cian: Tienda: Negocio del empeñista donde las familias más pudientes acostumbran a comprar exóticos artículos. Es posible entrar en ella.
 
-- Carpas feriales: Cuando la feria llega, suele ser el lugar más activo de la capital al ser el centro del entretenimiento y la sede central del contrabando.
+-Azul: Carpas feriales: Cuando la feria llega, suele ser el lugar más activo de la capital al ser el centro del entretenimiento y la sede central del contrabando.
 
-- Barrio rico: amplio ensanche de grandes residencias y cuidados caminos cercano a la costa. En este sitio el jugador puede acceder al interior de la casa de la familia Mento.
+-Azul oscuro: Barrio rico: amplio ensanche de grandes residencias y cuidados caminos cercano a la costa. En este sitio el jugador puede acceder al interior de la casa de la familia Mento.
 
-- Barrios pobres: Conglomerado de austeras y deterioradas casas al sureste de la ciudad. Conforma la mayoría de viviendas del lugar.
+-Morado: Barrios pobres: Conglomerado de austeras y deterioradas casas al sureste de la ciudad. Conforma la mayoría de viviendas del lugar.
 
-- Iglesia: Lugar de culto para los ciudadanos y de trabajo para el cura.
+-Rosa: Iglesia: Lugar de culto para los ciudadanos y de trabajo para el cura.
 
-- Fortín: Antigua construcción utilizada a modo de cárcel por el régimen dictatorial.
+-Magenta: Fortín: Antigua construcción utilizada a modo de cárcel por el régimen dictatorial.
 
-- Parque: Antes era propiedad privada de la familia Garte, pero tras la muerte de su marido Paca Garte decidió convertirlo en un espacio público. Es posible entrar en la casa de Paca.
+-Blanco Parque: Antes era propiedad privada de la familia Garte, pero tras la muerte de su marido Paca Garte decidió convertirlo en un espacio público. Es posible entrar en la casa de Paca.
 
-- Bosque y acantilado: Área umbría al este de la capital donde reside el anciano solitario. Los rebeldes se suelen esconder en ella debido a la alta densidad arbórea.
+-Gris: Bosque y acantilado: Área umbría al este de la capital donde reside el anciano solitario. Los rebeldes se suelen esconder en ella debido a la alta densidad arbórea.
 
-- Pantano: Región húmeda situada al sur donde se encuentra la mina de la ciudad, actualmente en desuso y convertida en una base improvisada de la rebelión.
+-Marron: Pantano: Región húmeda situada al sur donde se encuentra la mina de la ciudad, actualmente en desuso y convertida en una base improvisada de la rebelión.
 
 **Personajes:**
 
@@ -158,15 +158,15 @@ La música evoca un ambiente rural que sumerge al jugador en el mundo del juego 
 
 - **Policía del Régimen:**
 
-Protagonista de la trama y zcontrolado por el jugador. Ha sido destinado a un nuevo puesto en la capital como reemplazo de un anterior oficial que ha sido asesinado.
+Protagonista de la trama y controlado por el jugador. Ha sido destinado a un nuevo puesto en la capital como reemplazo de un anterior oficial que ha sido asesinado.
 
 - **Dictador Reltih Floda:**
 
-Rudo, narcisista y vanidoso tirano que gobierna el país. No tiene intenciones ocultas, simplemente le encanta gobernar a su modo la región, ser halagado y admirar sus propios méritos. Su castillo está repleto de imágenes suyas.
+Rudo, narcisista y vanidoso tirano que gobierna el país. No tiene intenciones ocultas, simplemente le encanta gobernar a su modo la región, ser halagado y admirar sus propios méritos.
 
 - **Coronel:**
 
-Uno de los mejores amigos del dictador. Ha sido, por obra del tirano, "elegido" para llevar la comisaría y liderar a los policías del régimen. Planea esperar al mejor momento para asesinar al dictador y apoderarse del país. Además, trata de entorpecer la labor del protagonista aprovechando toda ocasión posible para incriminarlo y destinarlo a la cárcel.
+Uno de los mejores amigos del dictador. Ha sido “elegido” por el tirano para llevar la comisaría y liderar a los policías del régimen. Planea esperar al mejor momento para asesinar al dictador y apoderarse del país. No se fía de nadie, y menos del nuevo policía.
 
 - **Leandro Gado:**
 
@@ -174,11 +174,11 @@ Particular individuo con mayores preocupaciones sobre el país que la mayor part
 
 - **Tabernera Ramírez:**
 
-Mujer jovial, civilizada y extrovertida. Es el centro de los rumores de la ciudad y conoce los datos más secretos acerca de sus habitantes. Tiene una personalidad muy fuerte pero mantiene sus formas. Se compadece de la familia Garte, con quienes se lleva muy bien por haberla ayudado mucho en malos momentos. Es la "jefa" en la taberna.
+Mujer jovial, civilizada y extrovertida. Es el centro de los rumores de la ciudad y conoce los datos más secretos acerca de sus habitantes. Tiene una personalidad muy fuerte pero mantiene sus formas. Se compadece de la familia Garte, con quienes se lleva muy bien por haberla ayudado mucho en malos momentos.
 
 - **Tabernero Ramírez:**
 
-Alcohólico que acostumbra a empeorar las situaciones cada vez que habla. Su mujer le trata de controlar rigurosamente.
+Alcohólico que acostumbra a empeorar las situaciones cada vez que habla. En la taberna, no trabaja tanto como su mujer, quien le trata de controlar rigurosamente.
 
 - **Paca Garte:**
 
