@@ -29,16 +29,16 @@ export default class Slider extends Phaser.GameObjects.Sprite {
     onDragStart(pointer) {
         console.log(this.x)
         this.dragOrigin = {
-            x: pointer.worldX - this.x,
-            y: pointer.worldY - this.y
+            x: pointer.x - this.x,
+            y: pointer.x - this.y
         }
     }
 
 
     onDrag(pointer) {
-        if(pointer.worldX - this.dragOrigin.x + this.buttonOffset < 0 ||
-            pointer.worldX - this.dragOrigin.x > (this.buttonOffset+this.correctionOffset)) return;
-        this.x = pointer.worldX - this.dragOrigin.x
+        if(pointer.x - this.dragOrigin.x + this.buttonOffset < 0 ||
+            pointer.x - this.dragOrigin.x > (this.buttonOffset+this.correctionOffset)) return;
+        this.x = pointer.x - this.dragOrigin.x
         for (const music of this.target) 
             music[this.attribute] = this.localUnitToTargetUnit(this.x+this.buttonOffset)
 
