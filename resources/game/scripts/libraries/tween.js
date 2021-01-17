@@ -37,8 +37,17 @@ export default class Tweener {
 
     Toggle() {
         if (this.locked) return;
+        this.RestartAnimation()
+    }
+
+    RestartAnimation() {
         this.Stop();
         this.animation = this.context.tweens.add(this.CreateTweenData(this.all))
+    }
+
+    ToggleLock() {
+        this.locked = true;
+        this.RestartAnimation()
     }
 
     Stop() {

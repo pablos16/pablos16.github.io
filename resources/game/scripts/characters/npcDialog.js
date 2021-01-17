@@ -20,9 +20,8 @@ export default class NPCDialog extends NPC {
                 this.path.stop();
                 this.getTogether(data.scene, data.offset);
                 let menu = data.scene.pause.animation;
-                if (!menu.hidden) {
-                    menu.Toggle()
-                    menu.locked = true;
+                if (!menu.hidden && !menu.locked) {
+                    menu.ToggleLock()
                 }
             },
             onFinish: () => {
