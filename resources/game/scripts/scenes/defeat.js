@@ -1,5 +1,3 @@
-import CT from '../../configs/constants.js';
-
 export default class Defeat extends Phaser.Scene {
   constructor() {
     super({ key: 'lose' });
@@ -31,19 +29,8 @@ export default class Defeat extends Phaser.Scene {
     this.music = this.sound.add('defeat', musicConfig);
 
     // Pantalla
-    this.add.image(640, 150, 'loseTitle');
-    let img;
-    let des;
-    if (this.points >= 0){
-      img = 'loseVillage';
-      des = 'Has sido asesinado por un opositor del régimen en un levantamiento.';
-    }
-    else{
-      img = 'loseRegime';
-      des = 'La autoridad ha descubierto tus vínculos con los rebeldes y has sido condenado.';
-    }
-    this.add.image(640, 400, img);
-    this.add.bitmapText(0, 350, CT.textFont, des, CT.textextSize, CT.textAlign);
+    let img = (this.points >= 0) ? 'loseRegime' : 'loseVillage'
+    this.add.image(640, 150, img);
 
     //Botón
     this.returnButton = new Button({

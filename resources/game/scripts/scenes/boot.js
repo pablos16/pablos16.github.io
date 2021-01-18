@@ -24,8 +24,6 @@ export default class Boot extends Phaser.Scene{
     this.load.image('loseVillage','resources/game/textures/gui/menu/end/loseVillage.png');
     this.load.image('winRegime','resources/game/textures/gui/menu/end/winRegime.png');
     this.load.image('winVillage','resources/game/textures/gui/menu/end/winVillage.png');
-    this.load.image('loseTitle','resources/game/textures/gui/menu/end/loseTitle.png');
-    this.load.image('winTitle','resources/game/textures/gui/menu/end/winTitle.png');
 
     //Pantalla en negro al teletransportar
     this.load.image('tpImg', 'resources/game/textures/tpTransition.png');
