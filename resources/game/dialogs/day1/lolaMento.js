@@ -38,7 +38,7 @@ const Dialog =
         {
             id: 3,
             name: Names.Lola,
-            text: ["Estoy HARTA de sus normas nefastas. Nadie puede circular por la noche pero él sí.Nadie puede decir una critica constructiva o se va a la carcel."],
+            text: ["Estoy HARTA de sus normas nefastas. Nadie puede circular por la noche pero él sí. Nadie puede decir una critica constructiva o se va a la carcel."],
             state: [
                 {
                     targetState: ["any"],

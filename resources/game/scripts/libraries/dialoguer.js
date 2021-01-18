@@ -91,7 +91,7 @@ export default class Dialoguer {
 
     checkItem(scene, context = this.currentDialog()) {
         if (!('required' in context)) return;
-        if(!('mustHaveAll' in context)) context.mustHaveAll = false;
+        if (!('mustHaveAll' in context)) context.mustHaveAll = false;
         let hasItem = true;
         for (let i = 0; i < context.required.item.length; i++) {
             hasItem &&= this.containtItems(scene, context.required.item[i])
@@ -159,7 +159,7 @@ export default class Dialoguer {
         this.animateDialog(scene, 50, false)
         utils.setVisiblity([this.description, this.name], false)
         this.setTalking(scene, false)
-        this.onFinish()
+        if (this.onFinish) this.onFinish()
         this.checkCallbacks(scene)
     }
 
@@ -191,8 +191,8 @@ export default class Dialoguer {
             this.checkMissionCompleted(scene, selection)
             this.arrow.visible = false
             this.choosing = false
-            
-            if(selection.nextState) this.state = selection.nextState;
+
+            if (selection.nextState) this.state = selection.nextState;
             this.index = selection.nextIndex
 
 

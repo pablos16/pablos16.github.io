@@ -33,6 +33,20 @@ const Dialog =
                 }
             ],
         },
+        // {
+        //     id: 6,
+        //      callback: (data) => {
+        //         event.AddItem(data, item.BolsaDinero);
+        //     },
+        //     name: Names.Dictator,
+        //     text: ["Cuando acabes esas misiones puedes ir a comprarme una Alfombra Persa para el castillo, la tienda del empeñista estaba cerca de tu casa. Toma el dinero"],
+        //     state: [
+        //         {
+        //             targetState: ["any"],
+        //             nextIndex: 7
+        //         },
+        //     ]
+        // },
         {
             id: 2,
             name: Names.Dictator,

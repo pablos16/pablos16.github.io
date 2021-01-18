@@ -72,11 +72,8 @@ const Dialog =
         },
         {
             id: 6,
-             callback: (data) => {
-                event.AddItem(data, item.BolsaDinero);
-            },
             name: Names.Dictator,
-            text: ["Cuando acabes esas misiones puedes ir a comprarme una Alfombra Persa para el castillo, la tienda del empeñista estaba cerca de tu casa. Toma el dinero"],
+            text: ["Por último he descubierto que hay un grupo de revolucionarios ahí. Te he dejado el material al lado de la mina jeje. Se encuentra en el suroeste del pueblo"],
             state: [
                 {
                     targetState: ["any"],

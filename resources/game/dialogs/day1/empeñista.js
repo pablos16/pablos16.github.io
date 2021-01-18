@@ -8,6 +8,7 @@ const Dialog =
             id: 0,
             required: {
                 item: [item.BolsaDinero, item.Monedas],
+                mustHaveAll:false,
                 hasItemIndex: 1
             },
             name: Names.Empeñista,

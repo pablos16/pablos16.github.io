@@ -23,6 +23,7 @@ import paca from '../day1/pacaGarte.js'
 import empeñista from '../day1/empeñista.js'
 
 
+
 //Estos nombres son los que hay que poner en tiled
 const dialogs =
 {
@@ -48,7 +49,7 @@ const dialogs =
     npc7,
     npc8,
     npc9,
-    empeñista
+    empeñista,
     
 }
 
