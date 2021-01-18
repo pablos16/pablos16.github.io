@@ -5,7 +5,6 @@ import * as utils from '../libraries/phaserUtilities.js'
 import SocialStatePeople from '../../configs/npcSocialGroups.js'
 import AnimatedText from '../libraries/animatedText.js'
 import Trigger from '../libraries/trigger.js'
-import itemNames from '../../configs/itemNames.js';
 /**
  * @param {Phaser.Scene} scene ref to current scene
  * @param {Dialog} dialog dialog object to read

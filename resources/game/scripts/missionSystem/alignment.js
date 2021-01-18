@@ -17,18 +17,9 @@ export default class Alignment extends Phaser.GameObjects.Container {
         this.add(this.texture);
         this.add(this.indicatorTexture);
 
-
-        this.texture.setInteractive();
-        this.texture.on('pointerdown', pointer => { this.test() })
-
         this.sceneRef = scene;
     }
- 
-    test() {
-        console.log('testing');
-        this.addReputation(5);
-    }
-
+    
     addReputation(amount) {
         this.points += amount
         if (Math.abs(this.points) >= CT.alignmentMaxPoints) {
