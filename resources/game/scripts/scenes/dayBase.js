@@ -14,6 +14,8 @@ import PauseMenu from '../libraries/pauseMenu.js';
 export default class Scene extends Phaser.Scene {
     init(data) {
         this.points = data.points
+        this.musicVolume = data.musicVolume
+        this.soundVolume = data.soundVolume
     }
 
     constructor(config) {
@@ -213,12 +215,14 @@ export default class Scene extends Phaser.Scene {
         this.soundList.push(this.pickItem = this.sound.add('pickup', CT.effectSounds));
         this.soundList.push(this.slider = this.sound.add('slider', CT.effectSounds))
         this.soundList.push(this.sliderEnd = this.sound.add('sliderEnd', CT.effectSounds))
-        
+
         //Asignar puntos de la barra
         this.align.addReputation(this.points)
         this.fadeOut()
 
         //Crear menú de pausa
+        this.musicList[0].volume = this.musicVolume;
+        this.soundList[0].volume = this.soundVolume;
         this.pause = new PauseMenu(this);
     }
 
@@ -232,7 +236,7 @@ export default class Scene extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(this.fullScreen)) {
             this.scale.toggleFullscreen()
         }
-        if(Phaser.Input.Keyboard.JustDown(this.menuToggle)) this.pause.animation.Toggle();
+        if (Phaser.Input.Keyboard.JustDown(this.menuToggle)) this.pause.animation.Toggle();
     }
 
     loadScene(sceneName, delay = CT.fadeInTime) {
@@ -241,6 +245,8 @@ export default class Scene extends Phaser.Scene {
             callback: () => {
                 this.scene.start(sceneName, {
                     points: this.align.points,
+                    musicVolume: this.musicList[0].volume,
+                    soundVolume: this.soundList[0].volume
                 });
             },
             delay: delay

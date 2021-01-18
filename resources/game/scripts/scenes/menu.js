@@ -10,8 +10,24 @@ export default class Menu extends Phaser.Scene {
     this.canPlay = true;
   }
 
+  init(data) {
+    this.musicVolume = data.musicVolume
+    this.soundVolume = data.soundVolume
+  }
+
   //Aqui te crea todo lo que necesites al inicio para todo el juego
   create() {
+    //Musica y sonidso
+    this.music = this.sound.add('backgroundMenu', CT.menuMusicConfig);
+    this.musicList = [this.music]
+    this.soundList = []
+    this.soundList.push(this.slider = this.sound.add('slider', CT.effectSounds))
+    this.soundList.push(this.sliderEnd = this.sound.add('sliderEnd', CT.effectSounds))
+    if (this.musicVolume) this.musicList[0].volume = this.musicVolume;
+    if (this.soundVolume) this.soundList[0].volume = this.soundVolume;
+
+    this.music.play();
+
     //Animacion de transicion
     this.transitionImg = this.add.image(CT.transitionX, CT.transitionY, 'tpImg')
     this.transitionImg.depth = 100
@@ -24,9 +40,13 @@ export default class Menu extends Phaser.Scene {
       ease: 'Circ',
       locked: false,
       hidden: false,
-      onComplete: (tween) => { if(!tween.hidden) this.scene.start('day0', {
-        points: 0,
-      });},
+      onComplete: (tween) => {
+        if (!tween.hidden) this.scene.start('day0', {
+          points: 0,
+          musicVolume: this.musicList[0].volume,
+          soundVolume: this.soundList[0].volume
+        });
+      },
       attribs: [
         {
           propertie: 'alpha',
@@ -37,13 +57,6 @@ export default class Menu extends Phaser.Scene {
     })
     this.fade.Toggle()
 
-    this.music = this.sound.add('backgroundMenu', CT.menuMusicConfig);
-    this.musicList = [this.music]
-    this.soundList = []
-    this.soundList.push(this.slider = this.sound.add('slider', CT.effectSounds))
-    this.soundList.push(this.sliderEnd = this.sound.add('sliderEnd', CT.effectSounds))
-
-    this.music.play();
     //Deshabilitar menú contextual
     this.input.mouse.disableContextMenu();
 
@@ -78,8 +91,9 @@ export default class Menu extends Phaser.Scene {
       context: this,
       sprite: 'controls',
       function: () => {
+        if(!this.configMenu.animation.hidden) this.configMenu.animation.ToggleLock()
+        else this.configMenu.animation.locked = true;
         this.controlsImage.setVisible(true);
-
         this.canPlay = false;
         this.background.setVisible(true);
         this.backButton.setVisible(true);
@@ -94,6 +108,8 @@ export default class Menu extends Phaser.Scene {
       context: this,
       sprite: 'back',
       function: () => {
+        this.configMenu.animation.locked = false;
+
         this.canPlay = true;
         this.controlsImage.setVisible(false);
 
