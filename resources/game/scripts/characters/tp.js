@@ -5,8 +5,6 @@ export default class Tp extends Phaser.GameObjects.Sprite {
         super(config.scene, config.transform.x, config.transform.y);
 
         config.scene.add.existing(this);
-        this.visible = true;
-        this.alpha = 0
         this.playerRef = config.scene.player
         this.depth = 200;
 
