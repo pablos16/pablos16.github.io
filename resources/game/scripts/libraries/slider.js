@@ -34,6 +34,7 @@ export default class Slider extends Phaser.GameObjects.Sprite {
 
         this.on('drag', pointer => { this.onDrag(pointer) }, scene);
         this.on('dragstart', pointer => { this.onDragStart(pointer) }, scene);
+        this.changeValue(this.target[0].config[this.attribute])
 
     }
 
@@ -57,9 +58,12 @@ export default class Slider extends Phaser.GameObjects.Sprite {
             this.slider.play();
             this.endThisFrame = false;
         }
-        for (const music of this.target)
-            music[this.attribute] = this.localUnitToTargetUnit(this.x + this.buttonOffset)
+        this.changeValue(this.localUnitToTargetUnit(this.x + this.buttonOffset))
+    }
 
+    changeValue(value) {
+        for (const music of this.target)
+            music[this.attribute] = value
     }
 
     localUnitToTargetUnit(value) {
