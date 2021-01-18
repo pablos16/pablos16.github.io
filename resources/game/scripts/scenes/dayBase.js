@@ -111,7 +111,7 @@ export default class Scene extends Phaser.Scene {
                         y: objeto.y,
                         dialog: this.dialogs['loco'],
                         sprite: 'tabernero',
-                        pathName: 'quieto',
+                        pathName: 'square',
                         xTriggerSize: props.lol,
                         yTriggerSize: props.sl
                     });
@@ -207,6 +207,7 @@ export default class Scene extends Phaser.Scene {
         this.cameras.main.width = CT.gameWidth;
         this.cameras.main.height = CT.gameHeight;
         this.cameras.main.zoom = CT.cameraZoom;
+        this.cameras.main.setLerp(0.9, 0.9)
 
         //Añadimos la musica
         this.soundList = [];
@@ -221,8 +222,8 @@ export default class Scene extends Phaser.Scene {
         this.fadeOut()
 
         //Crear menú de pausa
-        this.musicList[0].volume = this.musicVolume;
-        this.soundList[0].volume = this.soundVolume;
+        if (this.musicVolume) this.musicList[0].volume = this.musicVolume;
+        if (this.soundVolume) this.soundList[0].volume = this.soundVolume;
         this.pause = new PauseMenu(this);
     }
 
