@@ -26,6 +26,7 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
         this.velocity = { x: 0, y: 0 }
     }
 
+    //SUPER AAAAAAAAAAAAA
     preUpdate() {
         if (this.condition) this.makePath()
     }

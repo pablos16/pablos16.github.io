@@ -4,15 +4,8 @@ import Button from '../libraries/button.js';
 export default class Menu extends Phaser.Scene {
   constructor() {
     super({ key: 'menu' });
-    this.playButton;
-    this.controlsButton;
-    this.background;
-    this.controlsImage;
+
     this.canPlay = true;
-    //Configuracion para la musica
-
-    this.music;
-
   }
 
   //Aqui te crea todo lo que necesites al inicio para todo el juego
