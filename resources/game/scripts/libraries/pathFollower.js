@@ -88,18 +88,6 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
         return this.path[this.currentPath];
     }
 
-    moveUp() {
-        this.body.setVelocityY(-this.getPath().speed);
-    }
-    moveDown() {
-        this.body.setVelocityY(this.getPath().speed);
-    }
-    moveLeft() {
-        this.body.setVelocityX(-this.getPath().speed);
-    }
-    moveRight() {
-        this.body.setVelocityX(this.getPath().speed);
-    }
     stopX() {
         this.body.setVelocityX(0);
     }

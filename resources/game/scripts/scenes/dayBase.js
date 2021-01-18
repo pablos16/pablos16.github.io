@@ -33,7 +33,7 @@ export default class Scene extends Phaser.Scene {
 
         //Tecla de pantalla completa
         this.fullScreen = this.input.keyboard.addKey('F');
-        this.menu = this.input.keyboard.addKey('M');
+        this.menuToggle = this.input.keyboard.addKey('M');
 
         //Mapa
         this.map = this.make.tilemap({
@@ -103,16 +103,16 @@ export default class Scene extends Phaser.Scene {
                             }
                         },
                     })
-                    // new NPCDialog({
-                    //     scene: this,
-                    //     x: objeto.x - 100,
-                    //     y: objeto.y,
-                    //     dialog: this.dialogs['loco'],
-                    //     sprite: 'tabernero',
-                    //     pathName: 'quieto',
-                    //     xTriggerSize: props.lol,
-                    //     yTriggerSize: props.sl
-                    // });
+                    new NPCDialog({
+                        scene: this,
+                        x: objeto.x - 100,
+                        y: objeto.y,
+                        dialog: this.dialogs['loco'],
+                        sprite: 'tabernero',
+                        pathName: 'quieto',
+                        xTriggerSize: props.lol,
+                        yTriggerSize: props.sl
+                    });
                     break;
                 case 'Item': //Objetos en el suelo
                     this.dropped = new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type));
@@ -232,7 +232,7 @@ export default class Scene extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(this.fullScreen)) {
             this.scale.toggleFullscreen()
         }
-        if(Phaser.Input.Keyboard.JustDown(this.menu)) this.pause.animation.Toggle();
+        if(Phaser.Input.Keyboard.JustDown(this.menuToggle)) this.pause.animation.Toggle();
     }
 
     loadScene(sceneName, delay = CT.fadeInTime) {

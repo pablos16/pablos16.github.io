@@ -26,7 +26,11 @@ export default class Tweener {
             targets: data.target,
             duration: data.duration,
             ease: 'Circ',
-            onComplete: () => { this.hidden = !this.hidden }
+            onStart: () => { if (data.onStart) data.onStart() },
+            onComplete: () => {
+                this.hidden = !this.hidden
+                if (data.onComplete) data.onComplete();
+            }
         }
 
         for (const obj of data.attribs)

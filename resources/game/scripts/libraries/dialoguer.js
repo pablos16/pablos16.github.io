@@ -281,7 +281,7 @@ export default class Dialoguer {
         for (let i = 0; i < texts.length; i++) this.indentText(texts[i]);
     }
 
-    initializeIndex(scene) {
+    initializeIndex() {
         if (this.index === -1) {
             this.index = this.dialog.length - 1
             this.iterateStates(this.updateIndex)
