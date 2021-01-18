@@ -8,7 +8,7 @@ export default class PauseMenu extends Phaser.GameObjects.Container {
         super(scene, menu.hiddenX, menu.y)
         scene.add.existing(this);
 
-        this.menu = new Button({
+        if(scene.scene.key !== 'menu')this.menu = new Button({
             x: 0,
             y: this.y,
             context: scene,
@@ -40,7 +40,7 @@ export default class PauseMenu extends Phaser.GameObjects.Container {
             sprite: 'sonidoTira',
         })
 
-        this.add(this.menu)
+        if(this.menu)this.add(this.menu)
         this.add(this.musicSlider)
         this.add(this.effectsSlider)
         this.setScrollFactor(0)

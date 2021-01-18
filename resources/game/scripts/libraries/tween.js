@@ -26,10 +26,10 @@ export default class Tweener {
             targets: data.target,
             duration: data.duration,
             ease: 'Circ',
-            onStart: () => { if (data.onStart) data.onStart() },
+            onStart: () => { if (data.onStart) data.onStart(this) },
             onComplete: () => {
                 this.hidden = !this.hidden
-                if (data.onComplete) data.onComplete();
+                if (data.onComplete) data.onComplete(this);
             }
         }
 

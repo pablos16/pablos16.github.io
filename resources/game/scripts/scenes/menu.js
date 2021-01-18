@@ -1,5 +1,7 @@
 import CT from '../../configs/constants.js';
 import Button from '../libraries/button.js';
+import PauseMenu from '../libraries/pauseMenu.js';
+import Tweener from '../libraries/tween.js';
 
 export default class Menu extends Phaser.Scene {
   constructor() {
@@ -10,8 +12,36 @@ export default class Menu extends Phaser.Scene {
 
   //Aqui te crea todo lo que necesites al inicio para todo el juego
   create() {
+    //Animacion de transicion
+    this.transitionImg = this.add.image(CT.transitionX, CT.transitionY, 'tpImg')
+    this.transitionImg.depth = 100
+    this.transitionImg.setScrollFactor(0)
+    this.transitionImg.alpha = 0
+    this.fade = new Tweener({
+      context: this,
+      target: this.transitionImg,
+      duration: CT.fadeOutTime,
+      ease: 'Circ',
+      locked: false,
+      hidden: false,
+      onComplete: (tween) => { if(!tween.hidden) this.scene.start('day0', {
+        points: 0,
+      });},
+      attribs: [
+        {
+          propertie: 'alpha',
+          hidden: 1,
+          notHidden: 0
+        }
+      ]
+    })
+    this.fade.Toggle()
 
     this.music = this.sound.add('backgroundMenu', CT.menuMusicConfig);
+    this.musicList = [this.music]
+    this.soundList = []
+    this.soundList.push(this.slider = this.sound.add('slider', CT.effectSounds))
+    this.soundList.push(this.sliderEnd = this.sound.add('sliderEnd', CT.effectSounds))
 
     this.music.play();
     //Deshabilitar menú contextual
@@ -19,6 +49,7 @@ export default class Menu extends Phaser.Scene {
 
     //Tecla de pantalla completa
     this.fullScreen = this.input.keyboard.addKey('F');
+    this.menu = this.input.keyboard.addKey('M')
 
     //Mapa
     this.add.image(640, 400, 'mainMenu');
@@ -27,18 +58,19 @@ export default class Menu extends Phaser.Scene {
 
     this.playButton = new Button({
       x: 180,
-      y: 420,   
+      y: 420,
       context: this,
       sprite: 'play',
       function: () => {
         if (this.canPlay) {
           this.music.stop();
-          this.scene.start('day0', {
-            points: 0,
-          });
+          this.fade.Toggle()
         }
       }
     })
+
+    //Menu de ajustes
+    this.configMenu = new PauseMenu(this)
 
     this.controlsButton = new Button({
       x: 180,
@@ -81,6 +113,9 @@ export default class Menu extends Phaser.Scene {
   update() {
     if (Phaser.Input.Keyboard.JustDown(this.fullScreen)) {
       this.scale.toggleFullscreen()
+    }
+    if (Phaser.Input.Keyboard.JustDown(this.menu)) {
+      this.configMenu.animation.Toggle()
     }
   }
 }
