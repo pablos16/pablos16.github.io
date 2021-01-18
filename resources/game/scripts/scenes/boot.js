@@ -1,11 +1,75 @@
-export default class Boot extends Phaser.Scene{
-  constructor(){
+export default class Boot extends Phaser.Scene {
+  constructor() {
     super({ key: 'boot' });
   }
 
   //Este .js solo sirve para cargar recursos y dar comienzo a la escena
 
-  preload(){
+  preload() {
+    let width = this.cameras.main.width;
+    let height = this.cameras.main.height;
+
+    //Loading screen
+    let barPosX = width/2 - 260;
+    let barPosY = height / 2 + 30;
+    let progressBar = this.add.graphics();
+    let progressBox = this.add.graphics();
+    progressBox.fillStyle(0x222222, 0.8);
+    progressBox.fillRect(barPosX, barPosY, 500, 35);
+
+    let loadingText = this.make.text({
+      x: width / 2,
+      y: height / 2,
+      text: 'Loading...',
+      style: {
+        font: '20px monospace',
+        fill: '#ffffff'
+      }
+    });
+    loadingText.setOrigin(0.5, 0.5);
+
+    let percentText = this.make.text({
+      x: width / 2,
+      y: height / 2 + 50,
+      text: '0%',
+      style: {
+        font: '18px monospace',
+        fill: '#ffffff'
+      }
+    });
+    percentText.setOrigin(0.5, 0.5);
+
+    let fileText = this.make.text({
+      x: width / 2,
+      y: height / 2 + 100,
+      text: '0%',
+      style: {
+        font: '18px monospace',
+        fill: '#ffffff'
+      }
+    });
+    fileText.setOrigin(0.5, 0.5);
+
+    this.load.on('progress', function (value) {
+      percentText.setText(parseInt(value * 100) + '%');
+      progressBar.clear();
+      progressBar.fillStyle(0xffffff, 1);
+      progressBar.fillRect(barPosX, barPosY, 500 * value, 35);
+    });
+
+    this.load.on('complete', function () {
+      fileText.destroy();
+      percentText.destroy()
+      loadingText.destroy();
+      progressBar.destroy();
+      progressBox.destroy();
+    });
+
+
+    this.load.on('fileprogress', function (file) {
+      fileText.setText(file.src)
+    });
+
     //Dameros
     this.load.image('debug', 'resources/game/textures/debug.png');
     this.load.spritesheet('debugSheet', 'resources/game/textures/debugSheet.png', { frameWidth: 64, frameHeight: 64 });
@@ -20,12 +84,12 @@ export default class Boot extends Phaser.Scene{
     this.load.image('controlsImage', 'resources/game/textures/gui/menu/controls.png');
 
     //Menú fin
-    this.load.image('loseRegime','resources/game/textures/gui/menu/end/loseRegime.png');
-    this.load.image('loseVillage','resources/game/textures/gui/menu/end/loseVillage.png');
-    this.load.image('winRegime','resources/game/textures/gui/menu/end/winRegime.png');
-    this.load.image('winVillage','resources/game/textures/gui/menu/end/winVillage.png');
-    this.load.image('loseTitle','resources/game/textures/gui/menu/end/loseTitle.png');
-    this.load.image('winTitle','resources/game/textures/gui/menu/end/winTitle.png');
+    this.load.image('loseRegime', 'resources/game/textures/gui/menu/end/loseRegime.png');
+    this.load.image('loseVillage', 'resources/game/textures/gui/menu/end/loseVillage.png');
+    this.load.image('winRegime', 'resources/game/textures/gui/menu/end/winRegime.png');
+    this.load.image('winVillage', 'resources/game/textures/gui/menu/end/winVillage.png');
+    this.load.image('loseTitle', 'resources/game/textures/gui/menu/end/loseTitle.png');
+    this.load.image('winTitle', 'resources/game/textures/gui/menu/end/winTitle.png');
 
     //Pantalla en negro al teletransportar
     this.load.image('tpImg', 'resources/game/textures/tpTransition.png');
