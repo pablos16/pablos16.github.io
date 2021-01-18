@@ -10,7 +10,7 @@ export default class Boot extends Phaser.Scene {
     let height = this.cameras.main.height;
 
     //Loading screen
-    let barPosX = width/2 - 260;
+    let barPosX = width / 2 - 260;
     let barPosY = height / 2 + 30;
     let progressBar = this.add.graphics();
     let progressBox = this.add.graphics();
@@ -54,7 +54,7 @@ export default class Boot extends Phaser.Scene {
       percentText.setText(parseInt(value * 100) + '%');
       progressBar.clear();
       progressBar.fillStyle(0xffffff, 1);
-      progressBar.fillRect(barPosX, barPosY, 500 * value, 35);
+      progressBar.fillRect(barPosX + 5, barPosY + 5, 480 * value, 25);
     });
 
     this.load.on('complete', function () {
