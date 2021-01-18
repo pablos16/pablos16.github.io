@@ -1,11 +1,13 @@
 import Names from '../../configs/npcNames.js'
+import event from '../../scripts/libraries/eventCallbacks.js'
+import item from '../../configs/itemNames.js'
 
 const Dialog =
     [
         {
             id: 0,
             name: Names.Embajadora,
-            text: ["Uy! ¿Tú eres el nuevo Policía no? Recuerda que estoy de tu parte eh,mi marido apoya lealmente al dictador, y espero que tú tambien a nosotros."],
+            text: ["¡Uy! ¿Tú eres el nuevo Policía no? "],
             state: [
                 {
                     targetState: ["any"],
@@ -16,7 +18,7 @@ const Dialog =
         {
             id: 1,
             name: Names.Embajadora,
-            text: ["Yo soy la embajadora del pueblo. Mi marido tiene una tienda de empeños justo aquí, así que ya sabes a donde ir si necesitas algo."],
+            text: ["Yo soy la embajadora del pueblo. Me iba a la tienda de empeños de aquí a comprar unas cosas,que aquí hay de todo, así que ya sabes a donde ir a comprar objetos si el dictador necesita algo."],
             state: [
                 {
                     targetState: ["any"],
@@ -26,46 +28,79 @@ const Dialog =
         },
         {
             id: 2,
-            name: Names.Police,
-            text: ["(Que interesada,pero en el fondo me conviene)"],
-            options:
-            [
+            //Te da el dinero
+            callback: (data) => { event.AddItem(data, item.Monedas); },
+            name: Names.Embajadora,
+            text: ["De hecho,¿Podrías ir tú a comprármelo, y así conoces al empeñista? Necesito cepillo y jabón para mi hija. Aquí tienes el dinero"],
+            state: [
                 {
-                    text: "Emm...claro claro.",
-                    nextIndex: 3,
-                    completed:0,
-                    points: 5
+                    targetState: ["any"],
+                    nextIndex: 3
                 },
-                {
-                    text: "Bueno...estaremos en contacto.",
-                    nextIndex: 3,
-                    completed:0,
-                    points: 0
-                },
-                {
-                    text: "¡Por supuesto, no lo dudes!",
-                    nextIndex: 3,
-                    completed:0,
-                    points:-10
-                }
-            ],
+            ]
         },
         {
+
             id: 3,
             name: Names.Embajadora,
-            text: ["Por fin viene un policia decente a la ciudad, me gusta tu iniciativa"],
+            text: ["Cuando tengas el tinte tráemelo. Yo me quedaré por aqui"],
             state: [
                 {
                     targetState: ["any"],
                     nextState: 1,
                     nextIndex: -1
                 },
-            ],
+            ]
         },
         {
             id: 4,
             name: Names.Embajadora,
-            text: ["Cualquier cosa ya sabes","Aquí me tienes para todo","Recuerda que estoy de tu parte"],
+            text: ["¿Ya compraste mi tinte?"],
+            options:
+                [
+                    {
+                        text: "¡Si!,Aqui tienes",
+                        nextIndex: 5,
+                    },
+                    {
+                        text: "Todavía no",
+                        nextIndex: 3,
+                    }
+                ],
+        },
+        {
+            id: 5,
+            required: {
+                item: [item.CepilloYJabon],
+                hasItemIndex: 6
+            },
+            name: Names.Embajadora,
+            text: ["Vaya, pero si todavia no lo has comprado. La tienda de empeños está justo aquí. Vuelve cuando lo tengas."],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextIndex: -1
+                },
+            ]
+        },
+        {
+            id: 6,
+            callback: (data) => { event.RemoveItem(data, item.CepilloYJabon); },
+            name: Names.Embajadora,
+            text: ["¡Muchas gracias! Si me buscas otro dia estaré cerca de la embajada. Es la casa a la izquierda del castillo."],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextState: 2,
+                    nextIndex: -1
+                },
+            ],
+            completed:0
+        },
+        {
+            id: 7,
+            name: Names.Embajadora,
+            text: ["Cualquier cosa ya sabes", "Aquí me tienes para todo", "Recuerda que estoy de tu parte"],
             state: [
                 {
                     targetState: ["any"],
@@ -83,6 +118,10 @@ const Dialog =
                 {
                     targetState: [1],
                     nextIndex: 4
+                },
+                {
+                    targetState: [2],
+                    nextIndex: 7
                 }
             ]
         }

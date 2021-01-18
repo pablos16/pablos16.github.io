@@ -10,11 +10,19 @@ import sona from '../day2/sona.js'
 import tabernera from '../day2/tabernera.js'
 import tabernero from '../day2/tabernero.js'
 import loco from '../day2/loco.js'
+import cura from '../day2/cura.js'
+import player from '../day2/player.js'
 
 
 import npc1 from '../day1/npc1.js'
 import npc2 from '../day1/npc2.js'
 import npc3 from '../day1/npc3.js'
+import npc4 from '../day1/npc4.js'
+import npc5 from '../day1/npc5.js'
+import npc6 from '../day1/npc6.js'
+import npc7 from '../day1/npc7.js'
+import npc8 from '../day1/npc8.js'
+import npc9 from '../day1/npc9.js'
 
 //Estos nombres son los que hay que poner en tiled
 const dialogs =
@@ -33,7 +41,15 @@ const dialogs =
     npc1,
     npc2,
     npc3,
-    loco
+    npc4,
+    npc5,
+    npc6,
+    npc7,
+    npc8,
+    npc9,
+    loco,
+    cura,
+    player
 }
 
 export default dialogs

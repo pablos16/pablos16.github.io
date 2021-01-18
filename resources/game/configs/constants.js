@@ -32,7 +32,7 @@ const CT =
 
      backgroundMusic: {
           mute: false,
-          volume: 0.2,
+          volume: 0.5,
           rate: 1,
           detune: 0,
           seek: 0,
@@ -48,6 +48,16 @@ const CT =
           seek: 0,
           loop: false,
           delay: 0
+      },
+
+      menuMusicConfig: {
+        mute: false,
+        volume: 0.08,
+        rate: 1,
+        detune: 0,
+        seek: 0,
+        loop: true,
+        delay: 0
       }
 }
 

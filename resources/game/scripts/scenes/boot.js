@@ -1,11 +1,75 @@
-export default class Boot extends Phaser.Scene{
-  constructor(){
+export default class Boot extends Phaser.Scene {
+  constructor() {
     super({ key: 'boot' });
   }
 
   //Este .js solo sirve para cargar recursos y dar comienzo a la escena
 
-  preload(){
+  preload() {
+    let width = this.cameras.main.width;
+    let height = this.cameras.main.height;
+
+    //Loading screen
+    let barPosX = width / 2 - 260;
+    let barPosY = height / 2 + 30;
+    let progressBar = this.add.graphics();
+    let progressBox = this.add.graphics();
+    progressBox.fillStyle(0x222222, 0.8);
+    progressBox.fillRect(barPosX, barPosY, 500, 35);
+
+    let loadingText = this.make.text({
+      x: width / 2,
+      y: height / 2,
+      text: 'Loading...',
+      style: {
+        font: '20px monospace',
+        fill: '#ffffff'
+      }
+    });
+    loadingText.setOrigin(0.5, 0.5);
+
+    let percentText = this.make.text({
+      x: width / 2,
+      y: height / 2 + 50,
+      text: '0%',
+      style: {
+        font: '18px monospace',
+        fill: '#ffffff'
+      }
+    });
+    percentText.setOrigin(0.5, 0.5);
+
+    let fileText = this.make.text({
+      x: width / 2,
+      y: height / 2 + 100,
+      text: '0%',
+      style: {
+        font: '18px monospace',
+        fill: '#ffffff'
+      }
+    });
+    fileText.setOrigin(0.5, 0.5);
+
+    this.load.on('progress', function (value) {
+      percentText.setText(parseInt(value * 100) + '%');
+      progressBar.clear();
+      progressBar.fillStyle(0xffffff, 1);
+      progressBar.fillRect(barPosX + 5, barPosY + 5, 480 * value, 25);
+    });
+
+    this.load.on('complete', function () {
+      fileText.destroy();
+      percentText.destroy()
+      loadingText.destroy();
+      progressBar.destroy();
+      progressBox.destroy();
+    });
+
+
+    this.load.on('fileprogress', function (file) {
+      fileText.setText(file.src)
+    });
+
     //Dameros
     this.load.image('debug', 'resources/game/textures/debug.png');
     this.load.spritesheet('debugSheet', 'resources/game/textures/debugSheet.png', { frameWidth: 64, frameHeight: 64 });
@@ -63,6 +127,12 @@ export default class Boot extends Phaser.Scene{
     this.load.spritesheet('npc1', 'resources/game/textures/NPCs/npc1.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('npc2', 'resources/game/textures/NPCs/npc2.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('npc3', 'resources/game/textures/NPCs/npc3.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('npc4', 'resources/game/textures/NPCs/npc4.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('npc5', 'resources/game/textures/NPCs/npc5.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('npc6', 'resources/game/textures/NPCs/npc6.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('npc7', 'resources/game/textures/NPCs/npc7.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('npc8', 'resources/game/textures/NPCs/npc8.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('npc9', 'resources/game/textures/NPCs/npc9.png', { frameWidth: 32, frameHeight: 32 });
 
 
     //Mapa
@@ -95,6 +165,13 @@ export default class Boot extends Phaser.Scene{
     this.load.image('bar', 'resources/game/textures/gui/alignmentBar/alignmentBar.png');
     this.load.image('indicator', 'resources/game/textures/gui/alignmentBar/indicator.png');
 
+    //Imagenes Menu
+    this.load.image('sliderBar', 'resources/game/textures/gui/pause/audioBar.png')
+    this.load.image('indicatorVolume', 'resources/game/textures/gui/pause/indicator.png')
+    this.load.image('menuTira', 'resources/game/textures/gui/pause/menu.png')
+    this.load.image('musicTira', 'resources/game/textures/gui/pause/musica.png')
+    this.load.image('sonidoTira', 'resources/game/textures/gui/pause/sonidos.png')
+
     //MUSICA
 
     //Menu
@@ -113,6 +190,8 @@ export default class Boot extends Phaser.Scene{
     this.load.audio('selection', 'resources/game/sounds/dialog/selection.wav')
     this.load.audio('pickup', 'resources/game/sounds/inventory/pickup.wav')
     this.load.audio('hit', 'resources/game/sounds/events/hit.wav')
+    this.load.audio('slider', 'resources/game/sounds/pause/slider.wav')
+    this.load.audio('sliderEnd', 'resources/game/sounds/pause/sliderEnd.wav')
   }
 
   create() { this.scene.start('menu'); }

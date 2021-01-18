@@ -23,9 +23,12 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
         this.changinPath = false;
         this.onFinish = data.onFinish;
         this.loop = data.loop;
+        this.direction = { x: 0, y: 0 }
         this.velocity = { x: 0, y: 0 }
+        this.entity = data.entity
     }
 
+    //SUPER AAAAAAAAAAAAA
     preUpdate() {
         if (this.condition) this.makePath()
     }
@@ -36,6 +39,8 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
 
     makePath() {
         if (!(!this.pathReached() && !this.changinPath) && !this.changinPath) {
+            this.entity.x = this.getPath().x
+            this.entity.y = this.getPath().y
             this.changinPath = true;
             this.stop();
             this.scene.time.addEvent({
@@ -56,17 +61,17 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
 
     calculateVelocity() {
         //Calcular direccion
-        let direction = Vector2.direction(this.getPath(), this.body)
+        this.direction = Vector2.direction(this.getPath(), this.body)
 
         //Obtener velocidad del path
         let speed = { x: this.getPath().speed, y: this.getPath().speed };
 
         //Multiplicar la velocidad por la direcion
-        return Vector2.multiply(speed, direction);
+        return Vector2.multiply(speed, this.direction);
     }
 
     nextPath() {
-        if (this.currentPath === this.path.length-1) {
+        if (this.currentPath === this.path.length - 1) {
             this.currentPath = 0;
             this.onFinish();
             return this.loop;
@@ -79,27 +84,14 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
     }
 
     pathReached() {
-        let first = Math.abs(this.body.position.x - this.getPath().x) <= 1;
-        let second = Math.abs(this.body.position.y - this.getPath().y) <= 1;
-        return first && second;
+        let resta = Vector2.substract(this.body.position, this.getPath())
+        return Vector2.powMagnitude(resta) <= 1
     }
 
     getPath() {
         return this.path[this.currentPath];
     }
 
-    moveUp() {
-        this.body.setVelocityY(-this.getPath().speed);
-    }
-    moveDown() {
-        this.body.setVelocityY(this.getPath().speed);
-    }
-    moveLeft() {
-        this.body.setVelocityX(-this.getPath().speed);
-    }
-    moveRight() {
-        this.body.setVelocityX(this.getPath().speed);
-    }
     stopX() {
         this.body.setVelocityX(0);
     }

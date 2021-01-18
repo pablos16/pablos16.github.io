@@ -16,13 +16,20 @@ export default class NPCDialog extends NPC {
             isForced: false,
             callbackArguments: { npc: this },
             onStart: () => {
+                data.scene.player.missionList.hideAnim.Toggle()
                 this.path.setMove(false)
                 this.path.stop();
                 this.getTogether(data.scene, data.offset);
+                let menu = data.scene.pause.animation;
+                if (!menu.hidden && !menu.locked) {
+                    menu.ToggleLock()
+                }
             },
             onFinish: () => {
+                data.scene.player.missionList.hideAnim.Toggle()
                 this.path.setMove(true)
                 this.path.setVelocity()
+                data.scene.pause.animation.locked = false;
             },
         });
         this.add(this.dialog.trigger.trigger)

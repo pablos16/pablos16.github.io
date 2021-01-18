@@ -1,3 +1,6 @@
+import CT from '../../configs/constants.js';
+import Button from '../libraries/button.js'
+
 export default class Defeat extends Phaser.Scene {
   constructor() {
     super({ key: 'lose' });
@@ -16,17 +19,7 @@ export default class Defeat extends Phaser.Scene {
     //Tecla de pantalla completa
     this.fullScreen = this.input.keyboard.addKey('F');
 
-    // Música
-    const musicConfig = {
-      mute: false,
-      volume: 0.08,
-      rate: 1,
-      detune: 0,
-      seek: 0,
-      loop: true,
-      delay: 0
-    };
-    this.music = this.sound.add('defeat', musicConfig);
+    this.music = this.sound.add('defeat', CT.menuMusicConfig);
 
     // Pantalla
     let img = (this.points >= 0) ? 'loseRegime' : 'loseVillage'

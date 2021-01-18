@@ -4,26 +4,26 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.Carcelero,
-            text: ["*sigh* Déjame trabajar tranquilo, hoy no tienes nada que hacer por aquí"],
+            name: Names.Agricultor,
+            text: ["Cada vez somos más ancianos y nadie quiere tener hijos en un sitio como este"],
             state: [
                 {
                     targetState: ["any"],
-                    nextState: 1,
+                    nextState:1,
                     nextIndex: -1
                 },
             ]
         },
         {
             id: 1,
-            name: Names.Carcelero,
-            text: ["...","Dame al menos un dia de paz por favor","No me apetece a hablar","Déjame y ponte a trabajar"],
+            name: Names.Pueblerino,
+            text: ["¿A quién le daré mis tierras?","No sé ni por qué sigo sembrando..."],
             state: [
                 {
                     targetState: ["any"],
                     nextIndex: -1
                 },
-            ],
+            ]
         },
         {
             id: -1,

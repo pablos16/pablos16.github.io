@@ -1,4 +1,5 @@
 import Names from '../../configs/npcNames.js'
+import events from '../../scripts/libraries/eventCallbacks.js';
 
 const Dialog =
     [
@@ -21,23 +22,17 @@ const Dialog =
                 [
                     {
                         text: "Pegar",
-                        nextState: 1,
                         nextIndex: 2,
                     },
                     {
                         text: "Dejarle",
-                        nextState: 1,
                         nextIndex: -1,
                     },
                 ],
             completed: 0
         },
         {
-
-            //CallBack de ostiazo
-            callback: (data) => {
-                data.scene.hitSound.play();
-            },
+            callback: (data) => {  events.PegarPaliza(data) },
             id: 2,
             name: Names.MadMan,
             text: ["¡Cuá,cuá,cuá!", "¡Cuá!", "¡Cuaaaa!", "¡Cuá cuá!"],
@@ -49,27 +44,12 @@ const Dialog =
             ]
         },
         {
-            id: 3,
-            name: Names.MadMan,
-            text: ["¡Cuá,cuá,cuÁÁÁÁÁ!"],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextIndex: -1
-                },
-            ]
-        },
-        {
             id: -1,
             state: [
                 {
                     targetState: [0],
                     nextIndex: 0
                 },
-                {
-                    targetState: [1],
-                    nextIndex: 3
-                }
             ]
         }
     ]

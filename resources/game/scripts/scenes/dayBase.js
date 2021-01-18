@@ -9,10 +9,13 @@ import NPCDialog from '../characters/npcDialog.js';
 import TPLINK from '../characters/tp.js'
 import Trigger from '../libraries/trigger.js'
 import Dialoguer from '../libraries/dialoguer.js'
+import PauseMenu from '../libraries/pauseMenu.js';
 
 export default class Scene extends Phaser.Scene {
     init(data) {
         this.points = data.points
+        this.musicVolume = data.musicVolume
+        this.soundVolume = data.soundVolume
     }
 
     constructor(config) {
@@ -32,6 +35,7 @@ export default class Scene extends Phaser.Scene {
 
         //Tecla de pantalla completa
         this.fullScreen = this.input.keyboard.addKey('F');
+        this.menuToggle = this.input.keyboard.addKey('M');
 
         //Mapa
         this.map = this.make.tilemap({
@@ -59,10 +63,14 @@ export default class Scene extends Phaser.Scene {
         //Mapa - Capa De Objetos
         let mapObjects = this.map.getObjectLayer(this.objectLayerName).objects;
         this.tpList = [];
+        this.musicList = [];
         this.currentPlaying = {};
         for (const objeto of mapObjects) {
             const props = {};
             if (objeto.properties) { for (const { name, value } of objeto.properties) { props[name] = value; } }
+            //Con esto ponemos bien el punto de origen
+            objeto.x += objeto.width / 2;
+            objeto.y += objeto.height / 2;
             switch (objeto.name) {
                 case 'Player': //Personaje
                     this.player = new Player(this, objeto.x, objeto.y, this.missions);
@@ -93,21 +101,20 @@ export default class Scene extends Phaser.Scene {
                                             x: this.player.x + 15,
                                         })
                                     },
-                                    onFinish: () => { this.currentPlaying.stop() },
                                 });
                             }
                         },
                     })
-                    // new NPCDialog({
-                    //     scene: this,
-                    //     x: objeto.x - 100,
-                    //     y: objeto.y,
-                    //     dialog: this.dialogs['tabernero'],
-                    //     sprite: 'tabernero',
-                    //     pathName: 'quieto',
-                    //     xTriggerSize: props.lol,
-                    //     yTriggerSize: props.sl
-                    // });
+                    new NPCDialog({
+                        scene: this,
+                        x: objeto.x - 100,
+                        y: objeto.y,
+                        dialog: this.dialogs['loco'],
+                        sprite: 'tabernero',
+                        pathName: 'quieto',
+                        xTriggerSize: props.lol,
+                        yTriggerSize: props.sl
+                    });
                     break;
                 case 'Item': //Objetos en el suelo
                     this.dropped = new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type));
@@ -128,20 +135,9 @@ export default class Scene extends Phaser.Scene {
                         offset: props.offset,
                     });
                     break;
-                case 'Tp':
-                    let it = 0;
-                    loop: for (const tpstatus of mapObjects) {
-                        if (props.tplink === tpstatus.id) {
-                            props.tplink = it;
-                            break loop;
-                        }
-                        it++;
-                    }
-                    this.TP = new TPLINK(this, objeto.x, objeto.y, mapObjects[props.tplink], props.offset, objeto.width, objeto.height);
-                    this.tpList.push(this.TP);
-                    break;
                 case 'Music':
                     this[props.music] = this.sound.add(props.music, CT.backgroundMusic)
+                    this.musicList.push(this[props.music])
 
                     new Trigger({
                         x: objeto.x,
@@ -150,8 +146,8 @@ export default class Scene extends Phaser.Scene {
                         xSize: objeto.width,
                         ySize: objeto.height,
                         enter: () => {
+                            this.currentPlaying = this[props.music]
                             this[props.music].play()
-                            this.currentPlaying = this[props.music];
                         },
                         exit: () => { this[props.music].stop(); },
                         stay: () => { },
@@ -159,6 +155,28 @@ export default class Scene extends Phaser.Scene {
                     break;
             }
         }
+
+        //Tp - Capa de Teletransportadores
+        let TPs = this.map.getObjectLayer('Tp').objects;
+
+
+        for (const tp of TPs) {
+            tp.x += tp.width / 2;
+            tp.y += tp.height / 2;
+
+            const props = {};
+            if (tp.properties) { for (const { name, value } of tp.properties) { props[name] = value; } }
+
+            this.tpList.push(new TPLINK(
+                {
+                    scene: this,
+                    transform: tp,
+                    link: props.tplink, //Id del otro tp
+                    offset: props.offset
+                }));
+        }
+
+
         //Mapa - Capas Normales 3 - Parte 2
         this.mapCastles1 = this.map.createStaticLayer('Castles1', tileSetCastle);
         this.mapCastles2 = this.map.createStaticLayer('Castles2', tileSetCastle);
@@ -191,15 +209,26 @@ export default class Scene extends Phaser.Scene {
         this.cameras.main.zoom = CT.cameraZoom;
 
         //Añadimos la musica
-        this.dialogSound = this.sound.add('dialogSound', CT.effectSounds);
-        this.selection = this.sound.add('selection', CT.effectSounds);
-        this.pickItem = this.sound.add('pickup', CT.effectSounds);
+        this.soundList = [];
+        this.soundList.push(this.dialogSound = this.sound.add('dialogSound', CT.effectSounds));
+        this.soundList.push(this.selection = this.sound.add('selection', CT.effectSounds));
+        this.soundList.push(this.pickItem = this.sound.add('pickup', CT.effectSounds));
+        this.soundList.push(this.slider = this.sound.add('slider', CT.effectSounds))
+        this.soundList.push(this.sliderEnd = this.sound.add('sliderEnd', CT.effectSounds))
+
+        //Asignar puntos de la barra
         this.align.addReputation(this.points)
         this.fadeOut()
+
+        //Crear menú de pausa
+        this.musicList[0].volume = this.musicVolume;
+        this.soundList[0].volume = this.soundVolume;
+        this.pause = new PauseMenu(this);
     }
 
     changeScene(sceneName = this.nextLevel) {
         this.fadeIn()
+        this.currentPlaying.stop()
         this.loadScene(sceneName)
     }
 
@@ -207,6 +236,7 @@ export default class Scene extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(this.fullScreen)) {
             this.scale.toggleFullscreen()
         }
+        if (Phaser.Input.Keyboard.JustDown(this.menuToggle)) this.pause.animation.Toggle();
     }
 
     loadScene(sceneName, delay = CT.fadeInTime) {
@@ -215,6 +245,8 @@ export default class Scene extends Phaser.Scene {
             callback: () => {
                 this.scene.start(sceneName, {
                     points: this.align.points,
+                    musicVolume: this.musicList[0].volume,
+                    soundVolume: this.soundList[0].volume
                 });
             },
             delay: delay

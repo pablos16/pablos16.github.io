@@ -1,11 +1,10 @@
 import Names from '../../configs/npcNames.js'
 
-//TODO ACABAR DIALOGO EMPEÑISTA. NICO NO SUPO QUE PERSONALIDAD DEBERÍA DE TENER
 const Dialog =
     [
         {
             id: 0,
-            name: Names.Embajadora,
+            name: Names.OldMan,
             text: ["Uy! ¿Qué te trae por aquí? ¿Podemos hacer algo por ti?"],
             state: [
                 {
@@ -16,7 +15,7 @@ const Dialog =
         },
         {
             id: 1,
-            name: Names.Police,
+            name: Names.OldMan,
             text: ["(¿Quieres entregar la carta a la embajadora?)"],
             options:
                 [
@@ -34,7 +33,7 @@ const Dialog =
         },
         {
             id: 2,
-            name: Names.Police,
+            name: Names.OldMan,
             text: ["Tome, esta es una carta del dictador que iba dirigida a <Paca>, pero creo que a usted le será más útil"],
             state: [
                 {
@@ -45,7 +44,7 @@ const Dialog =
         },
         {
             id: 3,
-            name: Names.Police,
+            name: Names.OldMan,
             text: ["Mm,no gracias. Solo estaba de paso, que tenga un buen dia"],
             state: [
                 {
@@ -57,7 +56,7 @@ const Dialog =
         },
         {
             id: 4,
-            name: Names.Embajadora,
+            name: Names.OldMan,
             text: ["Mm esto me será bastante util, gracias por apoyar al dictador. Te debo una. Ten un buen dia"],
             state: [
                 {
@@ -69,7 +68,7 @@ const Dialog =
         },
         {
             id: 5,
-            name: Names.Embajadora,
+            name: Names.OldMan,
             text: ["Gracias por la carta y el favor, me gusta ver tu apoyo hacia nuestro lado", "Gracias por el favor"],
             state: [
                 {
@@ -80,7 +79,7 @@ const Dialog =
         },
         {
             id: 6,
-            name: Names.Embajadora,
+            name: Names.OldMan,
             text: ["Seguro que estás muy ocupado trabajando, mucha suerte","Pasa un buen dia tu tambien"],
             state: [
                 {

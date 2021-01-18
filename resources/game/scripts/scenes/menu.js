@@ -1,40 +1,68 @@
+import CT from '../../configs/constants.js';
 import Button from '../libraries/button.js';
+import PauseMenu from '../libraries/pauseMenu.js';
+import Tweener from '../libraries/tween.js';
 
 export default class Menu extends Phaser.Scene {
   constructor() {
     super({ key: 'menu' });
-    this.playButton;
-    this.controlsButton;
-    this.background;
-    this.controlsImage;
+
     this.canPlay = true;
-    //Configuracion para la musica
+  }
 
-    this.music;
-
+  init(data) {
+    this.musicVolume = data.musicVolume
+    this.soundVolume = data.soundVolume
   }
 
   //Aqui te crea todo lo que necesites al inicio para todo el juego
   create() {
-
-    const config = {
-      mute: false,
-      volume: 0.08,
-      rate: 1,
-      detune: 0,
-      seek: 0,
-      loop: true,
-      delay: 0
-    };
-    //Añadimos la musica
-    this.music = this.sound.add('backgroundMenu', config);
+    //Musica y sonidso
+    this.music = this.sound.add('backgroundMenu', CT.menuMusicConfig);
+    this.musicList = [this.music]
+    this.soundList = []
+    this.soundList.push(this.slider = this.sound.add('slider', CT.effectSounds))
+    this.soundList.push(this.sliderEnd = this.sound.add('sliderEnd', CT.effectSounds))
+    if (this.musicVolume) this.musicList[0].volume = this.musicVolume;
+    if (this.soundVolume) this.soundList[0].volume = this.soundVolume;
 
     this.music.play();
+
+    //Animacion de transicion
+    this.transitionImg = this.add.image(CT.transitionX, CT.transitionY, 'tpImg')
+    this.transitionImg.depth = 100
+    this.transitionImg.setScrollFactor(0)
+    this.transitionImg.alpha = 0
+    this.fade = new Tweener({
+      context: this,
+      target: this.transitionImg,
+      duration: CT.fadeOutTime,
+      ease: 'Circ',
+      locked: false,
+      hidden: false,
+      onComplete: (tween) => {
+        if (!tween.hidden) this.scene.start('day0', {
+          points: 0,
+          musicVolume: this.musicList[0].volume,
+          soundVolume: this.soundList[0].volume
+        });
+      },
+      attribs: [
+        {
+          propertie: 'alpha',
+          hidden: 1,
+          notHidden: 0
+        }
+      ]
+    })
+    this.fade.Toggle()
+
     //Deshabilitar menú contextual
     this.input.mouse.disableContextMenu();
 
     //Tecla de pantalla completa
     this.fullScreen = this.input.keyboard.addKey('F');
+    this.menu = this.input.keyboard.addKey('M')
 
     //Mapa
     this.add.image(640, 400, 'mainMenu');
@@ -43,18 +71,19 @@ export default class Menu extends Phaser.Scene {
 
     this.playButton = new Button({
       x: 180,
-      y: 420,   
+      y: 420,
       context: this,
       sprite: 'play',
       function: () => {
         if (this.canPlay) {
           this.music.stop();
-          this.scene.start('day0', {
-            points: 0,
-          });
+          this.fade.Toggle()
         }
       }
     })
+
+    //Menu de ajustes
+    this.configMenu = new PauseMenu(this)
 
     this.controlsButton = new Button({
       x: 180,
@@ -62,8 +91,9 @@ export default class Menu extends Phaser.Scene {
       context: this,
       sprite: 'controls',
       function: () => {
+        if(!this.configMenu.animation.hidden) this.configMenu.animation.ToggleLock()
+        else this.configMenu.animation.locked = true;
         this.controlsImage.setVisible(true);
-
         this.canPlay = false;
         this.background.setVisible(true);
         this.backButton.setVisible(true);
@@ -78,6 +108,8 @@ export default class Menu extends Phaser.Scene {
       context: this,
       sprite: 'back',
       function: () => {
+        this.configMenu.animation.locked = false;
+
         this.canPlay = true;
         this.controlsImage.setVisible(false);
 
@@ -97,6 +129,9 @@ export default class Menu extends Phaser.Scene {
   update() {
     if (Phaser.Input.Keyboard.JustDown(this.fullScreen)) {
       this.scale.toggleFullscreen()
+    }
+    if (Phaser.Input.Keyboard.JustDown(this.menu)) {
+      this.configMenu.animation.Toggle()
     }
   }
 }

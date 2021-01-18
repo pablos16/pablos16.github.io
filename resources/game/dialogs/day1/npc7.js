@@ -4,39 +4,25 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.Tabernero,
-            text: ["..."],
+            name: Names.Agricultor,
+            text: ["Cada vez somos más ancianos y nadie quiere tener hijos en un sitio como este"],
             state: [
                 {
                     targetState: ["any"],
-                    nextIndex: 1
-                }
+                    nextState:1,
+                    nextIndex: -1
+                },
             ]
         },
         {
             id: 1,
-            name: Names.Police,
-            text: ["(¿Ya va borracho a estas horas del dia?)"],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextState: 1,
-                    nextIndex: -1
-                }
-            ],
-        },
-        {
-            id: 2,
-            name: Names.Tabernero,
-            text:
-                [
-                    "...", "*Burp*"
-                ],
+            name: Names.Pueblerino,
+            text: ["¿A quién le daré mis tierras?","No sé ni por qué sigo sembrando..."],
             state: [
                 {
                     targetState: ["any"],
                     nextIndex: -1
-                }
+                },
             ]
         },
         {
@@ -48,7 +34,7 @@ const Dialog =
                 },
                 {
                     targetState: [1],
-                    nextIndex: 2
+                    nextIndex: 1
                 }
             ]
         }

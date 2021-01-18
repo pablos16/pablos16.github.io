@@ -1,12 +1,11 @@
 import Names from '../../configs/npcNames.js'
 
-//TODO ACABAR PERSONALIDAD FERIANTA. PREGUNTAR A SAMUEL
 const Dialog =
     [
         {
             id: 0,
-            name: Names.SrFeriante,
-            text: ["Blin Blin","Pe-pe-pe...","Weeeee"],
+            name: Names.Cura,
+            text: ["Dios le bendiga","Que Dios esté contigo","Recuerda siempre amar al prójimo"],
             state: [
                 {
                     targetState: ["any"],
@@ -20,7 +19,11 @@ const Dialog =
                 {
                     targetState: [0],
                     nextIndex: 0
-                }
+                },
+                {
+                    targetState: [1],
+                    nextIndex: 3
+                },
             ]
         }
     ]

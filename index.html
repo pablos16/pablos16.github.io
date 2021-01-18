@@ -124,7 +124,8 @@
         <script type="module">
             import Boot from './resources/game/scripts/scenes/boot.js'
             import Menu from './resources/game/scripts/scenes/menu.js'
-            import Derrota from './resources/game/scripts/scenes/derrota.js'
+            import Derrota from './resources/game/scripts/scenes/defeat.js'
+            import Victoria from './resources/game/scripts/scenes/victory.js'
             import Day0F from './resources/game/scripts/scenes/day0f.js'
             import Day1F from './resources/game/scripts/scenes/day1f.js'
             import CT from './resources/game/configs/constants.js'
@@ -139,7 +140,7 @@
                     autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
                 },
                 pixelArt: true,
-                scene: [Boot, Menu, Day0F, Day1F, Derrota],
+                scene: [Boot, Menu, Day0F, Day1F, Derrota, Victoria],
                 physics: { default: 'arcade', arcade: { debug: false } }
             };
 

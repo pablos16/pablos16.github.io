@@ -4,8 +4,8 @@ const Dialog =
     [
         {
             id: 0,
-            name: Names.Sona,
-            text: ["¿Eres un policia?"],
+            name: Names.Ferianta,
+            text: ["¿Cómo has sabido que estoy aquí? Ni si quiera se lo he dicho a mi marido. ¡Quién se ha chivado!"],
             state: [
                 {
                     targetState: ["any"],
@@ -15,26 +15,26 @@ const Dialog =
         },
         {
             id: 1,
-            name: Names.Sona,
-            text: ["ME ENCANTAN LOS POLICIAS"],
+            name: Names.Ferianta,
+            text: ["Si piensas atraparte estás jodido. Gracias por la ayuda anciano. Dile a mi marido que es un inútil."],
             state: [
                 {
                     targetState: ["any"],
-                    nextState: 1,
-                    nextIndex: -1
+                    nextIndex: 4
                 },
             ],
         },
         {
             id: 2,
-            name: Names.Sona,
-            text: ["Pium Pium","Manos arriba!"],
+            //CALLBACK DE QUE SE PIRA HACIA LA DERECHA HACIA EL BOSQUE
+            name: Names.Police,
+            text: ["Hasta nunca"],
             state: [
                 {
                     targetState: ["any"],
                     nextIndex: -1
                 },
-            ]
+            ],
         },
         {
             id: -1,
@@ -42,10 +42,6 @@ const Dialog =
                 {
                     targetState: [0],
                     nextIndex: 0
-                },
-                {
-                    targetState: [1],
-                    nextIndex: 2
                 }
             ]
         }

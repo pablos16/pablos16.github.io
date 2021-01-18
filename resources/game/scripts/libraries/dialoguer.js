@@ -33,6 +33,7 @@ export default class Dialoguer {
         this.onFinish = data.onFinish;
         this.isForced = data.isForced
         this.arguments = data.callbackArguments;
+        this.dialogSttoped = false;
 
         this.trigger = new Trigger({
             x: data.x,
@@ -71,8 +72,6 @@ export default class Dialoguer {
     }
 
     StartDialog(scene) {
-        //this.startTween(scene);
-        scene.player.missionList.hideInterface()
         this.animateDialog(scene, 50)
         this.setTalking(scene, true)
         this.onStart();
@@ -93,6 +92,7 @@ export default class Dialoguer {
 
     checkItem(scene, context = this.currentDialog()) {
         if (!('required' in context)) return;
+        if(!('mustHaveAll' in context)) context.mustHaveAll = false;
         let hasItem = true;
         for (let i = 0; i < context.required.item.length; i++) {
             hasItem &&= this.containtItems(scene, context.required.item[i])
@@ -110,8 +110,10 @@ export default class Dialoguer {
 
     ContinueDialog(scene) {
 
-        //console.log("hey " + this.index)
-        //console.log(this.currentDialog().state)
+        //Aunque le des a interactuar el dialogo no avanza 
+        //Si el creador por alguna razon decide qeu no debe, ya sea
+        //Para esperar a un evento o algo
+        if (this.dialogSttoped) return;
 
         //Comprobar item
         this.checkItem(scene)
@@ -155,7 +157,6 @@ export default class Dialoguer {
 
     FinishDialog(scene) {
         if ("timer" in this) this.timer.stopAnimation()
-        scene.player.missionList.showInterface()
         this.animateDialog(scene, 50, false)
         utils.setVisiblity([this.description, this.name], false)
         this.setTalking(scene, false)
@@ -186,11 +187,16 @@ export default class Dialoguer {
         if (input.interact) {
             //Ejecutar sonido
             scene.dialogSound.play();
-            this.checkCallbacks(scene, this.currentDialog().options[this.selection])
-            this.checkMissionCompleted(scene, this.currentDialog().options[this.selection])
+            let selection = this.currentDialog().options[this.selection]
+            this.checkCallbacks(scene, selection)
+            this.checkMissionCompleted(scene, selection)
             this.arrow.visible = false
             this.choosing = false
-            this.index = this.currentDialog().options[this.selection].nextIndex
+            
+            if(selection.nextState) this.state = selection.nextState;
+            this.index = selection.nextIndex
+
+
             utils.setVisiblity(this.dialogOptions, false)
             if (this.index === -1) this.FinishDialog(scene)
             else this.ContinueDialog(scene)
@@ -275,7 +281,7 @@ export default class Dialoguer {
         for (let i = 0; i < texts.length; i++) this.indentText(texts[i]);
     }
 
-    initializeIndex(scene) {
+    initializeIndex() {
         if (this.index === -1) {
             this.index = this.dialog.length - 1
             this.iterateStates(this.updateIndex)

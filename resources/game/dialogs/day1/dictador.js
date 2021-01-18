@@ -1,4 +1,6 @@
 import Names from '../../configs/npcNames.js'
+import event from '../../scripts/libraries/eventCallbacks.js'
+import item from '../../configs/itemNames.js'
 
 const Dialog =
     [
@@ -27,7 +29,7 @@ const Dialog =
         {
             id: 2,
             name: Names.Dictator,
-            text: ["Me han llegado dos formatos de carteles feriales para los feriantes del pueblo. Se encuentran en el sur de la ciudad, necesito que vayas a darles los mejores carteles."],
+            text: ["Me han llegado dos formatos de carteles feriales para los feriantes del pueblo. Se encuentran en el sur de la ciudad, necesito que vayas a darles los carteles que veas, que no veo bien."],
             state: [
                 {
                     targetState: ["any"],
@@ -70,8 +72,12 @@ const Dialog =
         },
         {
             id: 6,
+             //Borra los dos carteles
+             callback: (data) => {
+                event.AddItem(data, item.BolsaDinero);
+            },
             name: Names.Dictator,
-            text: ["Cuando acabes esas misiones puedes ir a hablar con el loco del pueblo. No ha dicho más que Cuá desde que llegué aquí y no entiendo que le sucede."],
+            text: ["Cuando acabes esas misiones puedes ir a comprarme una Alfombra Persa para el castillo, la tienda del empeñista estaba cerca de tu casa. Toma el dinero"],
             state: [
                 {
                     targetState: ["any"],
@@ -121,7 +127,6 @@ const Dialog =
                     nextIndex: -1
                 },
             ],
-            completed:0
         },
         {
             id: 10,

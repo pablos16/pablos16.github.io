@@ -1,37 +1,67 @@
 import CT from '../../configs/missionConfig.js';
+import Tweener from '../libraries/tween.js';
 
 export default class Missions extends Phaser.GameObjects.Container {
     constructor(scene, missionList) {
         super(scene, CT.missionListX, CT.missionListY);
+
         this.desplegado = false
         this.scene.add.existing(this)
-        this.depth = 100
         this.setScrollFactor(0)
         this.img = scene.add.sprite(0, 0, 'mission').setInteractive()
+        this.depth = 100;
         this.img.depth = 99
         this.img.setScrollFactor(0)
         this.missionList = missionList
-        this.img.on('pointerdown', pointer => { this.toggleListInterface() })
+
+        this.outAnim = new Tweener({
+            onStart: () => { 
+                this.resetCompletedTexts() 
+            },
+            context: scene,
+            target: this,
+            duration: 150,
+            ease: 'Circ',
+            locked: false,
+            hidden: true,
+            attribs: [
+                {
+                    propertie: 'y',
+                    hidden: this.y - CT.missionOffsetToggle,
+                    notHidden: this.y
+                },
+            ]
+        })
+
+
+        this.hideAnim = new Tweener({
+            onStart: () => { 
+                this.resetCompletedTexts() 
+            },
+            context: scene,
+            target: this,
+            duration: 150,
+            ease: 'Circ',
+            locked: false,
+            hidden: false,
+            attribs: [
+                {
+                    propertie: 'y',
+                    hidden: this.y,
+                    notHidden: this.y + CT.hideOffset
+                },
+            ]
+        })
+
+        this.img.on('pointerdown', pointer => { this.outAnim.Toggle() })
         this.sceneRef = scene
-        this.orign = this.y
         this.missionTexts = []
         this.completedTexts = []
         this.addText("Sal fuera", false)
-        this.hidden = false;
 
         this.add(this.img)
         this.removeFromThis()
         this.reAdd()
-    }
-
-    toggleInterface() {
-        let sign = this.hidden ? 1 : -1
-        this.sceneRef.tweens.add({
-            targets: this,
-            duration: 150,
-            y: this.y + CT.hideOffset * sign,
-            ease: 'Circ',
-        })
     }
 
     removeFromThis() {
@@ -42,19 +72,6 @@ export default class Missions extends Phaser.GameObjects.Container {
     reAdd() {
         this.add(this.missionTexts)
         this.add(this.completedTexts)
-    }
-
-    hideInterface() {
-        this.hidden = true
-
-        if (this.desplegado) this.animateInterface(this.toggleInterface(1))
-        else this.toggleInterface(1)
-    }
-
-    showInterface() {
-        this.hidden = false
-        //console.log("showing")
-        this.toggleInterface()
     }
 
     initialiceTexts() {
@@ -161,31 +178,6 @@ export default class Missions extends Phaser.GameObjects.Container {
 
     setPoints(points, scene) {
         scene.align.addReputation(points)
-    }
-
-    animateInterface(onComplete) {
-
-        this.resetCompletedTexts()
-
-        this.y = !this.desplegado ? this.orign : this.orign - CT.missionOffsetToggle
-
-        let signo = this.desplegado ? 1 : -1
-        this.sceneRef.tweens.add({
-            targets: this,
-            duration: 150,
-            y: this.y + CT.missionOffsetToggle * signo,
-            ease: 'Circ',
-            onComplete: () => {
-                this.desplegado = !this.desplegado
-                this.y = !this.desplegado ? this.orign : this.orign - CT.missionOffsetToggle
-                if (this.hidden) this.toggleInterface()
-            }
-        })
-    }
-
-    toggleListInterface() {
-
-        if (!this.hidden) this.animateInterface()
     }
 
     loadNextDay() {

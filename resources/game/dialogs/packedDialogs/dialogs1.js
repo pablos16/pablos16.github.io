@@ -11,9 +11,16 @@ import player from '../day1/player.js'
 import npc1 from '../day1/npc1.js'
 import npc2 from '../day1/npc2.js'
 import npc3 from '../day1/npc3.js'
+import npc4 from '../day1/npc4.js'
+import npc5 from '../day1/npc5.js'
+import npc6 from '../day1/npc6.js'
+import npc7 from '../day1/npc7.js'
+import npc8 from '../day1/npc8.js'
+import npc9 from '../day1/npc9.js'
 import ladron from '../day1/ladron.js'
 import leandro from '../day1/leandroGado.js'
 import paca from '../day1/pacaGarte.js'
+import empeñista from '../day1/empeñista.js'
 
 
 //Estos nombres son los que hay que poner en tiled
@@ -28,13 +35,21 @@ const dialogs =
     lolaMento,
     tabernera,
     tabernero,
+    ladron,
+    leandro,
+    paca,
     player,
     npc1,
     npc2,
     npc3,
-    ladron,
-    leandro,
-    paca
+    npc4,
+    npc5,
+    npc6,
+    npc7,
+    npc8,
+    npc9,
+    empeñista
+    
 }
 
 export default dialogs

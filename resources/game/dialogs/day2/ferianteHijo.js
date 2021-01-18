@@ -1,6 +1,5 @@
 import Names from '../../configs/npcNames.js'
 
-//TODO ACABAR PERSONALIDAD FERIANTA. PREGUNTAR A SAMUEL
 const Dialog =
     [
         {

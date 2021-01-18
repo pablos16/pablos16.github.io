@@ -80,7 +80,18 @@ const Dialog =
                 data.scene.player.missionList.deleteAll()
                 data.scene.player.missionList.initialiceTexts();
             },
-            text: ["Perfecto. Pues ve y conoce a la gente del pueblo. No te sorprendas, aquí la gente se comporta muy extraño. Mucha suerte."],
+            text: ["Perfecto. Pues ve y conoce a la gente del pueblo. No te sorprendas, aquí la gente se comporta muy extraño."],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextIndex: 7
+                },
+            ],
+        },
+        {
+            id: 7,
+            name: Names.Dictator,
+            text: ["Hoy no habrá mucha gente fuera porque es un día...digamos,de luto...no necesitas saber más. Mucha suerte."],
             state: [
                 {
                     targetState: ["any"],
@@ -91,7 +102,7 @@ const Dialog =
             completed:0,
         },
         {
-            id: 7,
+            id: 8,
             name: Names.Dictator,
             text: ["Cuando acabes de hablar con todos puedes irte a tu casa a descansar.","Si hablan mal de mi me lo dices eh.","Espero que no me falles."],
             state: [
@@ -110,7 +121,7 @@ const Dialog =
                 },
                 {
                     targetState: [1],
-                    nextIndex: 7
+                    nextIndex: 8
                 }
             ]
         }
