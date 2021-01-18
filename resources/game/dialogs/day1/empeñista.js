@@ -7,8 +7,7 @@ const Dialog =
         {
             id: 0,
             required: {
-                item: [item.BolsaDinero, item.Monedas],
-                mustHaveAll:false,
+                item: [item.BolsaDinero],
                 hasItemIndex: 1
             },
             name: Names.Empeñista,
@@ -117,7 +116,7 @@ const Dialog =
         ,
         {
             id: 7,
-            name: Names.Police,
+            name: Names.Empeñista,
             text: ["Muy buena elección. Para la piedra solo necesitas unas monedas. ¿Deseas comprarla?"],
             options:
                 [
@@ -153,11 +152,13 @@ const Dialog =
             id: 9,
             //Te da el muñeco la alfombra y te quita la bolsa de dinero
             callback: (data) => {
-                event.RemoveItem(data, item.Monedas);
+                event.RemoveItem(data, item.BolsaDinero);
                 event.AddItem(data, item.CojinPersa);
+                event.AddItem(data, item.Monedas);
+
             },
             name: Names.Empeñista,
-            text: ["Muchas gracias. Me encanta hacer negocios contigo"],
+            text: ["Muchas gracias. Me encanta hacer negocios contigo. Aquí tienes el resto"],
             state: [
                 {
                     targetState: ["any"],
