@@ -65,6 +65,7 @@ const Dialog =
                     scene: data.arguments.npc.theScene,
                     context: data.arguments.npc,
                     path: 'coronel',
+                    entity: data.arguments.npc
                 })
             },
             state: [
