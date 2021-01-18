@@ -67,7 +67,7 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
     }
 
     nextPath() {
-        if (this.currentPath === this.path.length-1) {
+        if (this.currentPath === this.path.length - 1) {
             this.currentPath = 0;
             this.onFinish();
             return this.loop;
@@ -80,9 +80,8 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
     }
 
     pathReached() {
-        let first = Math.abs(this.body.position.x - this.getPath().x) <= 1;
-        let second = Math.abs(this.body.position.y - this.getPath().y) <= 1;
-        return first && second;
+        let resta = Vector2.substract(this.body.position, this.getPath())
+        return Math.abs(resta.x) <= 1 && Math.abs(resta.y) <= 1
     }
 
     getPath() {
