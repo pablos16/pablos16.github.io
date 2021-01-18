@@ -7,25 +7,25 @@ export default class Defeat extends Phaser.Scene {
   }
 
   init(data) {
-    //Guardamos los puntos
+    // Guardamos los puntos
     this.puntos = data.points;
   }
 
-  //Aqui te crea todo lo que necesites al inicio para todo el juego
   create() {
-    //Deshabilitar menú contextual
+    // Deshabilitar menú contextual
     this.input.mouse.disableContextMenu();
 
-    //Tecla de pantalla completa
+    // Tecla de pantalla completa
     this.fullScreen = this.input.keyboard.addKey('F');
 
+    // Música
     this.music = this.sound.add('defeat', CT.menuMusicConfig);
 
     // Pantalla
-    let img = (this.points >= 0) ? 'loseRegime' : 'loseVillage'
+    let img = (this.points >= 0) ? 'loseRegime' : 'loseVillage';
     this.add.image(640, 150, img);
 
-    //Botón
+    // Botón
     this.returnButton = new Button({
       x: 640,
       y: 550,   
