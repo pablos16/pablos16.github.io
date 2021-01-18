@@ -57,4 +57,8 @@ export default class Vector2 {
             y: v1.y * v2.y,
         }
     }
+
+    static powMagnitude(v1) {
+        return (v1.x * v1.x + v1.y * v1.y)
+    }
 }

@@ -16,6 +16,7 @@ import Paths from '../../paths/genericPath.js'
 export default class PathInsertor {
     constructor(data) {
 
+        this.entity = data.entity
         this.body = data.body;
         this.scene = data.scene
         this.context = data.context;
@@ -33,6 +34,7 @@ export default class PathInsertor {
             sceneRef: this.scene,
             body: this.body,
             loop: data.loop,
+            entity: this.entity,
             onFinish: () => { //This method is located in the path object file
                 if ('onFinish' in data) {
                     data.onFinish({

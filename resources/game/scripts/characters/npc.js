@@ -24,6 +24,7 @@ export default class NPC extends Phaser.GameObjects.Container {
       scene: this.theScene,
       context: this,
       path: pathName,
+      entity: this
     })
 
     this.add(this.spriteImage);

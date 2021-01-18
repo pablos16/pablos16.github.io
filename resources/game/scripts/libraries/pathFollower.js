@@ -23,7 +23,9 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
         this.changinPath = false;
         this.onFinish = data.onFinish;
         this.loop = data.loop;
+        this.direction = { x: 0, y: 0 }
         this.velocity = { x: 0, y: 0 }
+        this.entity = data.entity
     }
 
     //SUPER AAAAAAAAAAAAA
@@ -37,6 +39,8 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
 
     makePath() {
         if (!(!this.pathReached() && !this.changinPath) && !this.changinPath) {
+            this.entity.x = this.getPath().x
+            this.entity.y = this.getPath().y
             this.changinPath = true;
             this.stop();
             this.scene.time.addEvent({
@@ -57,13 +61,13 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
 
     calculateVelocity() {
         //Calcular direccion
-        let direction = Vector2.direction(this.getPath(), this.body)
+        this.direction = Vector2.direction(this.getPath(), this.body)
 
         //Obtener velocidad del path
         let speed = { x: this.getPath().speed, y: this.getPath().speed };
 
         //Multiplicar la velocidad por la direcion
-        return Vector2.multiply(speed, direction);
+        return Vector2.multiply(speed, this.direction);
     }
 
     nextPath() {
@@ -81,7 +85,7 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
 
     pathReached() {
         let resta = Vector2.substract(this.body.position, this.getPath())
-        return Math.abs(resta.x) <= 1 && Math.abs(resta.y) <= 1
+        return Vector2.powMagnitude(resta) <= 1
     }
 
     getPath() {
