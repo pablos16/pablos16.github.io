@@ -8,7 +8,7 @@ export default class Defeat extends Phaser.Scene {
 
   init(data) {
     // Guardamos los puntos
-    this.puntos = data.points;
+    this.points = data.points;
   }
 
   create() {
@@ -20,15 +20,16 @@ export default class Defeat extends Phaser.Scene {
 
     // Música
     this.music = this.sound.add('defeat', CT.menuMusicConfig);
+    this.music.play();
 
     // Pantalla
     let img = (this.points >= 0) ? 'loseRegime' : 'loseVillage';
-    this.add.image(640, 150, img);
+    this.add.image(640, 360, img);
 
     // Botón
     this.returnButton = new Button({
       x: 640,
-      y: 550,   
+      y: 660,
       context: this,
       sprite: 'back',
       function: () => {

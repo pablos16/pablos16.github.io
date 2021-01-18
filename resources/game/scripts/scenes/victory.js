@@ -8,7 +8,7 @@ export default class Victory extends Phaser.Scene {
 
     init(data){
         // Se guardan los puntos
-        this.puntos = data.points;
+        this.points = data.points;
     }
 
     create() {
@@ -20,15 +20,16 @@ export default class Victory extends Phaser.Scene {
 
         // Música
         this.music = this.sound.add('victory', CT.menuMusicConfig);
+        this.music.play();
 
         // Pantalla
         let img = (this.points >= 0) ? 'winVillage' : 'winRegime';
-        this.add.image(640, 150, img);
+        this.add.image(640, 360, img);
 
         // Botón
         this.returnButton = new Button({
             x: 640,
-            y: 550,   
+            y: 660,
             context: this,
             sprite: 'back',
             function: () => {
