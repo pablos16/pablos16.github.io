@@ -16,7 +16,7 @@ const Dialog =
         {
             id: 1,
             name: Names.Ferianta,
-            text: ["Cuando Reltih te haya dado los carteles que necesitamos dáselos a mi marido. Siempre solemos estar por aquí."],
+            text: ["El show comienza dentro de unos días. Espero que me traigas los carteles en cuanto te lleguen"],
             state: [
                 {
                     targetState: ["any"],

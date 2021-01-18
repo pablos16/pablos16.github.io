@@ -51,7 +51,7 @@ const Dialog =
         {
             id: 4,
             name: Names.Dictator,
-            text: ["También me han comunicado que hay un ladrón suelto por el pueblo. Tiene un gorro rojo. Encuentrale y arrestale. La ultima vez se le vio por el oeste del pueblo"],
+            text: ["También me han comunicado que hay un ladrón suelto por el pueblo. Tiene un gorro rojo. Encuentralo y arrestalo. La ultima vez se le vio por el oeste del pueblo"],
             state: [
                 {
                     targetState: ["any"],
@@ -72,7 +72,6 @@ const Dialog =
         },
         {
             id: 6,
-             //Borra los dos carteles
              callback: (data) => {
                 event.AddItem(data, item.BolsaDinero);
             },

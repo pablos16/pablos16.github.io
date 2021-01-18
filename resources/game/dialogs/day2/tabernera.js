@@ -52,7 +52,7 @@ const Dialog =
         {
             id: 3,
             name: Names.Tabernera,
-            text: ["Que raro eres jaja, pero bueno, aquí tienes cielo"],
+            text: ["Que raro eres jaja, pero bueno, aquí tienes cielo. Vienen días duros"],
             state: [
                 {
                     targetState: ["any"],

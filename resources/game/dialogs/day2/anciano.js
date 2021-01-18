@@ -5,7 +5,7 @@ const Dialog =
         {
             id: 0,
             name: Names.OldMan,
-            text: ["Uy! ¿Qué te trae por aquí? ¿Podemos hacer algo por ti?"],
+            text: ["No pretendas luchar conmigo. Solo soy un pobre anciano haciendo el bien. ¿O piensas que la feriante es la mala de la película?"],
             state: [
                 {
                     targetState: ["any"],
@@ -16,77 +16,26 @@ const Dialog =
         {
             id: 1,
             name: Names.OldMan,
-            text: ["(¿Quieres entregar la carta a la embajadora?)"],
-            options:
-                [
-                    {
-                        text: "Claro",
-                        nextIndex: 2,
-                        points: -10
-                    },
-                    {
-                        text: "Mm...mejor me la quedo yo",
-                        nextIndex: 3,
-                        points: 20
-                    },
-                ],
+            text: ["Ya está, la revolución está cerca, y no puedes hacer nada para frenarlo. Ahora deja a este pobre anciano disfrutar el día en el bosque"],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextState:1,
+                    nextIndex: -1
+                },
+            ],
+            completed:4
         },
         {
             id: 2,
             name: Names.OldMan,
-            text: ["Tome, esta es una carta del dictador que iba dirigida a <Paca>, pero creo que a usted le será más útil"],
+            text: ["Me estás tapando del sol","La revolución está cerca..."],
             state: [
                 {
                     targetState: ["any"],
                     nextIndex: 4
                 },
             ],
-        },
-        {
-            id: 3,
-            name: Names.OldMan,
-            text: ["Mm,no gracias. Solo estaba de paso, que tenga un buen dia"],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextState: 1,
-                    nextIndex: -1
-                },
-            ]
-        },
-        {
-            id: 4,
-            name: Names.OldMan,
-            text: ["Mm esto me será bastante util, gracias por apoyar al dictador. Te debo una. Ten un buen dia"],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextState: 2,
-                    nextIndex: -1
-                },
-            ]
-        },
-        {
-            id: 5,
-            name: Names.OldMan,
-            text: ["Gracias por la carta y el favor, me gusta ver tu apoyo hacia nuestro lado", "Gracias por el favor"],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextIndex: -1
-                },
-            ]
-        },
-        {
-            id: 6,
-            name: Names.OldMan,
-            text: ["Seguro que estás muy ocupado trabajando, mucha suerte","Pasa un buen dia tu tambien"],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextIndex: -1
-                },
-            ]
         },
         {
             id: -1,
@@ -97,11 +46,7 @@ const Dialog =
                 },
                 {
                     targetState: [1],
-                    nextIndex: 6
-                },
-                {
-                    targetState: [2],
-                    nextIndex: 5
+                    nextIndex: 2
                 }
             ]
         }

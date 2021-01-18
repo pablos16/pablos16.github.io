@@ -1,4 +1,6 @@
 import Names from '../../configs/npcNames.js'
+import event from '../../scripts/libraries/eventCallbacks.js'
+import item from '../../configs/itemNames.js'
 
 const Dialog =
     [
@@ -72,7 +74,7 @@ const Dialog =
         {
             id: 5,
             name: Names.Lola,
-            text: ["Te daré dos bolsas de oro y mi anillo de casada si hace falta"],
+            text: ["Te daré una bolsas de oro y mi anillo de casada si hace falta"],
             options:
                 [
                     
@@ -90,7 +92,11 @@ const Dialog =
         },
         {
             id: 6,
-            //CALLBACK DE DARME BOLSAS DE ORO Y ANILLO DE CASADA
+            //Te da la bolsa y el anillo de casada
+            callback: (data) => {
+                event.AddItem(data, item.BolsaDinero);
+                event.AddItem(data, item.Anillo);            
+            },
             name: Names.Lola,
             text: ["¡TOMA TODO! Muchas gracias. Si sigues así mañana el dictador no te mandará ninguna orden. ¡Sigue apoyándonos!"],
             state: [
@@ -99,7 +105,8 @@ const Dialog =
                     nextState:1,
                     nextIndex: -1
                 },
-            ]
+            ],
+            completed:1
         },
         {
             id: 7,
@@ -122,7 +129,8 @@ const Dialog =
                     nextState:1,
                     nextIndex: -1
                 },
-            ]
+            ],
+            completed:1
         },
         {
             id: 9,
