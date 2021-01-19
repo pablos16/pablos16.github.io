@@ -1,4 +1,5 @@
 import Names from '../../configs/npcNames.js'
+import events from '../../scripts/libraries/eventCallbacks.js';
 import PathInsertor from '../../scripts/libraries/pathInsertor.js';
 
 const Dialog =
@@ -56,17 +57,7 @@ const Dialog =
         },
         {
             id: -1,
-            callback: (data) => {
-                data.arguments.npc.dialog.dialogSttoped = true;
-                data.scene.player.isTalking = true;
-                data.arguments.npc.dialog.destroy();
-                data.arguments.npc.irse = new PathInsertor({
-                    body: data.arguments.npc.body,
-                    scene: data.arguments.npc.scene,
-                    context: data.arguments.npc,
-                    path: 'coronel',
-                })
-            },
+            callback: (data) => {  events.CoronelEvent(data) },
             state: [
                 {
                     targetState: [0],
