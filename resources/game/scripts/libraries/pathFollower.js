@@ -99,10 +99,6 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
     }
 
     pathReached() {
-        // this.setVelocity()
-        // let resta = Vector2.substract(this.body.position, this.getPath())
-        // return Vector2.powMagnitude(resta) <= 1
-
         let resta = Vector2.substract(this.getPath(), this.body)
         let first = Math.sign(this.comparing.x) !== Math.sign(resta.x) || resta.x === 0;
         let second = Math.sign(this.comparing.y) !== Math.sign(resta.y) || resta.y === 0;

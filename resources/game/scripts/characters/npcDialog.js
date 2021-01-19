@@ -16,6 +16,7 @@ export default class NPCDialog extends NPC {
             isForced: false,
             callbackArguments: { npc: this },
             onStart: () => {
+                this.isTalking = true;
                 data.scene.player.missionList.hideAnim.Toggle()
                 if (this.path) {
                     this.path.setMove(false)
@@ -28,6 +29,7 @@ export default class NPCDialog extends NPC {
                 }
             },
             onFinish: () => {
+                this.isTalking = false;
                 data.scene.player.missionList.hideAnim.Toggle()
                 if(this.path){
                     this.path.setMove(true)
@@ -50,6 +52,7 @@ export default class NPCDialog extends NPC {
         let direction = Vector2.direction(playerPos, thisPos)
 
         scene.player.setTalkingAnimation(direction);
+        this.setTalkingAnimation({x: direction.x*-1, y:direction.y * -1})
 
         //Si no hay ningún offset en este NPC, se usar el offset por defecto
         let charOffset = Dialog.characterOffset;
