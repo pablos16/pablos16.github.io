@@ -9,7 +9,7 @@ export default class Day0F extends BaseDay {
             dialog: dialogs,
             missions: Missions,
             objectLayerName: 'Dia0',
-            nextLevel: 'day1',
+            nextLevel: 'day2',
         })
     }
 }
