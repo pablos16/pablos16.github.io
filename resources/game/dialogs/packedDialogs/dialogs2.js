@@ -1,6 +1,5 @@
 import carcelero from '../day2/carcelero.js'
 import dictador from '../day2/dictador.js'
-import embajadora from '../day2/embajadora.js'
 import empeñista from '../day2/empeñista.js'
 import feriante from '../day2/feriante.js'
 import ferianta from '../day2/ferianta.js'
@@ -30,7 +29,6 @@ const dialogs =
 {
     carcelero,
     dictador,
-    embajadora,
     empeñista,
     ferianta,
     feriante,
