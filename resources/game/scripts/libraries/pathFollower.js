@@ -48,10 +48,6 @@ export default class PathFollower extends Phaser.GameObjects.GameObject {
                     if (this.nextPath() && this.condition) {
                         this.setVelocity()
                         this.comparing = Vector2.substract(this.getPath(), this.prevPath())
-                        console.log('------')
-                        console.log(this.comparing)
-                        console.log(this.velocity)
-                        console.log(this.getPath())
                     }
                 },
                 delay: this.getPath().delay

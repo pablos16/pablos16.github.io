@@ -15,8 +15,13 @@ export default class Missions extends Phaser.GameObjects.Container {
         this.missionList = missionList
 
         this.outAnim = new Tweener({
-            onStart: () => { 
-                this.resetCompletedTexts() 
+            onStart: () => {
+                this.resetCompletedTexts()
+                if (!this.outAnim.hidden) scene.pause.animation.locked = true;
+                if (!scene.pause.animation.hidden) scene.pause.animation.ForceToggle();
+            },
+            onComplete: () => {
+                if (scene.pause.animation.locked && this.outAnim.hidden) scene.pause.animation.locked = false
             },
             context: scene,
             target: this,
@@ -35,8 +40,8 @@ export default class Missions extends Phaser.GameObjects.Container {
 
 
         this.hideAnim = new Tweener({
-            onStart: () => { 
-                this.resetCompletedTexts() 
+            onStart: () => {
+                this.resetCompletedTexts()
             },
             context: scene,
             target: this,
