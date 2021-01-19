@@ -1,4 +1,5 @@
 import Names from '../../configs/npcNames.js'
+import events from '../../scripts/libraries/eventCallbacks.js';
 
 const Dialog =
     [
@@ -40,22 +41,23 @@ const Dialog =
             name: Names.Paca,
             text: ["Y tú vienes a arrestarme porque no quiero salir con un asesino opresor que está dejando morir al pueblo. Asumo la situación, detenme si quieres. Total, mañana me salvarán..."],
             options:
-            [
-                {
-                    text: "Detenerla y ser fiel",
-                    nextIndex: 4,
-                    points:-35
-                },
-                {
-                    text: "Dejarla libre",
-                    nextIndex: 5,
-                    points:35
-                }
-            ],
+                [
+                    {
+                        text: "Detenerla y ser fiel",
+                        nextIndex: 4,
+                        points: -35
+                    },
+                    {
+                        text: "Dejarla libre",
+                        nextIndex: 5,
+                        points: 35
+                    }
+                ],
         },
         {
             id: 4,
             //CallBack de desaparicion
+            callback: (data) => { events.FadeInOut(data) },
             name: Names.Paca,
             text: ["Mierda seca"],
             state: [
@@ -64,7 +66,7 @@ const Dialog =
                     nextIndex: -1
                 },
             ],
-            completed:2
+            completed: 2
 
         },
         {
@@ -74,11 +76,11 @@ const Dialog =
             state: [
                 {
                     targetState: ["any"],
-                    nextState:1,
+                    nextState: 1,
                     nextIndex: -1
                 },
             ],
-            completed:2
+            completed: 2
         },
         {
             id: 6,

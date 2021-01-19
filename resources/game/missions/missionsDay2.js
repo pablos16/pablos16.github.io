@@ -24,7 +24,7 @@ const Misions =
         {
             text: "Descrubir el paradero de la Ferianta",
             completed: 0,
-            total: 1
+            total: 2
         }
     ]
 

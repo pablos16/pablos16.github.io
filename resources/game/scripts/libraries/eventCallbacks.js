@@ -63,18 +63,19 @@ const events =
         data.arguments.npc.dialog.destroy();
     },
 
-    DestroyNPC(data)
-    {
-        data.arguments.npc.destroy(true)
-    },
+    DestroyNPC(data) { data.arguments.npc.destroy(true); },
 
-    CoronelEvent: (data) => {
+    CoronelEvent: (data) => {  events.InsertPath(data, 'coronel')  },
+
+    Ferianta: (data) => { events.InsertPath(data, 'ferianta');},
+
+    InsertPath: (data, pathName) => {
         events.DestroyDialoguer(data)
         data.arguments.npc.irse = new PathInsertor({
             body: data.arguments.npc.body,
             scene: data.arguments.npc.scene,
             context: data.arguments.npc,
-            path: 'coronel',
+            path: pathName,
         })
     },
 }
