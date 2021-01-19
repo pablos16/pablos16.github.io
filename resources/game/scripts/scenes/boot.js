@@ -101,6 +101,7 @@ export default class Boot extends Phaser.Scene {
     this.load.spritesheet('dictador', 'resources/game/textures/NPCs/dictador.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('cura', 'resources/game/textures/NPCs/cura.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('ladron', 'resources/game/textures/NPCs/ladron.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('anciano', 'resources/game/textures/NPCs/anciano.png', { frameWidth: 32, frameHeight: 32 });
 
     this.load.spritesheet('feriante', 'resources/game/textures/NPCs/feriante.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('ferianta', 'resources/game/textures/NPCs/ferianta.png', { frameWidth: 32, frameHeight: 32 });
