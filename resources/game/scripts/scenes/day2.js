@@ -1,7 +1,8 @@
 import BaseDay from './dayBase.js'
-import dialogs from '../../dialogs/packedDialogs/dialogs1.js'
-import Missions from '../../missions/missionsDay1.js';
+import dialogs from '../../dialogs/packedDialogs/dialogs2.js'
+import Missions from '../../missions/missionsDay2.js';
 import Trigger from '../libraries/trigger.js';
+import CT from '../../configs/constants.js';
 
 export default class Day0F extends BaseDay {
     constructor() {

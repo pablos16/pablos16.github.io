@@ -8,7 +8,7 @@ const Dialog =
         {
             id: 0,
             name: Names.Dictator,
-            text: ["Buenos días. Espero que hayas dormido bien. Hoy viene un dia duro"],
+            text: ["Hoy es un día importante. La revolución está al llegar. Voy a ser breve con las misiones:"],
             state: [
                 {
                     targetState: ["any"],
@@ -19,7 +19,7 @@ const Dialog =
         {
             id: 1,
             name: Names.Dictator,
-            text: ["Supongo que ayer habrás hablado con la mayoria de gente así que te voy a comentar las misiones de hoy"],
+            text: ["Ve a cobrar la deuda de los feriantes. Este mes no me han pagado"],
             state: [
                 {
                     targetState: ["any"],
@@ -30,7 +30,7 @@ const Dialog =
         {
             id: 2,
             name: Names.Dictator,
-            text: ["Me han llegado dos formatos de carteles feriales para los feriantes del pueblo. Se encuentran en el sur de la ciudad, necesito que vayas a darles los carteles que veas, que no veo bien."],
+            text: ["Deten a Lola Mento. Hay que quitarse a los cabecillas de encima para debilitarlos"],
             state: [
                 {
                     targetState: ["any"],
@@ -41,7 +41,7 @@ const Dialog =
         {
             id: 3,
             name: Names.Dictator,
-            text: ["Por otra parte no se si hablaste con la mujer del carcelero, pero me está resultando un tanto sospechosa. Necesito que vayas e investigues sobre si está conspirando contra mi"],
+            text: ["Encuentra a la feriante, lleva un día desaparecida y me da muy mala espina...la ultima vez se la vio yendo al bosque del este"],
             state: [
                 {
                     targetState: ["any"],
@@ -52,7 +52,7 @@ const Dialog =
         {
             id: 4,
             name: Names.Dictator,
-            text: ["También me han comunicado que hay un ladrón suelto por el pueblo. Tiene un gorro rojo. Encuentralo y arrestalo. La ultima vez se le vio por el oeste del pueblo"],
+            text: ["Luego detienes a Paca, si no puede ser mía no se merece ninguna libertad, me tiene harto ya."],
             state: [
                 {
                     targetState: ["any"],
@@ -63,7 +63,7 @@ const Dialog =
         {
             id: 5,
             name: Names.Dictator,
-            text: ["Por la zona de los pobres hay una aglomeración de gente que necesito que disipes. Esos pobres revolucionarios no se van a salir con la suya"],
+            text: ["Y ya de paso cuando acabes comprame una alfombra persa en la tienda de empeños. El castillo está muy soso. Toma el dinero"],
             state: [
                 {
                     targetState: ["any"],
@@ -73,8 +73,11 @@ const Dialog =
         },
         {
             id: 6,
+            callback: (data) => {
+                event.AddItem(data, item.BolsaDinero);
+            },
             name: Names.Dictator,
-            text: ["Por último he descubierto que hay un grupo de revolucionarios ahí. Te he dejado el material al lado de la mina jeje. Se encuentra en el suroeste del pueblo"],
+            text: ["Te dejaré las misiones escritas en la libreta por si se te olvidan. Recuerda que al acabarlas puedes irte a casa a descansar, mañana será un dia duro..."],
             state: [
                 {
                     targetState: ["any"],
@@ -85,35 +88,24 @@ const Dialog =
         {
             id: 7,
             name: Names.Dictator,
-            text: ["Te dejaré las misiones escritas en la libreta por si se te olvidan. Recuerda que al acabarlas puedes irte a casa a descansar"],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextIndex: 8
-                },
-            ]
-        },
-        {
-            id: 8,
-            name: Names.Dictator,
-            text: ["¿Estás dispuesto a darlo todo por tu dictador?"],
+            text: ["¿Estás preparado para el dia final?"],
             options:
                 [
                     {
                         text: "Por supuesto señor",
-                        nextIndex: 9,
+                        nextIndex: 8,
                     },
                     {
-                        text: "¡Hasta el dia que me muera!",
-                        nextIndex: 9,
+                        text: "¡Ahora y siempre!",
+                        nextIndex: 8,
                     }
                 ],
         },
         {
-            id: 9,
+            id: 8,
             name: Names.Dictator,
             callback: (data) => { events.CreateDailyMissions(data) },
-            text: ["Así me gusta. ¡Ahora sal ahí y ve a por todas!"],
+            text: ["Así me gusta. ¡Ahora sal ahí y frena esa ola!"],
             state: [
                 {
                     targetState: ["any"],
@@ -123,7 +115,7 @@ const Dialog =
             ],
         },
         {
-            id: 10,
+            id: 9,
             name: Names.Dictator,
             text: ["Recuerda mirar la libreta si no te acuerdas de las misiones", "A por todas", "Cuento contigo"],
             state: [
@@ -142,7 +134,7 @@ const Dialog =
                 },
                 {
                     targetState: [1],
-                    nextIndex: 10
+                    nextIndex: 9
                 }
             ]
         }
