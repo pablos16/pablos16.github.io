@@ -5,7 +5,12 @@ Repositorio -> https://pablos16.github.io/
 Organización y seguimiento -> https://www.pivotaltracker.com/n/projects/2470816
 
 # Arquitectura UML
-![UML_V2](https://user-images.githubusercontent.com/62748720/100102983-9d900200-2e64-11eb-8cb4-093ac48521d0.png)
+![UML FInal - MD - 1](https://user-images.githubusercontent.com/62879607/105023554-65afd000-5a4b-11eb-84e5-9a6540ce2b2f.png)
+![UML FInal - MD - 2](https://user-images.githubusercontent.com/62879607/105023610-76f8dc80-5a4b-11eb-8e40-4b2121f627b5.png)
+![UML FInal - MD - 3](https://user-images.githubusercontent.com/62879607/105023616-795b3680-5a4b-11eb-840c-e645e4e43566.png)
+![UML FInal - MD - 4](https://user-images.githubusercontent.com/62879607/105023626-7ceebd80-5a4b-11eb-8421-d4d73b498eb9.png)
+![UML FInal - MD - 5](https://user-images.githubusercontent.com/62879607/105023633-7eb88100-5a4b-11eb-8566-d8297ba93f34.png)
+![UML FInal - MD - 6](https://user-images.githubusercontent.com/62879607/105023648-82e49e80-5a4b-11eb-9c70-1c1e241b660a.png)
 
 # Documento de diseño de videojuego
 
