@@ -42,6 +42,10 @@ const events =
             npc.hitEvenet();
         }
     },
+    CreateDailyMissions: (data) => {
+        data.scene.player.missionList.deleteAll()
+        data.scene.player.missionList.initialiceTexts();
+    }
 }
 
 export default events;

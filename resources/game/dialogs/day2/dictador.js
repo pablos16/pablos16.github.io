@@ -1,6 +1,7 @@
 import Names from '../../configs/npcNames.js'
 import event from '../../scripts/libraries/eventCallbacks.js'
 import item from '../../configs/itemNames.js'
+import events from '../../scripts/libraries/eventCallbacks.js'
 
 const Dialog =
     [
@@ -111,15 +112,12 @@ const Dialog =
         {
             id: 9,
             name: Names.Dictator,
-            callback: (data) => {
-                data.scene.player.missionList.deleteAll()
-                data.scene.player.missionList.initialiceTexts();
-            },
+            callback: (data) => { events.CreateDailyMissions(data) },
             text: ["Así me gusta. ¡Ahora sal ahí y ve a por todas!"],
             state: [
                 {
                     targetState: ["any"],
-                    nextState:1,
+                    nextState: 1,
                     nextIndex: -1
                 },
             ],
@@ -127,7 +125,7 @@ const Dialog =
         {
             id: 10,
             name: Names.Dictator,
-            text: ["Recuerda mirar la libreta si no te acuerdas de las misiones","A por todas","Cuento contigo"],
+            text: ["Recuerda mirar la libreta si no te acuerdas de las misiones", "A por todas", "Cuento contigo"],
             state: [
                 {
                     targetState: ["any"],

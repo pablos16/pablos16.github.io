@@ -1,4 +1,5 @@
 import Names from '../../configs/npcNames.js'
+import events from '../../scripts/libraries/eventCallbacks.js';
 
 const Dialog =
     [
@@ -65,7 +66,7 @@ const Dialog =
         {
             id: 5,
             name: Names.Dictator,
-            text: ["Veo que no eres un policia de muchas luces.","Hoy no estás muy espabilado por lo que veo."],
+            text: ["Veo que no eres un policia de muchas luces.", "Hoy no estás muy espabilado por lo que veo."],
             state: [
                 {
                     targetState: ["any"],
@@ -76,10 +77,7 @@ const Dialog =
         {
             id: 6,
             name: Names.Dictator,
-            callback: (data) => {
-                data.scene.player.missionList.deleteAll()
-                data.scene.player.missionList.initialiceTexts();
-            },
+            callback: (data) => { events.CreateDailyMissions(data) },
             text: ["Perfecto. Pues ve y conoce a la gente del pueblo. No te sorprendas, aquí la gente se comporta muy extraño."],
             state: [
                 {
@@ -99,12 +97,12 @@ const Dialog =
                     nextIndex: -1
                 },
             ],
-            completed:0,
+            completed: 0,
         },
         {
             id: 8,
             name: Names.Dictator,
-            text: ["Cuando acabes de hablar con todos puedes irte a tu casa a descansar.","Si hablan mal de mi me lo dices eh.","Espero que no me falles."],
+            text: ["Cuando acabes de hablar con todos puedes irte a tu casa a descansar.", "Si hablan mal de mi me lo dices eh.", "Espero que no me falles."],
             state: [
                 {
                     targetState: ["any"],
