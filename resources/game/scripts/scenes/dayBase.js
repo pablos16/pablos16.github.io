@@ -108,12 +108,12 @@ export default class Scene extends Phaser.Scene {
                             }
                         },
                     })
-                    continue
+                    //continue
                     new NPCDialog({
                         scene: this,
                         x: objeto.x - 100,
                         y: objeto.y,
-                        dialog: this.dialogs['coronel'],
+                        dialog: this.dialogs['test'],
                         sprite: 'coronel',
                         pathName: 'quieto',
                         xTriggerSize: props.lol,
@@ -260,12 +260,15 @@ export default class Scene extends Phaser.Scene {
         })
     }
 
-    fadeIn() {
+    fadeIn(onComplete) {
         this.tweens.add({
             targets: this.transitionImg,
             duration: CT.fadeInTime,
             alpha: 1,
             ease: 'Circ',
+            onComplete: () =>{
+                if(onComplete) onComplete();
+            }
         })
     }
 
