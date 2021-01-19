@@ -29,9 +29,7 @@ export default class Tp extends Phaser.GameObjects.Sprite {
 
 
     tp(scene) {
-        //console.log(this.pair)
         if ('pair' in this) this.pair = this.searchPair(scene)
-        console.log(this);
         this.playerRef.x = this.pair.x
         this.playerRef.y = this.pair.y + this.offset;
         this.tpActivated(scene, false)

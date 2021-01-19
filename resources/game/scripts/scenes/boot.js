@@ -105,7 +105,7 @@ export default class Boot extends Phaser.Scene {
 
     this.load.spritesheet('feriante', 'resources/game/textures/NPCs/feriante.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('ferianta', 'resources/game/textures/NPCs/ferianta.png', { frameWidth: 32, frameHeight: 32 });
-    this.load.spritesheet('srtoFeriante', 'resources/game/textures/NPCs/hijoFeriante.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('ferianteHijo', 'resources/game/textures/NPCs/hijoFeriante.png', { frameWidth: 32, frameHeight: 32 });
 
     this.load.spritesheet('loco', 'resources/game/textures/NPCs/loco.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('embajador', 'resources/game/textures/NPCs/embajador.png', { frameWidth: 32, frameHeight: 32 });
@@ -195,5 +195,5 @@ export default class Boot extends Phaser.Scene {
     this.load.audio('sliderEnd', 'resources/game/sounds/pause/sliderEnd.wav')
   }
 
-  create() { this.scene.start('menu'); }
+  create() { this.scene.start('day2'); }
 }

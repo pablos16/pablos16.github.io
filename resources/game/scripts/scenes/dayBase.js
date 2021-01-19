@@ -29,9 +29,6 @@ export default class Scene extends Phaser.Scene {
     }
     //Aqui te crea todo lo que necesites al inicio para todo el juego
     create() {
-        console.log("Proximo dia " + this.nextLevel)
-        console.log("Puntos: " + this.points)
-
         //Deshabilitar menú contextual
         this.input.mouse.disableContextMenu();
 

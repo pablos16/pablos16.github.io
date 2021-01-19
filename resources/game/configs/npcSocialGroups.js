@@ -23,7 +23,8 @@ const SocialStatePeople=
             Names.Afilador,
             Names.Pueblerina,
             Names.Pueblerino,
-            Names.Homeless
+            Names.Homeless,
+            Names.SrFeriante
         ]
     },
     {
