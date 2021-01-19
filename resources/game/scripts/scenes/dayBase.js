@@ -108,16 +108,17 @@ export default class Scene extends Phaser.Scene {
                             }
                         },
                     })
-                    // new NPCDialog({
-                    //     scene: this,
-                    //     x: objeto.x - 100,
-                    //     y: objeto.y,
-                    //     dialog: this.dialogs['loco'],
-                    //     sprite: 'tabernero',
-                    //     pathName: 'square',
-                    //     xTriggerSize: props.lol,
-                    //     yTriggerSize: props.sl
-                    // });
+                    continue
+                    new NPCDialog({
+                        scene: this,
+                        x: objeto.x - 100,
+                        y: objeto.y,
+                        dialog: this.dialogs['coronel'],
+                        sprite: 'coronel',
+                        pathName: 'quieto',
+                        xTriggerSize: props.lol,
+                        yTriggerSize: props.sl
+                    });
                     break;
                 case 'Item': //Objetos en el suelo
                     this.dropped = new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type));

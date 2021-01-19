@@ -17,8 +17,10 @@ export default class NPCDialog extends NPC {
             callbackArguments: { npc: this },
             onStart: () => {
                 data.scene.player.missionList.hideAnim.Toggle()
-                this.path.setMove(false)
-                this.path.stop();
+                if (this.path) {
+                    this.path.setMove(false)
+                    this.path.stop();
+                }
                 this.getTogether(data.scene, data.offset);
                 let menu = data.scene.pause.animation;
                 if (!menu.hidden && !menu.locked) {
@@ -27,8 +29,10 @@ export default class NPCDialog extends NPC {
             },
             onFinish: () => {
                 data.scene.player.missionList.hideAnim.Toggle()
-                this.path.setMove(true)
-                this.path.setVelocity()
+                if(this.path){
+                    this.path.setMove(true)
+                    this.path.setVelocity()
+                }
                 data.scene.pause.animation.locked = false;
             },
         });

@@ -62,10 +62,9 @@ const Dialog =
                 data.arguments.npc.dialog.destroy();
                 data.arguments.npc.irse = new PathInsertor({
                     body: data.arguments.npc.body,
-                    scene: data.arguments.npc.theScene,
+                    scene: data.arguments.npc.scene,
                     context: data.arguments.npc,
                     path: 'coronel',
-                    entity: data.arguments.npc
                 })
             },
             state: [
