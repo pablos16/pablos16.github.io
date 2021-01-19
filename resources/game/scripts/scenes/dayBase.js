@@ -16,6 +16,7 @@ export default class Scene extends Phaser.Scene {
         this.points = data.points
         this.musicVolume = data.musicVolume
         this.soundVolume = data.soundVolume
+        this.inventorySlots = data.inventorySlots;
     }
 
     constructor(config) {
@@ -24,6 +25,7 @@ export default class Scene extends Phaser.Scene {
         this.missions = config.missions;
         this.objectLayerName = config.objectLayerName;
         this.nextLevel = config.nextLevel;
+
     }
     //Aqui te crea todo lo que necesites al inicio para todo el juego
     create() {
@@ -74,6 +76,7 @@ export default class Scene extends Phaser.Scene {
             switch (objeto.name) {
                 case 'Player': //Personaje
                     this.player = new Player(this, objeto.x, objeto.y, this.missions);
+                    if(this.inventorySlots)this.player.inventory.slots = this.inventorySlots;
                     this.transitionImg = this.add.sprite(CT.transitionX, CT.transitionY, 'tpImg')
                     this.transitionImg.setScrollFactor(0)
                     this.transitionImg.depth = 200;
@@ -105,16 +108,16 @@ export default class Scene extends Phaser.Scene {
                             }
                         },
                     })
-                    new NPCDialog({
-                        scene: this,
-                        x: objeto.x - 100,
-                        y: objeto.y,
-                        dialog: this.dialogs['loco'],
-                        sprite: 'tabernero',
-                        pathName: 'square',
-                        xTriggerSize: props.lol,
-                        yTriggerSize: props.sl
-                    });
+                    // new NPCDialog({
+                    //     scene: this,
+                    //     x: objeto.x - 100,
+                    //     y: objeto.y,
+                    //     dialog: this.dialogs['loco'],
+                    //     sprite: 'tabernero',
+                    //     pathName: 'square',
+                    //     xTriggerSize: props.lol,
+                    //     yTriggerSize: props.sl
+                    // });
                     break;
                 case 'Item': //Objetos en el suelo
                     this.dropped = new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type));
@@ -191,11 +194,11 @@ export default class Scene extends Phaser.Scene {
         this.physics.add.collider(this.player, this.mapCollisions);
         this.mapCollisions.visible = false;
 
-        //Barra de Inventario
-        this.inventoryBar = new InventoryBar(this, CT.invBarPosX, CT.invBarPosY);
-
         //Barra de alineamiento
         this.align = new Alignment(this, CT.alignmentBarX, CT.alignmentBarY, 0);
+
+        //Barra de inventario
+        this.inventoryBar = new InventoryBar(this, CT.invBarPosX, CT.invBarPosY);
 
         //Fondo del dialogo
         this.dialogueImage = this.add.image(Dialog.xDialogImage, Dialog.yDialogImage, 'dialogFinal');
@@ -242,12 +245,14 @@ export default class Scene extends Phaser.Scene {
 
     loadScene(sceneName, delay = CT.fadeInTime) {
 
+        console.log(this.inventoryBar)
         this.time.addEvent({
             callback: () => {
                 this.scene.start(sceneName, {
                     points: this.align.points,
                     musicVolume: this.musicList[0].volume,
-                    soundVolume: this.soundList[0].volume
+                    soundVolume: this.soundList[0].volume,
+                    inventorySlots: this.player.inventory.slots
                 });
             },
             delay: delay
