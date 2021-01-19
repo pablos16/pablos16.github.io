@@ -69,7 +69,6 @@ const Dialog =
         },
         {
             id: 5,
-            //CallBack de desaparicion
             name: Names.Paca,
             text: ["Mañana no te acerques al castillo...como consejo. Gracias...por todo el apoyo..."],
             state: [
