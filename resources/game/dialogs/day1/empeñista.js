@@ -11,7 +11,7 @@ const Dialog =
                 hasItemIndex: 1
             },
             name: Names.Empeñista,
-            text: ["Mientras no tengas dinerito en el inventario no te molestes en hablarme. Necesito ver los jurdeles"],
+            text: ["Mientras no tengas dinerito en el inventario no te molestes en hablarme. El dictador te habrá pagado algo, mira sino en tu casa."],
             state: [
                 {
                     targetState: ["any"],
@@ -55,7 +55,6 @@ const Dialog =
                         text: "Almohada con agujero. Tú verás lo que haces con ella",
                         nextIndex: 7
                     },
-
                     {
                         text: "Mejor nada...",
                         nextIndex: -1
@@ -65,15 +64,15 @@ const Dialog =
         {
             id: 4,
             name: Names.Empeñista,
-            text: ["Muy buena elección. Para la piedra solo necesitas una bolsa de dinero. ¿Deseas comprarla?"],
+            text: ["Buena elección.Solo necesitas una bolsa de dinero."],
             options:
                 [
                     {
-                        text: "Si",
+                        text: "Me lo quedo",
                         nextIndex: 5,
                     },
                     {
-                        text: "No",
+                        text: "Mejor paso",
                         nextIndex: -1
                     }
                 ],
@@ -112,20 +111,18 @@ const Dialog =
                 },
             ]
         },
-
-        ,
         {
             id: 7,
             name: Names.Empeñista,
-            text: ["Muy buena elección. Para la piedra solo necesitas unas monedas. ¿Deseas comprarla?"],
+            text: ["Buena elección.Solo necesitas unas monedas."],
             options:
                 [
                     {
-                        text: "Si",
+                        text: "Me lo quedo",
                         nextIndex: 8,
                     },
                     {
-                        text: "No",
+                        text: "Mejor paso",
                         nextIndex: -1,
                     }
                 ],
@@ -135,7 +132,7 @@ const Dialog =
             id: 8,
 
             required: {
-                item: [item.Monedas],
+                item: [item.BolsaDinero],
                 hasItemIndex: 9
             },
 
