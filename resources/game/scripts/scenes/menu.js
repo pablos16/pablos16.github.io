@@ -41,16 +41,11 @@ export default class Menu extends Phaser.Scene {
       locked: false,
       hidden: false,
       onComplete: (tween) => {
-        let bgVolume = CT.backgroundMusic.volume
-        let soundVolume = CT.effectSounds.volume
+        let bgVolume = this.musicList[0].volume;
+        let soundVolume = this.soundList[0].volume;
         //Si la musica no está sonando significa que el usuario no ha hecho
         //click en pantalla y por tanto no hay audio context, por lo que hay que guardar
         //el volumen en una varible en vez de sacarlo de la musica para evitar problemas
-        if (this.music.isPlaying) 
-        {
-          bgVolume = this.musicList[0].volume;
-          soundVolume = this.soundList[0].volume;
-        }
         if (!tween.hidden) this.scene.start('day0', {
           points: 0,
           musicVolume: bgVolume,
