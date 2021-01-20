@@ -19,6 +19,10 @@
 //     function: () => {
 //       console.log("Button clicked")
 //     }
+
+import CT from "../../configs/constants.js";
+import Tweener from "./tween.js";
+
 //   })
 export default class Button extends Phaser.GameObjects.Sprite {
     constructor(data) {
@@ -26,7 +30,53 @@ export default class Button extends Phaser.GameObjects.Sprite {
         data.context.add.existing(this)
         this.setInteractive();
         this.setScrollFactor(0)
+        this.wasOver = false;
+        let onOver = () => { this.OnOver(data.context); }
+        let onOut = () => { this.OnOut(data.context); }
+        let onDown = () => {
+            data.function()
+            data.context.sliderEnd.play();
+        }
 
-        this.on('pointerdown', data.function, data.context)
+        this.on('pointerdown', onDown, data.context)
+        this.on('pointerover', onOver, data.context)
+        this.on('pointerout', onOut, data.context)
+
+        this.animation = new Tweener({
+            context: data.context,
+            target: this,
+            duration: CT.buttonAnimation,
+            ease: 'Circ',
+            locked: false,
+            hidden: true,
+            attribs: [
+                {
+                    propertie: 'scaleX',
+                    hidden: 1.25,
+                    notHidden: 1
+                },
+                {
+                    propertie: 'scaleY',
+                    hidden: 1.25,
+                    notHidden: 1
+                }
+            ]
+        })
+    }
+
+    OnOver(scene) {
+        if (!this.wasOver) {
+            scene.slider.play()
+            this.animation.Toggle()
+            this.wasOver = true;
+        }
+    }
+
+    OnOut(scene) {
+        if (this.wasOver) {
+            this.animation.Toggle()
+            this.wasOver = false;
+        }
+
     }
 }

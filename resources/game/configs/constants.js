@@ -33,6 +33,7 @@ const CT =
 
      fadeInTime: 250,
      fadeOutTime: 250,
+     buttonAnimation: 50,
 
      backgroundMusic: {
           mute: false,
