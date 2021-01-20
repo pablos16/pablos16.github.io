@@ -3,6 +3,10 @@ const CT =
      gameWidth: 1280,
      gameHeight: 720,
 
+     fullscreenKey: 'F',
+     menuKey: 'Esc',
+     menuAltKey: 'Space',
+
      cameraZoom: 1,
 
      numSlots: 8,

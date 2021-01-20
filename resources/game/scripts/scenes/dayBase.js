@@ -1,7 +1,6 @@
 import Player from '../characters/player.js';
 import InventoryBar from '../inventory/gui_inventoryBar.js';
 import DroppedItem from '../inventory/item.js';
-import Obstacle from '../inventory/obstacle.js';
 import Alignment from '../missionSystem/alignment.js';
 import CT from '../../configs/constants.js';
 import Dialog from '../../configs/dialogConfig.js';
@@ -34,8 +33,9 @@ export default class Scene extends Phaser.Scene {
         this.input.mouse.disableContextMenu();
 
         //Tecla de pantalla completa
-        this.fullScreen = this.input.keyboard.addKey('F');
-        this.menuToggle = this.input.keyboard.addKey('M');
+        this.fullScreen = this.input.keyboard.addKey(CT.fullscreenKey);
+        this.menu = this.input.keyboard.addKey(CT.menuKey)
+        this.menuAlt = this.input.keyboard.addKey(CT.menuAltKey)
 
         //Mapa
         this.map = this.make.tilemap({
@@ -106,17 +106,6 @@ export default class Scene extends Phaser.Scene {
                             }
                         },
                     })
-                    //continue
-                    new NPCDialog({
-                        scene: this,
-                        x: objeto.x - 100,
-                        y: objeto.y,
-                        dialog: this.dialogs['test'],
-                        sprite: 'coronel',
-                        pathName: 'quieto',
-                        xTriggerSize: props.lol,
-                        yTriggerSize: props.sl
-                    });
                     break;
                 case 'Item': //Objetos en el suelo
                     this.dropped = new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type));
@@ -239,7 +228,9 @@ export default class Scene extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(this.fullScreen)) {
             this.scale.toggleFullscreen()
         }
-        if (Phaser.Input.Keyboard.JustDown(this.menuToggle)) this.pause.animation.Toggle();
+        if (Phaser.Input.Keyboard.JustDown(this.menu) || Phaser.Input.Keyboard.JustDown(this.menuAlt)) {
+            this.pause.animation.Toggle()
+          }
     }
 
     loadScene(sceneName, delay = CT.fadeInTime) {
