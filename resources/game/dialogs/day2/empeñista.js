@@ -110,10 +110,12 @@ const Dialog =
                     {
                         text: "Alfombra Persa",
                         nextIndex:9,
+                        points:-25
                     },
                     {
                         text: "Alfombra barata y muñeco budú",
                         nextIndex: 10,
+                        points:25
                     }
                 ],
         },
