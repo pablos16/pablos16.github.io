@@ -9,6 +9,8 @@ export default class Defeat extends Phaser.Scene {
   init(data) {
     // Guardamos los puntos
     this.points = data.points;
+    this.musicVolume = data.musicVolume
+    this.soundVolume = data.soundVolume
   }
 
   create() {
@@ -20,7 +22,15 @@ export default class Defeat extends Phaser.Scene {
 
     // Música
     this.music = this.sound.add('defeat', CT.backgroundMusic);
+    this.musicList = [this.music]
+    this.soundList = []
+    this.soundList.push(this.slider = this.sound.add('slider', CT.effectSounds))
+    this.soundList.push(this.sliderEnd = this.sound.add('sliderEnd', CT.effectSounds))
+    if (this.musicVolume) this.musicList[0].volume = this.musicVolume;
+    if (this.soundVolume) this.soundList[0].volume = this.soundVolume;
+    
     this.music.play();
+
 
     // Pantalla
     let img = (this.points >= 0) ? 'loseRegime' : 'loseVillage';
