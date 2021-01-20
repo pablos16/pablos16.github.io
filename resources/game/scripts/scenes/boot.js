@@ -72,6 +72,7 @@ export default class Boot extends Phaser.Scene {
 
     //Dameros
     this.load.image('debug', 'resources/game/textures/debug.png');
+    this.load.image('mina', 'resources/game/textures/spike.png');
     this.load.spritesheet('debugSheet', 'resources/game/textures/debugSheet.png', { frameWidth: 64, frameHeight: 64 });
 
     //Menu principal
@@ -196,5 +197,5 @@ export default class Boot extends Phaser.Scene {
     this.load.audio('sliderEnd', 'resources/game/sounds/pause/sliderEnd.wav')
   }
 
-  create() { this.scene.start('menu'); }
+  create() { this.scene.start('day1'); }
 }

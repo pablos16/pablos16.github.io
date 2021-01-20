@@ -10,6 +10,7 @@ import TPLINK from '../characters/tp.js'
 import Trigger from '../libraries/trigger.js'
 import Dialoguer from '../libraries/dialoguer.js'
 import PauseMenu from '../libraries/pauseMenu.js';
+import DialogImage from '../libraries/DialogImage.js'
 
 export default class Scene extends Phaser.Scene {
     init(data) {
@@ -121,7 +122,7 @@ export default class Scene extends Phaser.Scene {
                     this.dropped = new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type));
                     break;
                 case 'Obstacle': //Obstáculo (entidad en la que se usa un objeto)
-                    this.obtacle = new Obstacle(this, objeto.x, objeto.y, props.texture, parseInt(objeto.type), undefined, undefined, parseInt(props.alt), undefined);
+                    this[props.dialog] = new DialogImage(scene, objeto, dialog, sprite)
                     break;
                 case 'Npc': //NPC
                     this[props.dialog] = new NPCDialog({

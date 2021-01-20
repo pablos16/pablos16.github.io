@@ -58,6 +58,15 @@ const events =
         });
     },
 
+    Mina: (data) => {
+        data.scene.player.isTalking = true;
+        data.scene.fadeIn(() => {
+            data.arguments.image.destroy(true)
+            data.scene.player.isTalking = false;
+            data.scene.fadeOut();
+        });
+    },
+
     DestroyDialoguer: (data) => {
         data.arguments.npc.dialog.dialogSttoped = true;
         data.scene.player.isTalking = true;
