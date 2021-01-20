@@ -1,5 +1,8 @@
 # Regime Police
 
+//CAPTURA DE PANTALLA DEL JUEGO
+Grupo PaniK
+
 Repositorio -> https://pablos16.github.io/
 
 Organización y seguimiento -> https://www.pivotaltracker.com/n/projects/2470816
