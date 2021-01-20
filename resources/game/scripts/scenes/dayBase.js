@@ -234,8 +234,6 @@ export default class Scene extends Phaser.Scene {
     }
 
     loadScene(sceneName, delay = CT.fadeInTime) {
-
-        console.log(this.inventoryBar)
         this.time.addEvent({
             callback: () => {
                 this.scene.start(sceneName, {

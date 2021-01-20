@@ -12,6 +12,7 @@ export default class Missions extends Phaser.GameObjects.Container {
         this.depth = 100;
         this.img.depth = 99
         this.img.setScrollFactor(0)
+        this.RestartCompleted(missionList)
         this.missionList = missionList
 
         this.outAnim = new Tweener({
@@ -80,11 +81,17 @@ export default class Missions extends Phaser.GameObjects.Container {
     }
 
     initialiceTexts() {
-        console.log(this.missionTexts)
         this.deleteAll()
         let l = this.missionList.length
         for (let i = 0; i < l; i++) {
             this.addText(this.missionList[i].text, true)
+        }
+    }
+
+    RestartCompleted(misionFile){
+        let l = misionFile.length
+        for (let i = 0; i < l; i++) {
+            misionFile[i].completed = 0;
         }
     }
 
