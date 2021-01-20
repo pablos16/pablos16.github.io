@@ -47,7 +47,6 @@ const Dialog =
                     nextIndex: -1
                 },
             ],
-            completed:0
         },
         {
             id: 3,
@@ -60,7 +59,6 @@ const Dialog =
                     nextIndex: -1
                 },
             ],
-            completed:0
 
         },
         {
@@ -74,7 +72,6 @@ const Dialog =
                     nextIndex: -1
                 },
             ],
-            completed:0
         },
         {
             id: 5,
