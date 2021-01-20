@@ -197,5 +197,5 @@ export default class Boot extends Phaser.Scene {
     this.load.audio('sliderEnd', 'resources/game/sounds/pause/sliderEnd.wav')
   }
 
-  create() { this.scene.start('day1'); }
+  create() { this.scene.start('menu'); }
 }
