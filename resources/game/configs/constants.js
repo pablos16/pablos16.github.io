@@ -1,64 +1,59 @@
 const CT =
 {
-     gameWidth: 1280,
-     gameHeight: 720,
+  gameWidth: 1280,
+  gameHeight: 720,
 
-     cameraZoom: 1,
+  fullscreenKey: 'F',
+  menuKey: 'Esc',
+  menuAltKey: 'Space',
 
-     numSlots: 8,
-     inventoryVoid: 0,
+  cameraZoom: 1,
 
-     droppedItemSize: 0.50,
+  numSlots: 8,
+  inventoryVoid: 0,
 
-     invBarPosX: 20,
-     invBarPosY: 340,
-     textPosX: 10,
-     textPosY: 10,
-     textFont: 'font',
-     textSize: 20,
-     textAlign: 0,
-     textSpacing: 1,
+  droppedItemSize: 0.50,
 
-     alignmentBarX: 630,
-     alignmentBarY: 50,
-     alignmentMaxOffset: 85,
-     alignmentMaxPoints: 100,
+  invBarPosX: 20,
+  invBarPosY: 340,
+  textPosX: 10,
+  textPosY: 10,
+  textFont: 'font',
+  textSize: 20,
+  textAlign: 0,
+  textSpacing: 1,
 
-     transitionY: 100,
-     transitionX: 400,
+  alignmentBarX: 630,
+  alignmentBarY: 50,
+  alignmentMaxOffset: 85,
+  alignmentMaxPoints: 100,
 
-     fadeInTime: 250,
-     fadeOutTime: 250,
+  transitionY: 100,
+  transitionX: 400,
 
-     backgroundMusic: {
-          mute: false,
-          volume: 0.5,
-          rate: 1,
-          detune: 0,
-          seek: 0,
-          loop: true,
-          delay: 0
-      },
+  fadeInTime: 250,
+  fadeOutTime: 250,
+  buttonAnimation: 50,
 
-      effectSounds: {
-          mute: false,
-          volume: 0.5,
-          rate: 1,
-          detune: 0,
-          seek: 0,
-          loop: false,
-          delay: 0
-      },
+  backgroundMusic: {
+    mute: false,
+    volume: 0.1,
+    rate: 1,
+    detune: 0,
+    seek: 0,
+    loop: true,
+    delay: 0
+  },
 
-      menuMusicConfig: {
-        mute: false,
-        volume: 0.08,
-        rate: 1,
-        detune: 0,
-        seek: 0,
-        loop: true,
-        delay: 0
-      }
+  effectSounds: {
+    mute: false,
+    volume: 0.5,
+    rate: 1,
+    detune: 0,
+    seek: 0,
+    loop: false,
+    delay: 0
+  },
 }
 
 export default CT;

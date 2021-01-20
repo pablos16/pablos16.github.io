@@ -23,8 +23,9 @@ export default class DialogImage extends  Phaser.GameObjects.Image
                 scene.player.missionList.hideAnim.Toggle()
                 let menu = scene.pause.animation;
                 if (!menu.hidden && !menu.locked) {
-                    menu.ToggleLock()
+                    menu.Toggle()
                 }
+                menu.locked = true;
             },
             onFinish: () => {
                 scene.player.missionList.hideAnim.Toggle()

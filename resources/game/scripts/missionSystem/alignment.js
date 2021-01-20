@@ -15,6 +15,7 @@ export default class Alignment extends Phaser.GameObjects.Container {
         this.points = points;
 
         this.indicatorTexture = scene.add.image(x, y, 'indicator');
+        this.indicatorTexture.depth = 11;
         this.add(this.texture);
         this.add(this.indicatorTexture);
 

@@ -3,12 +3,14 @@ import Button from '../libraries/button.js';
 
 export default class Victory extends Phaser.Scene {
     constructor() {
-     super({ key: 'win' });
+        super({ key: 'win' });
     }
 
-    init(data){
+    init(data) {
         // Se guardan los puntos
         this.points = data.points;
+        this.musicVolume = data.musicVolume
+        this.soundVolume = data.soundVolume
     }
 
     create() {
@@ -19,7 +21,14 @@ export default class Victory extends Phaser.Scene {
         this.fullScreen = this.input.keyboard.addKey('F');
 
         // Música
-        this.music = this.sound.add('victory', CT.menuMusicConfig);
+        this.music = this.sound.add('victory', CT.backgroundMusic);
+        this.musicList = [this.music]
+        this.soundList = []
+        this.soundList.push(this.slider = this.sound.add('slider', CT.effectSounds))
+        this.soundList.push(this.sliderEnd = this.sound.add('sliderEnd', CT.effectSounds))
+        if (this.musicVolume) this.musicList[0].volume = this.musicVolume;
+        if (this.soundVolume) this.soundList[0].volume = this.soundVolume;
+
         this.music.play();
 
         // Pantalla
@@ -33,14 +42,14 @@ export default class Victory extends Phaser.Scene {
             context: this,
             sprite: 'back',
             function: () => {
-              this.music.stop();
-              this.scene.start('menu', { points: 0});
+                this.music.stop();
+                this.scene.start('menu', { points: 0 });
             }
         })
     }
 
-    update(){
-        if (Phaser.Input.Keyboard.JustDown(this.fullScreen)){
+    update() {
+        if (Phaser.Input.Keyboard.JustDown(this.fullScreen)) {
             this.scale.toggleFullscreen();
         }
     }

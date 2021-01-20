@@ -18,7 +18,7 @@ export default class Menu extends Phaser.Scene {
   //Aqui te crea todo lo que necesites al inicio para todo el juego
   create() {
     //Musica y sonidso
-    this.music = this.sound.add('backgroundMenu', CT.menuMusicConfig);
+    this.music = this.sound.add('backgroundMenu', CT.backgroundMusic);
     this.musicList = [this.music]
     this.soundList = []
     this.soundList.push(this.slider = this.sound.add('slider', CT.effectSounds))
@@ -41,10 +41,15 @@ export default class Menu extends Phaser.Scene {
       locked: false,
       hidden: false,
       onComplete: (tween) => {
+        let bgVolume = this.musicList[0].volume;
+        let soundVolume = this.soundList[0].volume;
+        //Si la musica no está sonando significa que el usuario no ha hecho
+        //click en pantalla y por tanto no hay audio context, por lo que hay que guardar
+        //el volumen en una varible en vez de sacarlo de la musica para evitar problemas
         if (!tween.hidden) this.scene.start('day0', {
           points: 0,
-          musicVolume: this.musicList[0].volume,
-          soundVolume: this.soundList[0].volume
+          musicVolume: bgVolume,
+          soundVolume: soundVolume
         });
       },
       attribs: [
@@ -61,8 +66,9 @@ export default class Menu extends Phaser.Scene {
     this.input.mouse.disableContextMenu();
 
     //Tecla de pantalla completa
-    this.fullScreen = this.input.keyboard.addKey('F');
-    this.menu = this.input.keyboard.addKey('M')
+    this.fullScreen = this.input.keyboard.addKey(CT.fullscreenKey);
+    this.menu = this.input.keyboard.addKey(CT.menuKey)
+    this.menuAlt = this.input.keyboard.addKey(CT.menuAltKey)
 
     //Mapa
     this.add.image(640, 400, 'mainMenu');
@@ -91,7 +97,7 @@ export default class Menu extends Phaser.Scene {
       context: this,
       sprite: 'controls',
       function: () => {
-        if(!this.configMenu.animation.hidden) this.configMenu.animation.ToggleLock()
+        if (!this.configMenu.animation.hidden) this.configMenu.animation.ToggleLock()
         else this.configMenu.animation.locked = true;
         this.controlsImage.setVisible(true);
         this.canPlay = false;
@@ -130,7 +136,7 @@ export default class Menu extends Phaser.Scene {
     if (Phaser.Input.Keyboard.JustDown(this.fullScreen)) {
       this.scale.toggleFullscreen()
     }
-    if (Phaser.Input.Keyboard.JustDown(this.menu)) {
+    if (Phaser.Input.Keyboard.JustDown(this.menu) || Phaser.Input.Keyboard.JustDown(this.menuAlt)) {
       this.configMenu.animation.Toggle()
     }
   }
