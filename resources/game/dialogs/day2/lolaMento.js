@@ -74,7 +74,7 @@ const Dialog =
         {
             id: 5,
             name: Names.Lola,
-            text: ["Te daré una bolsas de oro y mi anillo de casada si hace falta"],
+            text: ["Te daré una bolsa de oro y hasta mi anillo de casada"],
             options:
                 [
 
@@ -122,33 +122,34 @@ const Dialog =
         {
             id: 8,
             name: Names.Lola,
-            text: ["ESTÁBAMOS A PUNTO DE ASESINAR AL DICTADOR. Pero tú sigue así, que igual el que muere es otro..."],
+            text: ["Estábamos A PUNTO de asesinar a Reltih. Pero tú sigue así, que igual el que muere es otro..."],
             state: [
                 {
                     targetState: ["any"],
-                    nextState: 1,
-                    nextIndex: -1
+                    nextIndex: 9
+                },
+            ],
+        },
+        {
+            id: 9,
+            name: Names.Lola,
+            text: ["Continúa así y mañana el que no despierta eres tú...No pienses que me vas a pillar tan facilmente jeje"],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextIndex: 10
                 },
             ],
             completed: 1
         },
         {
-            id: 9,
+            id: 10,
+            callback: (data) => {
+                events.FadeInOut(data)
+            },
+
             name: Names.Lola,
-            text: ["Continúa así y mañana el que no despierta eres tú..."],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextIndex: -1
-                },
-            ]
-        },
-        {
-            id: 9,
-            //CALLBACK DE desaparicion
-            callback: (data) => { events.FadeInOut(data) },
-            name: Names.Police,
-            text: ["¿A DONDE HA IDO?,¿CÓMO LO HA HECHO? Voy a acabar las tareas y mañana será un nuevo día..."],
+            text: ["Nos vemos..."],
             state: [
                 {
                     targetState: ["any"],
@@ -166,10 +167,6 @@ const Dialog =
                 {
                     targetState: [1],
                     nextIndex: 7
-                },
-                {
-                    targetState: [2],
-                    nextIndex: 5
                 }
             ]
         }

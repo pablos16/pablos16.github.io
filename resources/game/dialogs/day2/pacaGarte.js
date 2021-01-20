@@ -21,18 +21,18 @@ const Dialog =
             state: [
                 {
                     targetState: ["any"],
-                    nextIndex: 1
+                    nextIndex: 2
                 },
             ]
         },
         {
             id: 2,
             name: Names.Paca,
-            text: ["El dictador no deja de enviarme cartas de amor mientras nos deja muriéndonos de hambre. Yo no quiero que me salve a mi, yo quiero que nos salve a TODOS"],
+            text: ["El dictador no deja de enviarme cartas de amor mientras nos deja muriéndonos de hambre. No quiero que me salve a mi, yo quiero que nos salve a TODOS"],
             state: [
                 {
                     targetState: ["any"],
-                    nextIndex: -1
+                    nextIndex: 3
                 },
             ]
         },
@@ -40,37 +40,59 @@ const Dialog =
             id: 3,
             name: Names.Paca,
             text: ["Y tú vienes a arrestarme porque no quiero salir con un asesino opresor que está dejando morir al pueblo. Asumo la situación, detenme si quieres. Total, mañana me salvarán..."],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextIndex: 4
+                },
+            ],
+        },
+        {
+            id: 4,
+            name: Names.Paca,
+            text: ["No me voy a oponer. Tu verás"],
             options:
                 [
                     {
                         text: "Detenerla y ser fiel",
-                        nextIndex: 4,
+                        nextIndex: 5,
                         points: -35
                     },
                     {
                         text: "Dejarla libre",
-                        nextIndex: 5,
+                        nextIndex: 7,
                         points: 35
                     }
                 ],
         },
         {
-            id: 4,
-            //CallBack de desaparicion
-            callback: (data) => { events.FadeInOut(data) },
+            id: 5,
             name: Names.Paca,
             text: ["Mierda seca"],
             state: [
                 {
                     targetState: ["any"],
-                    nextIndex: -1
+                    nextIndex: 6
                 },
             ],
             completed: 2
 
         },
         {
-            id: 5,
+            id: 6,
+            //CallBack de desaparicion
+            callback: (data) => { events.FadeInOut(data) },
+            name: Names.Paca,
+            text: ["..."],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextIndex: -1
+                },
+            ],
+        },
+        {
+            id: 7,
             name: Names.Paca,
             text: ["Mañana no te acerques al castillo...como consejo. Gracias...por todo el apoyo..."],
             state: [
@@ -83,7 +105,7 @@ const Dialog =
             completed: 2
         },
         {
-            id: 6,
+            id: 8,
             name: Names.Paca,
             text: ["Gracias de corazón"],
             state: [
@@ -102,7 +124,7 @@ const Dialog =
                 },
                 {
                     targetState: [1],
-                    nextIndex: 6
+                    nextIndex: 8
                 }
             ]
         }
