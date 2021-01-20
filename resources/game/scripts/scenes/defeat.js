@@ -19,7 +19,7 @@ export default class Defeat extends Phaser.Scene {
     this.fullScreen = this.input.keyboard.addKey('F');
 
     // Música
-    this.music = this.sound.add('defeat', CT.menuMusicConfig);
+    this.music = this.sound.add('defeat', CT.backgroundMusic);
     this.music.play();
 
     // Pantalla

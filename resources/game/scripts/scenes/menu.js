@@ -18,7 +18,7 @@ export default class Menu extends Phaser.Scene {
   //Aqui te crea todo lo que necesites al inicio para todo el juego
   create() {
     //Musica y sonidso
-    this.music = this.sound.add('backgroundMenu', CT.menuMusicConfig);
+    this.music = this.sound.add('backgroundMenu', CT.backgroundMusic);
     this.musicList = [this.music]
     this.soundList = []
     this.soundList.push(this.slider = this.sound.add('slider', CT.effectSounds))
@@ -41,10 +41,20 @@ export default class Menu extends Phaser.Scene {
       locked: false,
       hidden: false,
       onComplete: (tween) => {
+        let bgVolume = CT.backgroundMusic.volume
+        let soundVolume = CT.effectSounds.volume
+        //Si la musica no está sonando significa que el usuario no ha hecho
+        //click en pantalla y por tanto no hay audio context, por lo que hay que guardar
+        //el volumen en una varible en vez de sacarlo de la musica para evitar problemas
+        if (this.music.isPlaying) 
+        {
+          bgVolume = this.musicList[0].volume;
+          soundVolume = this.soundList[0].volume;
+        }
         if (!tween.hidden) this.scene.start('day0', {
           points: 0,
-          musicVolume: this.musicList[0].volume,
-          soundVolume: this.soundList[0].volume
+          musicVolume: bgVolume,
+          soundVolume: soundVolume
         });
       },
       attribs: [
@@ -92,7 +102,7 @@ export default class Menu extends Phaser.Scene {
       context: this,
       sprite: 'controls',
       function: () => {
-        if(!this.configMenu.animation.hidden) this.configMenu.animation.ToggleLock()
+        if (!this.configMenu.animation.hidden) this.configMenu.animation.ToggleLock()
         else this.configMenu.animation.locked = true;
         this.controlsImage.setVisible(true);
         this.canPlay = false;
