@@ -49,6 +49,7 @@ const Dialog =
             state: [
                 {
                     targetState: ["any"],
+                    nextState:1,
                     nextIndex: 4
                 },
             ]
@@ -141,11 +142,26 @@ const Dialog =
             ]
         },
         {
+            id: 10,
+            name: Names.Police,
+            text: ["(Sigues escuchando algunas voces de fondo...)"],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextIndex: -1
+                },
+            ]
+        },
+        {
             id: -1,
             state: [
                 {
                     targetState: [0],
                     nextIndex: 0
+                },
+                {
+                    targetState: [1],
+                    nextIndex: 10
                 }
             ]
         }
