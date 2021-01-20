@@ -4,7 +4,7 @@ import empeñista from '../day2/empeñista.js'
 import feriante from '../day2/feriante.js'
 import ferianta from '../day2/ferianta.js'
 import ferianteHijo from '../day2/ferianteHijo.js'
-import lolamento from '../day2/lolaMento.js'
+import lolaMento from '../day2/lolaMento.js'
 import paca from '../day2/pacaGarte.js'
 import sona from '../day2/sona.js'
 import tabernera from '../day2/tabernera.js'
@@ -33,7 +33,7 @@ const dialogs =
     ferianta,
     feriante,
     ferianteHijo,
-    lolamento,
+    lolaMento,
     paca,
     sona,
     tabernera,

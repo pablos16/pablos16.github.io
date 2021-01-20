@@ -1,6 +1,5 @@
 import Names from '../../configs/npcNames.js'
 import events from '../../scripts/libraries/eventCallbacks.js';
-import event from '../../scripts/libraries/eventCallbacks.js'
 
 const Dialog =
     [
