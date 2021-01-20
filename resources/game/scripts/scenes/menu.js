@@ -61,8 +61,9 @@ export default class Menu extends Phaser.Scene {
     this.input.mouse.disableContextMenu();
 
     //Tecla de pantalla completa
-    this.fullScreen = this.input.keyboard.addKey('F');
-    this.menu = this.input.keyboard.addKey('M')
+    this.fullScreen = this.input.keyboard.addKey(CT.fullscreenKey);
+    this.menu = this.input.keyboard.addKey(CT.menuKey)
+    this.menuAlt = this.input.keyboard.addKey(CT.menuAltKey)
 
     //Mapa
     this.add.image(640, 400, 'mainMenu');
@@ -130,7 +131,7 @@ export default class Menu extends Phaser.Scene {
     if (Phaser.Input.Keyboard.JustDown(this.fullScreen)) {
       this.scale.toggleFullscreen()
     }
-    if (Phaser.Input.Keyboard.JustDown(this.menu)) {
+    if (Phaser.Input.Keyboard.JustDown(this.menu) || Phaser.Input.Keyboard.JustDown(this.menuAlt)) {
       this.configMenu.animation.Toggle()
     }
   }

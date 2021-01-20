@@ -17,6 +17,11 @@ export default class NPCImage extends Phaser.GameObjects.Sprite {
       frameRate: 7,
       repeat: -1
     });
+    scene.anims.create({
+      key: 'idleLeft_' + imageName,
+      frames: scene.anims.generateFrameNumbers(imageName, { start: 3, end: 3 }),
+      repeat: 0
+    });
 
     scene.anims.create({
       key: 'upNPC_' + imageName,
@@ -24,6 +29,12 @@ export default class NPCImage extends Phaser.GameObjects.Sprite {
       frameRate: 7,
       repeat: -1
     });
+    scene.anims.create({
+      key: 'idleUp_'+imageName,
+      frames: scene.anims.generateFrameNumbers(imageName, { start: 10, end: 10 }),
+      repeat: 0
+    });
+
     scene.anims.create({
       key: 'idleNPC_' + imageName,
       frames: scene.anims.generateFrameNumbers(imageName, { start: 1, end: 1 }),
@@ -42,6 +53,11 @@ export default class NPCImage extends Phaser.GameObjects.Sprite {
       frames: scene.anims.generateFrameNumbers(imageName, { start: 6, end: 8 }),
       frameRate: 7,
       repeat: -1
+    });
+    scene.anims.create({
+      key: 'idleRight_'+imageName,
+      frames: scene.anims.generateFrameNumbers(imageName, { start: 6, end: 6 }),
+      repeat: 0
     });
   }
 

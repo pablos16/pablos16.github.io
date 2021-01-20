@@ -153,6 +153,28 @@ const Paths = [
             }
         ],
         loop: true,
+    },
+    {
+        name: 'ferianta',
+        path: [
+            {
+                x: 0,
+                y: 0,
+                speed: 100,
+                delay: 0,
+            },
+            {
+                x: 750,
+                y: 0,
+                speed: 250,
+                delay: 0,
+            }
+        ],
+        onFinish: (data) => {
+            data.context.destroy(true)
+            data.scene.player.isTalking = false;
+        },
+        loop: false,
     }
 ]
 

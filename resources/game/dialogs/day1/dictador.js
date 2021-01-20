@@ -1,6 +1,5 @@
 import Names from '../../configs/npcNames.js'
-import event from '../../scripts/libraries/eventCallbacks.js'
-import item from '../../configs/itemNames.js'
+import events from '../../scripts/libraries/eventCallbacks.js';
 
 const Dialog =
     [
@@ -51,7 +50,7 @@ const Dialog =
         {
             id: 4,
             name: Names.Dictator,
-            text: ["También me han comunicado que hay un ladrón suelto por el pueblo. Tiene un gorro rojo. Encuentrale y arrestale. La ultima vez se le vio por el oeste del pueblo"],
+            text: ["También me han comunicado que hay un ladrón suelto por el pueblo. Tiene un gorro rojo. Encuentralo y arrestalo. La ultima vez se le vio por el oeste del pueblo"],
             state: [
                 {
                     targetState: ["any"],
@@ -72,12 +71,8 @@ const Dialog =
         },
         {
             id: 6,
-             //Borra los dos carteles
-             callback: (data) => {
-                event.AddItem(data, item.BolsaDinero);
-            },
             name: Names.Dictator,
-            text: ["Cuando acabes esas misiones puedes ir a comprarme una Alfombra Persa para el castillo, la tienda del empeñista estaba cerca de tu casa. Toma el dinero"],
+            text: ["Por último he descubierto que hay un grupo de revolucionarios ahí. Te he dejado el material al lado de la mina jeje. Se encuentra en el suroeste del pueblo"],
             state: [
                 {
                     targetState: ["any"],
@@ -115,15 +110,12 @@ const Dialog =
         {
             id: 9,
             name: Names.Dictator,
-            callback: (data) => {
-                data.scene.player.missionList.deleteAll()
-                data.scene.player.missionList.initialiceTexts();
-            },
+            callback: (data) => { events.CreateDailyMissions(data) },
             text: ["Así me gusta. ¡Ahora sal ahí y ve a por todas!"],
             state: [
                 {
                     targetState: ["any"],
-                    nextState:1,
+                    nextState: 1,
                     nextIndex: -1
                 },
             ],
@@ -131,7 +123,7 @@ const Dialog =
         {
             id: 10,
             name: Names.Dictator,
-            text: ["Recuerda mirar la libreta si no te acuerdas de las misiones","A por todas","Cuento contigo"],
+            text: ["Recuerda mirar la libreta si no te acuerdas de las misiones", "A por todas", "Cuento contigo"],
             state: [
                 {
                     targetState: ["any"],

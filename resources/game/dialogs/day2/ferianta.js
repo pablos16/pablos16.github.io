@@ -1,4 +1,5 @@
 import Names from '../../configs/npcNames.js'
+import events from '../../scripts/libraries/eventCallbacks.js';
 
 const Dialog =
     [
@@ -16,19 +17,19 @@ const Dialog =
         {
             id: 1,
             name: Names.Ferianta,
-            text: ["Si piensas atraparte estás jodido. Gracias por la ayuda anciano. Dile a mi marido que es un inútil."],
+            text: ["Si piensas atraparme estás jodido. Gracias por la ayuda anciano. Dile a mi marido que es un inútil."],
             state: [
                 {
                     targetState: ["any"],
-                    nextIndex: 4
+                    nextIndex: 2
                 },
             ],
         },
         {
             id: 2,
-            //CALLBACK DE QUE SE PIRA HACIA LA DERECHA HACIA EL BOSQUE
-            name: Names.Police,
+            name: Names.Ferianta,
             text: ["Hasta nunca"],
+            completed: 4,
             state: [
                 {
                     targetState: ["any"],
@@ -38,6 +39,8 @@ const Dialog =
         },
         {
             id: -1,
+            //CALLBACK DE QUE SE PIRA HACIA LA DERECHA HACIA EL BOSQUE
+            callback: (data) => { events.Ferianta(data)},
             state: [
                 {
                     targetState: [0],

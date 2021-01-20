@@ -72,6 +72,7 @@ export default class Boot extends Phaser.Scene {
 
     //Dameros
     this.load.image('debug', 'resources/game/textures/debug.png');
+    this.load.image('mina', 'resources/game/textures/spike.png');
     this.load.spritesheet('debugSheet', 'resources/game/textures/debugSheet.png', { frameWidth: 64, frameHeight: 64 });
 
     //Menu principal
@@ -84,10 +85,10 @@ export default class Boot extends Phaser.Scene {
     this.load.image('controlsImage', 'resources/game/textures/gui/menu/controls.png');
 
     //Menú fin
-    this.load.image('loseRegime','resources/game/textures/gui/menu/end/loseRegime.png');
-    this.load.image('loseVillage','resources/game/textures/gui/menu/end/loseVillage.png');
-    this.load.image('winRegime','resources/game/textures/gui/menu/end/winRegime.png');
-    this.load.image('winVillage','resources/game/textures/gui/menu/end/winVillage.png');
+    this.load.image('loseRegime', 'resources/game/textures/gui/menu/end/loseRegime.png');
+    this.load.image('loseVillage', 'resources/game/textures/gui/menu/end/loseVillage.png');
+    this.load.image('winRegime', 'resources/game/textures/gui/menu/end/winRegime.png');
+    this.load.image('winVillage', 'resources/game/textures/gui/menu/end/winVillage.png');
 
     //Pantalla en negro al teletransportar
     this.load.image('tpImg', 'resources/game/textures/tpTransition.png');
@@ -101,10 +102,11 @@ export default class Boot extends Phaser.Scene {
     this.load.spritesheet('dictador', 'resources/game/textures/NPCs/dictador.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('cura', 'resources/game/textures/NPCs/cura.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('ladron', 'resources/game/textures/NPCs/ladron.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('anciano', 'resources/game/textures/NPCs/anciano.png', { frameWidth: 32, frameHeight: 32 });
 
     this.load.spritesheet('feriante', 'resources/game/textures/NPCs/feriante.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('ferianta', 'resources/game/textures/NPCs/ferianta.png', { frameWidth: 32, frameHeight: 32 });
-    this.load.spritesheet('srtoFeriante', 'resources/game/textures/NPCs/hijoFeriante.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.spritesheet('ferianteHijo', 'resources/game/textures/NPCs/hijoFeriante.png', { frameWidth: 32, frameHeight: 32 });
 
     this.load.spritesheet('loco', 'resources/game/textures/NPCs/loco.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('embajador', 'resources/game/textures/NPCs/embajador.png', { frameWidth: 32, frameHeight: 32 });
@@ -133,6 +135,7 @@ export default class Boot extends Phaser.Scene {
     this.load.spritesheet('npc7', 'resources/game/textures/NPCs/npc7.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('npc8', 'resources/game/textures/NPCs/npc8.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('npc9', 'resources/game/textures/NPCs/npc9.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.image('crowd', 'resources/game/textures/NPCs/crowd.png');
 
 
     //Mapa

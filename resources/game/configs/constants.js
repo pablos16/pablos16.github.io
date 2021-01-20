@@ -3,6 +3,10 @@ const CT =
      gameWidth: 1280,
      gameHeight: 720,
 
+     fullscreenKey: 'F',
+     menuKey: 'Esc',
+     menuAltKey: 'Space',
+
      cameraZoom: 1,
 
      numSlots: 8,
@@ -29,6 +33,7 @@ const CT =
 
      fadeInTime: 250,
      fadeOutTime: 250,
+     buttonAnimation: 50,
 
      backgroundMusic: {
           mute: false,

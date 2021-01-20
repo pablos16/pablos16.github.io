@@ -7,6 +7,7 @@ export default class Alignment extends Phaser.GameObjects.Container {
 
 
         scene.add.existing(this);
+        this.depth = 10;
         //Fijamos la barra
         this.setScrollFactor(0);
 
@@ -14,6 +15,7 @@ export default class Alignment extends Phaser.GameObjects.Container {
         this.points = points;
 
         this.indicatorTexture = scene.add.image(x, y, 'indicator');
+        this.indicatorTexture.depth = 11;
         this.add(this.texture);
         this.add(this.indicatorTexture);
 

@@ -44,10 +44,35 @@ const Dialog =
             state: [
                 {
                     targetState: ["any"],
+                    nextState:1,
                     nextIndex: -1
                 },
             ],
             completed:0,
+        },
+        {
+            
+            id: 4,
+            name: Names.Police,
+            text: ["(Arriba a la derecha tienes el medidor de apoyo. Si está muy alto apoyas mucho al dictador, y si está muy bajo apoyas mucho a la revolución)"],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextIndex: 5
+                },
+            ]
+        },
+        {
+            
+            id: 5,
+            name: Names.Police,
+            text: ["(Intenta estar dentro de los límites apoyando a quien tú consideres...)"],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextIndex: -1
+                },
+            ],
         },
         {
             id: -1,
@@ -55,6 +80,10 @@ const Dialog =
                 {
                     targetState: [0],
                     nextIndex: 0
+                },
+                {
+                    targetState: [1],
+                    nextIndex: 4
                 }
             ]
         }

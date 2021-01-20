@@ -19,11 +19,7 @@ const Dialog =
                 {
                     targetState: [0],
                     nextIndex: 0
-                },
-                {
-                    targetState: [1],
-                    nextIndex: 3
-                },
+                }
             ]
         }
     ]

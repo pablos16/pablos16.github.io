@@ -80,7 +80,7 @@
             <table width="80%">
                 <tr>
                     <td>
-                        <img src="resources/web/images/paca.png" />
+                        <img src="resources/web/images/victoriadictador.png" />
                     </td>
                     <td width="50%">
                         <div align="justify">
@@ -126,8 +126,9 @@
             import Menu from './resources/game/scripts/scenes/menu.js'
             import Derrota from './resources/game/scripts/scenes/defeat.js'
             import Victoria from './resources/game/scripts/scenes/victory.js'
-            import Day0F from './resources/game/scripts/scenes/day0f.js'
-            import Day1F from './resources/game/scripts/scenes/day1f.js'
+            import Day0 from './resources/game/scripts/scenes/day0.js'
+            import Day1 from './resources/game/scripts/scenes/day1.js'
+            import Day2 from './resources/game/scripts/scenes/day2.js'
             import CT from './resources/game/configs/constants.js'
 
             var config = {
@@ -140,7 +141,7 @@
                     autoCenter: Phaser.Scale.CENTER_HORIZONTALLY
                 },
                 pixelArt: true,
-                scene: [Boot, Menu, Day0F, Day1F, Derrota, Victoria],
+                scene: [Boot, Menu, Day0, Day1, Day2, Derrota, Victoria],
                 physics: { default: 'arcade', arcade: { debug: false } }
             };
 

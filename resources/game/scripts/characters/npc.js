@@ -21,7 +21,6 @@ export default class NPC extends Phaser.GameObjects.Container {
       scene: this.theScene,
       context: this,
       path: pathName,
-      entity: this
     })
 
     this.add(this.spriteImage);
@@ -50,7 +49,16 @@ export default class NPC extends Phaser.GameObjects.Container {
   }
 
   preUpdate() {
-    this.checkAnims();
+    if(!this.isTalking)this.checkAnims();
+    else this.spriteImage.play(this.talkingAnimation, true)
+  }
+
+  setTalkingAnimation(direction){
+    let key = this.spriteImage.frame.texture.key;
+    if     (direction.x < 0 && Math.abs(direction.y) < Math.abs(direction.x)) this.talkingAnimation = 'idleRight_'+key;
+    else if(direction.x > 0 && Math.abs(direction.y) < Math.abs(direction.x)) this.talkingAnimation = 'idleLeft_'+key
+    else if(direction.y < 0 && Math.abs(direction.x) < Math.abs(direction.y)) this.talkingAnimation = 'idleNPC_'+key;
+    else if(direction.y > 0 && Math.abs(direction.x) < Math.abs(direction.y)) this.talkingAnimation = 'idleUp_'+key
   }
 
 }

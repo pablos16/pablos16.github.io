@@ -26,9 +26,11 @@ export default class Tweener {
             targets: data.target,
             duration: data.duration,
             ease: 'Circ',
-            onStart: () => { if (data.onStart) data.onStart(this) },
-            onComplete: () => {
+            onStart: () => { 
                 this.hidden = !this.hidden
+                if (data.onStart) data.onStart(this) 
+            },
+            onComplete: () => {
                 if (data.onComplete) data.onComplete(this);
             }
         }
@@ -40,24 +42,28 @@ export default class Tweener {
     }
 
     Toggle() {
-        if (this.locked) return;
         this.RestartAnimation()
     }
 
-    RestartAnimation() {
+    ForceToggle() {
+        console.log(this.locked)
+        this.RestartAnimation(false)
+    }
+
+    RestartAnimation(condition = this.locked) {
+        if (condition) return;
         this.Stop();
         this.animation = this.context.tweens.add(this.CreateTweenData(this.all))
     }
 
     ToggleLock() {
-        this.locked = true;
         this.RestartAnimation()
+        this.locked = true;
     }
 
     Stop() {
         if (this.animation && this.animation.isPlaying()) {
             this.animation.stop();
-            this.hidden = !this.hidden;
         }
     }
 }

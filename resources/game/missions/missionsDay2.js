@@ -22,14 +22,9 @@ const Misions =
             total: 1
         },
         {
-            text: "Comprar alfombra persa",
-            completed: 0,
-            total: 1
-        },
-        {
             text: "Descrubir el paradero de la Ferianta",
             completed: 0,
-            total: 1
+            total: 2
         }
     ]
 

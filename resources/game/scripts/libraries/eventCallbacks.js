@@ -1,3 +1,5 @@
+import PathInsertor from '../libraries/pathInsertor.js'
+
 const events =
 {
     RemoveItem: (data, itemName) => {
@@ -41,6 +43,50 @@ const events =
             }
             npc.hitEvenet();
         }
+    },
+    CreateDailyMissions: (data) => {
+        data.scene.player.missionList.deleteAll()
+        data.scene.player.missionList.initialiceTexts();
+    },
+    FadeInOut: (data) => {
+        data.arguments.npc.dialog.index = -1;
+        data.scene.player.isTalking = true;
+        data.scene.fadeIn(() => {
+            events.DestroyNPC(data)
+            data.scene.player.isTalking = false;
+            data.scene.fadeOut();
+        });
+    },
+
+    Mina: (data) => {
+        data.scene.player.isTalking = true;
+        data.scene.fadeIn(() => {
+            data.arguments.image.destroy(true)
+            data.scene.player.isTalking = false;
+            data.scene.fadeOut();
+        });
+    },
+
+    DestroyDialoguer: (data) => {
+        data.arguments.npc.dialog.dialogSttoped = true;
+        data.scene.player.isTalking = true;
+        data.arguments.npc.dialog.destroy();
+    },
+
+    DestroyNPC(data) { data.arguments.npc.destroy(true); },
+
+    CoronelEvent: (data) => {  events.InsertPath(data, 'coronel')  },
+
+    Ferianta: (data) => { events.InsertPath(data, 'ferianta');},
+
+    InsertPath: (data, pathName) => {
+        events.DestroyDialoguer(data)
+        data.arguments.npc.irse = new PathInsertor({
+            body: data.arguments.npc.body,
+            scene: data.arguments.npc.scene,
+            context: data.arguments.npc,
+            path: pathName,
+        })
     },
 }
 

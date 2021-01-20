@@ -15,8 +15,6 @@ import Paths from '../../paths/genericPath.js'
  */
 export default class PathInsertor {
     constructor(data) {
-
-        this.entity = data.entity
         this.body = data.body;
         this.scene = data.scene
         this.context = data.context;

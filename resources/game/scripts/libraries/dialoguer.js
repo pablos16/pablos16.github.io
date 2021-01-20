@@ -73,7 +73,7 @@ export default class Dialoguer {
     StartDialog(scene) {
         this.animateDialog(scene, 50)
         this.setTalking(scene, true)
-        this.onStart();
+        if(this.onStart)this.onStart();
         utils.setVisiblity([this.description, this.name, scene.dialogueImage], true)
         this.initializeIndex(scene)
         this.ContinueDialog(scene)
@@ -91,7 +91,7 @@ export default class Dialoguer {
 
     checkItem(scene, context = this.currentDialog()) {
         if (!('required' in context)) return;
-        if(!('mustHaveAll' in context)) context.mustHaveAll = false;
+        if (!('mustHaveAll' in context)) context.mustHaveAll = false;
         let hasItem = true;
         for (let i = 0; i < context.required.item.length; i++) {
             hasItem &&= this.containtItems(scene, context.required.item[i])
@@ -124,6 +124,10 @@ export default class Dialoguer {
         //this.animateText(scene, this.name)
 
         this.checkCallbacks(scene)
+        if (this.index === -1) {
+            this.FinishDialog(scene)
+            return;
+        }
 
         //Miramos si este dialogo era necesario para completar alguna mision
         this.checkMissionCompleted(scene, this.currentDialog())
@@ -159,7 +163,7 @@ export default class Dialoguer {
         this.animateDialog(scene, 50, false)
         utils.setVisiblity([this.description, this.name], false)
         this.setTalking(scene, false)
-        this.onFinish()
+        if (this.onFinish) this.onFinish()
         this.checkCallbacks(scene)
     }
 
@@ -191,8 +195,8 @@ export default class Dialoguer {
             this.checkMissionCompleted(scene, selection)
             this.arrow.visible = false
             this.choosing = false
-            
-            if(selection.nextState) this.state = selection.nextState;
+
+            if (selection.nextState) this.state = selection.nextState;
             this.index = selection.nextIndex
 
 

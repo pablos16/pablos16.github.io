@@ -19,8 +19,8 @@ const itemData = [
         desc: 'Preciada alfombra con muchos estampados. Su calidad es notable',
     },
     {   // 4
-        name: 'Cojín persa',
-        desc: 'Mullido, cómodo y colorido',
+        name: 'Almohada agujereada',
+        desc: 'Está un poco húmeda y huele raro',
     },
     {   // 5
         name: 'Carteles feriales',

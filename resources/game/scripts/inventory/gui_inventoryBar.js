@@ -8,6 +8,7 @@ export default class InventoryBar extends Phaser.GameObjects.Container {
         super(scene, x, y, texture);
         scene.add.existing(this);
         this.setScrollFactor(0);
+        this.depth = 10;
 
         let boxOffset = texture.height;
         texture.on('pointerdown', pointer => {

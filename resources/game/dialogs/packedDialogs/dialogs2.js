@@ -1,39 +1,39 @@
 import carcelero from '../day2/carcelero.js'
 import dictador from '../day2/dictador.js'
-import embajadora from '../day2/Embajadora.js'
 import empeñista from '../day2/empeñista.js'
-import ferianta from '../day2/Ferianta.js'
-import ferianteHijo from '../day2/FerianteHijo.js'
-import lolamento from '../day2/LolaMento.js'
-import paca from '../day2/PacaGarte.js'
+import feriante from '../day2/feriante.js'
+import ferianta from '../day2/ferianta.js'
+import ferianteHijo from '../day2/ferianteHijo.js'
+import lolaMento from '../day2/lolaMento.js'
+import paca from '../day2/pacaGarte.js'
 import sona from '../day2/sona.js'
 import tabernera from '../day2/tabernera.js'
 import tabernero from '../day2/tabernero.js'
 import loco from '../day2/loco.js'
 import cura from '../day2/cura.js'
+import anciano from '../day2/anciano.js'
+import npc1 from '../npcs/npc1.js'
+import npc2 from '../npcs/npc2.js'
+import npc3 from '../npcs/npc3.js'
+import npc4 from '../npcs/npc4.js'
+import npc5 from '../npcs/npc5.js'
+import npc6 from '../npcs/npc6.js'
+import npc7 from '../npcs/npc7.js'
+import npc8 from '../npcs/npc8.js'
+import npc9 from '../npcs/npc9.js'
 import player from '../day2/player.js'
 
-
-import npc1 from '../day1/npc1.js'
-import npc2 from '../day1/npc2.js'
-import npc3 from '../day1/npc3.js'
-import npc4 from '../day1/npc4.js'
-import npc5 from '../day1/npc5.js'
-import npc6 from '../day1/npc6.js'
-import npc7 from '../day1/npc7.js'
-import npc8 from '../day1/npc8.js'
-import npc9 from '../day1/npc9.js'
 
 //Estos nombres son los que hay que poner en tiled
 const dialogs =
 {
     carcelero,
     dictador,
-    embajadora,
     empeñista,
     ferianta,
+    feriante,
     ferianteHijo,
-    lolamento,
+    lolaMento,
     paca,
     sona,
     tabernera,
@@ -49,7 +49,8 @@ const dialogs =
     npc9,
     loco,
     cura,
-    player
+    player,
+    anciano
 }
 
 export default dialogs

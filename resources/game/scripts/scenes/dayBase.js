@@ -1,7 +1,6 @@
 import Player from '../characters/player.js';
 import InventoryBar from '../inventory/gui_inventoryBar.js';
 import DroppedItem from '../inventory/item.js';
-import Obstacle from '../inventory/obstacle.js';
 import Alignment from '../missionSystem/alignment.js';
 import CT from '../../configs/constants.js';
 import Dialog from '../../configs/dialogConfig.js';
@@ -10,12 +9,14 @@ import TPLINK from '../characters/tp.js'
 import Trigger from '../libraries/trigger.js'
 import Dialoguer from '../libraries/dialoguer.js'
 import PauseMenu from '../libraries/pauseMenu.js';
+import DialogImage from '../libraries/DialogImage.js'
 
 export default class Scene extends Phaser.Scene {
     init(data) {
         this.points = data.points
         this.musicVolume = data.musicVolume
         this.soundVolume = data.soundVolume
+        this.inventorySlots = data.inventorySlots;
     }
 
     constructor(config) {
@@ -24,18 +25,17 @@ export default class Scene extends Phaser.Scene {
         this.missions = config.missions;
         this.objectLayerName = config.objectLayerName;
         this.nextLevel = config.nextLevel;
+
     }
     //Aqui te crea todo lo que necesites al inicio para todo el juego
     create() {
-        console.log("Proximo dia " + this.nextLevel)
-        console.log("Puntos: " + this.points)
-
         //Deshabilitar menú contextual
         this.input.mouse.disableContextMenu();
 
         //Tecla de pantalla completa
-        this.fullScreen = this.input.keyboard.addKey('F');
-        this.menuToggle = this.input.keyboard.addKey('M');
+        this.fullScreen = this.input.keyboard.addKey(CT.fullscreenKey);
+        this.menu = this.input.keyboard.addKey(CT.menuKey)
+        this.menuAlt = this.input.keyboard.addKey(CT.menuAltKey)
 
         //Mapa
         this.map = this.make.tilemap({
@@ -74,6 +74,7 @@ export default class Scene extends Phaser.Scene {
             switch (objeto.name) {
                 case 'Player': //Personaje
                     this.player = new Player(this, objeto.x, objeto.y, this.missions);
+                    if(this.inventorySlots)this.player.inventory.slots = this.inventorySlots;
                     this.transitionImg = this.add.sprite(CT.transitionX, CT.transitionY, 'tpImg')
                     this.transitionImg.setScrollFactor(0)
                     this.transitionImg.depth = 200;
@@ -105,25 +106,15 @@ export default class Scene extends Phaser.Scene {
                             }
                         },
                     })
-                    new NPCDialog({
-                        scene: this,
-                        x: objeto.x - 100,
-                        y: objeto.y,
-                        dialog: this.dialogs['loco'],
-                        sprite: 'tabernero',
-                        pathName: 'quieto',
-                        xTriggerSize: props.lol,
-                        yTriggerSize: props.sl
-                    });
                     break;
                 case 'Item': //Objetos en el suelo
                     this.dropped = new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type));
                     break;
                 case 'Obstacle': //Obstáculo (entidad en la que se usa un objeto)
-                    this.obtacle = new Obstacle(this, objeto.x, objeto.y, props.texture, parseInt(objeto.type), undefined, undefined, parseInt(props.alt), undefined);
+                    this[props.dialog] = new DialogImage(this, objeto, this.dialogs[props.dialog], props.sprite)
                     break;
                 case 'Npc': //NPC
-                    this.NPC = new NPCDialog({
+                    this[props.dialog] = new NPCDialog({
                         scene: this,
                         x: objeto.x,
                         y: objeto.y,
@@ -191,11 +182,11 @@ export default class Scene extends Phaser.Scene {
         this.physics.add.collider(this.player, this.mapCollisions);
         this.mapCollisions.visible = false;
 
-        //Barra de Inventario
-        this.inventoryBar = new InventoryBar(this, CT.invBarPosX, CT.invBarPosY);
-
         //Barra de alineamiento
         this.align = new Alignment(this, CT.alignmentBarX, CT.alignmentBarY, 0);
+
+        //Barra de inventario
+        this.inventoryBar = new InventoryBar(this, CT.invBarPosX, CT.invBarPosY);
 
         //Fondo del dialogo
         this.dialogueImage = this.add.image(Dialog.xDialogImage, Dialog.yDialogImage, 'dialogFinal');
@@ -207,6 +198,7 @@ export default class Scene extends Phaser.Scene {
         this.cameras.main.width = CT.gameWidth;
         this.cameras.main.height = CT.gameHeight;
         this.cameras.main.zoom = CT.cameraZoom;
+        this.cameras.main.setLerp(0.9, 0.9)
 
         //Añadimos la musica
         this.soundList = [];
@@ -221,8 +213,8 @@ export default class Scene extends Phaser.Scene {
         this.fadeOut()
 
         //Crear menú de pausa
-        this.musicList[0].volume = this.musicVolume;
-        this.soundList[0].volume = this.soundVolume;
+        if (this.musicVolume) this.musicList[0].volume = this.musicVolume;
+        if (this.soundVolume) this.soundList[0].volume = this.soundVolume;
         this.pause = new PauseMenu(this);
     }
 
@@ -236,29 +228,36 @@ export default class Scene extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(this.fullScreen)) {
             this.scale.toggleFullscreen()
         }
-        if (Phaser.Input.Keyboard.JustDown(this.menuToggle)) this.pause.animation.Toggle();
+        if (Phaser.Input.Keyboard.JustDown(this.menu) || Phaser.Input.Keyboard.JustDown(this.menuAlt)) {
+            this.pause.animation.Toggle()
+          }
     }
 
     loadScene(sceneName, delay = CT.fadeInTime) {
 
+        console.log(this.inventoryBar)
         this.time.addEvent({
             callback: () => {
                 this.scene.start(sceneName, {
                     points: this.align.points,
                     musicVolume: this.musicList[0].volume,
-                    soundVolume: this.soundList[0].volume
+                    soundVolume: this.soundList[0].volume,
+                    inventorySlots: this.player.inventory.slots
                 });
             },
             delay: delay
         })
     }
 
-    fadeIn() {
+    fadeIn(onComplete) {
         this.tweens.add({
             targets: this.transitionImg,
             duration: CT.fadeInTime,
             alpha: 1,
             ease: 'Circ',
+            onComplete: () =>{
+                if(onComplete) onComplete();
+            }
         })
     }
 

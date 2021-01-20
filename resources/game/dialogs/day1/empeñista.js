@@ -11,7 +11,7 @@ const Dialog =
                 hasItemIndex: 1
             },
             name: Names.Empeñista,
-            text: ["Mientras no tengas dinero en el inventario no te molestes en hablarme"],
+            text: ["Mientras no tengas dinerito en el inventario no te molestes en hablarme. El dictador te habrá pagado algo, mira sino en tu casa."],
             state: [
                 {
                     targetState: ["any"],
@@ -20,7 +20,7 @@ const Dialog =
             ]
         },
         {
-            id:1,
+            id: 1,
             name: Names.Empeñista,
             text: ["El empeñista, si soy. Todos me conocen así"],
             state: [
@@ -44,122 +44,131 @@ const Dialog =
         {
             id: 3,
             name: Names.Police,
-            text: ["(Este tio está chalado)"],
+            text: ["(Hm..)"],
             options:
                 [
                     {
-                        text: "Una alfombra persa para el dictador",
-                        nextIndex: 5,
+                        text: "Piedra mística. Se puede mojar",
+                        nextIndex: 4,
                     },
                     {
-                        text: "Sacar buena nota y aprobar PVLI",
-                        nextIndex: 4,
+                        text: "Almohada con agujero. Tú verás lo que haces con ella",
+                        nextIndex: 7
+                    },
+                    {
+                        text: "Mejor nada...",
+                        nextIndex: -1
                     }
                 ],
         },
         {
             id: 4,
             name: Names.Empeñista,
-            text: ["Sigue soñando,cariño. Pero bueno ya sé a que vienes. El coronel vino antes para que dejara el pedido preparado"],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextIndex: 5
-                },
-            ]
+            text: ["Buena elección.Solo necesitas una bolsa de dinero."],
+            options:
+                [
+                    {
+                        text: "Me lo quedo",
+                        nextIndex: 5,
+                    },
+                    {
+                        text: "Mejor paso",
+                        nextIndex: -1
+                    }
+                ],
         },
         {
             id: 5,
+
+            required: {
+                item: [item.BolsaDinero],
+                hasItemIndex: 6
+            },
+
             name: Names.Empeñista,
-            text: ["Tengo justo lo que necesitas, pero espero que tengas suficiente dinero jeje..."],
+            text: ["Muchacho si no tienes lo que pido no te lo voy a dar. Cuando tengas lo que necesito vuelve."],
             state: [
                 {
                     targetState: ["any"],
-                    nextIndex: 6
+                    nextIndex: -1
                 },
             ]
         },
         {
             id: 6,
+            //Te da el muñeco la alfombra y te quita la bolsa de dinero
+            callback: (data) => {
+                event.RemoveItem(data, item.BolsaDinero);
+                event.AddItem(data, item.ReliquiaExtraña);
+            },
             name: Names.Empeñista,
-            text: ["Puedes hacer 2 cosas...o comprarle al dictador su fantástica alfombra persa por una bolsa entera llena de monedas"],
+            text: ["Muchas gracias. Me encanta hacer negocios contigo"],
             state: [
                 {
                     targetState: ["any"],
-                    nextIndex: 7
+                    nextState: 1,
+                    nextIndex: -1
                 },
             ]
         },
         {
             id: 7,
             name: Names.Empeñista,
-            text: ["O...comprarle esta alfombra más barata y comprarte este muñeco budú para nada maldito para que te perturbe por las noches "],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextIndex: 8
-                },
-            ]
-        },
-        {   
-            id: 8,
-            name: Names.Police,
-            text: ["Hmm...suena tentador"],
+            text: ["Buena elección.Solo necesitas unas monedas."],
             options:
                 [
                     {
-                        text: "Alfombra Persa",
-                        nextIndex:9,
+                        text: "Me lo quedo",
+                        nextIndex: 8,
                     },
                     {
-                        text: "Alfombra barata y muñeco budú",
-                        nextIndex: 10,
+                        text: "Mejor paso",
+                        nextIndex: -1,
                     }
                 ],
+        },
+
+        {
+            id: 8,
+
+            required: {
+                item: [item.BolsaDinero],
+                hasItemIndex: 9
+            },
+
+            name: Names.Empeñista,
+            text: ["Muchacho si no tienes lo que pido no te lo voy a dar. Cuando tengas lo que necesito vuelve."],
+            state: [
+                {
+                    targetState: ["any"],
+                    nextIndex: -1
+                },
+            ]
         },
         {
             id: 9,
             //Te da el muñeco la alfombra y te quita la bolsa de dinero
             callback: (data) => {
                 event.RemoveItem(data, item.BolsaDinero);
-                event.AddItem(data, item.AlfombraPersa);
-                event.AddItem(data, item.OsoPelucheSona);
-            },
+                event.AddItem(data, item.CojinPersa);
+                event.AddItem(data, item.Monedas);
 
+            },
             name: Names.Empeñista,
-            text: ["Una pena, nadie quiere comprar el muñeco.¿Sabes qué? Te lo regalo igualmente"],
+            text: ["Muchas gracias. Me encanta hacer negocios contigo. Aquí tienes el resto"],
             state: [
                 {
                     targetState: ["any"],
-                    nextState: 2,
+                    nextState: 1,
                     nextIndex: -1
                 },
-            ],
-            completed:4
+            ]
         },
         {
             id: 10,
-            //Te da el muñeco la alfombra y te quita la bolsa de dinero
-            callback: (data) => {
-                event.RemoveItem(data, item.BolsaDinero);
-                event.AddItem(data, item.AlfomombraBarata);
-                event.AddItem(data, item.OsoPelucheSona);            },
 
             name: Names.Empeñista,
-            text: ["¡Así me gusta! Por fin me deshago de este trasto...digo, fantástico muñeco. Aqui tienes el muñeco y la alfombra."],
-            state: [
-                {
-                    targetState: ["any"],
-                    nextIndex: -1
-                },
-            ],
-            completed:4
-        },
-        {
-            id: 11,
-            
-            name: Names.Empeñista,
-            text: ["¡Que tengas un buen día!","Vuelve siempre que quieras"],
+            text: ["¡Que tengas un buen día!", "Vuelve siempre que quieras"],
             state: [
                 {
                     targetState: ["any"],
@@ -177,7 +186,7 @@ const Dialog =
                 },
                 {
                     targetState: [1],
-                    nextIndex: 11
+                    nextIndex: 10
                 }
             ]
         }

@@ -1,4 +1,6 @@
 import Names from '../../configs/npcNames.js'
+import item from '../../configs/itemNames.js'
+import events from '../../scripts/libraries/eventCallbacks.js';
 
 const Dialog =
     [
@@ -19,7 +21,7 @@ const Dialog =
             text: ["(¿Soy discreto o voy al grano?)"],
             options:
                 [
-                    
+
                     {
                         text: "Vengo a detenerte por apoyar a la revolución a escondidas",
                         nextIndex: 2,
@@ -47,7 +49,7 @@ const Dialog =
             text: ["(¿Se piensa que somos tontos?)"],
             options:
                 [
-                    
+
                     {
                         text: "Detener",
                         nextIndex: 4,
@@ -72,10 +74,10 @@ const Dialog =
         {
             id: 5,
             name: Names.Lola,
-            text: ["Te daré dos bolsas de oro y mi anillo de casada si hace falta"],
+            text: ["Te daré una bolsa de oro y hasta mi anillo de casada"],
             options:
                 [
-                    
+
                     {
                         text: "Aceptar soborno y dejarla libre",
                         nextIndex: 6,
@@ -90,16 +92,21 @@ const Dialog =
         },
         {
             id: 6,
-            //CALLBACK DE DARME BOLSAS DE ORO Y ANILLO DE CASADA
+            //Te da la bolsa y el anillo de casada
+            callback: (data) => {
+                events.AddItem(data, item.BolsaDinero);
+                events.AddItem(data, item.Anillo);
+            },
             name: Names.Lola,
             text: ["¡TOMA TODO! Muchas gracias. Si sigues así mañana el dictador no te mandará ninguna orden. ¡Sigue apoyándonos!"],
             state: [
                 {
                     targetState: ["any"],
-                    nextState:1,
+                    nextState: 1,
                     nextIndex: -1
                 },
-            ]
+            ],
+            completed: 1
         },
         {
             id: 7,
@@ -115,31 +122,34 @@ const Dialog =
         {
             id: 8,
             name: Names.Lola,
-            text: ["ESTÁBAMOS A PUNTO DE ASESINAR AL DICTADOR. Pero tú sigue así, que igual el que muere es otro..."],
+            text: ["Estábamos A PUNTO de asesinar a Reltih. Pero tú sigue así, que igual el que muere es otro..."],
             state: [
                 {
                     targetState: ["any"],
-                    nextState:1,
-                    nextIndex: -1
+                    nextIndex: 9
                 },
-            ]
+            ],
         },
         {
             id: 9,
             name: Names.Lola,
-            text: ["Continúa así y mañana el que no despierta eres tú..."],
+            text: ["Continúa así y mañana el que no despierta eres tú...No pienses que me vas a pillar tan facilmente jeje"],
             state: [
                 {
                     targetState: ["any"],
-                    nextIndex: -1
+                    nextIndex: 10
                 },
-            ]
+            ],
+            completed: 1
         },
         {
-            id: 9,
-            //CALLBACK DE desaparicion
-            name: Names.Police,
-            text: ["¿A DONDE HA IDO?,¿CÓMO LO HA HECHO? Voy a acabar las tareas y mañana será un nuevo día..."],
+            id: 10,
+            callback: (data) => {
+                events.FadeInOut(data)
+            },
+
+            name: Names.Lola,
+            text: ["Nos vemos..."],
             state: [
                 {
                     targetState: ["any"],
@@ -157,10 +167,6 @@ const Dialog =
                 {
                     targetState: [1],
                     nextIndex: 7
-                },
-                {
-                    targetState: [2],
-                    nextIndex: 5
                 }
             ]
         }

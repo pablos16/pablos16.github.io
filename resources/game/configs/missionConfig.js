@@ -5,7 +5,7 @@ const CT =
      missionListX: Game.gameWidth * 0.8,
      missionListY: Game.gameHeight * 1.2,
      missionOffsetToggle: 300,
-     hideOffset: 50,
+     hideOffset: 100,
 
      missionTextSize: 27.5,
      font: 'missionText',
