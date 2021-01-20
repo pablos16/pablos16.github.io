@@ -21,6 +21,7 @@ import ladron from '../day1/ladron.js'
 import leandro from '../day1/leandroGado.js'
 import paca from '../day1/pacaGarte.js'
 import empeñista from '../day1/empeñista.js'
+import mina from '../day1/mina.js'
 
 
 
@@ -50,6 +51,7 @@ const dialogs =
     npc8,
     npc9,
     empeñista,
+    mina
     
 }
 

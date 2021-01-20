@@ -73,7 +73,7 @@ export default class Dialoguer {
     StartDialog(scene) {
         this.animateDialog(scene, 50)
         this.setTalking(scene, true)
-        this.onStart();
+        if(this.onStart)this.onStart();
         utils.setVisiblity([this.description, this.name, scene.dialogueImage], true)
         this.initializeIndex(scene)
         this.ContinueDialog(scene)

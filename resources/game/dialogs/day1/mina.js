@@ -22,7 +22,7 @@ const Dialog =
         },
         {
             id: 1,
-            name: Names.Pueblerino,
+            name: Names.Police,
             text: ["(Puedes escuchar unas voces en el fondo de la mina)"],
             state: [
                 {
@@ -33,7 +33,7 @@ const Dialog =
         },
         {
             id: 2,
-            name: Names.Police,
+            name: Names.Pueblerino,
             text: ["Dentro de dos días será el gran día chicos (...)"],
             state: [
                 {
@@ -76,6 +76,7 @@ const Dialog =
             callback: (data) => {
                 events.RemoveItem(data, item.Dinamita);
             },
+            completed: 4,
             name: Names.Police,
             text: ["Ves las piedras caerse mientras escuchas las voces de fondo. Tú no sabes nada de lo que acaba de suceder"],
             state: [
@@ -88,7 +89,7 @@ const Dialog =
         {
             id: 6,
             callback: (data) => {
-                events.mina(data);
+                events.Mina(data);
             },
             name: Names.Police,
             text: ["No sientes remordimiento"],
@@ -104,6 +105,7 @@ const Dialog =
             callback: (data) => {
                 events.RemoveItem(data, item.CerillasYAceite);
             },
+            completed: 4,
             name: Names.Police,
             text: ["Pese al intento de aviso, solo consigues quemar la entrada de madera y dejarlos incomunicados"],
             state: [
@@ -127,7 +129,7 @@ const Dialog =
         {
             id: 9,
             callback: (data) => {
-                events.mina(data);
+                events.Mina(data);
             },
             name: Names.Police,
             text: ["..."],

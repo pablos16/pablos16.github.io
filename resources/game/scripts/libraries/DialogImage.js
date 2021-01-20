@@ -11,7 +11,7 @@ export default class DialogImage extends  Phaser.GameObjects.Image
         this.body.setImmovable();
 
         this.dialog = new Dialoguer({
-            scene: data.scene,
+            scene: scene,
             dialog: dialog,
             x: data.x,
             y: data.y,
@@ -19,6 +19,17 @@ export default class DialogImage extends  Phaser.GameObjects.Image
             ySize: data.height,
             isForced: true,
             callbackArguments: { image: this },
+            onStart: () => {
+                scene.player.missionList.hideAnim.Toggle()
+                let menu = scene.pause.animation;
+                if (!menu.hidden && !menu.locked) {
+                    menu.ToggleLock()
+                }
+            },
+            onFinish: () => {
+                scene.player.missionList.hideAnim.Toggle()
+                scene.pause.animation.locked = false;
+            },
         });
     }
 }

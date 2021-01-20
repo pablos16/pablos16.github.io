@@ -122,7 +122,7 @@ export default class Scene extends Phaser.Scene {
                     this.dropped = new DroppedItem(this, objeto.x, objeto.y, parseInt(objeto.type));
                     break;
                 case 'Obstacle': //Obstáculo (entidad en la que se usa un objeto)
-                    this[props.dialog] = new DialogImage(scene, objeto, dialog, sprite)
+                    this[props.dialog] = new DialogImage(this, objeto, this.dialogs[props.dialog], props.sprite)
                     break;
                 case 'Npc': //NPC
                     this[props.dialog] = new NPCDialog({
