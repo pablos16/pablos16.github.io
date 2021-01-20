@@ -49,6 +49,7 @@ const events =
         data.scene.player.missionList.initialiceTexts();
     },
     FadeInOut: (data) => {
+        data.arguments.npc.dialog.index = -1;
         data.scene.player.isTalking = true;
         data.scene.fadeIn(() => {
             events.DestroyNPC(data)

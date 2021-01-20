@@ -84,10 +84,10 @@ export default class Boot extends Phaser.Scene {
     this.load.image('controlsImage', 'resources/game/textures/gui/menu/controls.png');
 
     //Menú fin
-    this.load.image('loseRegime','resources/game/textures/gui/menu/end/loseRegime.png');
-    this.load.image('loseVillage','resources/game/textures/gui/menu/end/loseVillage.png');
-    this.load.image('winRegime','resources/game/textures/gui/menu/end/winRegime.png');
-    this.load.image('winVillage','resources/game/textures/gui/menu/end/winVillage.png');
+    this.load.image('loseRegime', 'resources/game/textures/gui/menu/end/loseRegime.png');
+    this.load.image('loseVillage', 'resources/game/textures/gui/menu/end/loseVillage.png');
+    this.load.image('winRegime', 'resources/game/textures/gui/menu/end/winRegime.png');
+    this.load.image('winVillage', 'resources/game/textures/gui/menu/end/winVillage.png');
 
     //Pantalla en negro al teletransportar
     this.load.image('tpImg', 'resources/game/textures/tpTransition.png');
@@ -134,6 +134,7 @@ export default class Boot extends Phaser.Scene {
     this.load.spritesheet('npc7', 'resources/game/textures/NPCs/npc7.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('npc8', 'resources/game/textures/NPCs/npc8.png', { frameWidth: 32, frameHeight: 32 });
     this.load.spritesheet('npc9', 'resources/game/textures/NPCs/npc9.png', { frameWidth: 32, frameHeight: 32 });
+    this.load.image('crowd', 'resources/game/textures/NPCs/crowd.png');
 
 
     //Mapa
@@ -195,5 +196,5 @@ export default class Boot extends Phaser.Scene {
     this.load.audio('sliderEnd', 'resources/game/sounds/pause/sliderEnd.wav')
   }
 
-  create() { this.scene.start('day2'); }
+  create() { this.scene.start('menu'); }
 }

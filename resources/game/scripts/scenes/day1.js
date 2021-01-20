@@ -15,7 +15,7 @@ export default class Day0F extends BaseDay {
         })
     }
 
-    create(){
+    create() {
         super.create()
         this.addMision = new Trigger({
             x: this.player.x,
@@ -23,12 +23,19 @@ export default class Day0F extends BaseDay {
             scene: this,
             xSize: 100,
             ySize: 100,
-            enter: () =>{
+            enter: () => {
                 this.player.missionList.addText("Ve a hablar con el dictador", false)
                 this.addMision.destroy()
             }
         })
 
         this.hitSound = this.sound.add('hit', CT.effectSounds);
+
+        //No hacemos una clase porque esto es solo para un evento
+        this.crowd = this.add.image(this.paca.x, this.paca.y + 100, 'crowd');
+        this.add.existing(this.crowd);
+        this.physics.add.existing(this.crowd);
+        this.physics.add.collider(this.crowd, this.player)
+        this.crowd.body.setImmovable();
     }
 }

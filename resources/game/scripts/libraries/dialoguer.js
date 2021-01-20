@@ -124,6 +124,10 @@ export default class Dialoguer {
         //this.animateText(scene, this.name)
 
         this.checkCallbacks(scene)
+        if (this.index === -1) {
+            this.FinishDialog(scene)
+            return;
+        }
 
         //Miramos si este dialogo era necesario para completar alguna mision
         this.checkMissionCompleted(scene, this.currentDialog())

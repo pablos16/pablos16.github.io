@@ -1,4 +1,5 @@
 import Names from '../../configs/npcNames.js'
+import events from '../../scripts/libraries/eventCallbacks.js';
 
 const Dialog =
     [
@@ -104,12 +105,27 @@ const Dialog =
             state: [
                 {
                     targetState: ["any"],
-                    nextIndex: -1
+                    nextIndex: 8
                 },
             ],
         },
         {
             id: 8,
+            name: Names.Paca,
+            text: ["Adios..."],
+            callback: (data) => {
+                events.FadeInOut(data)
+                data.scene.crowd.destroy(true);
+            },
+            state: [
+                {
+                    targetState: ["any"],
+                    nextIndex: -1
+                },
+            ],
+        },
+        {
+            id: 9,
             name: Names.Paca,
             text: ["Gracias por ayudarnos de corazón."],
             state: [
@@ -128,7 +144,7 @@ const Dialog =
                 },
                 {
                     targetState: [1],
-                    nextIndex: 8
+                    nextIndex: 9
                 }
             ]
         }
