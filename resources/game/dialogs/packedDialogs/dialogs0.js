@@ -12,6 +12,7 @@ import dictador from '../day0/dictador.js'
 import player from '../day0/player.js'
 import npc3 from '../day0/npc3.js'
 import empeñista from '../day0/empeñista.js'
+import mina from '../day0/mina.js'
 
 import test from '../day0/test.js'
 
@@ -32,7 +33,8 @@ const dialogs =
     player,
     npc3,
     empeñista,
-    test
+    test,
+    mina
 }
 
 export default dialogs
