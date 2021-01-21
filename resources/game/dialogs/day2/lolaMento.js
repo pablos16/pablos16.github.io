@@ -111,7 +111,7 @@ const Dialog =
         {
             id: 7,
             name: Names.Lola,
-            text: ["Continúa así y mañana será un gran día.W"],
+            text: ["Continúa así y mañana será un gran día."],
             state: [
                 {
                     targetState: ["any"],

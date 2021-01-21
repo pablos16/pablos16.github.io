@@ -62,7 +62,6 @@ const events =
         data.scene.player.isTalking = true;
         data.scene.fadeIn(() => {
             data.arguments.image.destroy(true)
-            data.scene.player.isTalking = false;
             data.scene.fadeOut();
         });
     },

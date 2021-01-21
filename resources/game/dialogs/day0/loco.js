@@ -24,7 +24,6 @@ const Dialog =
                     nextIndex: -1
                 },
             ],
-            completed:0
         },
         {
             id: 2,
