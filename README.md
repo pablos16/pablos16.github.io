@@ -1,6 +1,7 @@
 # Regime Police
 
-//CAPTURA DE PANTALLA DEL JUEGO
+![](https://cdn.discordapp.com/attachments/790950554653163530/801904511219662878/unknown.png)
+
 Grupo PaniK
 
 Página Pública del juego -> https://pablos16.github.io/
