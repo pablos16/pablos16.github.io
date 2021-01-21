@@ -3,7 +3,7 @@
 //CAPTURA DE PANTALLA DEL JUEGO
 Grupo PaniK
 
-Repositorio -> https://pablos16.github.io/
+Página Pública del juego -> https://pablos16.github.io/
 
 Organización y seguimiento -> https://www.pivotaltracker.com/n/projects/2470816
 
@@ -441,6 +441,15 @@ Objetos misceláneos:
 - Reliquia extraña: Supuestamente otorga “vitalidad”, aunque no notas nada.
 
 - Anillo: El nombre “Lola” está grabado dentro de él. ¿Por qué lo habrá tirado?
+
+# Gestión
+Nos hemos organizado mediante GitHub Desktop para participar y controlar el repositorio de la nube.
+
+Por último hemos usado Pivotal Tracker para el reparto de historias de usuario y administración de tareas durante todo el proyecto.
+
+# Comunicación
+Para la comunicación hemos usado Telegram para sucesos e imprevistos y cosas urgentes, pero principalmente Discord, ya que ahí era donde trabajábamos y compartíamos información.
+
 
 # Referencias
 
